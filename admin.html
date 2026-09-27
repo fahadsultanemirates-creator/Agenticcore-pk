@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | AgenticCore Pakistan</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#071F17">
+<link rel="icon" href="https://agenticcore.estate/images/agenticcore-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="admin" data-no-float>
+<div id="site-header"></div>
+<div class="container dash">
+  <nav class="dash-nav" id="dashNav" aria-label="Admin sections">
+    <a href="#today" data-route="today">Today</a>
+    <a href="#tasks" data-route="tasks">All tasks</a>
+    <a href="#payments" data-route="payments">Payments &amp; packages</a>
+    <a href="#clients" data-route="clients">Clients</a>
+    <a href="#leads" data-route="leads">Visits &amp; leads</a>
+    <a href="#catalogue" data-route="catalogue">Packages &amp; prices</a>
+    <a href="#settings" data-route="settings">Settings</a>
+  </nav>
+  <main class="dash-main" id="view"><p class="loading">Loading…</p></main>
+</div>
+<dialog id="dlg"></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db-client.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/catalog-core.js"></script>
+<script src="js/partials.js"></script>
+<script src="js/catalog-render.js"></script>
+<script src="js/task-ui.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

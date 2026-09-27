@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in | AgenticCore Pakistan</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#071F17">
+<link rel="icon" href="https://agenticcore.estate/images/agenticcore-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="login" data-no-float>
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <a href="index.html" class="auth-logo" aria-label="AgenticCore Pakistan home"><img src="https://agenticcore.estate/images/agenticcore-icon.png" alt="" width="52" height="52"></a>
+      <button class="lang-toggle" type="button" onclick="pkToggleLanguage()"></button>
+    </div>
+    <h1 data-i18n="auth_login_title">Log in</h1>
+    <p class="auth-sub" data-i18n="auth_login_sub">Welcome back.</p>
+    <p class="auth-shared" data-i18n="auth_shared_note">Same account as agenticcore.estate. Already have an estate login? Use it here.</p>
+    <div class="form-msg" id="authMsg" role="alert"></div>
+    <form id="loginForm">
+      <div class="field"><label for="identifier" data-i18n="auth_identifier">Phone number or email</label>
+        <input type="text" id="identifier" required autocomplete="username" placeholder="+92 3XX XXXXXXX or you@email.com"></div>
+      <div class="field"><label for="password" data-i18n="field_password">Password</label>
+        <input type="password" id="password" required autocomplete="current-password"></div>
+      <button type="submit" class="btn btn-primary btn-block" id="loginBtn" data-i18n="auth_login_btn">Log in</button>
+    </form>
+    <p class="auth-footer"><span data-i18n="auth_no_account">Don't have an account?</span> <a class="link" href="signup.html" data-i18n="auth_create_one">Create one free</a></p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db-client.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

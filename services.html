@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All 56 Services and PKR Prices | AgenticCore Pakistan</title>
+<meta name="description" content="Every AgenticCore Pakistan service with its PKR price and delivery time: branding, print, websites, video, social media, ads, WhatsApp bots and local SEO for real estate. Same-day delivery for orders by 6pm PKT.">
+<link rel="canonical" href="https://agenticcorepk.com/services.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="All 56 real estate marketing services, with PKR prices">
+<meta property="og:description" content="Published prices and delivery times for every service. Most work delivered the same day.">
+<meta property="og:url" content="https://agenticcorepk.com/services.html">
+<meta property="og:image" content="https://agenticcore.estate/images/agenticcore-icon.png">
+<meta name="theme-color" content="#071F17">
+<link rel="icon" href="https://agenticcore.estate/images/agenticcore-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .jump { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.6rem 0; position: sticky; top: 60px; z-index: 50; background: var(--bg-primary); border-bottom: 1px solid var(--border-subtle); scrollbar-width: none; }
+  .jump::-webkit-scrollbar { display: none; }
+  .jump a { flex-shrink: 0; min-height: 40px; display: inline-flex; align-items: center; padding: 0 0.9rem; border-radius: 999px; border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.9rem; }
+  .jump a:hover { border-color: var(--accent-gold); color: var(--accent-gold-bright); }
+  .group-block { padding: var(--space-lg) 0; border-bottom: 1px solid var(--border-subtle); scroll-margin-top: 120px; }
+  .group-block h2 { font-size: clamp(1.4rem, 4.5vw, 2rem); }
+  .svc-grid { display: grid; gap: 0 var(--space-lg); }
+  @media (min-width: 900px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+  .svc-full { scroll-margin-top: 120px; }
+  .models { display: grid; gap: var(--space-sm); }
+  @media (min-width: 900px) { .models { grid-template-columns: repeat(3, 1fr); } }
+  .models h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .models p { font-size: 0.93rem; color: var(--text-secondary); margin-bottom: 0.4rem; }
+  .costs dt { font-weight: 600; margin-top: 0.8rem; }
+  .costs dd { color: var(--text-secondary); font-size: 0.95rem; }
+</style>
+</head>
+<body data-page="services">
+<a href="#main" class="sr-only">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section style="padding-bottom:var(--space-md)">
+    <div class="container">
+      <span class="eyebrow" data-i18n="svc_eyebrow">All 56 services</span>
+      <h1 class="section-title" data-i18n="svc_title">Everything you need to sell property, in one place.</h1>
+      <p class="section-sub" id="svcIntro">All prices are in Pakistani rupees, introductory, and exclude taxes where applicable. Numbers in brackets, such as (31), point to that service in the full list.</p>
+      <div class="btn-row" style="margin-top:var(--space-md)">
+        <a class="btn btn-wa" data-wa="services-page" href="signup.html" data-i18n="wa_us">WhatsApp us</a>
+        <a class="btn btn-secondary" href="index.html#packages" data-i18n="nav_packages">Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><nav class="jump" id="jump" aria-label="Service groups"></nav></div>
+
+  <div class="container" id="groups">
+    <noscript><p>This price list needs JavaScript to display. Please message us on WhatsApp for a copy.</p></noscript>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Our three ways of working</h2>
+      <p class="section-sub" style="margin-bottom:var(--space-md)">Each service is offered in one or more of these ways. The same number is used everywhere, so options are easy to compare.</p>
+      <div class="models" id="models"></div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container split">
+      <div>
+        <h2 class="section-title">What you pay separately</h2>
+        <p class="section-sub">These costs go to the platforms or partners, not to us. We set them up in your name, so you stay in control. <span id="fxNote"></span></p>
+        <dl class="costs" id="costs"></dl>
+      </div>
+      <div>
+        <h2 class="section-title">Pricing notes</h2>
+        <ul class="prose" id="notes" style="padding-inline-start:1.2rem"></ul>
+        <p class="notice" id="partnerNote" style="margin-top:var(--space-md)"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db-client.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/catalog-core.js"></script>
+<script src="js/partials.js"></script>
+<script src="js/catalog-render.js"></script>
+<script>
+  function renderServicesPage() {
+    const D = window.PK_DATA.services;
+    document.getElementById('jump').innerHTML = D.groups.map(function (g) {
+      return '<a href="#' + g.slug + '">' + escapeHtml(pkPick(g, 'need')) + '</a>';
+    }).join('');
+    document.getElementById('groups').innerHTML = D.groups.map(function (g) {
+      const list = pkServicesInGroup(g.no);
+      return '<section class="group-block" id="' + g.slug + '">' +
+        '<span class="eyebrow">' + escapeHtml(pkPick(g, 'type')) + ' · ' + list.length + ' ' + escapeHtml(pkT('svc_services')) + '</span>' +
+        '<h2>' + escapeHtml(pkPick(g, 'need')) + '</h2>' +
+        '<p class="section-sub" style="margin:0.4rem 0 var(--space-sm)">' + escapeHtml(pkPick(g, 'benefit')) + '</p>' +
+        (g.note ? '<p class="group-note" style="margin-bottom:var(--space-sm)">' + escapeHtml(g.note) + '</p>' : '') +
+        (pkT('svc_english_note') ? '<p class="tiny">' + escapeHtml(pkT('svc_english_note')) + '</p>' : '') +
+        '<div class="svc-grid">' + list.map(function (s) { return pkServiceFullHtml(s); }).join('') + '</div>' +
+        '<a class="card-link" data-wa="services-page-' + g.slug + '" data-wa-msg="I\'m interested in: ' + escapeHtml(g.need) + '." href="signup.html">' + escapeHtml(pkT('wa_about_this')) + '</a>' +
+      '</section>';
+    }).join('');
+    document.getElementById('models').innerHTML = ['dfy', 'setup', 'monthly'].map(function (k, i) {
+      const m = D.models[k];
+      return '<div class="card"><span class="model-tag">' + 'ABC'[i] + '</span><h3>' + escapeHtml(pkPick(m, 'name')) + '</h3>' +
+        '<p>' + escapeHtml(m.summary) + '</p><p><strong>You pay:</strong> ' + escapeHtml(m.pay) + '</p>' +
+        '<p><strong>Included:</strong> ' + escapeHtml(m.included) + '</p><p><strong>' + (k === 'setup' ? 'Optional' : 'Separate') + ':</strong> ' + escapeHtml(m.separate) + '</p></div>';
+    }).join('');
+    document.getElementById('costs').innerHTML = D.running_costs.map(function (c) {
+      return '<dt>' + escapeHtml(c.name) + '</dt><dd>' + escapeHtml(c.text) + '</dd>';
+    }).join('');
+    document.getElementById('fxNote').textContent = D.exchange_rate_note;
+    document.getElementById('notes').innerHTML = D.meta.notes.map(function (n) { return '<li>' + escapeHtml(n) + '</li>'; }).join('');
+    document.getElementById('partnerNote').textContent = D.meta.partner_note;
+    pkWireWhatsAppLinks(document.getElementById('groups'));
+  }
+  document.addEventListener('DOMContentLoaded', async function () {
+    await pkLoadData();
+    renderServicesPage();
+    pkOnLanguageChange(renderServicesPage);
+    if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
+    pkTrack('page_view', 'services');
+  });
+</script>
+</body>
+</html>

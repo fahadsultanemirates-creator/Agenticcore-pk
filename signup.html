@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create your free account | AgenticCore Pakistan</title>
+<meta name="description" content="Create a free AgenticCore account to order property marketing services, track every task by its ID and download your files. Works on agenticcore.estate too.">
+<meta name="theme-color" content="#071F17">
+<link rel="icon" href="https://agenticcore.estate/images/agenticcore-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="signup" data-no-float>
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <a href="index.html" class="auth-logo" aria-label="AgenticCore Pakistan home"><img src="https://agenticcore.estate/images/agenticcore-icon.png" alt="" width="52" height="52"></a>
+      <button class="lang-toggle" type="button" onclick="pkToggleLanguage()"></button>
+    </div>
+    <h1 data-i18n="auth_signup_title">Create your free account</h1>
+    <p class="auth-sub" data-i18n="auth_signup_sub">Order services, track every task and download your files.</p>
+    <p class="auth-shared" data-i18n="auth_shared_note">Same account as agenticcore.estate. Already have an estate login? Use it here.</p>
+    <p class="auth-shared hidden" id="waFallbackNote">Our WhatsApp line is being set up. Create a free account and order online — every order gets a task ID and our team replies from your dashboard.</p>
+    <div class="form-msg" id="authMsg" role="alert"></div>
+    <form id="signupForm">
+      <div class="field">
+        <span class="label" data-i18n="field_account_type">I am a</span>
+        <div class="role-choice" role="radiogroup">
+          <label class="role-option checked"><input type="radio" name="role" value="buyer" checked> <span data-i18n="role_buyer">Dealer / agent</span></label>
+          <label class="role-option"><input type="radio" name="role" value="agency"> <span data-i18n="role_agency">Agency</span></label>
+          <label class="role-option"><input type="radio" name="role" value="developer"> <span data-i18n="role_developer">Developer / project</span></label>
+          <label class="role-option"><input type="radio" name="role" value="builder"> <span data-i18n="role_builder">Builder</span></label>
+        </div>
+      </div>
+      <div class="field"><label for="fullName" data-i18n="field_full_name">Full name</label><input type="text" id="fullName" required autocomplete="name"></div>
+      <div class="field"><label for="phone" data-i18n="field_phone">Phone number</label><input type="tel" id="phone" required autocomplete="tel" placeholder="+92 3XX XXXXXXX"></div>
+      <div class="field"><label for="email" data-i18n="field_email">Email</label><input type="email" id="email" required autocomplete="email"></div>
+      <div class="field"><label for="password" data-i18n="field_password">Password</label><input type="password" id="password" required autocomplete="new-password" minlength="8"><span class="hint">At least 8 characters.</span></div>
+      <div class="field"><label for="referralCode" data-i18n="field_referral">Referral code (optional)</label><input type="text" id="referralCode" autocomplete="off" placeholder="e.g. AYESHA1234"></div>
+      <button type="submit" class="btn btn-primary btn-block" id="signupBtn" data-i18n="auth_signup_btn">Create account</button>
+    </form>
+    <p class="auth-footer"><span data-i18n="auth_has_account">Already have an account?</span> <a class="link" href="login.html" data-i18n="auth_login_link">Log in</a></p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db-client.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
