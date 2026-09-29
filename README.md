@@ -62,9 +62,9 @@ source of truth there. This site only adds `pk_`-prefixed tables
 deliver → 2 revisions → approve → paid → 10% credit flow and always rolls back.
 It passed against the live project on 27 Sep 2026 with nothing persisted.
 
-**The migrations have not been applied yet.** Until they are, the landing and
-services pages work fully, and the dashboard shows a notice that ordering is
-not switched on.
+**Applied to the live project on 29 Sep 2026** (`pk_0001_init`,
+`pk_0002_seed_catalog`), together with the estate security lockdown
+(agenticcore-estate migrations 0012 and 0013).
 
 ## Deliberately left out (per Fahad)
 
@@ -92,13 +92,9 @@ not switched on.
 
 ## Launch steps
 
-1. **Fix the estate profiles hole first** — see
-   `supabase/proposed/estate_profiles_lockdown.sql`. Right now any signed-in
-   user can set their own `role` to `admin` or change their `points`, which
-   would also open this site's admin view. Not applied; belongs in the
-   estate repo.
-2. Apply `pk_0001_init.sql` then `pk_0002_seed_catalog.sql` to project
-   `iuwjlvcfnxbfhbkztsel`.
+1. ~~Estate profiles hole~~ — fixed and applied (agenticcore-estate
+   migration 0012; `supabase/proposed/` kept for history).
+2. ~~Apply `pk_0001_init.sql` then `pk_0002_seed_catalog.sql`~~ — applied.
 3. Netlify: new site from this repo (publish dir `.`), add the
    `agenticcorepk.com` domain.
 4. Supabase → Authentication → URL Configuration: add
