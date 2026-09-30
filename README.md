@@ -13,11 +13,12 @@ sites. Open `index.html` through any static server (`python3 -m http.server`).
 
 | Page | What it is |
 |---|---|
-| `index.html` | Landing page (build brief A1–A11): hero, proof and promises, problems by audience, all 56 services grouped by need, 5 packages, how it works, referrals, estate link, FAQ, callback form |
+| `index.html` | Landing page (Product 2.0): action-first hero with sample-concept collage, "what we can create" strip, *start with what you need* intents + guided selector, sample workflow, Property Marketing Pack builder, sample gallery, Estate "List it. Market it. Share it.", promises, problems by audience, all 56 services, 5 packages (with who/what it solves/how it runs), how it works, referrals, FAQ, callback form |
+| `create.html` | Free Quick Property Content tool: WhatsApp text, English + Roman Urdu captions, info sheet and a 1080×1350 share card, all generated in the browser from typed facts (no AI, nothing sent) |
 | `services.html` | Full price list: every service, every price line, delivery times, the three ways of working, running costs, pricing notes |
 | `legal.html` | Terms, privacy, refund policy (marked *to be confirmed*), referral terms |
 | `login.html` / `signup.html` | Shared login with agenticcore.estate (phone or email + password) |
-| `dashboard.html` | Client dashboard (brief B2–B10): home, new order, my tasks + task detail, deliveries, invoices, package usage, points & referrals, estate listings, support & notifications, profile & brand kit |
+| `dashboard.html` | Client dashboard (brief B2–B10) + Product 2.0 workspace: home tiles, **Market a property** (`#pack`, `#pack/estate/<uuid>`), new order, my tasks + task detail, deliveries, invoices, package usage, points & referrals, Estate listings (Promote / Create content), support & notifications, profile & brand kit |
 | `admin.html` | Owner view (B11): today, all tasks (status, deliver files, messages, log WhatsApp/Telegram orders), payments & packages, clients, visits & leads, packages & prices, settings |
 
 ## Prices come from one place
@@ -34,6 +35,19 @@ on the site is rendered from them — nothing is hand-typed into HTML.
   prices. Orders are priced **server-side** from that table, never from the
   browser. After changing a price: edit the JSON → validate → regenerate →
   apply the seed.
+
+## Product 2.0 data files (no prices in them)
+
+- `data/discovery.json`: intents, guided-selector rules, "what we can create" tiles and the Property Marketing Pack outputs. It only **points** at service numbers and price-line IDs; prices are always read from `services.json`.
+- `data/samples.json`: sample concepts for the gallery. Every item is a labelled demonstration. Until `"installed": true`, a CSS mock-up is drawn. See `docs/SAMPLE_ASSET_MANIFEST.md`.
+- `node --test tests/*.test.mjs` checks:
+  - every reference exists
+  - every new label has English and Urdu
+  - samples stay labelled
+  - no new file hard-codes a price
+  - the content tool only repeats typed facts
+  - pack orders send line IDs only
+- Estate → PK handoff and the future bot/MCP operations are documented in `docs/INTEGRATION_CONTRACT.md`.
 
 ## Database (shared with agenticcore.estate)
 
@@ -88,7 +102,10 @@ It passed against the live project on 27 Sep 2026 with nothing persisted.
 - Where Telegram-bot orders live (this project vs agenticcore.agency's) — the
   admin can log WhatsApp/Telegram orders manually meanwhile.
 - A proper share image for WhatsApp previews (`og:image` currently uses the
-  estate icon).
+  estate icon): `images/og-share.jpg`, 1200×630, ≤200 KB.
+- Sample images for the gallery (`docs/SAMPLE_ASSET_MANIFEST.md`).
+- Proposed migration `supabase/proposed/pk_0003_estate_listing_ownership.sql`
+  (server-side check for the Estate handoff), not applied yet.
 
 ## Launch steps
 

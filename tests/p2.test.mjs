@@ -1,0 +1,133 @@
+// Run: node --test tests/*.test.mjs
+// Product 2.0 guards: the discovery/sample layer may only POINT at the
+// catalogue, every visible label must exist in English and Urdu, samples
+// must stay labelled, the content tool may only repeat what was typed,
+// and no new file may hard-code a price.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const root = new URL('../', import.meta.url);
+const read = (p) => fs.readFileSync(new URL(p, root), 'utf8');
+const services = JSON.parse(read('data/services.json'));
+const packages = JSON.parse(read('data/packages.json'));
+const discovery = JSON.parse(read('data/discovery.json'));
+const samples = JSON.parse(read('data/samples.json'));
+const svcNos = new Set(services.services.map((s) => s.no));
+const lineIds = new Set(services.services.flatMap((s) => s.lines.map((l) => l.id)));
+const pkgIds = new Set(packages.packages.map((p) => p.id));
+
+// Load the i18n dictionaries the way the browser does.
+const ctx = { console };
+vm.createContext(ctx);
+vm.runInContext(read('js/i18n.js').replace('const PK_I18N', 'var PK_I18N'), ctx);
+vm.runInContext(read('js/i18n-p2.js'), ctx);
+const EN = ctx.PK_I18N.en, UR = ctx.PK_I18N.ur;
+const both = (k) => assert.ok(EN[k] && UR[k], 'missing EN/UR string: ' + k);
+
+test('discovery references only existing services, lines and packages', () => {
+  for (const o of discovery.outputs) for (const n of o.services) assert.ok(svcNos.has(n), 'output ' + o.key + ' → unknown service ' + n);
+  for (const it of discovery.intents) {
+    for (const n of it.services) assert.ok(svcNos.has(n), 'intent ' + it.id + ' → unknown service ' + n);
+    for (const p of it.packages) assert.ok(pkgIds.has(p), 'intent ' + it.id + ' → unknown package ' + p);
+  }
+  for (const [what, goals] of Object.entries(discovery.selector.rules)) {
+    assert.ok(discovery.selector.what.includes(what));
+    for (const g of discovery.selector.goal) assert.ok(goals[g], what + ' has no rule for ' + g);
+    for (const [g, rule] of Object.entries(goals)) {
+      const list = Array.isArray(rule) ? rule : rule.services;
+      for (const n of list) assert.ok(svcNos.has(n), what + '/' + g + ' → unknown service ' + n);
+      if (!Array.isArray(rule) && rule.package) assert.ok(pkgIds.has(rule.package), what + '/' + g + ' → unknown package');
+    }
+  }
+  for (const o of discovery.pack.outputs) assert.ok(lineIds.has(o.line), 'pack output ' + o.key + ' → unknown line ' + o.line);
+  for (const s of samples.samples) for (const n of s.services) assert.ok(svcNos.has(n), 'sample ' + s.id + ' → unknown service ' + n);
+});
+
+test('discovery data holds no prices', () => {
+  const raw = read('data/discovery.json');
+  assert.ok(!/"(price|amount|monthly|one_off)"\s*:|Rs\.?\s?\d/i.test(raw));
+});
+
+test('every Product 2.0 label exists in English and Urdu', () => {
+  discovery.outputs.forEach((o) => both('out_' + o.key));
+  discovery.intents.forEach((it) => { both('intent_' + it.id); both('intent_' + it.id + '_lead'); });
+  discovery.selector.what.forEach((k) => both('sel_what_' + k));
+  discovery.selector.goal.forEach((k) => both('sel_goal_' + k));
+  discovery.pack.outputs.forEach((o) => both('pack_out_' + o.key));
+  discovery.pack.you_send.forEach((k) => both('pack_send_' + k));
+  samples.samples.forEach((s) => both('sample_' + s.id));
+  ['all'].concat(samples.meta.categories).forEach((c) => both('smp_cat_' + c));
+  packages.packages.forEach((p) => { both('pkgx_' + p.id + '_solves'); both('pkgx_' + p.id + '_flow'); });
+  // every data-i18n key used in the new/changed pages
+  for (const page of ['index.html', 'create.html', 'dashboard.html']) {
+    for (const m of read(page).matchAll(/data-i18n(?:-ph|-aria)?="([^"]+)"/g)) both(m[1]);
+  }
+  // every pkT('…') literal in the new scripts
+  for (const f of ['js/discovery.js', 'js/dashboard-p2.js', 'js/create.js', 'js/landing.js']) {
+    for (const m of read(f).matchAll(/pkT\('([a-z0-9_-]+)'\)/gi)) both(m[1]);
+  }
+  assert.equal(Object.keys(EN).filter((k) => !(k in UR)).length, 0, 'keys without Urdu: ' + Object.keys(EN).filter((k) => !(k in UR)).slice(0, 5));
+});
+
+test('samples are labelled demonstrations and never claim missing files', () => {
+  assert.match(samples.meta.about, /DEMONSTRATION/);
+  for (const s of samples.samples) {
+    assert.ok(s.mock && s.mock.kind, s.id + ' needs a mock-up fallback');
+    if (s.installed) assert.ok(s.image && fs.existsSync(new URL(s.image, root)), s.id + ' is marked installed but ' + s.image + ' is missing');
+    const text = JSON.stringify(s).toLowerCase();
+    assert.ok(!/client|testimonial|sold in|leads generated|%\s*more/.test(text), s.id + ' must not look like client results');
+  }
+  assert.match(EN.proof_sample_label, /Sample/);
+  assert.match(read('js/discovery.js'), /proof_sample_label/);
+});
+
+test('new pages and scripts hard-code no prices', () => {
+  for (const f of ['index.html', 'create.html', 'js/discovery.js', 'js/dashboard-p2.js', 'js/create.js', 'js/landing.js', 'js/i18n-p2.js', 'data/discovery.json']) {
+    const hits = read(f).match(/Rs\.?\s?[0-9][0-9,]{2,}/g) || [];
+    assert.deepEqual(hits, [], f + ' contains a hand-typed price: ' + hits.join(', '));
+  }
+});
+
+test('content tool repeats only what was typed', () => {
+  const { pkCtOutputs, pkCtPrice } = require('../js/create.js');
+  assert.equal(pkCtPrice('52000000'), 'Rs 5.2 crore');
+  assert.equal(pkCtPrice('7500000'), 'Rs 75 lakh');
+  assert.equal(pkCtPrice('85,000'), 'Rs 85,000');
+  assert.equal(pkCtPrice(''), '');
+  const empty = pkCtOutputs({ purpose: 'sale', type: 'house' });
+  for (const t of [empty.wa, empty.en, empty.ru, empty.sheet]) assert.ok(!/\d/.test(t.replace(/Rs|#\w+/g, '')), 'no numbers should appear from nothing: ' + t);
+  const f = { purpose: 'rent', type: 'flat', city: 'Islamabad', area: 'G-13', price: '75000', size: '950 sq ft', beds: '2', baths: '2', notes: 'Near park', name: 'Ali', phone: '0300 1234567' };
+  const o = pkCtOutputs(f);
+  const allowed = new Set(['75', '000', '950', '2', '13', '0300', '1234567', '75,000']);
+  for (const t of [o.wa, o.en, o.ru, o.sheet]) {
+    for (const n of (t.match(/\d[\d,]*/g) || []).map((x) => x.replace(/,$/, ''))) assert.ok(allowed.has(n), 'unexpected number ' + n + ' in: ' + t);
+  }
+  assert.match(o.ru, /Kiraye ke liye/);
+  assert.match(o.en, /for Rent/);
+  assert.ok(!/luxur|best|guarant|premium/i.test(o.wa + o.en + o.ru), 'no invented superlatives');
+});
+
+test('Estate handoff accepts only UUIDs', () => {
+  const src = read('js/landing.js');
+  const re = new RegExp(src.match(/if \(!\/(\^\[0-9a-f\]\{8\}[^/]+)\/i\.test\(id\)\)/)[1], 'i');
+  assert.ok(re.test('11111111-1111-1111-1111-111111111111'));
+  for (const bad of ['', '../../etc', "1' or '1'='1", '11111111-1111-1111-1111-11111111111', 'javascript:alert(1)']) assert.ok(!re.test(bad), bad);
+  assert.match(read('js/db-client.js'), /\.eq\('id', id\)\.eq\('owner_id', userId\)/, 'owned-listing query must filter by owner');
+});
+
+test('orders still go through pk_place_order with line ids only (server prices them)', () => {
+  const src = read('js/dashboard-p2.js');
+  assert.match(src, /PkDB\.placeOrder\(items\)/);
+  const item = src.match(/return \{ line_id: id, quantity: 1, details: details, use_brand_kit: useKit \}/);
+  assert.ok(item, 'pack items must carry only line_id/quantity/details/use_brand_kit');
+  assert.ok(!/unit_price|amount:/.test(src), 'the browser must not send prices');
+});
+
+test('catalogue totals still validate', () => {
+  const out = require('child_process').execFileSync(process.execPath, ['scripts/validate-data.mjs'], { cwd: new URL('.', root).pathname }).toString();
+  assert.match(out, /OK: 56 services, 73 price lines, 5 packages/);
+});
