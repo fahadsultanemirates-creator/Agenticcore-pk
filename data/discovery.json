@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "about": "Intent-based discovery, the guided selector and the Property Marketing Pack. This file only POINTS at existing service numbers (data/services.json) and price-line ids. It holds no prices; every price is read from services.json at render time and re-priced server-side by pk_place_order. tests/discovery.test.mjs fails if any reference is unknown.",
+    "labels": "Labels live in js/i18n-p2.js under the keys shown (intent_<id>, sel_*, pack_out_<key>, out_<key>)."
+  },
+
+  "outputs": [
+    { "key": "flyer", "services": [10, 11], "intent": "sell-property" },
+    { "key": "whatsapp", "services": [7], "intent": "sell-property" },
+    { "key": "social", "services": [31, 11, 12], "intent": "social" },
+    { "key": "brochure", "services": [6, 7], "intent": "launch-project" },
+    { "key": "reel", "services": [23, 22, 21], "intent": "photo-video" },
+    { "key": "project", "services": [2, 4, 5, 40], "intent": "launch-project" },
+    { "key": "website", "services": [14, 15], "intent": "website" },
+    { "key": "listing", "services": [28, 49, 33], "intent": "estate-listing" }
+  ],
+
+  "intents": [
+    { "id": "sell-property", "services": [7, 11, 10, 28, 23, 22, 25, 37, 15], "packages": ["dealer-starter", "growing-agent"], "pack": true },
+    { "id": "social", "services": [31, 32, 30, 35, 12, 34, 33], "packages": ["dealer-starter", "growing-agent"] },
+    { "id": "launch-project", "services": [2, 4, 5, 6, 13, 15, 40, 27, 26, 8], "packages": ["project-partner"] },
+    { "id": "website", "services": [14, 15, 16, 17, 18, 20, 44], "packages": ["agenticcore-package"] },
+    { "id": "branding", "services": [1, 2, 3, 30], "packages": ["agenticcore-package"] },
+    { "id": "photo-video", "services": [28, 25, 26, 24, 23, 22, 21, 27], "packages": [] },
+    { "id": "leads-ads", "services": [36, 37, 38, 39, 43, 46, 47, 51], "packages": ["growing-agent", "agency-pro"] },
+    { "id": "estate-listing", "services": [28, 7, 10, 33, 49, 25], "packages": [], "estate": true }
+  ],
+
+  "selector": {
+    "what": ["property", "project", "agency", "developer"],
+    "goal": ["sell-faster", "look-professional", "social", "leads", "online", "complete"],
+    "rules": {
+      "property":  { "sell-faster": [7, 11, 28, 23, 37], "look-professional": [28, 25, 7, 3], "social": [11, 22, 23, 31], "leads": [37, 36, 43, 39], "online": [15, 33, 49], "complete": { "package": "dealer-starter", "services": [7, 28] } },
+      "project":   { "sell-faster": [4, 6, 40, 13], "look-professional": [2, 5, 26, 8], "social": [27, 31, 32, 22], "leads": [40, 38, 43, 39], "online": [15, 17, 18, 20], "complete": { "package": "project-partner", "services": [] } },
+      "agency":    { "sell-faster": [11, 7, 49, 47], "look-professional": [1, 30, 14, 3], "social": [31, 32, 35, 12], "leads": [36, 43, 46, 47], "online": [14, 44, 51, 49], "complete": { "package": "agency-pro", "services": [] } },
+      "developer": { "sell-faster": [4, 6, 13, 41], "look-professional": [2, 5, 8, 26], "social": [27, 32, 31, 21], "leads": [40, 38, 41, 43], "online": [14, 17, 18, 20], "complete": { "package": "project-partner", "services": [] } }
+    }
+  },
+
+  "pack": {
+    "you_send": ["photos", "location", "price", "facts", "logo", "contact"],
+    "outputs": [
+      { "key": "wa-card", "line": "7-one", "default": true },
+      { "key": "offer-post", "line": "11-dfy", "default": true },
+      { "key": "photos", "line": "28-dfy", "default": true },
+      { "key": "ad-copy", "line": "37-dfy", "default": true },
+      { "key": "qr-flyer", "line": "10-dfy" },
+      { "key": "catalogue", "line": "7-cat" },
+      { "key": "reel", "line": "23-dfy" },
+      { "key": "voice-reel", "line": "22-dfy" },
+      { "key": "floorplan", "line": "25-plan" },
+      { "key": "landing", "line": "15-dfy" }
+    ],
+    "free": ["estate-listing", "share-card", "content-tool"]
+  }
+}

@@ -42,6 +42,7 @@ function pkServiceFullHtml(s, opts) {
     s.lines.map(pkPriceLineHtml).join('') +
     '<p class="delivery">' + escapeHtml(s.delivery) + '</p>' +
     (s.caution ? pkCautionHtml() : '') +
+    (typeof pkOpenServiceDetail === 'function' ? '<button type="button" class="link svc-details-btn" data-svc="' + s.no + '">' + escapeHtml(pkT('svc_details')) + '</button>' : '') +
     orderBtn +
   '</article>';
 }
@@ -113,6 +114,8 @@ function pkPackageCardHtml(p, opts) {
     (p.badge ? '<span class="badge">' + escapeHtml(pkPick(p, 'badge')) + '</span>' : '') +
     '<h3>' + escapeHtml(pkPick(p, 'name')) + '</h3>' +
     '<p class="for">' + escapeHtml(pkPick(p, 'for')) + '</p>' +
+    (PK_I18N.en['pkgx_' + p.id + '_solves'] ? '<div class="pkgx"><span><b>' + escapeHtml(pkT('pkgx_solves')) + ':</b> ' + escapeHtml(pkT('pkgx_' + p.id + '_solves')) + '</span>' +
+      '<span><b>' + escapeHtml(pkT('pkgx_flow')) + ':</b> ' + escapeHtml(pkT('pkgx_' + p.id + '_flow')) + '</span></div>' : '') +
     '<div class="price">' + price + '</div>' +
     '<div class="setup">' + setup + '</div>' +
     '<div class="save">' + save + '</div>' +

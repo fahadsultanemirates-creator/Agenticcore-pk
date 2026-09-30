@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Real Estate Marketing in Pakistan | AgenticCore Pakistan</title>
-<meta name="description" content="Property marketing for Pakistan's dealers, agents, agencies and developers: posts, flyers, videos, websites and WhatsApp lead bots. Published PKR prices and same-day delivery for orders by 6pm PKT.">
+<title>Property Marketing in Pakistan: Flyers, WhatsApp Cards, Reels | AgenticCore Pakistan</title>
+<meta name="description" content="Send your property photos and details; get a flyer, WhatsApp card, social post, brochure and reel back. Marketing for Pakistan's agents, agencies, builders and developers, with published PKR prices and same-day delivery for orders by 6pm PKT.">
 <link rel="canonical" href="https://agenticcorepk.com/">
 <link rel="alternate" hreflang="en-PK" href="https://agenticcorepk.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AgenticCore Pakistan">
-<meta property="og:title" content="Property marketing done for you, delivered the same day">
-<meta property="og:description" content="Posts, flyers, videos, websites and WhatsApp lead systems for Pakistan's property dealers and developers. PKR prices published. Orders by 6pm PKT delivered the same day.">
+<meta property="og:title" content="Turn properties into marketing that sells">
+<meta property="og:description" content="From property to marketing pack: flyers, WhatsApp cards, social posts, brochures and reels for Pakistan's agents, agencies and developers. PKR prices published.">
 <meta property="og:url" content="https://agenticcorepk.com/">
 <meta property="og:image" content="https://agenticcore.estate/images/agenticcore-icon.png">
+<meta property="og:locale" content="en_PK">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Turn properties into marketing that sells">
+<meta name="twitter:description" content="Flyers, WhatsApp cards, social posts, brochures and reels for Pakistan's property market. PKR prices published.">
 <meta name="theme-color" content="#071F17">
 <link rel="icon" href="https://agenticcore.estate/images/agenticcore-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +24,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="css/p2.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,89 +43,165 @@
 
 <main id="main">
 
-  <!-- A1. Hero -->
-  <section class="hero">
-    <div class="container hero-grid">
+  <!-- P2-1. Hero: action first, outputs visible -->
+  <section class="hero p2-hero">
+    <div class="container p2-hero-grid">
       <div>
-        <h1><span data-i18n="hero_title_1">Property marketing done for you, </span><span class="accent" data-i18n="hero_title_2">delivered the same day.</span></h1>
-        <p class="hero-sub" data-i18n="hero_sub">Posts, flyers, videos, websites and WhatsApp lead systems for Pakistan's property dealers, agents, agencies and developers. Order on WhatsApp or online, track every task by its ID, and get most work back the same day.</p>
-        <div class="btn-row">
-          <a class="btn btn-wa" data-wa="hero" data-wa-msg="I'd like to know more about your property marketing services." href="signup.html"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91A9.86 9.86 0 0 0 12.04 2z"/></svg><span data-i18n="wa_us">WhatsApp us</span></a>
-          <a class="btn btn-secondary" href="#packages" data-i18n="hero_cta_packages">See packages from Rs 6,499/month</a>
+        <span class="eyebrow" data-i18n="p2_eyebrow">Real estate marketing for Pakistan</span>
+        <h1><span data-i18n="p2_h1a">Turn properties into </span><span class="accent" data-i18n="p2_h1b">marketing that sells.</span></h1>
+        <p class="hero-sub" data-i18n="p2_sub">Send us your property photos, price and details. We turn them into flyers, WhatsApp cards, social posts, brochures and reels — for agents, agencies, builders and developers across Pakistan.</p>
+        <div class="p2-ctas">
+          <a class="btn btn-primary" href="#pack" data-i18n="p2_cta_property">Market a property</a>
+          <a class="btn btn-secondary" href="#need" data-intent-go="launch-project" data-i18n="p2_cta_project">Promote a project</a>
+          <a class="btn btn-secondary" href="services.html" data-i18n="p2_cta_services">Explore services</a>
         </div>
-        <p class="roman-urdu" style="margin-top:0.8rem" lang="ur-Latn" data-i18n="hero_roman">WhatsApp karein, kaam aaj hi shuru.</p>
+        <a class="link p2-see" href="#samples" data-i18n="p2_cta_samples">See what we can create</a>
         <div class="trust-line">
           <span data-i18n="hero_trust_1">Orders by 6pm PKT delivered the same day</span>
           <span data-i18n="hero_trust_2">Prices published in PKR</span>
           <span data-i18n="hero_trust_3">Pages, domains and accounts stay in your name</span>
         </div>
       </div>
-      <div>
-        <div class="phone" aria-label="Preview of the My tasks screen in the client dashboard">
-          <div class="phone-screen">
-            <div class="phone-head"><span data-i18n="phone_title">My tasks</span><span class="tiny mono">PKT</span></div>
-            <div class="phone-chips">
-              <span class="phone-chip on" data-i18n="chip_active">Active</span>
-              <span class="phone-chip" data-i18n="chip_waiting">Waiting on you</span>
-              <span class="phone-chip" data-i18n="chip_delivered">Delivered</span>
-            </div>
-            <div class="phone-task"><div class="row"><span class="id">ACPK-0142</span><span class="pill pill-ready_for_review" data-i18n="st_ready_for_review">Ready for review</span></div><div class="svc">Instalment and payment plan charts</div><div class="due">Due today 9:00 pm PKT</div></div>
-            <div class="phone-task"><div class="row"><span class="id">ACPK-0141</span><span class="pill pill-in_progress" data-i18n="st_in_progress">In progress</span></div><div class="svc">Text-and-motion promo videos</div><div class="due">Due today 9:00 pm PKT</div></div>
-            <div class="phone-task"><div class="row"><span class="id">ACPK-0139</span><span class="pill pill-waiting_on_you" data-i18n="st_waiting_on_you">Waiting on you</span></div><div class="svc">PDF brochures and project booklets</div><div class="due">Clock paused · Logo file</div></div>
-            <div class="phone-task"><div class="row"><span class="id">ACPK-0137</span><span class="pill pill-delivered" data-i18n="st_delivered">Delivered</span></div><div class="svc">WhatsApp catalogues and one-pagers</div><div class="due">v2 · approved</div></div>
-          </div>
-        </div>
-        <p class="phone-caption" data-i18n="phone_caption">The real dashboard: every order gets a task ID and a live status.</p>
+      <div class="p2-collage" id="heroCollage" aria-label="Sample concepts of property marketing outputs"></div>
+    </div>
+  </section>
+
+  <!-- P2-2. What we can create -->
+  <section class="p2-strip" id="create" aria-labelledby="createTitle">
+    <div class="container">
+      <h2 class="sr-only" id="createTitle" data-i18n="p2_create_title">What we can create</h2>
+      <div class="out-strip" id="outStrip"></div>
+    </div>
+  </section>
+
+  <!-- P2-3. Start with what you need + guided selector -->
+  <section class="section-alt" id="need">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="need_eyebrow">Start with what you need</span>
+        <h2 class="section-title" data-i18n="need_title">What are you trying to do?</h2>
+        <p class="section-sub" data-i18n="need_sub">Pick one. We'll show the services that fit, with their published prices.</p>
+      </div>
+      <div class="intent-chips" id="intentChips" role="tablist" aria-label="What you need"></div>
+      <div id="intentResult" aria-live="polite"></div>
+
+      <div class="card selector" id="selector">
+        <h3 data-i18n="sel_title">Not sure what to order?</h3>
+        <p class="muted" data-i18n="sel_sub">Answer two questions and we'll suggest a starting point.</p>
+        <fieldset><legend data-i18n="sel_q1">What are you marketing?</legend><div class="opt-chips" id="selWhat"></div></fieldset>
+        <fieldset><legend data-i18n="sel_q2">What do you need most?</legend><div class="opt-chips" id="selGoal"></div></fieldset>
+        <div id="selResult" aria-live="polite"></div>
       </div>
     </div>
   </section>
 
-  <!-- A2. Proof -->
-  <section class="section-alt" id="proof">
+  <!-- P2-4. Agent → output workflow (sample) -->
+  <section id="workflow">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="wf_eyebrow">From property to marketing pack</span>
+        <h2 class="section-title" data-i18n="wf_title">You send the rough details. We send back the marketing.</h2>
+      </div>
+      <ol class="wf">
+        <li class="wf-step card">
+          <span class="n">1</span><h3 data-i18n="wf_1_t">You send</h3>
+          <div class="wf-chat" dir="ltr" lang="en">
+            <div class="wf-msg">DHA 2 Islamabad<br>10 marla<br>5 bed<br>new construction<br>demand 5.2 crore</div>
+            <div class="wf-attach"><span class="wf-ph"></span><span class="wf-ph"></span><span class="wf-ph"></span><span class="wf-logo">LOGO</span></div>
+          </div>
+          <p class="tiny" data-i18n="wf_1_d">Photos, price, location, a few facts and your logo — on WhatsApp or in your dashboard.</p>
+        </li>
+        <li class="wf-step card">
+          <span class="n">2</span><h3 data-i18n="wf_2_t">We prepare</h3>
+          <ul class="wf-list">
+            <li data-i18n="pack_out_wa-card">WhatsApp property card</li>
+            <li data-i18n="pack_out_offer-post">Social / offer post</li>
+            <li data-i18n="pack_out_catalogue">PDF catalogue</li>
+            <li data-i18n="pack_out_reel">Promo reel (up to 60 s)</li>
+            <li data-i18n="pack_out_ad-copy">Captions in English and Roman Urdu</li>
+          </ul>
+          <p class="tiny" data-i18n="wf_2_d">Our team designs each piece. Every order gets a task ID you can track.</p>
+        </li>
+        <li class="wf-step card">
+          <span class="n">3</span><h3 data-i18n="wf_3_t">You share</h3>
+          <div class="wf-outs" id="wfOuts"></div>
+          <p class="tiny" data-i18n="wf_3_d">Download from your dashboard, send on WhatsApp, post it, and link buyers to your free AgenticCore Estate listing.</p>
+        </li>
+      </ol>
+      <p class="footnote"><span class="sample-tag" data-i18n="proof_sample_label">Sample concept</span> <span data-i18n="wf_note">This is a sample workflow. Timing depends on the services you choose and when your details and payment are in.</span></p>
+    </div>
+  </section>
+
+  <!-- P2-5. Property Marketing Pack -->
+  <section class="section-alt" id="pack">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="pack_eyebrow">Property Marketing Pack</span>
+        <h2 class="section-title" data-i18n="pack_title">Build a marketing pack for one property.</h2>
+        <p class="section-sub" data-i18n="pack_sub">Choose the pieces you want. Each one is an existing service with its published price — no bundle markup.</p>
+      </div>
+      <div class="pack-grid">
+        <div class="card">
+          <h3 data-i18n="pack_you_send">You send</h3>
+          <ul class="pack-send" id="packSend"></ul>
+          <p class="tiny" data-i18n="pack_brandkit">Saved your logo and contact details in your Brand Kit? We reuse them, so you only send them once.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="pack_we_prepare">We can prepare</h3>
+          <div class="pack-opts" id="packOpts"></div>
+          <div class="pack-total"><span data-i18n="pack_total">Selected total</span> <b id="packTotal"></b></div>
+          <p class="tiny" data-i18n="pack_total_note">Final price is confirmed on your invoice from our published price list. One-off work is usually paid half at the start and half on delivery.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" id="packGo" href="dashboard.html#pack" data-i18n="p2_build_pack">Build my property marketing pack</a>
+            <a class="btn btn-secondary" href="create.html" data-i18n="p2_try_tool">Try the free content tool</a>
+          </div>
+          <p class="tiny" data-i18n="pack_free">Free with your account: list the property on AgenticCore Estate and download its QR share card.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- P2-6. Sample gallery -->
+  <section id="samples">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="smp_eyebrow">See what we can create</span>
+        <h2 class="section-title" data-i18n="smp_title">Sample concepts</h2>
+        <p class="section-sub" data-i18n="smp_sub">These are demonstrations of what we make, not client projects. Names, prices and places in them are examples.</p>
+      </div>
+      <div class="chips smp-filter" id="smpFilter" role="toolbar" aria-label="Filter samples"></div>
+      <div class="smp-grid" id="smpGrid"></div>
+    </div>
+  </section>
+
+  <!-- P2-7. AgenticCore Estate ↔ Pakistan -->
+  <section class="section-alt" id="estate">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="es_eyebrow">AgenticCore Estate + AgenticCore Pakistan</span>
+        <h2 class="section-title" data-i18n="es_title">List it. Market it. Share it.</h2>
+        <p class="section-sub" data-i18n="es_sub">One account works on both sites. Estate is where buyers find your property; AgenticCore Pakistan makes the marketing that sends them there.</p>
+      </div>
+      <ol class="es-steps">
+        <li class="card"><span class="n">1</span><h3 data-i18n="es_1_t">List it free</h3><p data-i18n="es_1_d">Post the property on AgenticCore Estate. AgenticCore can help you write the listing.</p></li>
+        <li class="card"><span class="n">2</span><h3 data-i18n="es_2_t">Improve it</h3><p data-i18n="es_2_d">Estate scores your listing out of 100 and tells you exactly what to add.</p></li>
+        <li class="card"><span class="n">3</span><h3 data-i18n="es_3_t">Share it</h3><p data-i18n="es_3_d">Download a free WhatsApp card and QR code that link buyers back to your listing.</p></li>
+        <li class="card"><span class="n">4</span><h3 data-i18n="es_4_t">Promote it</h3><p data-i18n="es_4_d">Want more? Order a professional marketing pack here, prefilled from your Estate listing.</p></li>
+      </ol>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://agenticcore.estate/sell.html" data-i18n="es_list">List a property on Estate</a>
+        <a class="btn btn-secondary" href="dashboard.html#listings" data-i18n="es_promote">Promote one of my listings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- A2. Promises (kept) -->
+  <section id="proof">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" data-i18n="proof_eyebrow">Proof over claims</span>
-        <h2 class="section-title" data-i18n="proof_title">Honest, fast and affordable. Here is what that means.</h2>
-        <p class="section-sub" data-i18n="proof_sub">In Pakistan's property market the problem is trust: buyers check everything, and they're right to. So we show real work, publish every price, and put our promises in writing.</p>
+        <h2 class="section-title" data-i18n="proof_promises_title">Our promises</h2>
       </div>
-      <h3 class="sub-h" data-i18n="proof_samples_title">Sample work</h3>
-      <div class="samples">
-        <figure class="sample">
-          <div class="mock mock-plan">
-            <div class="mp-title">Gulberg Heights · 5 Marla</div>
-            <div class="mp-row"><span>Down payment</span><b>Rs 1,500,000</b></div>
-            <div class="mp-row"><span>36 monthly</span><b>Rs 85,000</b></div>
-            <div class="mp-row"><span>6 half-yearly balloon</span><b>Rs 250,000</b></div>
-            <div class="mp-row"><span>On possession</span><b>Rs 500,000</b></div>
-            <div class="mp-bar"><i style="width:22%"></i><i style="width:45%"></i><i style="width:22%"></i><i style="width:11%"></i></div>
-          </div>
-          <figcaption><span class="sample-tag" data-i18n="proof_sample_label">Sample concept</span> Payment-plan chart (4)</figcaption>
-        </figure>
-        <figure class="sample">
-          <div class="mock mock-wa">
-            <div class="wa-bubble"><div class="wa-img">3-bed apartment · Bahria Enclave</div><div class="wa-txt">Rs 1.85 crore · possession 2027 · RDA approved*</div></div>
-            <div class="wa-bubble"><div class="wa-img alt">Floor plan · 1,450 sq ft</div><div class="wa-txt">Tap to see the full catalogue (6 pages)</div></div>
-          </div>
-          <figcaption><span class="sample-tag" data-i18n="proof_sample_label">Sample concept</span> WhatsApp catalogue (7)</figcaption>
-        </figure>
-        <figure class="sample">
-          <div class="mock mock-reel">
-            <div class="reel-play" aria-hidden="true">▶</div>
-            <div class="reel-cap">Site progress · Week 32<br><small>Block C slab complete</small></div>
-          </div>
-          <figcaption><span class="sample-tag" data-i18n="proof_sample_label">Sample concept</span> Progress reel poster (27)</figcaption>
-        </figure>
-        <figure class="sample">
-          <div class="mock mock-noc">
-            <div class="noc-badge">✓ Approved</div>
-            <div class="noc-lines"><span>Authority</span><b>[number shown only with proof]</b></div>
-            <div class="noc-lines"><span>Layout plan</span><b>[ref. no.]</b></div>
-          </div>
-          <figcaption><span class="sample-tag" data-i18n="proof_sample_label">Sample concept</span> NOC and approval kit (8)</figcaption>
-        </figure>
-      </div>
-
-      <h3 class="sub-h" data-i18n="proof_promises_title">Our promises</h3>
       <div class="grid grid-3">
         <div class="card promise"><span class="promise-icon" aria-hidden="true">✓</span><p data-i18n="promise_1">We only advertise approvals you can show us.</p></div>
         <div class="card promise"><span class="promise-icon" aria-hidden="true">✓</span><p data-i18n="promise_2">We never promise a set number of leads or sales. We agree clear targets and report honestly.</p></div>
@@ -192,7 +272,23 @@
         <span class="eyebrow" data-i18n="how_eyebrow">How it works</span>
         <h2 class="section-title" data-i18n="how_title">Order in minutes. Most work back the same day.</h2>
       </div>
-      <ol class="steps" style="list-style:none">
+      <div class="how-grid"><div class="phone-wrap">
+<div class="phone" aria-label="Preview of the My tasks screen in the client dashboard">
+          <div class="phone-screen">
+            <div class="phone-head"><span data-i18n="phone_title">My tasks</span><span class="tiny mono">PKT</span></div>
+            <div class="phone-chips">
+              <span class="phone-chip on" data-i18n="chip_active">Active</span>
+              <span class="phone-chip" data-i18n="chip_waiting">Waiting on you</span>
+              <span class="phone-chip" data-i18n="chip_delivered">Delivered</span>
+            </div>
+            <div class="phone-task"><div class="row"><span class="id">ACPK-0142</span><span class="pill pill-ready_for_review" data-i18n="st_ready_for_review">Ready for review</span></div><div class="svc">Instalment and payment plan charts</div><div class="due">Due today 9:00 pm PKT</div></div>
+            <div class="phone-task"><div class="row"><span class="id">ACPK-0141</span><span class="pill pill-in_progress" data-i18n="st_in_progress">In progress</span></div><div class="svc">Text-and-motion promo videos</div><div class="due">Due today 9:00 pm PKT</div></div>
+            <div class="phone-task"><div class="row"><span class="id">ACPK-0139</span><span class="pill pill-waiting_on_you" data-i18n="st_waiting_on_you">Waiting on you</span></div><div class="svc">PDF brochures and project booklets</div><div class="due">Clock paused · Logo file</div></div>
+            <div class="phone-task"><div class="row"><span class="id">ACPK-0137</span><span class="pill pill-delivered" data-i18n="st_delivered">Delivered</span></div><div class="svc">WhatsApp catalogues and one-pagers</div><div class="due">v2 · approved</div></div>
+          </div>
+        </div>
+        <p class="phone-caption" data-i18n="phone_caption">The real dashboard: every order gets a task ID and a live status.</p>
+</div><ol class="steps" style="list-style:none">
         <li class="step card"><span class="n">1</span><h3 data-i18n="how_1_t">Order</h3><p data-i18n="how_1_d">Message us on WhatsApp or order online. Pick a service or package.</p></li>
         <li class="step card"><span class="n">2</span><h3 data-i18n="how_2_t">Get your task ID</h3><p data-i18n="how_2_d">Every order gets an ID, e.g. ACPK-0142, and a delivery time. You'll get it on WhatsApp and in your dashboard.</p>
           <div class="shot"><span class="mono gold">ACPK-0142</span> · <span class="pill pill-received" data-i18n="st_received">Received</span></div></li>
@@ -201,7 +297,7 @@
           <div class="shot"><span class="pill pill-in_progress" data-i18n="st_in_progress">In progress</span> · Due in 3 h 20 min</div></li>
         <li class="step card"><span class="n">5</span><h3 data-i18n="how_5_t">Receive and approve</h3><p data-i18n="how_5_d">Download the files from your dashboard or get them on WhatsApp. Two rounds of changes are included.</p>
           <div class="shot">⬇ chart-v2.png · <span class="pill pill-delivered" data-i18n="st_delivered">Delivered</span></div></li>
-      </ol>
+      </ol></div>
       <p class="footnote" data-i18n="how_foot">Same day applies to orders confirmed by 6pm PKT. Frameworks and heavy campaigns take 2–3 days; Project Partner is delivered within 1 week.</p>
     </div>
   </section>
@@ -253,21 +349,6 @@
     </div>
   </section>
 
-  <!-- A9. Estate portal -->
-  <section class="section-alt" id="estate">
-    <div class="container split">
-      <div>
-        <span class="eyebrow" data-i18n="estate_eyebrow">Sister site</span>
-        <h2 class="section-title" data-i18n="estate_title">List and find property on AgenticCore Estate.</h2>
-        <p class="section-sub" data-i18n="estate_sub">Our sister site, agenticcore.estate, is a property portal for Pakistan. Use the same login to list properties, promote your agency or project, and track your referral points.</p>
-      </div>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://agenticcore.estate" data-i18n="estate_visit">Visit agenticcore.estate</a>
-        <a class="btn btn-secondary hidden" id="estateMyListings" href="https://agenticcore.estate/dashboard.html" data-i18n="estate_my_listings">My listings</a>
-      </div>
-    </div>
-  </section>
-
   <!-- A10. FAQ -->
   <section id="faq" class="faq">
     <div class="container prose-wide">
@@ -305,9 +386,12 @@
 <script src="js/supabase-client.js"></script>
 <script src="js/db-client.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/i18n-p2.js"></script>
 <script src="js/catalog-core.js"></script>
 <script src="js/partials.js"></script>
 <script src="js/catalog-render.js"></script>
+<script src="js/briefs.js"></script>
+<script src="js/discovery.js"></script>
 <script src="js/landing.js"></script>
 </body>
 </html>

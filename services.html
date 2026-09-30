@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/p2.css">
 <style>
   .jump { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.6rem 0; position: sticky; top: 60px; z-index: 50; background: var(--bg-primary); border-bottom: 1px solid var(--border-subtle); scrollbar-width: none; }
   .jump::-webkit-scrollbar { display: none; }
@@ -89,9 +90,12 @@
 <script src="js/supabase-client.js"></script>
 <script src="js/db-client.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/i18n-p2.js"></script>
 <script src="js/catalog-core.js"></script>
 <script src="js/partials.js"></script>
 <script src="js/catalog-render.js"></script>
+<script src="js/briefs.js"></script>
+<script src="js/discovery.js"></script>
 <script>
   function renderServicesPage() {
     const D = window.PK_DATA.services;
@@ -125,8 +129,10 @@
     pkWireWhatsAppLinks(document.getElementById('groups'));
   }
   document.addEventListener('DOMContentLoaded', async function () {
-    await pkLoadData();
+    await pkLoadP2Data().catch(pkLoadData);
     renderServicesPage();
+    const deep = location.hash.match(/^#service-(\d+)$/);
+    if (deep) pkOpenServiceDetail(Number(deep[1]));
     pkOnLanguageChange(renderServicesPage);
     if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
     pkTrack('page_view', 'services');
