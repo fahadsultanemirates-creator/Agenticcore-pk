@@ -196,3 +196,29 @@ html[dir="rtl"] .sd-close { margin: -8px 0 0 -8px; }
 .status-tag.live { color: var(--accent-emerald); }
 .status-tag.assisted { color: var(--accent-gold-bright); }
 .status-tag.planned { color: var(--text-tertiary); }
+
+/* ---------- dashboard workspace ---------- */
+.ws-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-bottom: var(--space-md); }
+@media (min-width: 720px) { .ws-tiles { grid-template-columns: repeat(4, 1fr); } }
+.ws-tile { display: grid; gap: 0.1rem; padding: 0.8rem; border-radius: var(--radius-md); background: var(--bg-panel); border: 1px solid var(--border-subtle); min-height: 88px; }
+.ws-tile:hover, .ws-tile:focus-visible { border-color: var(--accent-gold); }
+.ws-ic { color: var(--accent-gold-bright); font-size: 1.1rem; line-height: 1; }
+.ws-name { font-weight: 600; font-size: 0.95rem; line-height: 1.3; }
+.ws-sub { font-size: 0.78rem; color: var(--text-secondary); }
+.lst-cards { display: grid; gap: 0.8rem; margin-bottom: var(--space-md); }
+@media (min-width: 900px) { .lst-cards { grid-template-columns: repeat(2, 1fr); } }
+.lst-card { display: grid; grid-template-columns: 110px 1fr; gap: 0.8rem; padding: 0.7rem; border-radius: var(--radius-md); background: var(--bg-panel); border: 1px solid var(--border-subtle); min-width: 0; }
+@media (max-width: 400px) { .lst-card { grid-template-columns: 1fr; } .lst-thumb { height: 160px; } }
+.lst-thumb { border-radius: 8px; overflow: hidden; background: var(--bg-panel-hover); display: flex; align-items: center; justify-content: center; min-height: 96px; color: var(--accent-gold); font-size: 1.6rem; }
+.lst-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.lst-body { min-width: 0; }
+.lst-price { color: var(--accent-gold-bright); font-weight: 700; font-family: var(--font-display); }
+.lst-title { font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.lst-actions { margin-top: 0.5rem; gap: 0.4rem; }
+.kit-sum { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.6rem 0; }
+.kit-item { font-size: 0.8rem; padding: 0.2rem 0.6rem; border-radius: 999px; border: 1px solid var(--border-subtle); }
+.kit-item.on { color: #8BE3B8; border-color: rgba(63,174,123,0.5); }
+.kit-item.off { color: var(--text-tertiary); }
+.kit-explain { margin-bottom: 0.4rem; }
+.dk-tag { font-size: 0.75rem; padding: 1px 7px; border-radius: 999px; background: rgba(212,175,55,0.12); color: var(--accent-gold-bright); }
+.review-box .total { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }

@@ -1,5 +1,5 @@
 /* Client dashboard + admin layout */
-.dash { display: grid; gap: var(--space-md); padding: var(--space-md) 0 var(--space-xl); }
+.dash { display: grid; gap: var(--space-md); padding-top: var(--space-md); padding-bottom: var(--space-xl); }
 @media (min-width: 960px) { .dash { grid-template-columns: 230px 1fr; align-items: start; } }
 
 .dash-nav { display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: none; position: sticky; top: 60px; z-index: 40; background: var(--bg-primary); padding: 0.5rem 0; }

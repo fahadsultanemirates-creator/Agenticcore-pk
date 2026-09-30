@@ -177,3 +177,99 @@ Object.assign(PK_I18N.ur, {
 
   ct_nav: 'مفت کانٹینٹ ٹول'
 });
+
+// Dashboard workspace, marketing pack, listings, brand kit, content tool
+Object.assign(PK_I18N.en, {
+  ws_title: 'Your marketing workspace', ws_market: 'Market a property', ws_market_sub: 'Pick outputs, we make them',
+  ws_order_sub: 'Any of the 56 services', ws_listings: 'My Estate listings', ws_on_estate: 'on AgenticCore Estate',
+  ws_brandkit: 'Brand Kit', ws_kit_done: 'filled in', ws_deliv_sub: 'Download and share', ws_pkg_sub: 'Save with a package',
+  ws_points: 'points', ws_support_sub: 'Message the team', ws_from_estate: 'From your Estate listings',
+  bk_logo: 'Logo', bk_name: 'Business name', bk_phone: 'Phone', bk_whatsapp: 'WhatsApp', bk_website: 'Website', bk_notes: 'Brand notes',
+  bk_explain_t: 'Upload your logo and brand details once.', bk_explain: 'We reuse them on every flyer, card, post and video you order, so you never send the same files twice.',
+  bk_private: 'Your Brand Kit is private: only you and the AgenticCore team can see it.', bk_edit: 'Edit my Brand Kit',
+  ls_sub: 'Your listings on agenticcore.estate, with the same login. Promote any of them with a marketing pack.',
+  ls_photos: 'photos', ls_checked: 'Checked', ls_promote: 'Promote', ls_content: 'Create content', ls_view: 'View', ls_toolkit: 'Free share card',
+  ls_none: 'You have no listings on AgenticCore Estate yet. Listing is free.', ls_add: 'Add a listing', ls_manage: 'Manage on agenticcore.estate',
+  ls_agency_profile: 'your agency profile on agenticcore.estate', ls_login_note: 'agenticcore.estate asks you to log in there separately; use the same phone/email and password.',
+  pk_title: 'Property Marketing Pack', pk_sub: 'Tell us about the property, choose what you want made, and review before ordering. Each piece is priced from our published list.',
+  pk_step_property: 'The property', pk_step_outputs: 'What should we make?', pk_step_brand: 'Your brand',
+  pk_use_listing: 'Use one of my AgenticCore Estate listings', pk_manual: '— Enter the details myself —',
+  pk_listing_hint: 'Only your own listings appear here. Check every field before ordering.', pk_no_listings: 'No Estate listings yet.',
+  pk_purpose: 'For', pk_sale: 'Sale', pk_rent: 'Rent', pk_type: 'Property type', pk_city: 'City', pk_area: 'Area / society / block',
+  pk_price: 'Price (PKR)', pk_size: 'Size', pk_beds: 'Bedrooms', pk_baths: 'Bathrooms',
+  pk_notes: 'Key facts and notes', pk_notes_ph: 'New construction, corner, near park, possession ready… only facts that are true.',
+  pk_photos: 'Photos (optional)', pk_photos_hint: 'Up to 10 JPG, PNG or WebP photos, 10 MB each. Front elevation first.',
+  pk_prefilled: 'Filled from your Estate listing. Its public photos ({n}) are shared with our team automatically.',
+  pk_use_kit: 'Use my saved Brand Kit', pk_review: 'Review order', pk_cancel: 'Cancel',
+  pk_pick_one: 'Choose at least one thing for us to make.', pk_need_area: 'Please add the area or society.',
+  pk_too_many: 'Please choose up to {n} photos.', pk_bad_file: '"{name}" is not a JPG/PNG/WebP image under {mb} MB.',
+  pk_not_yours: 'That listing isn\'t in your AgenticCore account, so nothing was filled in. Choose one of your own listings or enter the details yourself.',
+  pk_bad_link: 'That link doesn\'t point to a valid listing. Enter the details yourself or choose one of your listings.',
+  pk_confirm_title: 'Check your order', pk_from_estate: 'from your Estate listing',
+  pk_confirm_note: 'Each piece becomes its own task with an ID. Prices are confirmed server-side from the published list; you\'ll get one invoice.',
+  pk_place: 'Place order', pk_back: 'Go back', pk_done_title: 'Order received', pk_done_ids: 'Your task IDs:',
+  pk_done_invoice: 'Invoice {inv} is in your Invoices. Our team will confirm the payment details with you directly; only pay to an account we confirm in writing.',
+  pk_open_task: 'Open the first task',
+  dk_flyer: 'Flyer', dk_social: 'Social post', dk_brochure: 'Brochure', dk_video: 'Video', dk_caption: 'Caption / copy', dk_plan: 'Plan / chart', dk_web: 'Web', dk_other: 'Other'
+});
+Object.assign(PK_I18N.ur, {
+  ws_title: 'آپ کا مارکیٹنگ ورک اسپیس', ws_market: 'جائیداد کی مارکیٹنگ', ws_market_sub: 'چیزیں چنیں، ہم بنائیں',
+  ws_order_sub: '56 خدمات میں سے کوئی بھی', ws_listings: 'میری Estate لسٹنگز', ws_on_estate: 'AgenticCore Estate پر',
+  ws_brandkit: 'برانڈ کٹ', ws_kit_done: 'مکمل', ws_deliv_sub: 'ڈاؤن لوڈ اور شیئر', ws_pkg_sub: 'پیکج سے بچت',
+  ws_points: 'پوائنٹس', ws_support_sub: 'ٹیم کو پیغام', ws_from_estate: 'آپ کی Estate لسٹنگز سے',
+  bk_logo: 'لوگو', bk_name: 'کاروبار کا نام', bk_phone: 'فون', bk_whatsapp: 'واٹس ایپ', bk_website: 'ویب سائٹ', bk_notes: 'برانڈ نوٹس',
+  bk_explain_t: 'اپنا لوگو اور برانڈ کی تفصیل ایک بار اپ لوڈ کریں۔', bk_explain: 'ہم انہیں آپ کے ہر فلائر، کارڈ، پوسٹ اور ویڈیو پر دوبارہ استعمال کرتے ہیں، تاکہ ایک ہی فائل دو بار نہ بھیجنی پڑے۔',
+  bk_private: 'آپ کی برانڈ کٹ نجی ہے: صرف آپ اور AgenticCore ٹیم اسے دیکھ سکتے ہیں۔', bk_edit: 'میری برانڈ کٹ میں ترمیم',
+  ls_sub: 'agenticcore.estate پر آپ کی لسٹنگز، اسی لاگ اِن کے ساتھ۔ کسی کی بھی مارکیٹنگ پیک سے تشہیر کریں۔',
+  ls_photos: 'تصاویر', ls_checked: 'جانچ شدہ', ls_promote: 'تشہیر کریں', ls_content: 'کانٹینٹ بنائیں', ls_view: 'دیکھیں', ls_toolkit: 'مفت شیئر کارڈ',
+  ls_none: 'AgenticCore Estate پر ابھی آپ کی کوئی لسٹنگ نہیں۔ لسٹنگ مفت ہے۔', ls_add: 'لسٹنگ شامل کریں', ls_manage: 'agenticcore.estate پر انتظام کریں',
+  ls_agency_profile: 'agenticcore.estate پر آپ کی ایجنسی پروفائل', ls_login_note: 'agenticcore.estate پر الگ سے لاگ اِن کرنا ہوگا؛ وہی فون/ای میل اور پاس ورڈ استعمال کریں۔',
+  pk_title: 'پراپرٹی مارکیٹنگ پیک', pk_sub: 'جائیداد کے بارے میں بتائیں، جو بنوانا ہے چنیں، اور آرڈر سے پہلے جائزہ لیں۔ ہر چیز کی قیمت ہماری شائع شدہ فہرست سے ہے۔',
+  pk_step_property: 'جائیداد', pk_step_outputs: 'ہم کیا بنائیں؟', pk_step_brand: 'آپ کا برانڈ',
+  pk_use_listing: 'اپنی AgenticCore Estate لسٹنگ استعمال کریں', pk_manual: '— تفصیل خود لکھیں —',
+  pk_listing_hint: 'یہاں صرف آپ کی اپنی لسٹنگز آتی ہیں۔ آرڈر سے پہلے ہر خانہ چیک کریں۔', pk_no_listings: 'ابھی کوئی Estate لسٹنگ نہیں۔',
+  pk_purpose: 'برائے', pk_sale: 'فروخت', pk_rent: 'کرایہ', pk_type: 'جائیداد کی قسم', pk_city: 'شہر', pk_area: 'علاقہ / سوسائٹی / بلاک',
+  pk_price: 'قیمت (روپے)', pk_size: 'سائز', pk_beds: 'بیڈ رومز', pk_baths: 'باتھ رومز',
+  pk_notes: 'اہم حقائق اور نوٹس', pk_notes_ph: 'نئی تعمیر، کارنر، پارک کے قریب، قبضہ تیار… صرف درست حقائق۔',
+  pk_photos: 'تصاویر (اختیاری)', pk_photos_hint: 'زیادہ سے زیادہ 10 JPG، PNG یا WebP تصاویر، ہر ایک 10 MB تک۔ سامنے کا منظر پہلے۔',
+  pk_prefilled: 'آپ کی Estate لسٹنگ سے بھرا گیا۔ اس کی عوامی تصاویر ({n}) خود بخود ہماری ٹیم کو مل جاتی ہیں۔',
+  pk_use_kit: 'میری محفوظ برانڈ کٹ استعمال کریں', pk_review: 'آرڈر کا جائزہ', pk_cancel: 'منسوخ',
+  pk_pick_one: 'کم از کم ایک چیز چنیں جو ہم بنائیں۔', pk_need_area: 'براہ کرم علاقہ یا سوسائٹی لکھیں۔',
+  pk_too_many: 'زیادہ سے زیادہ {n} تصاویر چنیں۔', pk_bad_file: '"{name}" کوئی JPG/PNG/WebP تصویر نہیں یا {mb} MB سے بڑی ہے۔',
+  pk_not_yours: 'یہ لسٹنگ آپ کے AgenticCore اکاؤنٹ میں نہیں، اس لیے کچھ نہیں بھرا گیا۔ اپنی لسٹنگ چنیں یا تفصیل خود لکھیں۔',
+  pk_bad_link: 'یہ لنک کسی درست لسٹنگ کا نہیں۔ تفصیل خود لکھیں یا اپنی لسٹنگ چنیں۔',
+  pk_confirm_title: 'اپنا آرڈر چیک کریں', pk_from_estate: 'آپ کی Estate لسٹنگ سے',
+  pk_confirm_note: 'ہر چیز اپنی آئی ڈی کے ساتھ الگ ٹاسک بنتی ہے۔ قیمتیں شائع شدہ فہرست سے سرور پر طے ہوتی ہیں؛ آپ کو ایک انوائس ملے گی۔',
+  pk_place: 'آرڈر دیں', pk_back: 'واپس', pk_done_title: 'آرڈر موصول ہو گیا', pk_done_ids: 'آپ کی ٹاسک آئی ڈیز:',
+  pk_done_invoice: 'انوائس {inv} آپ کی انوائسز میں ہے۔ ہماری ٹیم ادائیگی کی تفصیل براہ راست تصدیق کرے گی؛ صرف اسی اکاؤنٹ میں ادائیگی کریں جس کی ہم تحریری تصدیق کریں۔',
+  pk_open_task: 'پہلا ٹاسک کھولیں',
+  dk_flyer: 'فلائر', dk_social: 'سوشل پوسٹ', dk_brochure: 'بروشر', dk_video: 'ویڈیو', dk_caption: 'کیپشن / عبارت', dk_plan: 'پلان / چارٹ', dk_web: 'ویب', dk_other: 'دیگر'
+});
+
+// Quick Property Content tool
+Object.assign(PK_I18N.en, {
+  ct_eyebrow: 'Free content tool', ct_title: 'Create property content in seconds.',
+  ct_sub: 'Type the facts once. Get WhatsApp-ready text, English and Roman Urdu captions, an information sheet and a share card.',
+  ct_status_live: 'Free · runs in your browser · nothing is sent', ct_status_ai: 'AI writing help: planned',
+  ct_signin: 'Log in to fill this from your AgenticCore Estate listing and add your Brand Kit logo.',
+  ct_listing_note: 'Filled from your listing. Its first photo and a QR code to the listing go on the card.',
+  ct_notes: 'Short notes (only true facts)', ct_name: 'Your name / agency', ct_phone: 'Phone / WhatsApp',
+  ct_photo: 'Main photo (stays on your device)', ct_use_logo: 'Add my Brand Kit logo', ct_bad_photo: 'Please choose a JPG, PNG or WebP photo under 15 MB.',
+  ct_card: 'Share card (1080 × 1350)', ct_download: 'Download PNG', ct_dl_fail: 'This browser could not export the card. Try another browser or take a screenshot.',
+  ct_wa: 'WhatsApp text', ct_en: 'English caption', ct_ru: 'Roman Urdu caption', ct_sheet: 'Information sheet',
+  ct_copy: 'Copy', ct_copied: 'Copied', ct_send_wa: 'Send on WhatsApp',
+  ct_pro_t: 'Want it designed professionally?', ct_pro_d: 'Our team makes flyers, WhatsApp cards, posts, brochures and reels from the same details, with your branding.'
+});
+Object.assign(PK_I18N.ur, {
+  ct_eyebrow: 'مفت کانٹینٹ ٹول', ct_title: 'چند سیکنڈ میں پراپرٹی کانٹینٹ بنائیں۔',
+  ct_sub: 'حقائق ایک بار لکھیں۔ واٹس ایپ کے لیے تیار عبارت، انگریزی اور رومن اردو کیپشن، معلوماتی شیٹ اور شیئر کارڈ حاصل کریں۔',
+  ct_status_live: 'مفت · آپ کے براؤزر میں چلتا ہے · کچھ نہیں بھیجا جاتا', ct_status_ai: 'AI تحریری مدد: منصوبہ بند',
+  ct_signin: 'اپنی AgenticCore Estate لسٹنگ سے بھرنے اور برانڈ کٹ کا لوگو لگانے کے لیے لاگ اِن کریں۔',
+  ct_listing_note: 'آپ کی لسٹنگ سے بھرا گیا۔ اس کی پہلی تصویر اور لسٹنگ کا QR کوڈ کارڈ پر آتا ہے۔',
+  ct_notes: 'مختصر نوٹس (صرف درست حقائق)', ct_name: 'آپ کا نام / ایجنسی', ct_phone: 'فون / واٹس ایپ',
+  ct_photo: 'مرکزی تصویر (آپ کے آلے پر ہی رہتی ہے)', ct_use_logo: 'میری برانڈ کٹ کا لوگو لگائیں', ct_bad_photo: 'براہ کرم 15 MB سے کم JPG، PNG یا WebP تصویر چنیں۔',
+  ct_card: 'شیئر کارڈ (1080 × 1350)', ct_download: 'PNG ڈاؤن لوڈ کریں', ct_dl_fail: 'یہ براؤزر کارڈ محفوظ نہیں کر سکا۔ کوئی اور براؤزر آزمائیں یا اسکرین شاٹ لیں۔',
+  ct_wa: 'واٹس ایپ عبارت', ct_en: 'انگریزی کیپشن', ct_ru: 'رومن اردو کیپشن', ct_sheet: 'معلوماتی شیٹ',
+  ct_copy: 'کاپی', ct_copied: 'کاپی ہو گیا', ct_send_wa: 'واٹس ایپ پر بھیجیں',
+  ct_pro_t: 'پیشہ ورانہ ڈیزائن چاہیے؟', ct_pro_d: 'ہماری ٹیم انہی تفصیلات سے آپ کی برانڈنگ کے ساتھ فلائرز، واٹس ایپ کارڈز، پوسٹس، بروشرز اور ریلز بناتی ہے۔'
+});

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Property Content Tool: WhatsApp Text, Captions, Share Card | AgenticCore Pakistan</title>
+<meta name="description" content="Type your property's facts and get WhatsApp-ready text, English and Roman Urdu captions, an information sheet and a share card in seconds. Free, runs in your browser, nothing is sent.">
+<link rel="canonical" href="https://agenticcorepk.com/create.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AgenticCore Pakistan">
+<meta property="og:title" content="Free property content tool">
+<meta property="og:description" content="WhatsApp text, captions and a share card from your property's facts. Free, in your browser.">
+<meta property="og:url" content="https://agenticcorepk.com/create.html">
+<meta property="og:image" content="https://agenticcore.estate/images/agenticcore-icon.png">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#071F17">
+<link rel="icon" href="https://agenticcore.estate/images/agenticcore-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/p2.css">
+</head>
+<body data-page="create">
+<a href="#main" class="sr-only">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="hero" style="padding-bottom:var(--space-md)">
+    <div class="container">
+      <span class="eyebrow" data-i18n="ct_eyebrow">Free content tool</span>
+      <h1 data-i18n="ct_title">Create property content in seconds.</h1>
+      <p class="hero-sub" data-i18n="ct_sub">Type the facts once. Get WhatsApp-ready text, English and Roman Urdu captions, an information sheet and a share card.</p>
+      <p><span class="status-tag live" data-i18n="ct_status_live">Free · runs in your browser · nothing is sent</span>
+        <span class="status-tag planned" data-i18n="ct_status_ai">AI writing help: planned</span></p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container ct-grid">
+      <form class="card" id="ctForm" novalidate>
+        <p class="notice" id="ctSignedOut" hidden><span data-i18n="ct_signin">Log in to fill this from your AgenticCore Estate listing and add your Brand Kit logo.</span> <a class="link" href="login.html?next=create.html" data-i18n="nav_login">Log in</a></p>
+        <div class="field" id="ctListingRow" hidden><label for="ctListing" data-i18n="pk_use_listing">Use one of my AgenticCore Estate listings</label><select id="ctListing"></select>
+          <span class="hint" id="ctListingMsg"></span><span class="hint" id="ctListingNote" hidden data-i18n="ct_listing_note">Filled from your listing. Its first photo and a QR code to the listing go on the card.</span></div>
+        <div class="grid grid-2">
+          <div class="field"><label for="ctPurpose" data-i18n="pk_purpose">For</label><select id="ctPurpose"><option value="sale" data-i18n="pk_sale">Sale</option><option value="rent" data-i18n="pk_rent">Rent</option></select></div>
+          <div class="field"><label for="ctType" data-i18n="pk_type">Property type</label><select id="ctType">
+            <option value="house">House</option><option value="flat">Flat / apartment</option><option value="plot">Plot</option><option value="upper_portion">Upper portion</option><option value="lower_portion">Lower portion</option><option value="shop">Shop</option><option value="office">Office</option><option value="farm_house">Farm house</option><option value="other">Other</option></select></div>
+          <div class="field"><label for="ctCity" data-i18n="pk_city">City</label><input id="ctCity" maxlength="60" autocomplete="address-level2"></div>
+          <div class="field"><label for="ctArea" data-i18n="pk_area">Area / society / block</label><input id="ctArea" maxlength="120" placeholder="DHA Phase 2"></div>
+          <div class="field"><label for="ctPrice" data-i18n="pk_price">Price (PKR)</label><input id="ctPrice" inputmode="numeric" maxlength="16" placeholder="52000000"></div>
+          <div class="field"><label for="ctSize" data-i18n="pk_size">Size</label><input id="ctSize" maxlength="30" placeholder="10 Marla"></div>
+          <div class="field"><label for="ctBeds" data-i18n="pk_beds">Bedrooms</label><input id="ctBeds" inputmode="numeric" maxlength="3"></div>
+          <div class="field"><label for="ctBaths" data-i18n="pk_baths">Bathrooms</label><input id="ctBaths" inputmode="numeric" maxlength="3"></div>
+        </div>
+        <div class="field"><label for="ctNotes" data-i18n="ct_notes">Short notes (only true facts)</label><textarea id="ctNotes" maxlength="300" data-i18n-ph="pk_notes_ph"></textarea></div>
+        <div class="grid grid-2">
+          <div class="field"><label for="ctName" data-i18n="ct_name">Your name / agency</label><input id="ctName" maxlength="60" autocomplete="organization"></div>
+          <div class="field"><label for="ctPhone" data-i18n="ct_phone">Phone / WhatsApp</label><input id="ctPhone" maxlength="20" inputmode="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field"><label for="ctPhoto" data-i18n="ct_photo">Main photo (stays on your device)</label><input id="ctPhoto" type="file" accept="image/jpeg,image/png,image/webp"><span class="hint" id="ctPhotoMsg" role="alert"></span></div>
+        <label class="check" id="ctKitRow" hidden><input type="checkbox" id="ctUseKit" checked> <span data-i18n="ct_use_logo">Add my Brand Kit logo</span></label>
+      </form>
+
+      <div class="ct-out">
+        <div class="card" style="margin-bottom:var(--space-sm)">
+          <h2 style="font-size:1.1rem;margin-bottom:0.5rem" data-i18n="ct_card">Share card (1080 × 1350)</h2>
+          <div class="ct-canvas"><canvas id="ctCanvas" width="1080" height="1350" role="img" aria-label="Property share card preview"></canvas></div>
+          <div class="btn-row" style="margin-top:0.6rem"><button type="button" class="btn btn-primary btn-sm" id="ctDownload" data-i18n="ct_download">Download PNG</button></div>
+        </div>
+        <div class="card" style="margin-bottom:var(--space-sm)">
+          <label class="label" for="outWa"><strong data-i18n="ct_wa">WhatsApp text</strong></label><textarea id="outWa" readonly></textarea>
+          <div class="btn-row" style="margin:0.4rem 0 0.9rem"><button type="button" class="btn btn-secondary btn-sm" data-copy="outWa" data-i18n="ct_copy">Copy</button><a class="btn btn-wa btn-sm" id="ctWaLink" target="_blank" rel="noopener" href="https://wa.me/" data-i18n="ct_send_wa">Send on WhatsApp</a></div>
+          <label class="label" for="outEn"><strong data-i18n="ct_en">English caption</strong></label><textarea id="outEn" readonly></textarea>
+          <div class="btn-row" style="margin:0.4rem 0 0.9rem"><button type="button" class="btn btn-secondary btn-sm" data-copy="outEn" data-i18n="ct_copy">Copy</button></div>
+          <label class="label" for="outRu"><strong data-i18n="ct_ru">Roman Urdu caption</strong></label><textarea id="outRu" readonly lang="ur-Latn"></textarea>
+          <div class="btn-row" style="margin:0.4rem 0 0.9rem"><button type="button" class="btn btn-secondary btn-sm" data-copy="outRu" data-i18n="ct_copy">Copy</button></div>
+          <label class="label" for="outSheet"><strong data-i18n="ct_sheet">Information sheet</strong></label><textarea id="outSheet" readonly></textarea>
+          <div class="btn-row" style="margin-top:0.4rem"><button type="button" class="btn btn-secondary btn-sm" data-copy="outSheet" data-i18n="ct_copy">Copy</button></div>
+        </div>
+        <div class="card">
+          <h2 style="font-size:1.1rem" data-i18n="ct_pro_t">Want it designed professionally?</h2>
+          <p class="muted" data-i18n="ct_pro_d">Our team makes flyers, WhatsApp cards, posts, brochures and reels from the same details, with your branding.</p>
+          <div class="btn-row" style="margin-top:0.6rem"><a class="btn btn-primary" id="ctPack" href="dashboard.html#pack" data-i18n="p2_build_pack">Build my property marketing pack</a>
+            <a class="btn btn-secondary" href="https://agenticcore.estate/sell.html" data-i18n="p2_list_estate">List on AgenticCore Estate</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db-client.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/i18n-p2.js"></script>
+<script src="js/catalog-core.js"></script>
+<script src="js/partials.js"></script>
+<script src="js/share-card.js"></script>
+<script src="js/create.js"></script>
+</body>
+</html>

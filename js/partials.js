@@ -78,6 +78,7 @@ async function pkRenderHeader() {
             '<a href="' + pkHomeAnchor('packages') + '" data-i18n="nav_packages"></a>' +
             '<a href="' + pkHomeAnchor('how') + '" data-i18n="nav_how"></a>' +
             '<a href="' + pkHomeAnchor('referrals') + '" data-i18n="nav_referral"></a>' +
+            (PK_I18N.en.ct_nav ? '<a href="create.html" data-i18n="ct_nav"' + (document.body.dataset.page === 'create' ? ' class="active"' : '') + '></a>' : '') +
           '</div>' +
           '<div class="nav-cta">' +
             '<button class="lang-toggle" id="pkLangToggle" type="button"></button>' + cta +

@@ -144,7 +144,7 @@ async function viewTask(sub) {
     '</form>' +
 
     '<div class="grid grid-2">' +
-      '<div class="card"><h2 style="margin-top:0">Brief</h2>' + pkDetailsHtml(t.details) +
+      '<div class="card"><h2 style="margin-top:0">Brief</h2>' + (t.details && t.details.estate_listing_id ? '<p class="notice" id="estateOwn">Checking the Estate listing…</p>' : '') + pkDetailsHtml(t.details) +
         (attachments.length ? '<div class="file-chips">' + attachments.map(function (a) { return '<button class="file-chip" data-att="' + escapeHtml(a.path) + '">📎 ' + escapeHtml(a.name || 'file') + '</button>'; }).join('') + '</div>' : '') +
         '<h2>Brand kit' + (t.use_brand_kit ? '' : ' (client switched it off for this order)') + '</h2>' + kitHtml + '</div>' +
       '<div class="card"><h2 style="margin-top:0">Timeline</h2>' + pkTimelineHtml(events) + '</div>' +
@@ -154,6 +154,18 @@ async function viewTask(sub) {
       '</div><form id="amForm" class="copy-box"><input id="amBody" required placeholder="Reply to the client"><button class="btn btn-primary btn-sm" type="submit">Send</button></form></div>');
 
   const v = view();
+  // Product 2.0: a pack order may reference an Estate listing. Confirm it belongs to this client
+  // before the team uses its photos or facts.
+  if (t.details && t.details.estate_listing_id) {
+    PkDB.estateListingOwner(t.details.estate_listing_id).then(function (l) {
+      const el = document.getElementById('estateOwn');
+      if (!el) return;
+      if (!l) { el.textContent = '⚠ The referenced Estate listing no longer exists.'; return; }
+      el.innerHTML = l.owner_id === t.client_id
+        ? '✓ Estate listing belongs to this client: <a class="link" target="_blank" rel="noopener" href="' + PK_CONFIG.estateUrl + '/listing.html?id=' + encodeURIComponent(l.id) + '">' + escapeHtml(l.title) + '</a>'
+        : '⚠ This Estate listing is NOT owned by this client. Do not use its photos or facts without checking with the client.';
+    });
+  }
   v.querySelectorAll('[data-att]').forEach(function (b) { b.addEventListener('click', async function () { const u = await PkDB.signedUrl('pk-attachments', b.getAttribute('data-att')); if (u) window.open(u, '_blank', 'noopener'); }); });
   v.querySelectorAll('[data-kit]').forEach(function (b) { b.addEventListener('click', async function () { const u = await PkDB.signedUrl('pk-brand-kits', b.getAttribute('data-kit')); if (u) window.open(u, '_blank', 'noopener'); }); });
 

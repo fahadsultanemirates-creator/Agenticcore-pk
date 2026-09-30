@@ -12,12 +12,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/p2.css">
 </head>
 <body data-page="dashboard" data-wa-fallback="#support">
 <div id="site-header"></div>
 <div class="container dash">
   <nav class="dash-nav" id="dashNav" aria-label="Dashboard sections">
     <a href="#home" data-route="home" data-i18n="d_home">Home</a>
+    <a href="#pack" data-route="pack" data-i18n="ws_market">Market a property</a>
     <a href="#order" data-route="order" data-i18n="d_order">New order</a>
     <a href="#tasks" data-route="tasks"><span data-i18n="d_tasks">My tasks</span><span class="count hidden" id="navWaiting"></span></a>
     <a href="#deliveries" data-route="deliveries" data-i18n="d_deliveries">Deliveries</a>
@@ -38,11 +40,14 @@
 <script src="js/supabase-client.js"></script>
 <script src="js/db-client.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/i18n-p2.js"></script>
 <script src="js/catalog-core.js"></script>
 <script src="js/partials.js"></script>
 <script src="js/catalog-render.js"></script>
 <script src="js/task-ui.js"></script>
 <script src="js/briefs.js"></script>
+<script src="js/discovery.js"></script>
 <script src="js/dashboard.js"></script>
+<script src="js/dashboard-p2.js"></script>
 </body>
 </html>

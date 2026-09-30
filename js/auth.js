@@ -9,7 +9,7 @@ function pkAuthMsg(text, ok) {
 // Only allow redirects to a page on this site (no open redirect).
 function pkSafeNext(fallback) {
   const next = new URLSearchParams(location.search).get('next') || '';
-  return /^[a-z0-9-]+\.html(#[A-Za-z0-9/_-]*)?$/.test(next) ? next : fallback;
+  return /^[a-z0-9-]+\.html(#[A-Za-z0-9/_,-]*)?$/.test(next) ? next : fallback;
 }
 
 function pkSetBusy(btn, busy, key) {

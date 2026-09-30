@@ -72,6 +72,27 @@ const PkDB = (function () {
     return { listings: data || [], count: count || 0 };
   }
 
+  // Product 2.0: owned listings with the fields needed to prefill marketing work.
+  // Listings are public on agenticcore.estate, but prefill/handoff only ever uses a
+  // listing whose owner_id is the signed-in user — another user's id returns null.
+  const ESTATE_COLS = 'id,owner_id,title,type,property_type,city,area,price,size_marla,size_unit,beds,baths,description,photos,verified,created_at';
+  function isUuid(id) { return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(id || '')); }
+  async function getOwnedEstateListing(id, userId) {
+    if (!isUuid(id) || !userId) return null;
+    const { data } = await supabaseClient.from('listings').select(ESTATE_COLS).eq('id', id).eq('owner_id', userId).maybeSingle();
+    return data && data.owner_id === userId ? data : null;
+  }
+  async function getMyEstateListingsFull(userId) {
+    const { data } = await supabaseClient.from('listings').select(ESTATE_COLS).eq('owner_id', userId).order('created_at', { ascending: false }).limit(50);
+    return data || [];
+  }
+  // Admin check: does the listing referenced in a task belong to that task's client?
+  async function estateListingOwner(id) {
+    if (!isUuid(id)) return null;
+    const { data } = await supabaseClient.from('listings').select('id,owner_id,title').eq('id', id).maybeSingle();
+    return data || null;
+  }
+
   // ---------- orders ----------
   async function placeOrder(items) {
     const { data, error } = await supabaseClient.rpc('pk_place_order', { p_items: items, p_source: 'web' });
@@ -140,7 +161,7 @@ const PkDB = (function () {
 
   // ---------- deliveries ----------
   async function listDeliverables() {
-    const { data } = await supabaseClient.from('pk_deliverables').select('*, pk_tasks(public_id, title, status, revisions_used)').order('created_at', { ascending: false });
+    const { data } = await supabaseClient.from('pk_deliverables').select('*, pk_tasks(public_id, title, status, revisions_used, service_no)').order('created_at', { ascending: false });
     return data || [];
   }
   async function signedUrl(bucket, path, download) {
@@ -287,6 +308,7 @@ const PkDB = (function () {
   return {
     currentUser: currentUser, signUp: signUp, logIn: logIn, logOut: logOut,
     getDirectReferrals: getDirectReferrals, getPointsLedger: getPointsLedger, getMyEstateListings: getMyEstateListings,
+    getOwnedEstateListing: getOwnedEstateListing, getMyEstateListingsFull: getMyEstateListingsFull, estateListingOwner: estateListingOwner, isUuid: isUuid,
     placeOrder: placeOrder, buyPackage: buyPackage,
     listTasks: listTasks, getTaskByPublicId: getTaskByPublicId, taskEvents: taskEvents, taskMessages: taskMessages,
     taskAttachments: taskAttachments, taskRevisions: taskRevisions, postMessage: postMessage, addDetails: addDetails,

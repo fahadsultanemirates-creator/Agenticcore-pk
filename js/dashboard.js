@@ -64,6 +64,7 @@ async function viewHome() {
     '<div class="greet">' + logo + '<div><h1>Assalam-o-Alaikum, ' + escapeHtml(name) + '</h1><p class="muted" style="margin:0">' + escapeHtml(Dash.user.email || '') + '</p></div></div>' +
     '<div class="action-cards">' + actions.join('') + '</div>' +
     empty +
+    (typeof pkWorkspaceHtml === 'function' ? await pkWorkspaceHtml() : '') +
     '<h2>Active tasks</h2>' + (active.length ? active.map(function (t) { return pkTaskRowHtml(t, '#task/' + t.public_id); }).join('') + '<a class="link" href="#tasks">All tasks</a>' : '<p class="muted">No active tasks.</p>') +
     '<h2>Package usage</h2><div class="card">' + usageHtml + '</div>' +
     '<h2>Points</h2><div class="stat-row"><div class="card stat"><div class="v">' + (Dash.user.points || 0).toLocaleString('en-PK') + '</div><div class="l">AgenticCore Points (1 point = Rs 1)</div></div>' +
@@ -134,7 +135,7 @@ function openOrderForm(lineId) {
     fields +
     '<div class="field"><label for="ofBrief">Anything else we should know</label><textarea id="ofBrief" placeholder="Text, offers, references, deadlines…"></textarea></div>' +
     '<div class="field"><label for="ofFiles">Attach files (logo, photos, plans)</label><input id="ofFiles" type="file" multiple></div>' +
-    '<label class="check"><input type="checkbox" id="ofBrand" checked> Use my brand kit</label>' +
+    '<label class="check"><input type="checkbox" id="ofBrand" checked> ' + escapeHtml(pkT('pk_use_kit')) + '</label><p class="tiny"><a class="link" href="#profile">' + escapeHtml(pkT('bk_edit')) + '</a></p>' +
     (s.caution ? pkCautionHtml() : '') +
     '<div class="review-box" id="ofReview"></div>' +
     '<div class="form-msg" id="ofMsg"></div>' +
@@ -392,7 +393,8 @@ function delivRowHtml(d) {
   const icon = { image: 'IMG', pdf: 'PDF', video: 'VIDEO', link: 'LINK', file: 'FILE' }[d.kind] || 'FILE';
   return '<div class="deliv" data-deliv="' + d.id + '">' +
     '<div class="thumb" data-thumb="' + (d.kind === 'image' && d.path ? escapeHtml(d.path) : '') + '">' + icon + '</div>' +
-    '<div><div><span class="mono gold">' + escapeHtml(task.public_id || '') + '</span> · v' + d.version + '</div><div>' + escapeHtml(d.label || task.title || '') + '</div><div class="tiny">' + escapeHtml(pkWhen(d.created_at)) + '</div></div>' +
+    '<div><div><span class="mono gold">' + escapeHtml(task.public_id || '') + '</span> · v' + d.version +
+      (typeof pkDelivKind === 'function' && task.service_no ? ' · <span class="dk-tag">' + escapeHtml(pkT('dk_' + pkDelivKind(task.service_no))) + '</span>' : '') + '</div><div>' + escapeHtml(d.label || task.title || '') + '</div><div class="tiny">' + escapeHtml(pkWhen(d.created_at)) + '</div></div>' +
     '<div class="actions">' +
       (d.path ? '<button class="btn btn-secondary btn-sm" data-dl="' + escapeHtml(d.path) + '">Download</button><button class="btn btn-secondary btn-sm" data-share="' + escapeHtml(d.path) + '">Share to WhatsApp</button>' : '') +
       (d.url ? '<a class="btn btn-secondary btn-sm" href="' + escapeHtml(d.url) + '" target="_blank" rel="noopener">Open link</a>' : '') +
@@ -621,7 +623,10 @@ async function viewProfile() {
       '<div class="field"><span class="label">Role · phone · email</span><span>' + escapeHtml(u.role) + ' · ' + escapeHtml(u.phone) + ' · ' + escapeHtml(u.email || '') + '</span><span class="hint">Phone and email are your shared AgenticCore login.</span></div></div>' +
       '<button class="btn btn-primary btn-sm" type="submit">Save profile</button></form>' +
 
-    '<form class="card section-card" id="kitForm"><h2 style="margin-top:0">Brand kit</h2><p class="tiny">Every order uses your brand kit by default, and our team sees it next to your brief.</p>' +
+    '<form class="card section-card" id="kitForm"><h2 style="margin-top:0">Brand kit</h2>' +
+      '<div class="notice kit-explain"><strong>' + escapeHtml(pkT('bk_explain_t')) + '</strong> ' + escapeHtml(pkT('bk_explain')) + '</div>' +
+      (typeof pkBrandKitStatus === 'function' ? pkBrandKitSummaryHtml(pkBrandKitStatus(kit, s, u)) : '') +
+      '<p class="tiny">Every order uses your brand kit by default, and our team sees it next to your brief. ' + escapeHtml(pkT('bk_private')) + '</p>' +
       '<div class="grid grid-2">' +
         '<div class="field"><label for="kLogoLight">Logo (light background)</label><input type="file" id="kLogoLight" accept="image/*,.svg"><div class="file-chips">' + fileChips('logo_light') + '</div></div>' +
         '<div class="field"><label for="kLogoDark">Logo (dark background)</label><input type="file" id="kLogoDark" accept="image/*,.svg"><div class="file-chips">' + fileChips('logo_dark') + '</div></div>' +
@@ -700,6 +705,8 @@ async function route() {
   const name = ROUTES[parts[0]] ? parts[0] : 'home';
   const navName = name === 'task' ? 'tasks' : name;
   document.querySelectorAll('#dashNav a').forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-route') === navName); });
+  const openDlg = document.getElementById('dlg');
+  if (openDlg && openDlg.open) openDlg.close(); // a dialog from the previous view must not cover the next one
   const v = view();
   v.innerHTML = '<p class="loading">Loading…</p>';
   // replace the node so listeners from the previous view don't pile up
