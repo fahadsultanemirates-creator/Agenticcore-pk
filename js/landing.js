@@ -115,7 +115,7 @@ function pkInitForms() {
 /* ---------- Product 2.0 sections ---------- */
 const PK_OUT_ICONS = { flyer: '▤', whatsapp: '✆', social: '◫', brochure: '▥', reel: '▶', project: '⌂', website: '⌘', listing: '✓' };
 // "What we can create" tiles show the matching sample concept as a decorative thumbnail.
-const PK_OUT_SAMPLE = { flyer: 'property-flyer', whatsapp: 'whatsapp-property-card', social: 'social-property-post', brochure: 'property-brochure', reel: 'reel-cover', project: 'project-payment-plan' };
+const PK_OUT_SAMPLE = { flyer: 'property-flyer', whatsapp: 'whatsapp-property-card', social: 'social-property-post', brochure: 'property-brochure', reel: 'reel-cover', project: 'project-payment-plan', website: 'website-design', listing: 'listing-support' };
 const P2 = { intent: 'sell-property', what: null, goal: null, cat: 'all', pack: null };
 
 function pkRenderP2() {
@@ -182,11 +182,11 @@ function pkRenderP2() {
   pkUpdatePackTotal();
 
   // samples
-  const cats = ['all'].concat(D.samples.meta.categories.filter(function (c) { return D.samples.samples.some(function (x) { return x.category === c; }); }));
+  const cats = ['all'].concat(D.samples.meta.categories.filter(function (c) { return D.samples.samples.some(function (x) { return x.category === c && x.gallery !== false; }); }));
   document.getElementById('smpFilter').innerHTML = cats.map(function (c) {
     return '<button type="button" class="chip" data-cat="' + c + '" aria-pressed="' + (c === P2.cat) + '">' + escapeHtml(pkT('smp_cat_' + c)) + '</button>';
   }).join('');
-  document.getElementById('smpGrid').innerHTML = D.samples.samples.filter(function (x) { return P2.cat === 'all' || x.category === P2.cat; }).map(pkSampleCardHtml).join('');
+  document.getElementById('smpGrid').innerHTML = D.samples.samples.filter(function (x) { return x.gallery !== false && (P2.cat === 'all' || x.category === P2.cat); }).map(pkSampleCardHtml).join('');
 
   pkWireWhatsAppLinks(document.getElementById('need'));
 }
