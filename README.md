@@ -104,8 +104,8 @@ It passed against the live project on 27 Sep 2026 with nothing persisted.
 - A proper share image for WhatsApp previews (`og:image` currently uses the
   estate icon): `images/og-share.jpg`, 1200×630, ≤200 KB.
 - Sample images for the gallery (`docs/SAMPLE_ASSET_MANIFEST.md`).
-- Proposed migration `supabase/proposed/pk_0003_estate_listing_ownership.sql`
-  (server-side check for the Estate handoff), not applied yet.
+- ~~Migration `pk_0003_estate_listing_ownership.sql` (server-side check for the
+  Estate handoff)~~ — applied 1 Oct 2026.
 
 ## Launch steps
 

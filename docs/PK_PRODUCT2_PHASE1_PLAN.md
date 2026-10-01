@@ -86,7 +86,7 @@ Production is untouched until the owner approves a merge: agenticcorepk.netlify.
 
 ## Files
 
-- **New:** `data/discovery.json`, `data/samples.json`, `js/briefs.js`, `js/discovery.js`, `js/service-detail.js`, `js/share-card.js`, `js/create.js`, `create.html`, `css/p2.css`, `supabase/proposed/pk_0003_estate_listing_ownership.sql`, `tests/*.test.mjs`, docs.
+- **New:** `data/discovery.json`, `data/samples.json`, `js/briefs.js`, `js/discovery.js`, `js/service-detail.js`, `js/share-card.js`, `js/create.js`, `create.html`, `css/p2.css`, `supabase/migrations/pk_0003_estate_listing_ownership.sql`, `tests/*.test.mjs`, docs.
 - **Changed:** `index.html`, `js/landing.js`, `js/i18n.js`, `js/dashboard.js`, `js/admin.js` (listing ownership note), `services.html`, `js/catalog-render.js`, `sitemap.xml`, `README.md`.
 
 ## Owner approval needed later

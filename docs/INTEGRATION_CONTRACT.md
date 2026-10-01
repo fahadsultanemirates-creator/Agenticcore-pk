@@ -57,7 +57,7 @@ https://agenticcorepk.com/?from=estate&listing=<listing-uuid>&intent=promote
    - **No match** (someone else's listing, deleted, or wrong account): nothing is prefilled. The page says "That listing isn't in your AgenticCore account" without revealing whether the listing exists.
 4. Nothing is ordered until the user presses **Review order** and then **Place order** (`order.create`). The task `details` carry `estate_listing_id`, `estate_listing_url` and `estate_photos`.
 5. The admin task view re-checks that the listing belongs to the ordering client and warns if not.
-6. **Proposed, not applied:** `supabase/proposed/pk_0003_estate_listing_ownership.sql` adds a trigger that rejects any client-created task whose `estate_listing_id` isn't owned by that client. It was dry-run in a rolled-back transaction: own listing allowed, unknown or other listing blocked (42501), malformed reference blocked (22023).
+6. **Proposed, not applied:** `supabase/migrations/pk_0003_estate_listing_ownership.sql` adds a trigger that rejects any client-created task whose `estate_listing_id` isn't owned by that client. It was dry-run in a rolled-back transaction: own listing allowed, unknown or other listing blocked (42501), malformed reference blocked (22023).
 
 To implement on Estate (not done in this phase), add a "Promote this listing" button on the owner's listing and toolkit pages that links to the URL above. No shared secrets are needed, because authorisation is the shared Supabase login.
 

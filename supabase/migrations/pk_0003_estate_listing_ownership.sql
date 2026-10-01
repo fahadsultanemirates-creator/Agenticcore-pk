@@ -1,5 +1,5 @@
 -- ============================================
--- pk_0003 (PROPOSED — NOT APPLIED; needs owner approval)
+-- pk_0003 — APPLIED to the live project on 1 Oct 2026 (owner approved)
 -- Server-side guard for the Estate → PK handoff.
 --
 -- The browser only prefills a marketing pack from a listing whose

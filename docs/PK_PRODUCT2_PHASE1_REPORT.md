@@ -2,9 +2,9 @@
 
 **Status at hand-off**
 - Branch: `claude/pk-product2-phase1`, created from `claude/hello-ym5p20` @ `fb60ca4`. The final commit SHA is given in the hand-off message; see `git log`.
-- **Merged:** no. `claude/hello-ym5p20` is unchanged.
+- **Merged:** yes, into `claude/hello-ym5p20` on 1 Oct 2026 (owner approved).
 - **Production touched:** no. agenticcorepk.netlify.app is a manual upload deploy and was not redeployed. agenticcore.estate was not changed.
-- **Migrations applied:** none. `pk_0003` is *proposed* only.
+- **Migrations applied:** `pk_0003_estate_listing_ownership` on 1 Oct 2026 (owner approved).
 - **Database side effect, disclosed:** the `pk_0003` dry run ran inside a transaction that was rolled back. Postgres sequences don't roll back, though, so it advanced the task and invoice counters. The pk tables had **0 tasks, 0 invoices and 0 orders**, so I reset exactly those two counters to their starting point. The next real order is still **ACPK-0001 / INV-0001**. No data was created, changed or deleted.
 - **Prices, packages, referral and points:** unchanged. `node scripts/validate-data.mjs` still reports 56 services, 73 price lines and 5 packages, all totals matching.
 
@@ -143,7 +143,7 @@ Full contract: `docs/INTEGRATION_CONTRACT.md`. The Estate-side "Promote this lis
 - **Styles:** `css/p2.css`
 - **Data:** `data/discovery.json`, `data/samples.json`
 - **Tests:** `tests/p2.test.mjs`
-- **Migration (proposed):** `supabase/proposed/pk_0003_estate_listing_ownership.sql`
+- **Migration (proposed):** `supabase/migrations/pk_0003_estate_listing_ownership.sql`
 - **Docs:** `docs/PK_PRODUCT2_PHASE1_PLAN.md`, `docs/INTEGRATION_CONTRACT.md`, `docs/SAMPLE_ASSET_MANIFEST.md`, this report
 
 ## 13. Files changed
@@ -158,7 +158,7 @@ Full contract: `docs/INTEGRATION_CONTRACT.md`. The Estate-side "Promote this lis
 
 ## 14. Database migrations proposed
 
-`supabase/proposed/pk_0003_estate_listing_ownership.sql` (**not applied**) adds one additive trigger on `pk_tasks`. A client-created task referencing `estate_listing_id` must reference a listing that client owns.
+`supabase/migrations/pk_0003_estate_listing_ownership.sql` (**not applied**) adds one additive trigger on `pk_tasks`. A client-created task referencing `estate_listing_id` must reference a listing that client owns.
 
 **Dry run** on the live project (rolled back):
 - own listing: allowed
