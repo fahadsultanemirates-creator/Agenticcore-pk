@@ -85,3 +85,13 @@ Optional later additions, which need a new entry in `samples.json`:
 The listing-support artwork advertises "Pricing Guidance / Right Pricing", which no listing-support service (28, 49, 33) includes. It's therefore used only as the small decorative tile thumbnail (headline only, `alt=""`) and kept out of the gallery and service examples until corrected artwork arrives.
 
 Not installed: the WhatsApp catalogue artwork (fictional business name "Al Noor Properties", "Great Investment / Strong Returns / High Growth", typos "Locatioly", "Architecte", "Llayouts") and the site-progress reel artwork (not part of this request; a candidate to replace the progress-reel mock-up later).
+
+### Corrected replacements (owner-supplied, 1 Oct 2026)
+
+The three earlier versions were replaced in place (same filenames) and the obsolete `listing-support-480.webp` was deleted.
+
+| Sample | File | Thumbnail | Notes |
+|---|---|---|---|
+| Photo enhancement | `photo-enhancement.webp` 1600×900, 181 KB | `-800` 800×450, 80 KB | Rs 1,299 / up to 10 photos / Same Day: all match the catalogue (28-dfy, "Same day"). No results claims. |
+| Property landing page | `property-landing-page.webp` 1600×900, 176 KB | `-800` 800×450, 80 KB | From Rs 9,999 / Same Day match 15-dfy. Urdu typos in the price box ("في" for "فی", "ڈبلیوری" for "ڈیلیوری", a cut-off "پیش کرد"). |
+| Listing support | `listing-support.webp` 1200×501, 95 KB (crop 0–698 px of 1672×941) | `-600` 600×250, 37 KB | Tile only. The crop excludes the "From Rs 1,299 Per Listing" box: no catalogue line sells listing support per listing (the "from Rs 1,299" is 28-dfy, per 10 photos). It also excludes a garbled Urdu strip ("ربلما"). |

@@ -22,7 +22,7 @@
       "mock": { "kind": "post", "title": "Agency website", "place": "Listings, galleries and enquiry forms" } },
     { "id": "property-landing-page", "category": "web", "services": [15], "image": "images/samples/property-landing-page.webp", "width": 1600, "height": 900, "thumb": "images/samples/property-landing-page-800.webp", "thumbWidth": 800, "installed": true, "fit": "contain", "note": "sample_note_landing",
       "mock": { "kind": "post", "title": "Project landing page", "place": "Desktop and mobile" } },
-    { "id": "listing-support", "category": "property", "services": [], "image": "images/samples/listing-support.webp", "width": 800, "height": 882, "thumb": "images/samples/listing-support-480.webp", "thumbWidth": 480, "installed": true, "focus": "center top", "gallery": false,
+    { "id": "listing-support", "category": "property", "services": [], "image": "images/samples/listing-support.webp", "width": 1200, "height": 501, "thumb": "images/samples/listing-support-600.webp", "thumbWidth": 600, "installed": true, "gallery": false,
       "mock": { "kind": "post", "title": "Listing support", "place": "Photos, descriptions and portal listings" } },
     { "id": "progress-reel", "category": "video", "services": [27], "image": null, "installed": false,
       "mock": { "kind": "reel", "title": "Site progress · Week 32", "place": "Block C slab complete" } },
