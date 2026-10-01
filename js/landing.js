@@ -114,6 +114,8 @@ function pkInitForms() {
 
 /* ---------- Product 2.0 sections ---------- */
 const PK_OUT_ICONS = { flyer: '▤', whatsapp: '✆', social: '◫', brochure: '▥', reel: '▶', project: '⌂', website: '⌘', listing: '✓' };
+// "What we can create" tiles show the matching sample concept as a decorative thumbnail.
+const PK_OUT_SAMPLE = { flyer: 'property-flyer', whatsapp: 'whatsapp-property-card', social: 'social-property-post', brochure: 'property-brochure', reel: 'reel-cover', project: 'project-payment-plan' };
 const P2 = { intent: 'sell-property', what: null, goal: null, cat: 'all', pack: null };
 
 function pkRenderP2() {
@@ -123,27 +125,36 @@ function pkRenderP2() {
 
   // hero collage: four sample concepts
   // Hero collage prefers installed artwork; any sample not installed yet falls back to its mock-up.
-  const heroIds = D.samples.samples.filter(function (x) { return x.installed && !x.live; }).map(function (x) { return x.id; })
-    .concat(['property-flyer', 'whatsapp-property-card', 'social-property-post', 'reel-cover']).filter(function (id, i, a) { return a.indexOf(id) === i; }).slice(0, 4);
+  const heroIds = ['property-flyer', 'whatsapp-property-card', 'social-property-post', 'reel-cover'];
   document.getElementById('heroCollage').innerHTML = heroIds.map(byId).filter(Boolean).map(function (smp, i) {
-    return '<figure class="col-tile col-' + i + '">' + pkSampleVisualHtml(smp, { eager: true }) + '<figcaption><span class="sample-tag">' + escapeHtml(pkT('proof_sample_label')) + '</span> ' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
+    return '<figure class="col-tile col-' + i + '">' + pkSampleVisualHtml(smp, { eager: true, sizes: '(min-width: 960px) 240px, 46vw' }) + '<figcaption><span class="sample-tag">' + escapeHtml(pkT('proof_sample_label')) + '</span> ' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
   }).join('');
 
   // Pack: a compact preview of what the outputs look like (installed sample concepts only).
   const pv = document.getElementById('packPreview');
   if (pv) {
-    const shots = D.samples.samples.filter(function (x) { return x.installed && !x.live; }).slice(0, 4);
+    // The pack's own outputs first: WhatsApp card, offer post, QR flyer, reel.
+    const shots = ['whatsapp-property-card', 'social-property-post', 'property-flyer', 'reel-cover'].map(byId).filter(function (x) { return x && x.installed; });
     pv.hidden = !shots.length;
     pv.innerHTML = shots.map(function (smp) {
-      return '<figure class="pv-tile">' + pkSampleVisualHtml(smp) + '<figcaption>' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
-    }).join('') + '<p class="tiny pv-note">' + escapeHtml(pkT('pack_preview_note')) + '</p>';
+      return '<figure class="pv-tile">' + pkSampleVisualHtml(smp, { sizes: '(min-width: 960px) 200px, 46vw' }) + '<figcaption>' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
+    }).join('');
+    // The note sits below the strip, not inside it (on phones the strip scrolls sideways).
+    let note = pv.nextElementSibling;
+    if (!note || !note.classList.contains('pv-note')) { note = document.createElement('p'); note.className = 'tiny pv-note'; pv.after(note); }
+    note.textContent = pkT('pack_preview_note');
+    note.hidden = !shots.length;
   }
 
   // output strip
   document.getElementById('outStrip').innerHTML = D.discovery.outputs.map(function (o) {
     const svcs = o.services.map(pkService).filter(Boolean);
     const from = Math.min.apply(null, svcs.map(function (s) { return PkCatalogCore.fromPrice(s); }));
-    return '<a class="out-tile" href="#need" data-intent-go="' + escapeHtml(o.intent) + '"><span class="out-ic" aria-hidden="true">' + PK_OUT_ICONS[o.key] + '</span>' +
+    const smp = byId(PK_OUT_SAMPLE[o.key]);
+    const thumb = smp && smp.installed && smp.thumb
+      ? '<img class="out-thumb" src="' + escapeHtml(smp.thumb) + '" alt="" width="' + smp.thumbWidth + '" height="' + Math.round(smp.thumbWidth * smp.height / smp.width) + '" loading="lazy" decoding="async"' + ' style="object-position:' + (smp.width > smp.height ? 'left center' : (smp.focus || 'center top')) + '"' + '>'
+      : '';
+    return '<a class="out-tile' + (thumb ? ' has-thumb' : '') + '" href="#need" data-intent-go="' + escapeHtml(o.intent) + '">' + thumb + '<span class="out-ic" aria-hidden="true">' + PK_OUT_ICONS[o.key] + '</span>' +
       '<span class="out-name">' + escapeHtml(pkT('out_' + o.key)) + '</span><span class="out-from">' + escapeHtml(pkT('svc_from')) + ' ' + Rs(from) + '</span></a>';
   }).join('');
 
