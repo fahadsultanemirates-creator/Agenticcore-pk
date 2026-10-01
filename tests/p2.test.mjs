@@ -162,11 +162,21 @@ test('installed samples: file exists, width/height are its REAL pixel size, alt 
     assert.ok(fs.statSync(new URL(s.image, root)).size <= 200 * 1024, s.id + ' should be ≤ 200 KB');
     both('alt_' + s.id);
     assert.match(EN['alt_' + s.id], /^Sample concept/, s.id + ' alt text must disclose it is a sample');
+    if (s.thumb) {
+      // the thumbnail is a smaller copy of the same artwork: same aspect ratio, never larger
+      assert.ok(/^images\/samples\/[a-z0-9-]+\.webp$/.test(s.thumb), s.id + ' thumb must be a WebP under images/samples/');
+      const t = imageSize(s.thumb);
+      assert.equal(t.w, s.thumbWidth, s.id + ' thumbWidth must match the thumb file');
+      assert.ok(t.w < s.width, s.id + ' thumb must be smaller than the full image');
+      assert.ok(Math.abs(t.w / t.h - s.width / s.height) < 0.01, s.id + ' thumb must keep the aspect ratio (no stretching)');
+      assert.ok(fs.statSync(new URL(s.thumb, root)).size <= 120 * 1024, s.id + ' thumb should be ≤ 120 KB');
+    }
+    if (s.note) both(s.note);
   }
   both('sample_illustrative');
   // every installed file is referenced, and nothing unreferenced was shipped
   const shipped = fs.readdirSync(new URL('images/samples/', root)).map((f) => 'images/samples/' + f);
-  for (const f of shipped) assert.ok(installed.some((s) => s.image === f), f + ' is not referenced by an installed sample');
+  for (const f of shipped) assert.ok(installed.some((s) => s.image === f || s.thumb === f), f + ' is not referenced by an installed sample');
 });
 
 test('rendered samples always carry the sample label', () => {
@@ -175,6 +185,12 @@ test('rendered samples always carry the sample label', () => {
   assert.match(read('js/discovery.js'), /<figcaption><span class="sample-tag">/, 'gallery captions carry the sample tag');
   assert.match(read('js/landing.js'), /col-tile[^\n]+sample-tag/, 'hero tiles carry the sample tag');
   assert.match(src, /sample_illustrative/);
+  // the payment plan's figures and the reel's play button carry their own extra disclosure
+  const byId = Object.fromEntries(samples.samples.map((s) => [s.id, s]));
+  assert.equal(byId['project-payment-plan'].note, 'sample_note_plan');
+  assert.match(EN.sample_note_plan, /illustrative/i);
+  assert.equal(byId['reel-cover'].note, 'sample_note_reel');
+  assert.match(EN.sample_note_reel, /no video/i);
 });
 
 test('OG / Twitter share image exists at 1200x630 and every public page points to it', () => {

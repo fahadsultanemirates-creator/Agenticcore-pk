@@ -2,36 +2,42 @@
 
 The "See what we can create" gallery, the hero collage and the service detail examples all read `data/samples.json`.
 
-**Current state (visual pass, 1 Oct 2026)**
+**Current state (final full-resolution pass, 1 Oct 2026)**
 
-The approved master board (1536×1024) was audited panel by panel. Four panels passed QA and are installed at their **native resolution**: no upscaling, and `width`/`height` in `samples.json` are the real pixel sizes. They are thumbnail-grade, which suits the 150–240 px tiles on the site but not print or full-screen use. Full-resolution exports (sizes below) can replace them without code changes.
+Six standalone sample artworks supplied by the owner replace the earlier board crops and CSS mock-ups. They were not extracted from a board, upscaled or redesigned. Each was only downscaled where needed (aspect ratio kept, never stretched) and exported as WebP at most 200 KB. A smaller thumbnail of the same artwork is used through `srcset` in tiles. `width`/`height` in `samples.json` are the real pixel sizes, and `tests/p2.test.mjs` checks them against the files.
 
-| Sample | File | Real size | Size on disk | Notes |
-|---|---|---|---|---|
-| WhatsApp property card | `images/samples/whatsapp-property-card.webp` | 328×499 | 48 KB | Placeholder phone "0300 123 4567" and slightly garbled "Chat on WhatsApp" replaced with "Sample concept / Illustrative details" |
-| Social post | `images/samples/social-property-post.webp` | 333×456 | 40 KB | Portrait as designed on the board (the manifest asked for 1:1) |
-| Property brochure | `images/samples/property-brochure.webp` | 466×481 | 53 KB | Book on white; shown on a white tile |
-| Reel cover | `images/samples/reel-cover.webp` | 626×242 | 42 KB | Shown whole (letterboxed) so the title is never cropped |
-| Share image | `images/og-share.jpg` | 1200×630 | 142 KB | Rebuilt at full size with the **real** logo file, site fonts and two of the sample concepts above; not cropped from panel 8 |
+| Sample | Full file (real size, weight) | Thumbnail | Source upload | Display | Extra disclosure |
+|---|---|---|---|---|---|
+| Property flyer: "Showcase Your Property at Its Best" | `property-flyer.webp` 1080×1350, 193 KB | `-600` 600×750, 74 KB | 1122×1402 | cover, top | – |
+| WhatsApp card: "List Your Property with Ease" | `whatsapp-property-card.webp` 1080×1350, 179 KB | `-600` 600×750, 72 KB | 1122×1402 | cover, top | Alt text says it is illustrative, not a real listing or WhatsApp screenshot |
+| Social post: "Premium Properties Deserve Premium Marketing" | `social-property-post.webp` 1080×1080, 196 KB | `-640` 640×640, 70 KB | 1254×1254 | cover, top | – |
+| Brochure: "Exceptional Properties — Expert Marketing" | `property-brochure.webp` 1492×1054 (native), 199 KB | `-800` 800×565, 82 KB | 1492×1054 | contain | – |
+| Payment plan: "Flexible Payment Plan" | `project-payment-plan.webp` 1600×900, 194 KB | `-800` 800×450, 66 KB | 1672×941 | contain | `sample_note_plan`: figures illustrative, not a real project, price or offer (the artwork also says so) |
+| Reel cover: "Premium Properties — For a Brighter Tomorrow" | `reel-cover.webp` 1280×720, 194 KB | `-800` 800×450, 68 KB | 1672×941 | contain | `sample_note_reel`: cover artwork only, no video behind the play button (no video link exists) |
+| Share image | `images/og-share.jpg` 1200×630, 167 KB | – | – | – | Rebuilt with the real logo and the new post and brochure, downscaled only |
 
-**Kept as CSS mock-ups (rejected panels):**
+All files are under `images/samples/`. The embedded AgenticCore logos and the "Sample Concept" corner tags in the artwork are kept as supplied. The site adds its own "Sample concept" label and the "Illustrative details — not a real listing or offer" line.
 
-| Panel | Why |
-|---|---|
-| Property flyer | Garbled AI text ("HOMЦS", "2?V Lounges", "23r Near Park & Mosque"), a non-functional AI-drawn QR code, and the placeholder phone number |
-| Project payment plan | "High ROI" (an investment claim), garbled "Tomorrov", inconsistent "15% / 19%" on possession, and table text unreadable at web size |
-| Workflow banner | "Get More Leads and Better Results" conflicts with the site's no-lead-promise policy; garbled text on the phone screens; unreadable on mobile. The site's HTML workflow section does this job. |
-| Share-image panel 8 | "Webiste Solutions" typo; 599×180 at 3.3:1 can't become 1200×630 without stretching or upscaling |
+**Where they appear (all data-driven from `data/samples.json`):**
+- hero collage: flyer, WhatsApp card, post, reel
+- "What we can create": decorative thumbnails on flyer, WhatsApp, social, brochure, reel and project tiles
+- Property Marketing Pack preview: WhatsApp card, post, flyer, reel
+- sample gallery: all six, each with "View full size", which opens the image file itself
+- service detail "Example" sections (services 4, 6, 7, 10, 11, 22, 23, 31)
 
-**Not used:** the earlier reference board (samples 1–8, first message) is not used on the site, as instructed.
+**Wording inside the artwork worth an owner review** (soft brand claims, not results or guarantees): "Trusted & Professional" (WhatsApp card footer), "Secure Investment" (payment plan footer) and "Pakistan's Real Estate Growth Partner" (several footers). They were left unchanged because this pass doesn't edit artwork.
+
+**Still CSS mock-ups:** progress reel, WhatsApp catalogue, approval kit, Estate QR card (a live feature).
+
+**Not used:** the reference boards (first message and the master board) are not used on the site, as instructed.
 
 ## How to install an image
 
-1. Save the file at the exact path below (WebP, sRGB). Keep the "source" size and export a copy at most 200 KB where possible.
-2. In `data/samples.json`, set `"installed": true` for that entry. Keep `width`/`height` equal to the file's real size.
+1. Save the file under `images/samples/` (WebP, sRGB, at most 200 KB; downscale only, never stretch). Optionally add a smaller thumbnail with the same aspect ratio (at most 120 KB).
+2. In `data/samples.json`, set `"installed": true`, `width`/`height` to the file's real size, and `thumb`/`thumbWidth` if there is a thumbnail. Add `alt_<id>` in English and Urdu in `js/i18n-p2.js`.
 3. Deploy. The mock-up is replaced automatically; the "Sample concept" label stays.
 
-`tests/p2.test.mjs` fails if a sample is marked installed but its file is missing.
+`tests/p2.test.mjs` fails if a file is missing, if a size doesn't match, if a thumbnail changes the aspect ratio, if alt text is missing, or if an unreferenced file is shipped.
 
 ## Rules for every sample
 
@@ -41,7 +47,7 @@ The approved master board (1536×1024) was audited panel by panel. Four panels p
 - A "Listed on AgenticCore Estate" mark and QR are fine; the QR should point to `https://agenticcore.estate`, not a fake listing.
 - No approval, NOC or government claims unless marked as an example (as in the approval-kit mock-up).
 
-## Files needed
+## Original file brief (now delivered, except the optional workflow image)
 
 | # | Path | Size (source) | Shows | Alt text (EN) | Used in |
 |---|---|---|---|---|---|
@@ -62,6 +68,7 @@ Optional later additions, which need a new entry in `samples.json`:
 
 ## Performance
 
-- The gallery images are `loading="lazy"` with explicit `width`/`height`, so there's no layout shift.
-- Cards show them at about 240 px tall with `object-fit: cover`, so a 1080-wide WebP around 120–200 KB is plenty.
+- Every image has explicit `width`/`height`, so there's no layout shift (measured CLS 0 at 390 px and 0.02 at 1280 px).
+- Gallery, pack and out-strip images are `loading="lazy"`. The four hero images are eager but `fetchpriority="low"`, because the measured LCP element is the hero text, not an image.
+- `srcset` serves the thumbnail in tiles. The full file loads only where the tile is wide enough on a high-DPI screen, or through "View full size".
 - Don't use the full reference collage as a background.

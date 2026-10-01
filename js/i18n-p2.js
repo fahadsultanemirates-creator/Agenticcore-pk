@@ -276,10 +276,15 @@ Object.assign(PK_I18N.ur, {
 
 // Visual asset pass: alt text, disclosures, Estate ↔ Pakistan roles
 Object.assign(PK_I18N.en, {
-  'alt_whatsapp-property-card': 'Sample concept: WhatsApp property card for a 10 marla house, with photo, room details, interior thumbnails and price',
-  'alt_social-property-post': 'Sample concept: social media post for property in Pakistan with a modern house at dusk and property categories',
-  'alt_property-brochure': 'Sample concept: open property brochure with cover, interior photos and property highlights',
-  'alt_reel-cover': 'Sample concept: video thumbnail for a house tour reel with play button and room details',
+  'alt_property-flyer': 'Sample concept: property marketing flyer headed "Showcase Your Property at Its Best", with a modern house at dusk, service icons and a strip of property types',
+  'alt_whatsapp-property-card': 'Sample concept: "List Your Property with Ease" artwork showing an illustrative WhatsApp-style property card on a phone beside a modern house — not a real listing',
+  'alt_social-property-post': 'Sample concept: square social media post headed "Premium Properties Deserve Premium Marketing", with a modern house and pool at dusk',
+  'alt_property-brochure': 'Sample concept: open property brochure spread headed "Exceptional Properties — Expert Marketing", with interior photos and feature highlights',
+  'alt_project-payment-plan': 'Sample concept: "Flexible Payment Plan" layout with a payment table (booking, confirmation, construction and possession instalments) — illustrative figures, not a real offer',
+  'alt_reel-cover': 'Sample concept: video reel cover headed "Premium Properties — For a Brighter Tomorrow", with a play button as artwork only',
+  'sample_note_plan': 'Payment-plan figures are illustrative only — not a real project, price or offer.',
+  'sample_note_reel': 'Cover artwork only — there is no video behind the play button.',
+  'smp_full': 'View full size',
   sample_illustrative: 'Illustrative details — not a real listing or offer.',
   pack_preview_note: 'Sample concepts showing the kind of work in a pack. Your outputs use your property, photos and branding.',
   es_verbs_estate: 'List · Find · Improve · Share', es_role_estate: 'Where buyers find your property',
@@ -287,10 +292,15 @@ Object.assign(PK_I18N.en, {
   es_loop: 'List it → Improve it → Share it → Market it'
 });
 Object.assign(PK_I18N.ur, {
-  'alt_whatsapp-property-card': 'نمونہ تصور: 10 مرلہ گھر کا واٹس ایپ پراپرٹی کارڈ، تصویر، کمروں کی تفصیل، اندرونی تصاویر اور قیمت کے ساتھ',
-  'alt_social-property-post': 'نمونہ تصور: پاکستان میں جائیداد کی سوشل میڈیا پوسٹ، شام کے وقت جدید گھر اور جائیداد کی اقسام کے ساتھ',
-  'alt_property-brochure': 'نمونہ تصور: کھلا ہوا پراپرٹی بروشر، سرورق، اندرونی تصاویر اور نمایاں خصوصیات کے ساتھ',
-  'alt_reel-cover': 'نمونہ تصور: گھر کے ٹور کی ریل کا ویڈیو تھمب نیل، پلے بٹن اور کمروں کی تفصیل کے ساتھ',
+  'alt_property-flyer': 'نمونہ تصور: پراپرٹی مارکیٹنگ فلائر جس کا عنوان "Showcase Your Property at Its Best" ہے، شام کے وقت جدید گھر، سروس آئیکنز اور جائیداد کی اقسام کے ساتھ',
+  'alt_whatsapp-property-card': 'نمونہ تصور: "List Your Property with Ease" ڈیزائن، جس میں فون پر واٹس ایپ طرز کا مثالی پراپرٹی کارڈ اور جدید گھر دکھایا گیا ہے — کوئی حقیقی لسٹنگ نہیں',
+  'alt_social-property-post': 'نمونہ تصور: مربع سوشل میڈیا پوسٹ جس کا عنوان "Premium Properties Deserve Premium Marketing" ہے، شام کے وقت جدید گھر اور سوئمنگ پول کے ساتھ',
+  'alt_property-brochure': 'نمونہ تصور: کھلا ہوا پراپرٹی بروشر جس کا عنوان "Exceptional Properties — Expert Marketing" ہے، اندرونی تصاویر اور نمایاں خصوصیات کے ساتھ',
+  'alt_project-payment-plan': 'نمونہ تصور: "Flexible Payment Plan" ڈیزائن، بکنگ، تصدیق، تعمیر اور قبضے کی اقساط کے جدول کے ساتھ — مثالی اعداد، کوئی حقیقی پیشکش نہیں',
+  'alt_reel-cover': 'نمونہ تصور: ویڈیو ریل کور جس کا عنوان "Premium Properties — For a Brighter Tomorrow" ہے، پلے بٹن صرف ڈیزائن کا حصہ ہے',
+  'sample_note_plan': 'ادائیگی پلان کے اعداد صرف مثالی ہیں — کوئی حقیقی پروجیکٹ، قیمت یا پیشکش نہیں۔',
+  'sample_note_reel': 'صرف کور ڈیزائن — پلے بٹن کے پیچھے کوئی ویڈیو نہیں۔',
+  'smp_full': 'پورے سائز میں دیکھیں',
   sample_illustrative: 'مثالی تفصیلات — کوئی حقیقی لسٹنگ یا پیشکش نہیں۔',
   pack_preview_note: 'نمونہ تصورات جو بتاتے ہیں کہ پیک میں کس قسم کا کام ہوتا ہے۔ آپ کے کام میں آپ کی جائیداد، تصاویر اور برانڈنگ استعمال ہوتی ہے۔',
   es_verbs_estate: 'لسٹ · تلاش · بہتر · شیئر', es_role_estate: 'جہاں خریدار آپ کی جائیداد ڈھونڈتے ہیں',

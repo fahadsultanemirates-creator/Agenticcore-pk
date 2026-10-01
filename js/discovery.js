@@ -69,13 +69,16 @@ function pkMockHtml(m) {
 }
 
 // Installed sample artwork: real pixel size in width/height (no layout shift), lazy by
-// default, a visible on-image "Sample concept" badge, and alt text from the i18n files.
+// default, a smaller "thumb" in srcset for tiles, a visible on-image "Sample concept"
+// badge, and alt text from the i18n files.
+const PK_SMP_SIZES = '(min-width: 960px) 360px, (min-width: 600px) 46vw, 92vw';
 function pkSampleVisualHtml(s, opts) {
   opts = opts || {};
   if (s.installed && s.image) {
     const style = [s.focus ? 'object-position:' + s.focus : '', s.fit ? 'object-fit:' + s.fit : ''].filter(Boolean).join(';');
+    const srcset = s.thumb && s.thumbWidth ? ' srcset="' + escapeHtml(s.thumb) + ' ' + s.thumbWidth + 'w, ' + escapeHtml(s.image) + ' ' + s.width + 'w" sizes="' + (opts.sizes || PK_SMP_SIZES) + '"' : '';
     return '<div class="smp-img' + (s.light ? ' light' : '') + '">' +
-      '<img src="' + escapeHtml(s.image) + '" alt="' + escapeHtml(pkT('alt_' + s.id)) + '" width="' + s.width + '" height="' + s.height + '"' +
+      '<img src="' + escapeHtml(s.thumb || s.image) + '"' + srcset + ' alt="' + escapeHtml(pkT('alt_' + s.id)) + '" width="' + s.width + '" height="' + s.height + '"' +
         (opts.eager ? ' fetchpriority="low" decoding="async"' : ' loading="lazy" decoding="async"') + (style ? ' style="' + style + '"' : '') + '>' +
       '<span class="smp-badge">' + escapeHtml(pkT('proof_sample_label')) + '</span></div>';
   }
@@ -87,8 +90,9 @@ function pkSampleCardHtml(s) {
   return '<figure class="smp" data-cat="' + escapeHtml(s.category) + '">' +
     '<div class="smp-vis">' + pkSampleVisualHtml(s) + '</div>' +
     '<figcaption><span class="sample-tag">' + escapeHtml(pkT(s.live ? 'sample_live_tag' : 'proof_sample_label')) + '</span> ' + escapeHtml(pkT('sample_' + s.id)) +
-      (s.live ? '' : '<span class="smp-note">' + escapeHtml(pkT('sample_illustrative')) + '</span>') +
+      (s.live ? '' : '<span class="smp-note">' + escapeHtml(pkT('sample_illustrative')) + (s.note ? ' ' + escapeHtml(pkT(s.note)) : '') + '</span>') +
       (svc ? '<button type="button" class="smp-link" data-svc="' + svc.no + '">' + escapeHtml(pkT('p2_see_service')) + ' (' + svc.no + ') · ' + escapeHtml(pkServicePriceLabel(svc)) + '</button>' : '') +
+      (s.installed && s.image && !s.live ? '<a class="smp-link" href="' + escapeHtml(s.image) + '" target="_blank" rel="noopener">' + escapeHtml(pkT('smp_full')) + ' ↗</a>' : '') +
       (s.live ? '<a class="smp-link" href="' + PK_CONFIG.estateUrl + '">' + escapeHtml(pkT('p2_on_estate')) + ' ↗</a>' : '') +
     '</figcaption></figure>';
 }
