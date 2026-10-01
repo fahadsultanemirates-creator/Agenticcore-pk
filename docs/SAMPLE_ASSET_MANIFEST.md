@@ -72,3 +72,16 @@ Optional later additions, which need a new entry in `samples.json`:
 - Gallery, pack and out-strip images are `loading="lazy"`. The four hero images are eager but `fetchpriority="low"`, because the measured LCP element is the hero text, not an image.
 - `srcset` serves the thumbnail in tiles. The full file loads only where the tile is wide enough on a high-DPI screen, or through "View full size".
 - Don't use the full reference collage as a background.
+
+## Entry-service visuals (1 Oct 2026, branch `claude/pk-entry-services-visuals`)
+
+| Sample | File (real size, weight) | Thumbnail | Source | Where | Extra disclosure |
+|---|---|---|---|---|---|
+| Listing photo enhancement | `photo-enhancement.webp` 1600×900, 186 KB | `-800` 800×450, 85 KB | 1672×941 | gallery (Property), service 28 example | `sample_note_photos`: before/after is illustrative, not client photos |
+| Agency website | `website-design.webp` 800×882 (native), 130 KB | `-480` 480×529, 65 KB | left panel of a 1672×941 two-panel image | "Website" tile, gallery (Websites & pages), service 14 example | – |
+| Property landing page | `property-landing-page.webp` 1600×900, 196 KB | `-800` 800×450, 98 KB | 1672×941 | gallery (Websites & pages), service 15 example | `sample_note_landing`: not a real project, location, price or offer |
+| Listing support | `listing-support.webp` 800×882 (native), 110 KB | `-480` 480×529, 56 KB | right panel of the same two-panel image | "Listing support" tile only (`gallery: false`) | – |
+
+The listing-support artwork advertises "Pricing Guidance / Right Pricing", which no listing-support service (28, 49, 33) includes. It's therefore used only as the small decorative tile thumbnail (headline only, `alt=""`) and kept out of the gallery and service examples until corrected artwork arrives.
+
+Not installed: the WhatsApp catalogue artwork (fictional business name "Al Noor Properties", "Great Investment / Strong Returns / High Growth", typos "Locatioly", "Architecte", "Llayouts") and the site-progress reel artwork (not part of this request; a candidate to replace the progress-reel mock-up later).

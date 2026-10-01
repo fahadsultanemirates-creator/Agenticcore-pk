@@ -206,3 +206,27 @@ test('OG / Twitter share image exists at 1200x630 and every public page points t
     assert.ok(!/og:image" content="https:\/\/agenticcore\.estate/.test(html), page + ' must not use the Estate icon as its share image');
   }
 });
+
+test('approved entry-service prices (owner-approved 1 Oct 2026) stay in the catalogue', () => {
+  const svc = JSON.parse(read('data/services.json'));
+  const price = Object.fromEntries(svc.services.flatMap((s) => s.lines.map((l) => [l.id, l.price])));
+  const approved = { '11-dfy': 999, '28-dfy': 1299, '37-dfy': 1599, '7-one': 1999, '10-dfy': 1999, '22-dfy': 2499, '25-plan': 3499, '23-dfy': 3999, '7-cat': 4499, '15-dfy': 9999 };
+  for (const [id, p] of Object.entries(approved)) assert.equal(price[id], p, id + ' should be Rs ' + p);
+  // "Listing support" tile = services 28 / 49 / 33, shown "from" the cheapest line (Rs 1,299)
+  const from = Math.min(...[28, 49, 33].flatMap((n) => svc.services.find((s) => s.no === n).lines.map((l) => l.price)));
+  assert.equal(from, 1299);
+});
+
+test('every "What we can create" tile has installed sample artwork; tile-only art stays out of the gallery', () => {
+  const src = read('js/landing.js');
+  const map = Object.fromEntries([...src.match(/PK_OUT_SAMPLE = \{([^}]+)\}/)[1].matchAll(/(\w+): '([a-z0-9-]+)'/g)].map((m) => [m[1], m[2]]));
+  const disc = JSON.parse(read('data/discovery.json'));
+  for (const o of disc.outputs) {
+    const s = samples.samples.find((x) => x.id === map[o.key]);
+    assert.ok(s && s.installed && s.thumb, 'tile ' + o.key + ' needs installed artwork with a thumbnail');
+  }
+  for (const s of samples.samples.filter((x) => x.gallery === false)) assert.deepEqual(s.services, [], s.id + ' is tile-only, so no service examples');
+  assert.match(src, /x\.gallery !== false && \(P2\.cat/);
+  assert.match(read('js/discovery.js'), /x\.gallery !== false && \(x\.services/);
+  for (const c of samples.meta.categories) both('smp_cat_' + c);
+});

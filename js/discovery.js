@@ -178,7 +178,7 @@ function pkServiceDetailHtml(no) {
   const pkgs = D.packages.packages.filter(function (p) {
     return (p.monthly_items || []).concat(p.setup_items || []).some(function (it) { return it.service === no; });
   });
-  const samples = (D.samples ? D.samples.samples : []).filter(function (x) { return (x.services || []).indexOf(no) >= 0; }).slice(0, 2);
+  const samples = (D.samples ? D.samples.samples : []).filter(function (x) { return x.gallery !== false && (x.services || []).indexOf(no) >= 0; }).slice(0, 2);
   const line = pkFirstLine(s);
   return '<div class="sd">' +
     '<div class="sd-head"><span class="svc-card-no">(' + s.no + ')</span><h3 id="sdTitle">' + escapeHtml(pkPick(s, 'name')) + '</h3>' +
