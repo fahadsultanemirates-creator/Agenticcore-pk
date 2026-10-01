@@ -131,3 +131,62 @@ test('catalogue totals still validate', () => {
   const out = require('child_process').execFileSync(process.execPath, ['scripts/validate-data.mjs'], { cwd: new URL('.', root).pathname }).toString();
   assert.match(out, /OK: 56 services, 73 price lines, 5 packages/);
 });
+
+// ---------- visual asset pass ----------
+function imageSize(file) {
+  const b = fs.readFileSync(new URL(file, root));
+  if (b.toString('ascii', 0, 4) === 'RIFF' && b.toString('ascii', 8, 12) === 'WEBP') {
+    const kind = b.toString('ascii', 12, 16);
+    if (kind === 'VP8X') return { w: 1 + b.readUIntLE(24, 3), h: 1 + b.readUIntLE(27, 3) };
+    if (kind === 'VP8L') { const n = b.readUInt32LE(21); return { w: 1 + (n & 0x3fff), h: 1 + ((n >> 14) & 0x3fff) }; }
+    if (kind === 'VP8 ') return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff };
+  }
+  if (b[0] === 0xff && b[1] === 0xd8) {
+    let i = 2;
+    while (i < b.length) {
+      const marker = b[i + 1], len = b.readUInt16BE(i + 2);
+      if (marker >= 0xc0 && marker <= 0xc3) return { w: b.readUInt16BE(i + 7), h: b.readUInt16BE(i + 5) };
+      i += 2 + len;
+    }
+  }
+  throw new Error('unknown image format: ' + file);
+}
+
+test('installed samples: file exists, width/height are its REAL pixel size, alt text in EN+UR, light weight', () => {
+  const installed = samples.samples.filter((s) => s.installed);
+  assert.ok(installed.length >= 1, 'expected at least one installed sample');
+  for (const s of installed) {
+    assert.ok(/^images\/samples\/[a-z0-9-]+\.webp$/.test(s.image), s.id + ' must be a WebP under images/samples/');
+    const size = imageSize(s.image);
+    assert.deepEqual(size, { w: s.width, h: s.height }, s.id + ' width/height must match the file');
+    assert.ok(fs.statSync(new URL(s.image, root)).size <= 200 * 1024, s.id + ' should be ≤ 200 KB');
+    both('alt_' + s.id);
+    assert.match(EN['alt_' + s.id], /^Sample concept/, s.id + ' alt text must disclose it is a sample');
+  }
+  both('sample_illustrative');
+  // every installed file is referenced, and nothing unreferenced was shipped
+  const shipped = fs.readdirSync(new URL('images/samples/', root)).map((f) => 'images/samples/' + f);
+  for (const f of shipped) assert.ok(installed.some((s) => s.image === f), f + ' is not referenced by an installed sample');
+});
+
+test('rendered samples always carry the sample label', () => {
+  const src = read('js/discovery.js');
+  assert.match(src, /smp-badge[^\n]+proof_sample_label/, 'installed images need the on-image badge');
+  assert.match(read('js/discovery.js'), /<figcaption><span class="sample-tag">/, 'gallery captions carry the sample tag');
+  assert.match(read('js/landing.js'), /col-tile[^\n]+sample-tag/, 'hero tiles carry the sample tag');
+  assert.match(src, /sample_illustrative/);
+});
+
+test('OG / Twitter share image exists at 1200x630 and every public page points to it', () => {
+  const size = imageSize('images/og-share.jpg');
+  assert.deepEqual(size, { w: 1200, h: 630 });
+  assert.ok(fs.statSync(new URL('images/og-share.jpg', root)).size <= 200 * 1024);
+  for (const page of ['index.html', 'services.html', 'create.html']) {
+    const html = read(page);
+    assert.match(html, /<meta property="og:image" content="https:\/\/[^"]+\/images\/og-share\.jpg">/, page + ' og:image');
+    assert.match(html, /<meta name="twitter:card" content="summary_large_image">/, page + ' twitter:card');
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/[^"]+\/images\/og-share\.jpg">/, page + ' twitter:image');
+    assert.match(html, /og:image:width" content="1200"[\s\S]*og:image:height" content="630"/, page + ' og:image size');
+    assert.ok(!/og:image" content="https:\/\/agenticcore\.estate/.test(html), page + ' must not use the Estate icon as its share image');
+  }
+});

@@ -222,3 +222,53 @@ html[dir="rtl"] .sd-close { margin: -8px 0 0 -8px; }
 .kit-explain { margin-bottom: 0.4rem; }
 .dk-tag { font-size: 0.75rem; padding: 1px 7px; border-radius: 999px; background: rgba(212,175,55,0.12); color: var(--accent-gold-bright); }
 .review-box .total { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+
+/* ---------- installed sample artwork ---------- */
+.smp-img { position: relative; height: 240px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-subtle); background: #050B1A; }
+.smp-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.smp-img.light { background: #fff; }
+.smp-img.light img { object-fit: contain; }
+.smp-badge { position: absolute; bottom: 8px; inset-inline-start: 8px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.02em; padding: 2px 8px; border-radius: 999px; background: rgba(5,11,26,0.82); color: var(--accent-gold-bright); border: 1px solid rgba(212,175,55,0.6); pointer-events: none; }
+.smp-note { font-size: 0.75rem; color: var(--text-tertiary); }
+.col-tile .smp-img { height: 170px; }
+@media (min-width: 960px) { .col-tile .smp-img { height: 210px; } }
+.sd-samples .smp-img { height: 180px; }
+
+/* pack: preview of outputs */
+.pack-preview { display: grid; grid-auto-flow: column; grid-auto-columns: 46%; gap: 0.6rem; overflow-x: auto; scroll-snap-type: x mandatory; margin-bottom: var(--space-sm); padding-bottom: 4px; }
+.pack-preview > * { scroll-snap-align: start; }
+@media (min-width: 720px) { .pack-preview { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; } }
+.pv-tile { margin: 0; min-width: 0; }
+.pv-tile .smp-img { height: 150px; }
+.pv-tile figcaption { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem; }
+.pv-note { grid-column: 1 / -1; color: var(--text-tertiary); }
+
+/* Estate ↔ Pakistan */
+.es-duo { display: grid; gap: 0.6rem; align-items: stretch; margin-bottom: 0.6rem; }
+@media (min-width: 720px) { .es-duo { grid-template-columns: 1fr auto 1fr; } }
+.es-prod { display: grid; gap: 0.15rem; padding: 0.9rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: var(--bg-primary); }
+.es-prod.estate { border-color: rgba(63,174,123,0.55); }
+.es-prod.pk { border-color: rgba(212,175,55,0.6); }
+.es-name { font-family: var(--font-display); font-weight: 700; }
+.es-prod.estate .es-verbs { color: #8BE3B8; font-weight: 600; }
+.es-prod.pk .es-verbs { color: var(--accent-gold-bright); font-weight: 600; }
+.es-link { display: flex; align-items: center; justify-content: center; color: var(--text-tertiary); font-size: 1.4rem; }
+.es-loop { text-align: center; font-weight: 600; color: var(--text-secondary); margin-bottom: var(--space-md); }
+
+/* Desktop nav: keep items on one line now that it has five links */
+@media (min-width: 961px) {
+  .nav-links { gap: 1.1rem; }
+  .nav-links a, .nav-cta .btn { white-space: nowrap; }
+  .nav-right { gap: 1rem; }
+}
+@media (min-width: 961px) and (max-width: 1180px) { .nav-links { font-size: 0.88rem; gap: 0.8rem; } }
+.smp figcaption .sample-tag { justify-self: start; }
+/* On-image badge only where the caption doesn't already carry the "Sample concept" tag */
+.col-tile .smp-badge, .smp .smp-badge { display: none; }
+/* English catalogue text inside Urdu (RTL) pages keeps its own direction */
+html[dir="rtl"] :is(.svc-card-brief, .svc-card-name, .sd .brief, .price-line, .pack-opt-name, .smp-note) { unicode-bidi: plaintext; }
+/* Reserve space for script-rendered blocks so the page doesn't jump (CLS) */
+#site-header:empty { min-height: 61px; }
+.out-strip:empty { min-height: 102px; }
+.p2-collage:empty { min-height: 460px; }
+@media (min-width: 960px) { .p2-collage:empty { min-height: 540px; } }

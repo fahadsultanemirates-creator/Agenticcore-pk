@@ -122,9 +122,22 @@ function pkRenderP2() {
   const byId = function (id) { return D.samples.samples.find(function (x) { return x.id === id; }); };
 
   // hero collage: four sample concepts
-  document.getElementById('heroCollage').innerHTML = ['property-flyer', 'whatsapp-property-card', 'social-property-post', 'reel-cover'].map(byId).filter(Boolean).map(function (smp, i) {
-    return '<figure class="col-tile col-' + i + '">' + pkSampleVisualHtml(smp) + '<figcaption><span class="sample-tag">' + escapeHtml(pkT('proof_sample_label')) + '</span> ' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
+  // Hero collage prefers installed artwork; any sample not installed yet falls back to its mock-up.
+  const heroIds = D.samples.samples.filter(function (x) { return x.installed && !x.live; }).map(function (x) { return x.id; })
+    .concat(['property-flyer', 'whatsapp-property-card', 'social-property-post', 'reel-cover']).filter(function (id, i, a) { return a.indexOf(id) === i; }).slice(0, 4);
+  document.getElementById('heroCollage').innerHTML = heroIds.map(byId).filter(Boolean).map(function (smp, i) {
+    return '<figure class="col-tile col-' + i + '">' + pkSampleVisualHtml(smp, { eager: true }) + '<figcaption><span class="sample-tag">' + escapeHtml(pkT('proof_sample_label')) + '</span> ' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
   }).join('');
+
+  // Pack: a compact preview of what the outputs look like (installed sample concepts only).
+  const pv = document.getElementById('packPreview');
+  if (pv) {
+    const shots = D.samples.samples.filter(function (x) { return x.installed && !x.live; }).slice(0, 4);
+    pv.hidden = !shots.length;
+    pv.innerHTML = shots.map(function (smp) {
+      return '<figure class="pv-tile">' + pkSampleVisualHtml(smp) + '<figcaption>' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
+    }).join('') + '<p class="tiny pv-note">' + escapeHtml(pkT('pack_preview_note')) + '</p>';
+  }
 
   // output strip
   document.getElementById('outStrip').innerHTML = D.discovery.outputs.map(function (o) {

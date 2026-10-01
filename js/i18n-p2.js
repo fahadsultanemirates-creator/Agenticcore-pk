@@ -273,3 +273,27 @@ Object.assign(PK_I18N.ur, {
   ct_copy: 'کاپی', ct_copied: 'کاپی ہو گیا', ct_send_wa: 'واٹس ایپ پر بھیجیں',
   ct_pro_t: 'پیشہ ورانہ ڈیزائن چاہیے؟', ct_pro_d: 'ہماری ٹیم انہی تفصیلات سے آپ کی برانڈنگ کے ساتھ فلائرز، واٹس ایپ کارڈز، پوسٹس، بروشرز اور ریلز بناتی ہے۔'
 });
+
+// Visual asset pass: alt text, disclosures, Estate ↔ Pakistan roles
+Object.assign(PK_I18N.en, {
+  'alt_whatsapp-property-card': 'Sample concept: WhatsApp property card for a 10 marla house, with photo, room details, interior thumbnails and price',
+  'alt_social-property-post': 'Sample concept: social media post for property in Pakistan with a modern house at dusk and property categories',
+  'alt_property-brochure': 'Sample concept: open property brochure with cover, interior photos and property highlights',
+  'alt_reel-cover': 'Sample concept: video thumbnail for a house tour reel with play button and room details',
+  sample_illustrative: 'Illustrative details — not a real listing or offer.',
+  pack_preview_note: 'Sample concepts showing the kind of work in a pack. Your outputs use your property, photos and branding.',
+  es_verbs_estate: 'List · Find · Improve · Share', es_role_estate: 'Where buyers find your property',
+  es_verbs_pk: 'Market · Promote · Create · Grow', es_role_pk: 'The marketing that sends buyers there',
+  es_loop: 'List it → Improve it → Share it → Market it'
+});
+Object.assign(PK_I18N.ur, {
+  'alt_whatsapp-property-card': 'نمونہ تصور: 10 مرلہ گھر کا واٹس ایپ پراپرٹی کارڈ، تصویر، کمروں کی تفصیل، اندرونی تصاویر اور قیمت کے ساتھ',
+  'alt_social-property-post': 'نمونہ تصور: پاکستان میں جائیداد کی سوشل میڈیا پوسٹ، شام کے وقت جدید گھر اور جائیداد کی اقسام کے ساتھ',
+  'alt_property-brochure': 'نمونہ تصور: کھلا ہوا پراپرٹی بروشر، سرورق، اندرونی تصاویر اور نمایاں خصوصیات کے ساتھ',
+  'alt_reel-cover': 'نمونہ تصور: گھر کے ٹور کی ریل کا ویڈیو تھمب نیل، پلے بٹن اور کمروں کی تفصیل کے ساتھ',
+  sample_illustrative: 'مثالی تفصیلات — کوئی حقیقی لسٹنگ یا پیشکش نہیں۔',
+  pack_preview_note: 'نمونہ تصورات جو بتاتے ہیں کہ پیک میں کس قسم کا کام ہوتا ہے۔ آپ کے کام میں آپ کی جائیداد، تصاویر اور برانڈنگ استعمال ہوتی ہے۔',
+  es_verbs_estate: 'لسٹ · تلاش · بہتر · شیئر', es_role_estate: 'جہاں خریدار آپ کی جائیداد ڈھونڈتے ہیں',
+  es_verbs_pk: 'مارکیٹ · تشہیر · تخلیق · ترقی', es_role_pk: 'وہ مارکیٹنگ جو خریداروں کو وہاں لاتی ہے',
+  es_loop: 'لسٹ کریں ← بہتر بنائیں ← شیئر کریں ← مارکیٹ کریں'
+});

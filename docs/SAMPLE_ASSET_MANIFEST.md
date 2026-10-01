@@ -2,9 +2,28 @@
 
 The "See what we can create" gallery, the hero collage and the service detail examples all read `data/samples.json`.
 
-**Current state:**
-- **Installed:** none. Every sample currently shows a CSS mock-up (with fictional example text) and the "Sample concept" label.
-- **Not used:** the reference board the owner shared in chat (samples 1–8) is not used on the site, as instructed.
+**Current state (visual pass, 1 Oct 2026)**
+
+The approved master board (1536×1024) was audited panel by panel. Four panels passed QA and are installed at their **native resolution**: no upscaling, and `width`/`height` in `samples.json` are the real pixel sizes. They are thumbnail-grade, which suits the 150–240 px tiles on the site but not print or full-screen use. Full-resolution exports (sizes below) can replace them without code changes.
+
+| Sample | File | Real size | Size on disk | Notes |
+|---|---|---|---|---|
+| WhatsApp property card | `images/samples/whatsapp-property-card.webp` | 328×499 | 48 KB | Placeholder phone "0300 123 4567" and slightly garbled "Chat on WhatsApp" replaced with "Sample concept / Illustrative details" |
+| Social post | `images/samples/social-property-post.webp` | 333×456 | 40 KB | Portrait as designed on the board (the manifest asked for 1:1) |
+| Property brochure | `images/samples/property-brochure.webp` | 466×481 | 53 KB | Book on white; shown on a white tile |
+| Reel cover | `images/samples/reel-cover.webp` | 626×242 | 42 KB | Shown whole (letterboxed) so the title is never cropped |
+| Share image | `images/og-share.jpg` | 1200×630 | 142 KB | Rebuilt at full size with the **real** logo file, site fonts and two of the sample concepts above; not cropped from panel 8 |
+
+**Kept as CSS mock-ups (rejected panels):**
+
+| Panel | Why |
+|---|---|
+| Property flyer | Garbled AI text ("HOMЦS", "2?V Lounges", "23r Near Park & Mosque"), a non-functional AI-drawn QR code, and the placeholder phone number |
+| Project payment plan | "High ROI" (an investment claim), garbled "Tomorrov", inconsistent "15% / 19%" on possession, and table text unreadable at web size |
+| Workflow banner | "Get More Leads and Better Results" conflicts with the site's no-lead-promise policy; garbled text on the phone screens; unreadable on mobile. The site's HTML workflow section does this job. |
+| Share-image panel 8 | "Webiste Solutions" typo; 599×180 at 3.3:1 can't become 1200×630 without stretching or upscaling |
+
+**Not used:** the earlier reference board (samples 1–8, first message) is not used on the site, as instructed.
 
 ## How to install an image
 

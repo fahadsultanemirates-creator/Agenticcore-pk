@@ -68,9 +68,16 @@ function pkMockHtml(m) {
   }
 }
 
-function pkSampleVisualHtml(s) {
+// Installed sample artwork: real pixel size in width/height (no layout shift), lazy by
+// default, a visible on-image "Sample concept" badge, and alt text from the i18n files.
+function pkSampleVisualHtml(s, opts) {
+  opts = opts || {};
   if (s.installed && s.image) {
-    return '<img src="' + escapeHtml(s.image) + '" alt="' + escapeHtml(pkT('sample_' + s.id)) + '" loading="lazy" width="' + (s.width || 1080) + '" height="' + (s.height || 1080) + '">';
+    const style = [s.focus ? 'object-position:' + s.focus : '', s.fit ? 'object-fit:' + s.fit : ''].filter(Boolean).join(';');
+    return '<div class="smp-img' + (s.light ? ' light' : '') + '">' +
+      '<img src="' + escapeHtml(s.image) + '" alt="' + escapeHtml(pkT('alt_' + s.id)) + '" width="' + s.width + '" height="' + s.height + '"' +
+        (opts.eager ? ' fetchpriority="low" decoding="async"' : ' loading="lazy" decoding="async"') + (style ? ' style="' + style + '"' : '') + '>' +
+      '<span class="smp-badge">' + escapeHtml(pkT('proof_sample_label')) + '</span></div>';
   }
   return pkMockHtml(s.mock || {});
 }
@@ -80,6 +87,7 @@ function pkSampleCardHtml(s) {
   return '<figure class="smp" data-cat="' + escapeHtml(s.category) + '">' +
     '<div class="smp-vis">' + pkSampleVisualHtml(s) + '</div>' +
     '<figcaption><span class="sample-tag">' + escapeHtml(pkT(s.live ? 'sample_live_tag' : 'proof_sample_label')) + '</span> ' + escapeHtml(pkT('sample_' + s.id)) +
+      (s.live ? '' : '<span class="smp-note">' + escapeHtml(pkT('sample_illustrative')) + '</span>') +
       (svc ? '<button type="button" class="smp-link" data-svc="' + svc.no + '">' + escapeHtml(pkT('p2_see_service')) + ' (' + svc.no + ') · ' + escapeHtml(pkServicePriceLabel(svc)) + '</button>' : '') +
       (s.live ? '<a class="smp-link" href="' + PK_CONFIG.estateUrl + '">' + escapeHtml(pkT('p2_on_estate')) + ' ↗</a>' : '') +
     '</figcaption></figure>';
