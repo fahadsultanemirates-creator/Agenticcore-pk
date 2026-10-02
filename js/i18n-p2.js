@@ -329,3 +329,29 @@ Object.assign(PK_I18N.ur, {
   es_verbs_pk: 'مارکیٹ · تشہیر · تخلیق · ترقی', es_role_pk: 'وہ مارکیٹنگ جو خریداروں کو وہاں لاتی ہے',
   es_loop: 'لسٹ کریں ← بہتر بنائیں ← شیئر کریں ← مارکیٹ کریں'
 });
+
+// Estate ↔ PK ecosystem: context bar (services.html) and audience entry points (#estate).
+Object.assign(PK_I18N.en, {
+  ex_from_estate: 'From AgenticCore Estate.',
+  ex_from_estate_sub: 'AgenticCore Pakistan is a separate marketing service — Estate listings and profiles stay free; services here are quoted and paid separately.',
+  ex_for: 'For: {name}',
+  ex_back_property: 'Back to the property', ex_back_project: 'Back to the project',
+  ex_back_professional: 'Back to the profile', ex_back_agency: 'Back to the agency', ex_back_builder: 'Back to the builder',
+  ex_aud_h: 'Your presence on AgenticCore Estate',
+  ex_aud_find_t: 'Looking for property?', ex_aud_find_d: 'Browse listings, projects and professionals on Estate.',
+  ex_aud_agent_t: 'Agents and consultants', ex_aud_agent_d: 'Create a free professional profile clients can find — with or without listings.',
+  ex_aud_agency_t: 'Agencies', ex_aud_agency_d: 'Build your agency profile, add your associated professionals and list under the agency.',
+  ex_aud_builder_t: 'Builders and developers', ex_aud_builder_d: 'Show your services and rates; publish projects after a short review.'
+});
+Object.assign(PK_I18N.ur, {
+  ex_from_estate: 'AgenticCore Estate سے۔',
+  ex_from_estate_sub: 'AgenticCore Pakistan ایک الگ مارکیٹنگ سروس ہے — Estate پر لسٹنگ اور پروفائل مفت رہتے ہیں؛ یہاں کی سروسز کا کوٹیشن اور ادائیگی الگ ہے۔',
+  ex_for: 'برائے: {name}',
+  ex_back_property: 'جائیداد پر واپس جائیں', ex_back_project: 'پروجیکٹ پر واپس جائیں',
+  ex_back_professional: 'پروفائل پر واپس جائیں', ex_back_agency: 'ایجنسی پر واپس جائیں', ex_back_builder: 'بلڈر پر واپس جائیں',
+  ex_aud_h: 'AgenticCore Estate پر آپ کی موجودگی',
+  ex_aud_find_t: 'جائیداد تلاش کر رہے ہیں؟', ex_aud_find_d: 'Estate پر لسٹنگز، پروجیکٹس اور پروفیشنلز دیکھیں۔',
+  ex_aud_agent_t: 'ایجنٹس اور کنسلٹنٹس', ex_aud_agent_d: 'مفت پروفیشنل پروفائل بنائیں جسے کلائنٹس ڈھونڈ سکیں — لسٹنگ کے ساتھ یا بغیر۔',
+  ex_aud_agency_t: 'ایجنسیاں', ex_aud_agency_d: 'اپنی ایجنسی کا پروفائل بنائیں، منسلک پروفیشنلز شامل کریں اور ایجنسی کے تحت لسٹ کریں۔',
+  ex_aud_builder_t: 'بلڈرز اور ڈیولپرز', ex_aud_builder_d: 'اپنی سروسز اور ریٹس دکھائیں؛ مختصر جائزے کے بعد پروجیکٹس شائع کریں۔'
+});

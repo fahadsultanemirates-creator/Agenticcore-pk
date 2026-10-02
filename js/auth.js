@@ -72,3 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Keep a safe ?next= when switching from login to signup, so an Estate handoff
+// (dashboard.html#pack/estate/<id>) survives creating an account.
+(function () {
+  const a = document.getElementById('loginToSignup');
+  if (!a) return;
+  const next = pkSafeNext('');
+  if (next) a.href = 'signup.html?next=' + encodeURIComponent(next);
+})();
