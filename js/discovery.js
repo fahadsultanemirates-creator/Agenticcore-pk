@@ -1,7 +1,7 @@
 /* ============================================
    AgenticCore Pakistan — Product 2.0 discovery layer
-   Intents, guided selector, Property Marketing Pack, sample gallery
-   and the service detail view. Everything here reads
+   'Who are you?' journeys, Property Marketing Pack, sample gallery
+   and the service detail view (Catalogue V2). Everything here reads
    data/discovery.json + data/samples.json (which only POINT at
    service numbers / price-line ids) and takes every price from
    data/services.json via PkCatalogCore. No price is typed here.
@@ -23,21 +23,8 @@ async function pkLoadP2Data() {
 function pkService(no) {
   return window.PK_DATA.services.services.find(function (s) { return s.no === no; }) || null;
 }
-function pkPackage(id) {
-  return window.PK_DATA.packages.packages.find(function (p) { return p.id === id; }) || null;
-}
+function pkPackage(id) { return pkPackageById(id); }
 function pkFirstLine(s) { return s.lines.find(function (l) { return !l.addon; }) || s.lines[0]; }
-
-// "from Rs X" for a service, or the exact price when it has one orderable line.
-function pkServicePriceLabel(s) {
-  const orderable = s.lines.filter(function (l) { return !l.addon; });
-  const p = PkCatalogCore.fromPrice(s);
-  return (orderable.length > 1 ? pkT('svc_from') + ' ' : '') + Rs(p);
-}
-
-function pkPackagePriceLabel(p) {
-  return typeof p.one_off === 'number' ? Rs(p.one_off) + ' ' + pkT('pkg_one_off') : Rs(p.monthly) + ' ' + pkT('pkg_a_month');
-}
 
 /* ---------- sample mock-ups (drawn when the real image isn't installed) ---------- */
 function pkMockHtml(m) {
@@ -97,45 +84,55 @@ function pkSampleCardHtml(s) {
     '</figcaption></figure>';
 }
 
-/* ---------- service cards used by intents / selector ---------- */
+/* ---------- service cards and 'Who are you?' journeys ---------- */
 function pkServiceCardHtml(s) {
+  const unit = pkServiceUnitLabel(s);
   return '<button type="button" class="svc-card" data-svc="' + s.no + '">' +
     '<span class="svc-card-no">(' + s.no + ')</span>' +
     '<span class="svc-card-name">' + escapeHtml(pkPick(s, 'name')) + '</span>' +
-    '<span class="svc-card-brief">' + escapeHtml(s.brief) + '</span>' +
-    '<span class="svc-card-foot"><b>' + escapeHtml(pkServicePriceLabel(s)) + '</b><span>' + escapeHtml(pkDeliveryShort(s)) + '</span></span>' +
+    '<span class="svc-card-brief">' + escapeHtml(pkPick(s, 'brief')) + '</span>' +
+    '<span class="svc-card-foot"><b>' + escapeHtml(pkServicePriceLabel(s)) + (unit ? ' <span class="tiny">' + escapeHtml(unit) + '</span>' : '') + '</b><span>' + escapeHtml(pkDeliveryShort(s)) + '</span></span>' +
   '</button>';
 }
 
 function pkPackageMiniHtml(p) {
-  return '<a class="pkg-mini" href="index.html#pkg-' + p.id + '"><b>' + escapeHtml(pkPick(p, 'name')) + '</b><span>' + escapeHtml(pkPackagePriceLabel(p)) + '</span><span class="tiny">' + escapeHtml(pkPick(p, 'for')) + '</span></a>';
+  return '<a class="pkg-mini" href="index.html#pkg-' + p.id + '"><b>' + escapeHtml(pkPick(p, 'name')) + '</b><span>' + escapeHtml(pkPackagePriceLabel(p)) + '</span>' +
+    '<span class="tiny">' + escapeHtml(pkPackageTermsLabel(p)) + '</span><span class="tiny">' + escapeHtml(pkPick(p, 'for')) + '</span></a>';
 }
 
-function pkIntentResultHtml(intentId) {
-  const D = window.PK_DATA.discovery;
-  const it = D.intents.find(function (x) { return x.id === intentId; });
-  if (!it) return '';
-  const cards = it.services.map(pkService).filter(Boolean).map(pkServiceCardHtml).join('');
-  const pkgs = (it.packages || []).map(pkPackage).filter(Boolean);
+function pkAudience(id) { return window.PK_DATA.discovery.audiences.find(function (a) { return a.id === id; }) || null; }
+function pkJourney(id) {
+  let hit = null;
+  window.PK_DATA.discovery.audiences.forEach(function (a) { a.journeys.forEach(function (j) { if (j.id === id) hit = j; }); });
+  return hit;
+}
+
+function pkAudienceTabsHtml(current) {
+  return window.PK_DATA.discovery.audiences.map(function (a) {
+    return '<button type="button" role="tab" class="aud-tab" data-aud="' + a.id + '" aria-selected="' + (a.id === current) + '">' + escapeHtml(pkT('aud_' + a.id)) + '</button>';
+  }).join('');
+}
+
+function pkJourneyCardsHtml(audId, currentJourney) {
+  const a = pkAudience(audId);
+  if (!a) return '';
+  return a.journeys.map(function (j) {
+    return '<button type="button" class="journey" data-journey="' + j.id + '" aria-pressed="' + (j.id === currentJourney) + '">' +
+      '<b>' + escapeHtml(pkT('jr_' + j.id)) + '</b><span>' + escapeHtml(pkT('jr_' + j.id + '_sub')) + '</span></button>';
+  }).join('');
+}
+
+function pkJourneyResultHtml(journeyId) {
+  const j = pkJourney(journeyId);
+  if (!j) return '';
+  const pkgs = (j.packages || []).map(pkPackage).filter(Boolean);
+  const cards = (j.services || []).map(pkService).filter(Boolean).map(pkServiceCardHtml).join('');
+  const cta = j.target === '#pack' ? pkT('p2_build_pack') : j.target === '#ai' ? pkT('ai_see_all') : pkT('jr_see_packages');
   return '<div class="intent-result">' +
-    '<p class="intent-lead">' + escapeHtml(pkT('intent_' + it.id + '_lead')) + '</p>' +
-    (it.pack ? '<a class="btn btn-primary btn-sm" href="#pack">' + escapeHtml(pkT('p2_build_pack')) + '</a>' : '') +
-    (it.estate ? '<a class="btn btn-secondary btn-sm" href="create.html">' + escapeHtml(pkT('p2_try_tool')) + '</a> <a class="btn btn-secondary btn-sm" href="' + PK_CONFIG.estateUrl + '/sell.html">' + escapeHtml(pkT('p2_list_estate')) + ' ↗</a>' : '') +
-    '<div class="svc-cards">' + cards + '</div>' +
-    (pkgs.length ? '<p class="sep-label">' + escapeHtml(pkT('p2_or_package')) + '</p><div class="pkg-minis">' + pkgs.map(pkPackageMiniHtml).join('') + '</div>' : '') +
-  '</div>';
-}
-
-function pkSelectorResultHtml(what, goal) {
-  const rule = window.PK_DATA.discovery.selector.rules[what] && window.PK_DATA.discovery.selector.rules[what][goal];
-  if (!rule) return '';
-  const services = Array.isArray(rule) ? rule : rule.services;
-  const pkg = !Array.isArray(rule) && rule.package ? pkPackage(rule.package) : null;
-  return '<div class="sel-result" role="status">' +
-    '<p class="intent-lead">' + escapeHtml(pkT('sel_result_lead')) + '</p>' +
-    (pkg ? '<div class="pkg-minis">' + pkPackageMiniHtml(pkg) + '</div>' : '') +
-    (services.length ? '<div class="svc-cards">' + services.map(pkService).filter(Boolean).map(pkServiceCardHtml).join('') + '</div>' : '') +
-    '<p class="tiny">' + escapeHtml(pkT('sel_result_note')) + '</p>' +
+    '<p class="intent-lead">' + escapeHtml(pkT('jr_' + j.id + '_lead')) + '</p>' +
+    (pkgs.length ? '<div class="pkg-minis">' + pkgs.map(pkPackageMiniHtml).join('') + '</div>' : '') +
+    (cards ? '<div class="svc-cards">' + cards + '</div>' : '') +
+    '<a class="btn btn-primary btn-sm" href="' + j.target + '">' + escapeHtml(cta) + '</a>' +
   '</div>';
 }
 
@@ -151,8 +148,8 @@ function pkPackChecklistHtml(selected) {
   return pkPackOutputs().map(function (o) {
     const on = selected ? selected.indexOf(o.line.id) >= 0 : o.def;
     return '<label class="pack-opt"><input type="checkbox" data-pack-line="' + escapeHtml(o.line.id) + '"' + (on ? ' checked' : '') + '>' +
-      '<span class="pack-opt-name">' + escapeHtml(pkT('pack_out_' + o.key)) + '<span class="tiny"> · ' + escapeHtml(pkPick(o.service, 'name')) + ' (' + o.service.no + ')</span></span>' +
-      '<span class="pack-opt-price">' + Rs(o.line.price) + ' <span class="tiny">' + escapeHtml(o.line.unit) + '</span></span></label>';
+      '<span class="pack-opt-name">' + escapeHtml(pkT('pack_out_' + o.key)) + '<span class="tiny"> · (' + o.service.no + ')</span></span>' +
+      '<span class="pack-opt-price">' + Rs(o.line.price) + ' <span class="tiny">' + escapeHtml(pkPick(o.line, 'unit')) + '</span></span></label>';
   }).join('');
 }
 
@@ -170,27 +167,25 @@ function pkServiceDetailHtml(no) {
   const s = pkService(no);
   if (!s) return '';
   const D = window.PK_DATA;
-  const intents = (D.discovery ? D.discovery.intents : []).filter(function (it) { return it.services.indexOf(no) >= 0; });
   const group = D.services.groups.find(function (g) { return g.no === s.group; });
-  const briefs = (typeof PK_BRIEF_FIELDS !== 'undefined' && PK_BRIEF_FIELDS[no]) ? PK_BRIEF_FIELDS[no].map(function (f) { return f[1]; }) : [];
+  const briefs = (typeof PK_BRIEF_FIELDS !== 'undefined' && PK_BRIEF_FIELDS[no]) ? PK_BRIEF_FIELDS[no].map(pkBriefLabel) : [];
   const needs = briefs.concat([pkT('sd_need_brand'), pkT('sd_need_content')]);
   const related = D.services.services.filter(function (x) { return x.group === s.group && x.no !== no; }).slice(0, 3);
   const pkgs = D.packages.packages.filter(function (p) {
-    return (p.monthly_items || []).concat(p.setup_items || []).some(function (it) { return it.service === no; });
+    return !p.variant_of && (p.setup_items || []).some(function (it) { return it.line && s.lines.some(function (l) { return l.id === it.line; }); });
   });
   const samples = (D.samples ? D.samples.samples : []).filter(function (x) { return x.gallery !== false && (x.services || []).indexOf(no) >= 0; }).slice(0, 2);
-  const line = pkFirstLine(s);
+  const orderable = s.lines.filter(function (l) { return !l.addon; });
   return '<div class="sd">' +
     '<div class="sd-head"><span class="svc-card-no">(' + s.no + ')</span><h3 id="sdTitle">' + escapeHtml(pkPick(s, 'name')) + '</h3>' +
       '<button type="button" class="sd-close" data-sd-close aria-label="' + escapeHtml(pkT('sd_close')) + '">×</button></div>' +
-    '<p class="brief">' + escapeHtml(s.brief) + '</p>' +
+    '<p class="brief">' + escapeHtml(pkPick(s, 'brief')) + '</p>' +
     '<div class="sd-grid">' +
       '<div><h4>' + escapeHtml(pkT('sd_you_get')) + '</h4>' + s.lines.map(pkPriceLineHtml).join('') + '</div>' +
       '<div>' +
-        '<h4>' + escapeHtml(pkT('sd_for')) + '</h4><p>' + escapeHtml(group ? pkPick(group, 'type') : '') +
-          (intents.length ? ' · ' + intents.map(function (it) { return pkT('intent_' + it.id); }).join(' · ') : '') + '</p>' +
+        '<h4>' + escapeHtml(pkT('sd_for')) + '</h4><p>' + escapeHtml(group ? pkPick(group, 'type') : '') + '</p>' +
         '<h4>' + escapeHtml(pkT('sd_we_need')) + '</h4><ul class="sd-list">' + needs.map(function (n) { return '<li>' + escapeHtml(n) + '</li>'; }).join('') + '</ul>' +
-        '<h4>' + escapeHtml(pkT('sd_delivery')) + '</h4><p>' + escapeHtml(s.delivery) + '</p>' +
+        '<h4>' + escapeHtml(pkT('sd_delivery')) + '</h4><p>' + escapeHtml(pkPick(s, 'delivery')) + '</p>' +
       '</div>' +
     '</div>' +
     (s.caution ? pkCautionHtml() : '') +
@@ -199,7 +194,10 @@ function pkServiceDetailHtml(no) {
     (related.length ? '<h4>' + escapeHtml(pkT('sd_related')) + '</h4><div class="sd-related">' + related.map(function (r) {
       return '<button type="button" class="smp-link" data-svc="' + r.no + '">(' + r.no + ') ' + escapeHtml(pkPick(r, 'name')) + ' · ' + escapeHtml(pkServicePriceLabel(r)) + '</button>';
     }).join('') + '</div>' : '') +
-    '<div class="btn-row sd-cta"><a class="btn btn-primary" href="dashboard.html#order/line/' + escapeHtml(line.id) + '">' + escapeHtml(pkT('order_online')) + '</a>' +
+    '<div class="btn-row sd-cta">' + orderable.map(function (l) {
+      return '<a class="btn btn-primary" href="dashboard.html#order/line/' + escapeHtml(l.id) + '">' + escapeHtml(pkT('order_online')) +
+        (orderable.length > 1 ? ' · ' + escapeHtml(pkPick(l, 'unit')) : '') + '</a>';
+    }).join('') +
       '<a class="btn btn-wa" data-wa="service-' + s.no + '" data-wa-msg="I\'m interested in (' + s.no + ') ' + escapeHtml(s.name) + '." href="signup.html">' + escapeHtml(pkT('wa_about_this')) + '</a></div>' +
   '</div>';
 }

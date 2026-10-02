@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>All 56 Services and PKR Prices | AgenticCore Pakistan</title>
-<meta name="description" content="Every AgenticCore Pakistan service with its PKR price and delivery time: branding, print, websites, video, social media, ads, WhatsApp bots and local SEO for real estate. Same-day delivery for orders by 6pm PKT.">
+<title>All Services and PKR Prices | AgenticCore Pakistan</title>
+<meta name="description" content="Every AgenticCore Pakistan service with its PKR price and delivery time: property marketing, project marketing, AI &amp; automation and specialist add-ons for Pakistan real estate.">
 <link rel="canonical" href="https://agenticcorepk.com/services.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="All 56 real estate marketing services, with PKR prices">
-<meta property="og:description" content="Published prices and delivery times for every service. Most work delivered the same day.">
+<meta property="og:title" content="Real estate marketing and AI automation services, with PKR prices">
+<meta property="og:description" content="Published prices and realistic delivery times for every service.">
 <meta property="og:url" content="https://agenticcorepk.com/services.html">
 <meta property="og:image" content="https://agenticcorepk.netlify.app/images/og-share.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -49,9 +49,9 @@
 <main id="main">
   <section style="padding-bottom:var(--space-md)">
     <div class="container">
-      <span class="eyebrow" data-i18n="svc_eyebrow">All 56 services</span>
-      <h1 class="section-title" data-i18n="svc_title">Everything you need to sell property, in one place.</h1>
-      <p class="section-sub" id="svcIntro">All prices are in Pakistani rupees, introductory, and exclude taxes where applicable. Numbers in brackets, such as (31), point to that service in the full list.</p>
+      <span class="eyebrow" id="svcCount">All services</span>
+      <h1 class="section-title" data-i18n="svc_title">Everything you need to market property, in one place.</h1>
+      <p class="section-sub" id="svcIntro" data-i18n="svp_intro">All prices are in Pakistani rupees, introductory, and exclude taxes where applicable. Numbers in brackets, such as (12), point to that service in the full list.</p>
       <div class="btn-row" style="margin-top:var(--space-md)">
         <a class="btn btn-wa" data-wa="services-page" href="signup.html" data-i18n="wa_us">WhatsApp us</a>
         <a class="btn btn-secondary" href="index.html#packages" data-i18n="nav_packages">Packages</a>
@@ -67,8 +67,8 @@
 
   <section>
     <div class="container">
-      <h2 class="section-title">Our three ways of working</h2>
-      <p class="section-sub" style="margin-bottom:var(--space-md)">Each service is offered in one or more of these ways. The same number is used everywhere, so options are easy to compare.</p>
+      <h2 class="section-title" data-i18n="svp_models_t">Our three ways of working</h2>
+      <p class="section-sub" style="margin-bottom:var(--space-md)" data-i18n="svp_models_s">Each service is offered in one or more of these ways. The same number is used everywhere, so options are easy to compare.</p>
       <div class="models" id="models"></div>
     </div>
   </section>
@@ -76,12 +76,12 @@
   <section class="section-alt">
     <div class="container split">
       <div>
-        <h2 class="section-title">What you pay separately</h2>
-        <p class="section-sub">These costs go to the platforms or partners, not to us. We set them up in your name, so you stay in control. <span id="fxNote"></span></p>
+        <h2 class="section-title" data-i18n="svp_sep_t">What you pay separately</h2>
+        <p class="section-sub"><span data-i18n="svp_sep_s">These costs go to the platforms or partners, not to us. We set them up in your name, so you stay in control.</span> <span id="fxNote"></span></p>
         <dl class="costs" id="costs"></dl>
       </div>
       <div>
-        <h2 class="section-title">Pricing notes</h2>
+        <h2 class="section-title" data-i18n="svp_notes_t">Pricing notes</h2>
         <ul class="prose" id="notes" style="padding-inline-start:1.2rem"></ul>
         <p class="notice" id="partnerNote" style="margin-top:var(--space-md)"></p>
       </div>
@@ -97,6 +97,7 @@
 <script src="js/db-client.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/i18n-p2.js"></script>
+<script src="js/i18n-v2.js"></script>
 <script src="js/catalog-core.js"></script>
 <script src="js/partials.js"></script>
 <script src="js/catalog-render.js"></script>
@@ -105,33 +106,37 @@
 <script>
   function renderServicesPage() {
     const D = window.PK_DATA.services;
+    document.getElementById('svcCount').textContent = pkT('svc_eyebrow').replace('{n}', D.services.length);
     document.getElementById('jump').innerHTML = D.groups.map(function (g) {
-      return '<a href="#' + g.slug + '">' + escapeHtml(pkPick(g, 'need')) + '</a>';
+      return '<a href="#' + g.slug + '">' + escapeHtml(pkPick(g, 'type')) + '</a>';
     }).join('');
     document.getElementById('groups').innerHTML = D.groups.map(function (g) {
       const list = pkServicesInGroup(g.no);
+      const grid = '<div class="svc-grid">' + list.map(function (s) { return pkServiceFullHtml(s); }).join('') + '</div>';
       return '<section class="group-block" id="' + g.slug + '">' +
         '<span class="eyebrow">' + escapeHtml(pkPick(g, 'type')) + ' · ' + list.length + ' ' + escapeHtml(pkT('svc_services')) + '</span>' +
         '<h2>' + escapeHtml(pkPick(g, 'need')) + '</h2>' +
         '<p class="section-sub" style="margin:0.4rem 0 var(--space-sm)">' + escapeHtml(pkPick(g, 'benefit')) + '</p>' +
-        (g.note ? '<p class="group-note" style="margin-bottom:var(--space-sm)">' + escapeHtml(g.note) + '</p>' : '') +
-        (pkT('svc_english_note') ? '<p class="tiny">' + escapeHtml(pkT('svc_english_note')) + '</p>' : '') +
-        '<div class="svc-grid">' + list.map(function (s) { return pkServiceFullHtml(s); }).join('') + '</div>' +
-        '<a class="card-link" data-wa="services-page-' + g.slug + '" data-wa-msg="I\'m interested in: ' + escapeHtml(g.need) + '." href="signup.html">' + escapeHtml(pkT('wa_about_this')) + '</a>' +
+        // Specialist add-ons stay secondary: collapsed unless the visitor deep-links into them.
+        (g.secondary && !/^#(specialist|service-(6[3-9]|7\d))$/.test(location.hash)
+          ? '<details class="acc"><summary>' + escapeHtml(pkT('svc_show_specialist')) + '</summary><div class="acc-body">' + grid + '</div></details>'
+          : grid) +
+        '<a class="card-link" data-wa="services-page-' + g.slug + '" data-wa-msg="I\'m interested in: ' + escapeHtml(g.type) + '." href="signup.html">' + escapeHtml(pkT('wa_about_this')) + '</a>' +
       '</section>';
     }).join('');
+    const L = { pay: pkT('svp_pay'), inc: pkT('svc_included'), opt: pkT('svp_optional'), sep: pkT('svp_separate') };
     document.getElementById('models').innerHTML = ['dfy', 'setup', 'monthly'].map(function (k, i) {
       const m = D.models[k];
       return '<div class="card"><span class="model-tag">' + 'ABC'[i] + '</span><h3>' + escapeHtml(pkPick(m, 'name')) + '</h3>' +
-        '<p>' + escapeHtml(m.summary) + '</p><p><strong>You pay:</strong> ' + escapeHtml(m.pay) + '</p>' +
-        '<p><strong>Included:</strong> ' + escapeHtml(m.included) + '</p><p><strong>' + (k === 'setup' ? 'Optional' : 'Separate') + ':</strong> ' + escapeHtml(m.separate) + '</p></div>';
+        '<p>' + escapeHtml(pkPick(m, 'summary')) + '</p><p><strong>' + escapeHtml(L.pay) + ':</strong> ' + escapeHtml(pkPick(m, 'pay')) + '</p>' +
+        '<p><strong>' + escapeHtml(L.inc) + ':</strong> ' + escapeHtml(pkPick(m, 'included')) + '</p><p><strong>' + escapeHtml(k === 'setup' ? L.opt : L.sep) + ':</strong> ' + escapeHtml(pkPick(m, 'separate')) + '</p></div>';
     }).join('');
     document.getElementById('costs').innerHTML = D.running_costs.map(function (c) {
-      return '<dt>' + escapeHtml(c.name) + '</dt><dd>' + escapeHtml(c.text) + '</dd>';
+      return '<dt>' + escapeHtml(pkPick(c, 'name')) + '</dt><dd>' + escapeHtml(pkPick(c, 'text')) + '</dd>';
     }).join('');
-    document.getElementById('fxNote').textContent = D.exchange_rate_note;
-    document.getElementById('notes').innerHTML = D.meta.notes.map(function (n) { return '<li>' + escapeHtml(n) + '</li>'; }).join('');
-    document.getElementById('partnerNote').textContent = D.meta.partner_note;
+    document.getElementById('fxNote').textContent = pkPick(D, 'exchange_rate_note');
+    document.getElementById('notes').innerHTML = pkPick(D.meta, 'notes').map(function (n) { return '<li>' + escapeHtml(n) + '</li>'; }).join('');
+    document.getElementById('partnerNote').textContent = pkPick(D.meta, 'partner_note');
     pkWireWhatsAppLinks(document.getElementById('groups'));
   }
   document.addEventListener('DOMContentLoaded', async function () {

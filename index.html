@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Property Marketing in Pakistan: Flyers, WhatsApp Cards, Reels | AgenticCore Pakistan</title>
-<meta name="description" content="Send your property photos and details; get a flyer, WhatsApp card, social post, brochure and reel back. Marketing for Pakistan's agents, agencies, builders and developers, with published PKR prices and same-day delivery for orders by 6pm PKT.">
+<title>Real Estate Marketing &amp; AI Automation in Pakistan | AgenticCore Pakistan</title>
+<meta name="description" content="Built specifically for Pakistan real estate. From one property to an entire project: listing, design, content, social marketing and AI automation for agents, agencies, builders and developers, with published PKR prices.">
 <link rel="canonical" href="https://agenticcorepk.com/">
 <link rel="alternate" hreflang="en-PK" href="https://agenticcorepk.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AgenticCore Pakistan">
-<meta property="og:title" content="Turn properties into marketing that sells">
-<meta property="og:description" content="From property to marketing pack: flyers, WhatsApp cards, social posts, brochures and reels for Pakistan's agents, agencies and developers. PKR prices published.">
+<meta property="og:title" content="From one property to an entire project — AgenticCore Pakistan">
+<meta property="og:description" content="Listing, design, content, social marketing and AI automation in one connected ecosystem for Pakistan real estate. PKR prices published.">
 <meta property="og:url" content="https://agenticcorepk.com/">
 <meta property="og:image" content="https://agenticcorepk.netlify.app/images/og-share.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -20,8 +20,8 @@
 <meta property="og:locale" content="en_PK">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://agenticcorepk.netlify.app/images/og-share.jpg">
-<meta name="twitter:title" content="Turn properties into marketing that sells">
-<meta name="twitter:description" content="Flyers, WhatsApp cards, social posts, brochures and reels for Pakistan's property market. PKR prices published.">
+<meta name="twitter:title" content="From one property to an entire project — AgenticCore Pakistan">
+<meta name="twitter:description" content="Listing, design, content, social marketing and AI automation for Pakistan real estate. PKR prices published.">
 <meta name="theme-color" content="#071F17">
 <link rel="icon" href="https://agenticcore.estate/images/agenticcore-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,21 +48,22 @@
 
 <main id="main">
 
-  <!-- P2-1. Hero: action first, outputs visible -->
+  <!-- V2-1. Hero: positioning, featured monthly plans, outputs visible -->
   <section class="hero p2-hero">
     <div class="container p2-hero-grid">
       <div>
-        <span class="eyebrow" data-i18n="p2_eyebrow">Real estate marketing for Pakistan</span>
-        <h1><span data-i18n="p2_h1a">Turn properties into </span><span class="accent" data-i18n="p2_h1b">marketing that sells.</span></h1>
-        <p class="hero-sub" data-i18n="p2_sub">Send us your property photos, price and details. We turn them into flyers, WhatsApp cards, social posts, brochures and reels — for agents, agencies, builders and developers across Pakistan.</p>
+        <span class="eyebrow" data-i18n="p2_eyebrow">Built specifically for Pakistan real estate</span>
+        <h1><span data-i18n="p2_h1a">From one property to an entire project — </span><span class="accent" data-i18n="p2_h1b">marketed in one connected ecosystem.</span></h1>
+        <p class="hero-sub" data-i18n="p2_sub">Listing, design, content, social marketing and AI automation for agents, agencies, builders and developers across Pakistan.</p>
         <div class="p2-ctas">
           <a class="btn btn-primary" href="#pack" data-i18n="p2_cta_property">Market a property</a>
-          <a class="btn btn-secondary" href="#need" data-intent-go="launch-project" data-i18n="p2_cta_project">Promote a project</a>
-          <a class="btn btn-secondary" href="services.html" data-i18n="p2_cta_services">Explore services</a>
+          <a class="btn btn-secondary" href="#who" data-aud-go="project" data-i18n="p2_cta_project">Promote a project</a>
+          <a class="btn btn-secondary" href="services.html" data-i18n="p2_cta_services">View all services</a>
         </div>
-        <a class="link p2-see" href="#samples" data-i18n="p2_cta_samples">See what we can create</a>
+        <p class="feat-title" data-i18n="hero_feat_title">Most popular monthly plans</p>
+        <div class="feat-offers" id="featOffers"></div>
         <div class="trust-line">
-          <span data-i18n="hero_trust_1">Orders by 6pm PKT delivered the same day</span>
+          <span data-i18n="hero_trust_1">Small creatives the same day for orders confirmed by 6pm PKT</span>
           <span data-i18n="hero_trust_2">Prices published in PKR</span>
           <span data-i18n="hero_trust_3">Pages, domains and accounts stay in your name</span>
         </div>
@@ -79,66 +80,41 @@
     </div>
   </section>
 
-  <!-- P2-3. Start with what you need + guided selector -->
-  <section class="section-alt" id="need">
+  <!-- V2-3. Who are you? → journeys -->
+  <section class="section-alt" id="who">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="need_eyebrow">Start with what you need</span>
-        <h2 class="section-title" data-i18n="need_title">What are you trying to do?</h2>
-        <p class="section-sub" data-i18n="need_sub">Pick one. We'll show the services that fit, with their published prices.</p>
+        <span class="eyebrow" data-i18n="who_eyebrow">Start here</span>
+        <h2 class="section-title" data-i18n="who_title">Who are you?</h2>
+        <p class="section-sub" data-i18n="who_sub">Pick what describes you best. We show the services and plans that fit, with published prices.</p>
       </div>
-      <div class="intent-chips" id="intentChips" role="tablist" aria-label="What you need"></div>
-      <div id="intentResult" aria-live="polite"></div>
-
-      <div class="card selector" id="selector">
-        <h3 data-i18n="sel_title">Not sure what to order?</h3>
-        <p class="muted" data-i18n="sel_sub">Answer two questions and we'll suggest a starting point.</p>
-        <fieldset><legend data-i18n="sel_q1">What are you marketing?</legend><div class="opt-chips" id="selWhat"></div></fieldset>
-        <fieldset><legend data-i18n="sel_q2">What do you need most?</legend><div class="opt-chips" id="selGoal"></div></fieldset>
-        <div id="selResult" aria-live="polite"></div>
-      </div>
+      <div class="aud-tabs" id="audTabs" role="tablist" aria-label="Who are you?"></div>
+      <div class="journeys" id="journeys"></div>
+      <div id="journeyResult" aria-live="polite"></div>
+      <p style="margin-top:var(--space-md)"><a class="link" href="services.html" data-i18n="p2_cta_services">View all services</a></p>
     </div>
   </section>
 
-  <!-- P2-4. Agent → output workflow (sample) -->
-  <section id="workflow">
+  <!-- V2-4. Monthly plans and launch kits (rendered from data/packages.json) -->
+  <section id="packages">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="wf_eyebrow">From property to marketing pack</span>
-        <h2 class="section-title" data-i18n="wf_title">You send the rough details. We send back the marketing.</h2>
+        <span class="eyebrow" data-i18n="pkg_eyebrow">Monthly plans &amp; launch kits</span>
+        <h2 class="section-title" data-i18n="pkg_title">Pay monthly for steady marketing — or once for a launch.</h2>
+        <p class="section-sub" data-i18n="pkg_sub">Plans are sold on what you get each month. Minimum terms are shown beside every price.</p>
       </div>
-      <ol class="wf">
-        <li class="wf-step card">
-          <span class="n">1</span><h3 data-i18n="wf_1_t">You send</h3>
-          <div class="wf-chat" dir="ltr" lang="en">
-            <div class="wf-msg">DHA 2 Islamabad<br>10 marla<br>5 bed<br>new construction<br>demand 5.2 crore</div>
-            <div class="wf-attach"><span class="wf-ph"></span><span class="wf-ph"></span><span class="wf-ph"></span><span class="wf-logo">LOGO</span></div>
-          </div>
-          <p class="tiny" data-i18n="wf_1_d">Photos, price, location, a few facts and your logo — on WhatsApp or in your dashboard.</p>
-        </li>
-        <li class="wf-step card">
-          <span class="n">2</span><h3 data-i18n="wf_2_t">We prepare</h3>
-          <ul class="wf-list">
-            <li data-i18n="pack_out_wa-card">WhatsApp property card</li>
-            <li data-i18n="pack_out_offer-post">Social / offer post</li>
-            <li data-i18n="pack_out_catalogue">PDF catalogue</li>
-            <li data-i18n="pack_out_reel">Promo reel (up to 60 s)</li>
-            <li data-i18n="pack_out_ad-copy">Captions in English and Roman Urdu</li>
-          </ul>
-          <p class="tiny" data-i18n="wf_2_d">Our team designs each piece. Every order gets a task ID you can track.</p>
-        </li>
-        <li class="wf-step card">
-          <span class="n">3</span><h3 data-i18n="wf_3_t">You share</h3>
-          <div class="wf-outs" id="wfOuts"></div>
-          <p class="tiny" data-i18n="wf_3_d">Download from your dashboard, send on WhatsApp, post it, and link buyers to your free AgenticCore Estate listing.</p>
-        </li>
-      </ol>
-      <p class="footnote"><span class="sample-tag" data-i18n="proof_sample_label">Sample concept</span> <span data-i18n="wf_note">This is a sample workflow. Timing depends on the services you choose and when your details and payment are in.</span></p>
+      <div id="pkgList"></div>
+      <div class="grid grid-2 pkg-notes">
+        <div class="card"><h3 data-i18n="pkg_set_title">What is a "Property Marketing Set"?</h3><p class="tiny" id="pkgSetDef"></p></div>
+        <div class="card"><h3 data-i18n="pkg_network_title">AgenticCore network distribution</h3><p class="tiny" id="pkgNetwork"></p></div>
+      </div>
+      <p class="muted" style="margin-top:var(--space-md)" id="pkgIncludes"></p>
+      <p style="margin-top:0.5rem"><a class="link" href="services.html" data-count-label="pkg_just_one">Need just one thing? See all services and prices.</a></p>
     </div>
   </section>
 
-  <!-- P2-5. Property Marketing Pack -->
-  <section class="section-alt" id="pack">
+  <!-- V2-5. Property Marketing Pack -->
+  <section id="pack">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" data-i18n="pack_eyebrow">Property Marketing Pack</span>
@@ -164,10 +140,28 @@
           <p class="tiny" data-i18n="pack_free">Free with your account: list the property on AgenticCore Estate and download its QR share card.</p>
         </div>
       </div>
+      <div class="pack-hint" role="note">
+        <p data-i18n="pack_monthly_hint">If you market several properties every month, Agent Monthly or Agent Pro may cost less than ordering each property separately.</p>
+        <p class="pack-hint-plans" id="packHintPlans"></p>
+      </div>
     </div>
   </section>
 
-  <!-- P2-6. Sample gallery -->
+  <!-- V2-6. AI & Automation (rendered from data/services.json, section 3) -->
+  <section class="section-alt ai-section" id="ai">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="ai_eyebrow">AI &amp; Automation</span>
+        <h2 class="section-title" data-i18n="ai_title">Setup once. Use every day.</h2>
+        <p class="section-sub" data-i18n="ai_sub">We set up AI tools and automations in your own accounts.</p>
+      </div>
+      <div class="svc-cards ai-grid" id="aiGrid"></div>
+      <p class="tiny" style="margin-top:var(--space-md)" data-i18n="ai_running">Running costs such as WhatsApp, AI or hosting fees are paid by you directly to the provider.</p>
+      <div class="btn-row"><a class="btn btn-primary" data-wa="ai" data-wa-msg="I'd like to talk about AI and automation for my business." href="signup.html" data-i18n="ai_cta">Talk to us about automation</a></div>
+    </div>
+  </section>
+
+  <!-- V2-7. Sample gallery -->
   <section id="samples">
     <div class="container">
       <div class="section-head">
@@ -180,26 +174,22 @@
     </div>
   </section>
 
-  <!-- P2-7. AgenticCore Estate ↔ Pakistan -->
+  <!-- V2-8. AgenticCore Estate + Pakistan: LIST / CREATE / SHARE / PROMOTE / AUTOMATE -->
   <section class="section-alt" id="estate">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" data-i18n="es_eyebrow">AgenticCore Estate + AgenticCore Pakistan</span>
-        <h2 class="section-title" data-i18n="es_title">List it. Market it. Share it.</h2>
-        <p class="section-sub" data-i18n="es_sub">One account works on both sites. Estate is where buyers find your property; AgenticCore Pakistan makes the marketing that sends them there.</p>
+        <h2 class="section-title" data-i18n="es_title">Don't depend on one place to market a property.</h2>
+        <p class="section-sub" data-i18n="es_sub">One account works on both sites. List on AgenticCore Estate, then create, share, promote and automate the marketing here.</p>
       </div>
-      <div class="es-duo" role="group" aria-label="Two products, one account">
-        <div class="es-prod estate"><span class="es-name">AgenticCore Estate</span><span class="es-verbs" data-i18n="es_verbs_estate">List · Find · Improve · Share</span><span class="tiny" data-i18n="es_role_estate">Where buyers find your property</span></div>
-        <div class="es-link" aria-hidden="true">⇄</div>
-        <div class="es-prod pk"><span class="es-name">AgenticCore Pakistan</span><span class="es-verbs" data-i18n="es_verbs_pk">Market · Promote · Create · Grow</span><span class="tiny" data-i18n="es_role_pk">The marketing that sends buyers there</span></div>
-      </div>
-      <p class="es-loop" data-i18n="es_loop">List it → Improve it → Share it → Market it</p>
-      <ol class="es-steps">
-        <li class="card"><span class="n">1</span><h3 data-i18n="es_1_t">List it free</h3><p data-i18n="es_1_d">Post the property on AgenticCore Estate. AgenticCore can help you write the listing.</p></li>
-        <li class="card"><span class="n">2</span><h3 data-i18n="es_2_t">Improve it</h3><p data-i18n="es_2_d">Estate scores your listing out of 100 and tells you exactly what to add.</p></li>
-        <li class="card"><span class="n">3</span><h3 data-i18n="es_3_t">Share it</h3><p data-i18n="es_3_d">Download a free WhatsApp card and QR code that link buyers back to your listing.</p></li>
-        <li class="card"><span class="n">4</span><h3 data-i18n="es_4_t">Promote it</h3><p data-i18n="es_4_d">Want more? Order a professional marketing pack here, prefilled from your Estate listing.</p></li>
+      <ol class="es-verbs5">
+        <li class="card estate"><span class="es-verb" data-i18n="es_v_list">LIST</span><span class="es-where">AgenticCore Estate</span><p data-i18n="es_v_list_d">List the property free on AgenticCore Estate.</p></li>
+        <li class="card"><span class="es-verb" data-i18n="es_v_create">CREATE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_create_d">Cards, posts, flyers, reels and catalogues made from your listing.</p></li>
+        <li class="card"><span class="es-verb" data-i18n="es_v_share">SHARE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_share_d">WhatsApp, social pages and a QR share card that link back to the listing.</p></li>
+        <li class="card"><span class="es-verb" data-i18n="es_v_promote">PROMOTE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_promote_d">Paid ads in your own accounts, portals kept in sync and overseas campaigns.</p></li>
+        <li class="card"><span class="es-verb" data-i18n="es_v_automate">AUTOMATE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_automate_d">AI listing text, automatic posting, WhatsApp replies and lead follow-up.</p></li>
       </ol>
+      <p class="tiny es-note" data-i18n="es_note">More places for your property to be seen — we do not promise a number of enquiries, sales or a guaranteed reach.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="https://agenticcore.estate/sell.html" data-i18n="es_list">List a property on Estate</a>
         <a class="btn btn-secondary" href="dashboard.html#listings" data-i18n="es_promote">Promote one of my listings</a>
@@ -223,7 +213,7 @@
   </section>
 
   <!-- A3. Problems we solve -->
-  <section id="problems">
+  <section class="section-alt" id="problems">
     <div class="container">
       <div class="section-head">
         <h2 class="section-title" data-i18n="prob_title">Sound familiar?</h2>
@@ -234,13 +224,13 @@
         <button class="tab" role="tab" aria-selected="false" aria-controls="prob-developers" id="tab-developers" data-i18n="prob_tab_developers">Developers</button>
       </div>
       <div role="tabpanel" id="prob-dealers" aria-labelledby="tab-dealers" class="grid grid-3">
-        <div class="card problem"><q data-i18n="prob_d1_q">My Facebook page hasn't had a post in weeks.</q><span class="answer" data-i18n="prob_d1_a">Dealer Starter posts for you every week.</span><a class="card-link" data-wa="problems-dealers" data-wa-msg="My Facebook page needs regular posts. Tell me about Dealer Starter." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
+        <div class="card problem"><q data-i18n="prob_d1_q">My Facebook page hasn't had a post in weeks.</q><span class="answer" data-i18n="prob_d1_a">Agent Monthly keeps your listings and pages posted every month.</span><a class="card-link" data-wa="problems-dealers" data-wa-msg="My Facebook page needs regular posts. Tell me about Agent Monthly." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
         <div class="card problem"><q data-i18n="prob_d2_q">Rates change and my flyers are always out of date.</q><span class="answer" data-i18n="prob_d2_a">New rate sheets the same day.</span><a class="card-link" data-wa="problems-dealers" data-wa-msg="I need rate sheets and offer flyers updated when my rates change." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
-        <div class="card problem"><q data-i18n="prob_d3_q">A lead messaged at midnight and I replied at noon.</q><span class="answer" data-i18n="prob_d3_a">A WhatsApp qualification bot answers instantly.</span><a class="card-link" data-wa="problems-dealers" data-wa-msg="I'm interested in the WhatsApp qualification bot." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
+        <div class="card problem"><q data-i18n="prob_d3_q">A lead messaged at midnight and I replied at noon.</q><span class="answer" data-i18n="prob_d3_a">A WhatsApp enquiry bot answers straight away.</span><a class="card-link" data-wa="problems-dealers" data-wa-msg="I'm interested in the WhatsApp enquiry bot." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
       </div>
       <div role="tabpanel" id="prob-agencies" aria-labelledby="tab-agencies" class="grid grid-3" hidden>
         <div class="card problem"><q data-i18n="prob_a1_q">Listings are out of date on Zameen, Graana and OLX.</q><span class="answer" data-i18n="prob_a1_a">One master sheet keeps them current.</span><a class="card-link" data-wa="problems-agencies" data-wa-msg="I'm interested in multi-portal listing management." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
-        <div class="card problem"><q data-i18n="prob_a2_q">Agents take leads with them when they leave.</q><span class="answer" data-i18n="prob_a2_a">CRM set-up with controls.</span><a class="card-link" data-wa="problems-agencies" data-wa-msg="I'm interested in CRM set-up and agent training." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
+        <div class="card problem"><q data-i18n="prob_a2_q">Agents take leads with them when they leave.</q><span class="answer" data-i18n="prob_a2_a">CRM + AI workflow with lead routing.</span><a class="card-link" data-wa="problems-agencies" data-wa-msg="I'm interested in CRM + AI workflow set-up." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
       </div>
       <div role="tabpanel" id="prob-developers" aria-labelledby="tab-developers" class="grid grid-3" hidden>
         <div class="card problem"><q data-i18n="prob_v1_q">Overseas buyers want proof before they pay.</q><span class="answer" data-i18n="prob_v1_a">NOC and approval kits, dated progress reels, virtual tours.</span><a class="card-link" data-wa="problems-developers" data-wa-msg="Overseas buyers want proof. Tell me about approval kits, progress reels and virtual tours." href="signup.html" data-i18n="wa_about_this">WhatsApp us about this</a></div>
@@ -250,30 +240,17 @@
   </section>
 
   <!-- A4. Services grouped by need (rendered from data/services.json) -->
-  <section class="section-alt" id="services">
+  <section id="services">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="svc_eyebrow">All 56 services</span>
-        <h2 class="section-title" data-i18n="svc_title">Everything you need to sell property, in one place.</h2>
-        <p class="section-sub" data-i18n="svc_sub">Grouped by what you need, not by what we call it. Every price is published; every service shows its delivery time.</p>
+        <span class="eyebrow" data-count-label="svc_eyebrow">All services</span>
+        <h2 class="section-title" data-i18n="svc_title">Everything you need to market property, in one place.</h2>
+        <p class="section-sub" data-i18n="svc_sub">Four sections: property marketing, project marketing, AI &amp; automation, and specialist add-ons. Every price is published.</p>
       </div>
       <div class="grid grid-2" id="svcGroups">
-        <noscript><p>See the <a href="services.html">full list of 56 services and prices</a>.</p></noscript>
+        <noscript><p>See the <a href="services.html">full list of services and prices</a>.</p></noscript>
       </div>
       <p style="margin-top:var(--space-md)"><a class="link" href="services.html" data-i18n="svc_page_link">Open the full price list</a></p>
-    </div>
-  </section>
-
-  <!-- A5. Packages (rendered from data/packages.json) -->
-  <section id="packages">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow" data-i18n="pkg_eyebrow">Packages</span>
-        <h2 class="section-title" data-i18n="pkg_title">Save more with a package.</h2>
-      </div>
-      <div class="pkg-scroller" id="pkgList"></div>
-      <p class="muted" style="margin-top:var(--space-md)" id="pkgIncludes"></p>
-      <p style="margin-top:0.5rem"><a class="link" href="services.html" data-i18n="pkg_just_one">Need just one thing? See all 56 services and prices.</a></p>
     </div>
   </section>
 
@@ -282,7 +259,7 @@
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" data-i18n="how_eyebrow">How it works</span>
-        <h2 class="section-title" data-i18n="how_title">Order in minutes. Most work back the same day.</h2>
+        <h2 class="section-title" data-i18n="how_title">Order in minutes. Track every task.</h2>
       </div>
       <div class="how-grid"><div class="phone-wrap">
 <div class="phone" aria-label="Preview of the My tasks screen in the client dashboard">
@@ -310,7 +287,7 @@
         <li class="step card"><span class="n">5</span><h3 data-i18n="how_5_t">Receive and approve</h3><p data-i18n="how_5_d">Download the files from your dashboard or get them on WhatsApp. Two rounds of changes are included.</p>
           <div class="shot">⬇ chart-v2.png · <span class="pill pill-delivered" data-i18n="st_delivered">Delivered</span></div></li>
       </ol></div>
-      <p class="footnote" data-i18n="how_foot">Same day applies to orders confirmed by 6pm PKT. Frameworks and heavy campaigns take 2–3 days; Project Partner is delivered within 1 week.</p>
+      <p class="footnote" data-i18n="how_foot">Small creatives are delivered the same day for orders confirmed by 6pm PKT. Larger work shows its own delivery time.</p>
     </div>
   </section>
 
@@ -399,6 +376,7 @@
 <script src="js/db-client.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/i18n-p2.js"></script>
+<script src="js/i18n-v2.js"></script>
 <script src="js/catalog-core.js"></script>
 <script src="js/partials.js"></script>
 <script src="js/catalog-render.js"></script>

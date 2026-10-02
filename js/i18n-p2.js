@@ -3,53 +3,26 @@
    Urdu is a first pass for native review, like the rest of the site.
    Roman Urdu appears only inside generated captions, never as UI. */
 Object.assign(PK_I18N.en, {
-  p2_eyebrow: 'Real estate marketing for Pakistan',
-  p2_h1a: 'Turn properties into ', p2_h1b: 'marketing that sells.',
-  p2_sub: 'Send us your property photos, price and details. We turn them into flyers, WhatsApp cards, social posts, brochures and reels — for agents, agencies, builders and developers across Pakistan.',
-  p2_cta_property: 'Market a property', p2_cta_project: 'Promote a project', p2_cta_services: 'Explore services', p2_cta_samples: 'See what we can create →',
+
+  
+
+  
   p2_create_title: 'What we can create',
-  out_flyer: 'Property flyer', out_whatsapp: 'WhatsApp card', out_social: 'Social post', out_brochure: 'Brochure', out_reel: 'Reel / video',
-  out_project: 'Project marketing', out_website: 'Website', out_listing: 'Listing support',
 
-  need_eyebrow: 'Start with what you need', need_title: 'What are you trying to do?',
-  need_sub: 'Pick one. We\'ll show the services that fit, with their published prices.',
-  'intent_sell-property': 'I have a property to sell', intent_social: 'I need regular social media', 'intent_launch-project': 'I\'m launching a project',
-  intent_website: 'I need a website', intent_branding: 'I need branding', 'intent_photo-video': 'I need property photos or video',
-  'intent_leads-ads': 'I need leads or advertising', 'intent_estate-listing': 'Help with my AgenticCore Estate listing',
-  'intent_sell-property_lead': 'For one property: a WhatsApp card, offer posts, cleaner photos, a short reel and ad copy usually do the most work.',
-  intent_social_lead: 'Stay visible every week without hiring anyone.',
-  'intent_launch-project_lead': 'Everything a launch needs: identity, payment plans, maps, brochures, pitch decks, a landing page and a launch campaign.',
-  intent_website_lead: 'From a one-page property site to a full agency website with calculators, plot maps and online booking.',
-  intent_branding_lead: 'A logo and identity that looks the same on every flyer, post and signboard.',
-  'intent_photo-video_lead': 'Better photos, 3D plans, virtual tours, reels and drone edits.',
-  'intent_leads-ads_lead': 'Ads, ad copy and WhatsApp/website bots so every lead gets an answer.',
-  'intent_estate-listing_lead': 'Listing on AgenticCore Estate is free. These services make the listing and its photos stand out, or keep all your portals in sync.',
-  p2_build_pack: 'Build my property marketing pack', p2_try_tool: 'Try the free content tool', p2_list_estate: 'List on AgenticCore Estate',
-  p2_or_package: 'Or save with a package', p2_see_service: 'Service', p2_on_estate: 'Live on AgenticCore Estate',
 
-  sel_title: 'Not sure what to order?', sel_sub: 'Answer two questions and we\'ll suggest a starting point.',
-  sel_q1: 'What are you marketing?', sel_q2: 'What do you need most?',
-  sel_what_property: 'A property', sel_what_project: 'A project', sel_what_agency: 'My agency', sel_what_developer: 'Developer / builder',
-  'sel_goal_sell-faster': 'Sell faster', 'sel_goal_look-professional': 'Look professional', sel_goal_social: 'Social content',
-  sel_goal_leads: 'Generate leads', sel_goal_online: 'Launch online', sel_goal_complete: 'Complete marketing',
-  sel_result_lead: 'A good place to start:', sel_result_note: 'Suggestions come from a simple guide, not from AI. Tap any service to see what you get, what we need and the price.',
+  p2_build_pack: 'Build my property marketing pack', p2_try_tool: 'Try the free content tool', p2_list_estate: 'List on AgenticCore Estate', p2_see_service: 'Service', p2_on_estate: 'Live on AgenticCore Estate',
 
-  wf_eyebrow: 'From property to marketing pack', wf_title: 'You send the rough details. We send back the marketing.',
-  wf_1_t: 'You send', wf_1_d: 'Photos, price, location, a few facts and your logo — on WhatsApp or in your dashboard.',
-  wf_2_t: 'We prepare', wf_2_d: 'Our team designs each piece. Every order gets a task ID you can track.',
-  wf_3_t: 'You share', wf_3_d: 'Download from your dashboard, send on WhatsApp, post it, and link buyers to your free AgenticCore Estate listing.',
-  wf_note: 'This is a sample workflow. Timing depends on the services you choose and when your details and payment are in.',
-  wf_estate: 'Estate listing', wf_qr: 'QR / share link',
 
-  pack_eyebrow: 'Property Marketing Pack', pack_title: 'Build a marketing pack for one property.',
-  pack_sub: 'Choose the pieces you want. Each one is an existing service with its published price — no bundle markup.',
+
+  pack_eyebrow: 'Property Marketing Pack', 
+
   pack_you_send: 'You send', pack_we_prepare: 'We can prepare',
   pack_send_photos: 'Property photos', pack_send_location: 'Location', pack_send_price: 'Price', pack_send_facts: 'Size, beds, baths and key facts',
   pack_send_logo: 'Agency logo', pack_send_contact: 'Contact number',
   pack_brandkit: 'Saved your logo and contact details in your Brand Kit? We reuse them, so you only send them once.',
-  'pack_out_wa-card': 'WhatsApp property card', 'pack_out_offer-post': 'Social / offer post', pack_out_photos: 'Photo clean-up (10 photos)',
-  'pack_out_ad-copy': 'Captions & ad copy (English + Roman Urdu)', 'pack_out_qr-flyer': 'QR-coded flyer', pack_out_catalogue: 'PDF catalogue (up to 6 pages)',
-  pack_out_reel: 'Promo reel (up to 60 s)', 'pack_out_voice-reel': 'Voiceover reel (up to 60 s)', pack_out_floorplan: '3D floor plan', pack_out_landing: 'Property landing page',
+  'pack_out_offer-post': 'Social / offer post', 
+  'pack_out_ad-copy': 'Captions & ad copy (English + Roman Urdu)', 
+
   pack_total: 'Selected total', pack_total_note: 'Final price is confirmed on your invoice from our published price list. One-off work is usually paid half at the start and half on delivery.',
   pack_free: 'Free with your account: list the property on AgenticCore Estate and download its QR share card.',
 
@@ -62,82 +35,45 @@ Object.assign(PK_I18N.en, {
   'sample_progress-reel': 'Site progress reel', 'sample_whatsapp-catalogue': 'WhatsApp catalogue', 'sample_approval-kit': 'NOC and approval kit',
   'sample_estate-share-card': 'Estate QR share card', sample_live_tag: 'Free tool',
 
-  es_eyebrow: 'AgenticCore Estate + AgenticCore Pakistan', es_title: 'List it. Market it. Share it.',
-  es_sub: 'One account works on both sites. Estate is where buyers find your property; AgenticCore Pakistan makes the marketing that sends them there.',
+
+  
   es_1_t: 'List it free', es_1_d: 'Post the property on AgenticCore Estate. AgenticCore can help you write the listing.',
   es_2_t: 'Improve it', es_2_d: 'Estate scores your listing out of 100 and tells you exactly what to add.',
   es_3_t: 'Share it', es_3_d: 'Download a free WhatsApp card and QR code that link buyers back to your listing.',
   es_4_t: 'Promote it', es_4_d: 'Want more? Order a professional marketing pack here, prefilled from your Estate listing.',
-  es_list: 'List a property on Estate', es_promote: 'Promote one of my listings',
+
 
   sd_close: 'Close', sd_you_get: 'What you get and the price', sd_for: 'Who it\'s for', sd_we_need: 'What we need from you', sd_delivery: 'Delivery time',
   sd_example: 'Example (sample concept)', sd_in_package: 'Included in', sd_related: 'Related services',
   sd_need_brand: 'Your logo and contact details (or your saved Brand Kit)', sd_need_content: 'Any photos, text or references you want used',
   svc_details: 'Details',
 
-  pkgx_for: 'Who it\'s for', pkgx_solves: 'What it solves', pkgx_flow: 'How it runs',
-  'pkgx_dealer-starter_solves': 'Your pages go quiet and your rate sheets go out of date.',
-  'pkgx_dealer-starter_flow': 'We set up your pages on day one, then post every week and send new flyers when your rates change.',
-  'pkgx_agenticcore-package_solves': 'Starting out with no website, logo, brochure or video.',
-  'pkgx_agenticcore-package_flow': 'One order: we build the whole starter kit, then hand everything over in your name.',
-  'pkgx_growing-agent_solves': 'Leads come in from ads but replies are slow.',
-  'pkgx_growing-agent_flow': 'Monthly content and ads, plus a WhatsApp bot that answers leads instantly.',
-  'pkgx_agency-pro_solves': 'Several agents, several portals and leads that slip through.',
-  'pkgx_agency-pro_flow': 'Portals kept in sync, ads and retargeting, and a CRM with lead routing for your team.',
-  'pkgx_project-partner_solves': 'A whole project to market, sell and follow up.',
-  'pkgx_project-partner_flow': 'We run marketing, overseas campaigns, progress reels and reminders; you watch it from your dashboard.',
 
   ct_nav: 'Free content tool'
 });
 
 Object.assign(PK_I18N.ur, {
-  p2_eyebrow: 'پاکستان کے لیے رئیل اسٹیٹ مارکیٹنگ',
-  p2_h1a: 'اپنی جائیداد کو ', p2_h1b: 'بکنے والی مارکیٹنگ میں بدلیں۔',
-  p2_sub: 'جائیداد کی تصاویر، قیمت اور تفصیل بھیجیں۔ ہم انہیں فلائرز، واٹس ایپ کارڈز، سوشل پوسٹس، بروشرز اور ریلز میں بدلتے ہیں — پورے پاکستان کے ایجنٹس، ایجنسیوں، بلڈرز اور ڈویلپرز کے لیے۔',
-  p2_cta_property: 'جائیداد کی مارکیٹنگ کریں', p2_cta_project: 'منصوبے کی تشہیر کریں', p2_cta_services: 'خدمات دیکھیں', p2_cta_samples: 'دیکھیں ہم کیا بنا سکتے ہیں ←',
+
+  
+
+  
   p2_create_title: 'ہم کیا بنا سکتے ہیں',
-  out_flyer: 'پراپرٹی فلائر', out_whatsapp: 'واٹس ایپ کارڈ', out_social: 'سوشل پوسٹ', out_brochure: 'بروشر', out_reel: 'ریل / ویڈیو',
-  out_project: 'منصوبے کی مارکیٹنگ', out_website: 'ویب سائٹ', out_listing: 'لسٹنگ میں مدد',
 
-  need_eyebrow: 'جو ضرورت ہے وہاں سے شروع کریں', need_title: 'آپ کیا کرنا چاہتے ہیں؟',
-  need_sub: 'ایک چنیں۔ ہم موزوں خدمات ان کی شائع شدہ قیمتوں کے ساتھ دکھائیں گے۔',
-  'intent_sell-property': 'مجھے ایک جائیداد بیچنی ہے', intent_social: 'باقاعدہ سوشل میڈیا چاہیے', 'intent_launch-project': 'میں منصوبہ لانچ کر رہا ہوں',
-  intent_website: 'ویب سائٹ چاہیے', intent_branding: 'برانڈنگ چاہیے', 'intent_photo-video': 'جائیداد کی تصاویر یا ویڈیو چاہیے',
-  'intent_leads-ads': 'لیڈز یا اشتہارات چاہییں', 'intent_estate-listing': 'AgenticCore Estate لسٹنگ میں مدد',
-  'intent_sell-property_lead': 'ایک جائیداد کے لیے: واٹس ایپ کارڈ، آفر پوسٹس، بہتر تصاویر، مختصر ریل اور اشتہاری عبارت سب سے زیادہ کام آتے ہیں۔',
-  intent_social_lead: 'کسی کو ملازم رکھے بغیر ہر ہفتے نظر آتے رہیں۔',
-  'intent_launch-project_lead': 'لانچ کے لیے سب کچھ: شناخت، ادائیگی پلان، نقشے، بروشرز، پچ ڈیک، لینڈنگ پیج اور لانچ مہم۔',
-  intent_website_lead: 'ایک صفحے کی پراپرٹی سائٹ سے لے کر کیلکولیٹرز، پلاٹ نقشوں اور آن لائن بکنگ والی مکمل ویب سائٹ تک۔',
-  intent_branding_lead: 'ایسا لوگو اور شناخت جو ہر فلائر، پوسٹ اور بورڈ پر ایک جیسی نظر آئے۔',
-  'intent_photo-video_lead': 'بہتر تصاویر، تھری ڈی نقشے، ورچوئل ٹورز، ریلز اور ڈرون ایڈیٹنگ۔',
-  'intent_leads-ads_lead': 'اشتہارات، اشتہاری عبارت اور واٹس ایپ/ویب سائٹ بوٹس تاکہ ہر لیڈ کو جواب ملے۔',
-  'intent_estate-listing_lead': 'AgenticCore Estate پر لسٹنگ مفت ہے۔ یہ خدمات لسٹنگ اور تصاویر کو نمایاں کرتی ہیں یا آپ کے تمام پورٹلز کو ہم آہنگ رکھتی ہیں۔',
+
   p2_build_pack: 'میرا پراپرٹی مارکیٹنگ پیک بنائیں', p2_try_tool: 'مفت کانٹینٹ ٹول آزمائیں', p2_list_estate: 'AgenticCore Estate پر لسٹ کریں',
-  p2_or_package: 'یا پیکج کے ساتھ بچت کریں', p2_see_service: 'سروس', p2_on_estate: 'AgenticCore Estate پر دستیاب',
+  p2_see_service: 'سروس', p2_on_estate: 'AgenticCore Estate پر دستیاب',
 
-  sel_title: 'سمجھ نہیں آ رہا کیا آرڈر کریں؟', sel_sub: 'دو سوالوں کے جواب دیں، ہم شروعات تجویز کریں گے۔',
-  sel_q1: 'آپ کس کی مارکیٹنگ کر رہے ہیں؟', sel_q2: 'آپ کو سب سے زیادہ کیا چاہیے؟',
-  sel_what_property: 'ایک جائیداد', sel_what_project: 'ایک منصوبہ', sel_what_agency: 'میری ایجنسی', sel_what_developer: 'ڈویلپر / بلڈر',
-  'sel_goal_sell-faster': 'جلدی فروخت', 'sel_goal_look-professional': 'پیشہ ورانہ نظر', sel_goal_social: 'سوشل کانٹینٹ',
-  sel_goal_leads: 'لیڈز حاصل کرنا', sel_goal_online: 'آن لائن آنا', sel_goal_complete: 'مکمل مارکیٹنگ',
-  sel_result_lead: 'شروع کرنے کے لیے اچھا انتخاب:', sel_result_note: 'تجاویز ایک سادہ رہنما سے آتی ہیں، AI سے نہیں۔ کسی بھی سروس پر ٹیپ کر کے دیکھیں کیا ملتا ہے، ہمیں کیا چاہیے اور قیمت کیا ہے۔',
 
-  wf_eyebrow: 'جائیداد سے مارکیٹنگ پیک تک', wf_title: 'آپ کچی تفصیل بھیجیں، ہم تیار مارکیٹنگ واپس بھیجیں۔',
-  wf_1_t: 'آپ بھیجیں', wf_1_d: 'تصاویر، قیمت، مقام، چند حقائق اور اپنا لوگو — واٹس ایپ پر یا اپنے ڈیش بورڈ میں۔',
-  wf_2_t: 'ہم تیار کریں', wf_2_d: 'ہماری ٹیم ہر چیز ڈیزائن کرتی ہے۔ ہر آرڈر کو ایک ٹاسک آئی ڈی ملتی ہے جسے آپ ٹریک کر سکتے ہیں۔',
-  wf_3_t: 'آپ شیئر کریں', wf_3_d: 'ڈیش بورڈ سے ڈاؤن لوڈ کریں، واٹس ایپ پر بھیجیں، پوسٹ کریں اور خریداروں کو اپنی مفت AgenticCore Estate لسٹنگ پر لائیں۔',
-  wf_note: 'یہ ایک نمونہ طریقہ کار ہے۔ وقت آپ کی چنی گئی خدمات اور تفصیل و ادائیگی ملنے پر منحصر ہے۔',
-  wf_estate: 'Estate لسٹنگ', wf_qr: 'QR / شیئر لنک',
 
-  pack_eyebrow: 'پراپرٹی مارکیٹنگ پیک', pack_title: 'ایک جائیداد کے لیے مارکیٹنگ پیک بنائیں۔',
-  pack_sub: 'جو چیزیں چاہییں چنیں۔ ہر ایک موجودہ سروس ہے اپنی شائع شدہ قیمت کے ساتھ — کوئی اضافی رقم نہیں۔',
+  pack_eyebrow: 'پراپرٹی مارکیٹنگ پیک', 
+
   pack_you_send: 'آپ بھیجیں', pack_we_prepare: 'ہم تیار کر سکتے ہیں',
   pack_send_photos: 'جائیداد کی تصاویر', pack_send_location: 'مقام', pack_send_price: 'قیمت', pack_send_facts: 'سائز، بیڈ، باتھ اور اہم حقائق',
   pack_send_logo: 'ایجنسی کا لوگو', pack_send_contact: 'رابطہ نمبر',
   pack_brandkit: 'اپنا لوگو اور رابطہ برانڈ کٹ میں محفوظ کیا ہے؟ ہم انہیں دوبارہ استعمال کرتے ہیں، اس لیے صرف ایک بار بھیجیں۔',
-  'pack_out_wa-card': 'واٹس ایپ پراپرٹی کارڈ', 'pack_out_offer-post': 'سوشل / آفر پوسٹ', pack_out_photos: 'تصاویر کی صفائی (10 تصاویر)',
-  'pack_out_ad-copy': 'کیپشن اور اشتہاری عبارت (انگریزی + رومن اردو)', 'pack_out_qr-flyer': 'QR کوڈ والا فلائر', pack_out_catalogue: 'PDF کیٹلاگ (6 صفحات تک)',
-  pack_out_reel: 'پرومو ریل (60 سیکنڈ تک)', 'pack_out_voice-reel': 'وائس اوور ریل (60 سیکنڈ تک)', pack_out_floorplan: 'تھری ڈی فلور پلان', pack_out_landing: 'پراپرٹی لینڈنگ پیج',
+  'pack_out_offer-post': 'سوشل / آفر پوسٹ', 
+  'pack_out_ad-copy': 'کیپشن اور اشتہاری عبارت (انگریزی + رومن اردو)', 
+
   pack_total: 'منتخب کل', pack_total_note: 'حتمی قیمت ہماری شائع شدہ قیمتوں سے آپ کی انوائس پر طے ہوتی ہے۔ ایک بار کا کام عموماً آدھا شروع میں اور آدھا ڈیلیوری پر ادا ہوتا ہے۔',
   pack_free: 'آپ کے اکاؤنٹ کے ساتھ مفت: جائیداد AgenticCore Estate پر لسٹ کریں اور اس کا QR شیئر کارڈ ڈاؤن لوڈ کریں۔',
 
@@ -150,30 +86,19 @@ Object.assign(PK_I18N.ur, {
   'sample_progress-reel': 'تعمیراتی پیش رفت ریل', 'sample_whatsapp-catalogue': 'واٹس ایپ کیٹلاگ', 'sample_approval-kit': 'NOC اور منظوری کٹ',
   'sample_estate-share-card': 'Estate QR شیئر کارڈ', sample_live_tag: 'مفت ٹول',
 
-  es_eyebrow: 'AgenticCore Estate + AgenticCore Pakistan', es_title: 'لسٹ کریں۔ مارکیٹ کریں۔ شیئر کریں۔',
-  es_sub: 'ایک اکاؤنٹ دونوں سائٹس پر چلتا ہے۔ Estate پر خریدار آپ کی جائیداد ڈھونڈتے ہیں؛ AgenticCore Pakistan وہ مارکیٹنگ بناتا ہے جو انہیں وہاں لاتی ہے۔',
+
+  
   es_1_t: 'مفت لسٹ کریں', es_1_d: 'جائیداد AgenticCore Estate پر پوسٹ کریں۔ AgenticCore لسٹنگ لکھنے میں مدد کر سکتا ہے۔',
   es_2_t: 'بہتر بنائیں', es_2_d: 'Estate آپ کی لسٹنگ کو 100 میں سے اسکور دیتا ہے اور بتاتا ہے کیا شامل کریں۔',
   es_3_t: 'شیئر کریں', es_3_d: 'مفت واٹس ایپ کارڈ اور QR کوڈ ڈاؤن لوڈ کریں جو خریداروں کو آپ کی لسٹنگ پر لاتے ہیں۔',
   es_4_t: 'تشہیر کریں', es_4_d: 'مزید چاہیے؟ یہاں پیشہ ورانہ مارکیٹنگ پیک آرڈر کریں، آپ کی Estate لسٹنگ سے پہلے سے بھرا ہوا۔',
-  es_list: 'Estate پر جائیداد لسٹ کریں', es_promote: 'اپنی کسی لسٹنگ کی تشہیر کریں',
+
 
   sd_close: 'بند کریں', sd_you_get: 'آپ کو کیا ملتا ہے اور قیمت', sd_for: 'کس کے لیے', sd_we_need: 'ہمیں آپ سے کیا چاہیے', sd_delivery: 'ڈیلیوری کا وقت',
   sd_example: 'مثال (نمونہ تصور)', sd_in_package: 'ان پیکجز میں شامل', sd_related: 'متعلقہ خدمات',
   sd_need_brand: 'آپ کا لوگو اور رابطہ (یا محفوظ شدہ برانڈ کٹ)', sd_need_content: 'کوئی بھی تصاویر، عبارت یا حوالہ جو آپ استعمال کروانا چاہیں',
   svc_details: 'تفصیل',
 
-  pkgx_for: 'کس کے لیے', pkgx_solves: 'کیا مسئلہ حل کرتا ہے', pkgx_flow: 'کیسے چلتا ہے',
-  'pkgx_dealer-starter_solves': 'آپ کے پیجز خاموش ہو جاتے ہیں اور ریٹ شیٹس پرانی ہو جاتی ہیں۔',
-  'pkgx_dealer-starter_flow': 'پہلے دن پیجز سیٹ اپ، پھر ہر ہفتے پوسٹس اور ریٹ بدلنے پر نئے فلائرز۔',
-  'pkgx_agenticcore-package_solves': 'ویب سائٹ، لوگو، بروشر یا ویڈیو کے بغیر شروعات۔',
-  'pkgx_agenticcore-package_flow': 'ایک آرڈر: ہم پوری اسٹارٹر کٹ بناتے ہیں اور سب کچھ آپ کے نام پر حوالے کرتے ہیں۔',
-  'pkgx_growing-agent_solves': 'اشتہارات سے لیڈز آتی ہیں مگر جواب دیر سے جاتا ہے۔',
-  'pkgx_growing-agent_flow': 'ماہانہ کانٹینٹ اور اشتہارات، اور واٹس ایپ بوٹ جو فوراً جواب دیتا ہے۔',
-  'pkgx_agency-pro_solves': 'کئی ایجنٹس، کئی پورٹلز اور ہاتھ سے نکلتی لیڈز۔',
-  'pkgx_agency-pro_flow': 'پورٹلز ہم آہنگ، اشتہارات اور ری ٹارگٹنگ، اور ٹیم کے لیے لیڈ روٹنگ والا CRM۔',
-  'pkgx_project-partner_solves': 'پورے منصوبے کی مارکیٹنگ، فروخت اور فالو اپ۔',
-  'pkgx_project-partner_flow': 'ہم مارکیٹنگ، بیرون ملک مہمات، پیش رفت ریلز اور یاد دہانیاں چلاتے ہیں؛ آپ ڈیش بورڈ سے دیکھتے ہیں۔',
 
   ct_nav: 'مفت کانٹینٹ ٹول'
 });
@@ -181,8 +106,8 @@ Object.assign(PK_I18N.ur, {
 // Dashboard workspace, marketing pack, listings, brand kit, content tool
 Object.assign(PK_I18N.en, {
   ws_title: 'Your marketing workspace', ws_market: 'Market a property', ws_market_sub: 'Pick outputs, we make them',
-  ws_order_sub: 'Any of the 56 services', ws_listings: 'My Estate listings', ws_on_estate: 'on AgenticCore Estate',
-  ws_brandkit: 'Brand Kit', ws_kit_done: 'filled in', ws_deliv_sub: 'Download and share', ws_pkg_sub: 'Save with a package',
+  ws_listings: 'My Estate listings', ws_on_estate: 'on AgenticCore Estate',
+  ws_brandkit: 'Brand Kit', ws_kit_done: 'filled in', ws_deliv_sub: 'Download and share', 
   ws_points: 'points', ws_support_sub: 'Message the team', ws_from_estate: 'From your Estate listings',
   bk_logo: 'Logo', bk_name: 'Business name', bk_phone: 'Phone', bk_whatsapp: 'WhatsApp', bk_website: 'Website', bk_notes: 'Brand notes',
   bk_explain_t: 'Upload your logo and brand details once.', bk_explain: 'We reuse them on every flyer, card, post and video you order, so you never send the same files twice.',
@@ -214,8 +139,8 @@ Object.assign(PK_I18N.en, {
 });
 Object.assign(PK_I18N.ur, {
   ws_title: 'آپ کا مارکیٹنگ ورک اسپیس', ws_market: 'جائیداد کی مارکیٹنگ', ws_market_sub: 'چیزیں چنیں، ہم بنائیں',
-  ws_order_sub: '56 خدمات میں سے کوئی بھی', ws_listings: 'میری Estate لسٹنگز', ws_on_estate: 'AgenticCore Estate پر',
-  ws_brandkit: 'برانڈ کٹ', ws_kit_done: 'مکمل', ws_deliv_sub: 'ڈاؤن لوڈ اور شیئر', ws_pkg_sub: 'پیکج سے بچت',
+  ws_listings: 'میری Estate لسٹنگز', ws_on_estate: 'AgenticCore Estate پر',
+  ws_brandkit: 'برانڈ کٹ', ws_kit_done: 'مکمل', ws_deliv_sub: 'ڈاؤن لوڈ اور شیئر', 
   ws_points: 'پوائنٹس', ws_support_sub: 'ٹیم کو پیغام', ws_from_estate: 'آپ کی Estate لسٹنگز سے',
   bk_logo: 'لوگو', bk_name: 'کاروبار کا نام', bk_phone: 'فون', bk_whatsapp: 'واٹس ایپ', bk_website: 'ویب سائٹ', bk_notes: 'برانڈ نوٹس',
   bk_explain_t: 'اپنا لوگو اور برانڈ کی تفصیل ایک بار اپ لوڈ کریں۔', bk_explain: 'ہم انہیں آپ کے ہر فلائر، کارڈ، پوسٹ اور ویڈیو پر دوبارہ استعمال کرتے ہیں، تاکہ ایک ہی فائل دو بار نہ بھیجنی پڑے۔',
@@ -288,7 +213,7 @@ Object.assign(PK_I18N.en, {
   'sample_photo-enhancement': 'Listing photo enhancement',
   'sample_website-design': 'Agency website',
   'sample_property-landing-page': 'Property landing page',
-  'sample_listing-support': 'Listing support',
+
   'alt_photo-enhancement': 'Sample concept: "Property Photo Enhancement" artwork with an illustrative before-and-after bedroom photo, example interior, exterior, bathroom and kitchen shots, and the price for up to 10 photos with same-day delivery',
   'alt_website-design': 'Sample concept: "Stunning Property Websites" artwork showing an illustrative agency website on a laptop, with property categories and website features',
   'alt_property-landing-page': 'Sample concept: "Property Landing Page" artwork showing an illustrative project page on a laptop and phone, with its per-page price and same-day delivery — not a real project',
@@ -315,7 +240,7 @@ Object.assign(PK_I18N.ur, {
   'sample_photo-enhancement': 'لسٹنگ تصاویر کی بہتری',
   'sample_website-design': 'ایجنسی ویب سائٹ',
   'sample_property-landing-page': 'پراپرٹی لینڈنگ پیج',
-  'sample_listing-support': 'لسٹنگ میں مدد',
+
   'alt_photo-enhancement': 'نمونہ تصور: "Property Photo Enhancement" ڈیزائن، بیڈروم کی مثالی پہلے اور بعد کی تصویر، اندرونی، بیرونی، باتھ روم اور کچن کی مثالیں، اور 10 تصاویر تک کی قیمت اور اسی دن ڈیلیوری',
   'alt_website-design': 'نمونہ تصور: "Stunning Property Websites" ڈیزائن، لیپ ٹاپ پر ایجنسی کی مثالی ویب سائٹ، جائیداد کی اقسام اور ویب سائٹ کی خصوصیات کے ساتھ',
   'alt_property-landing-page': 'نمونہ تصور: "Property Landing Page" ڈیزائن، لیپ ٹاپ اور فون پر منصوبے کا مثالی صفحہ، فی صفحہ قیمت اور اسی دن ڈیلیوری کے ساتھ — کوئی حقیقی منصوبہ نہیں',

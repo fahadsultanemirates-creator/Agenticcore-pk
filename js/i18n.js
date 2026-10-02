@@ -21,8 +21,7 @@ const PK_I18N = {
     hero_title_1: 'Property marketing done for you, ',
     hero_title_2: 'delivered the same day.',
     hero_sub: "Posts, flyers, videos, websites and WhatsApp lead systems for Pakistan's property dealers, agents, agencies and developers. Order on WhatsApp or online, track every task by its ID, and get most work back the same day.",
-    hero_cta_packages: 'See packages from Rs 6,499/month',
-    hero_trust_1: 'Orders by 6pm PKT delivered the same day',
+
     hero_trust_2: 'Prices published in PKR',
     hero_trust_3: 'Pages, domains and accounts stay in your name',
     hero_roman: 'WhatsApp karein, kaam aaj hi shuru.',
@@ -41,37 +40,36 @@ const PK_I18N = {
 
     prob_eyebrow: 'Sound familiar?', prob_title: 'Sound familiar?',
     prob_tab_dealers: 'Dealers and agents', prob_tab_agencies: 'Agencies', prob_tab_developers: 'Developers',
-    prob_d1_q: "My Facebook page hasn't had a post in weeks.", prob_d1_a: 'Dealer Starter posts for you every week.',
+    prob_d1_q: "My Facebook page hasn't had a post in weeks.", 
     prob_d2_q: 'Rates change and my flyers are always out of date.', prob_d2_a: 'New rate sheets the same day.',
-    prob_d3_q: 'A lead messaged at midnight and I replied at noon.', prob_d3_a: 'A WhatsApp qualification bot answers instantly.',
+    prob_d3_q: 'A lead messaged at midnight and I replied at noon.', 
     prob_a1_q: 'Listings are out of date on Zameen, Graana and OLX.', prob_a1_a: 'One master sheet keeps them current.',
-    prob_a2_q: 'Agents take leads with them when they leave.', prob_a2_a: 'CRM set-up with controls.',
+    prob_a2_q: 'Agents take leads with them when they leave.', 
     prob_v1_q: 'Overseas buyers want proof before they pay.', prob_v1_a: 'NOC and approval kits, dated progress reels, virtual tours.',
     prob_v2_q: 'Instalments slip and staff chase by phone.', prob_v2_a: 'Automatic reminders with a record of every notice.',
     wa_about_this: 'WhatsApp us about this',
 
-    svc_eyebrow: 'All 56 services', svc_title: 'Everything you need to sell property, in one place.',
-    svc_sub: 'Grouped by what you need, not by what we call it. Every price is published; every service shows its delivery time.',
+
     svc_see_all: 'See all', svc_services: 'services', svc_from: 'from', svc_new: 'new',
     svc_english_note: '',
     svc_page_link: 'Open the full price list',
 
-    pkg_eyebrow: 'Packages', pkg_title: 'Save more with a package.',
-    pkg_a_month: 'a month', pkg_one_off: 'one-off', pkg_setup: 'set-up', pkg_setup_free: 'Set-up included free',
-    pkg_min: 'minimum', pkg_months: 'months', pkg_bought_sep: 'Bought separately', pkg_you_save: 'You save',
-    pkg_on_setup: 'on set-up', pkg_delivery: 'Delivery', pkg_see_everything: 'See everything included',
+
+    pkg_a_month: 'a month', pkg_one_off: 'one-off', pkg_setup: 'set-up', 
+    pkg_min: 'minimum', pkg_months: 'months', 
+    pkg_delivery: 'Delivery', pkg_see_everything: 'See everything included',
     pkg_every_month: 'Every month', pkg_one_off_setup: 'One-off set-up', pkg_what_you_get: 'What you get',
     pkg_paid_sep: 'Paid separately', pkg_start_wa: 'WhatsApp to start', pkg_order: 'Order online',
     pkg_included: 'included', pkg_at_least: 'at least', pkg_no_monthly: 'No monthly commitment.',
-    pkg_just_one: 'Need just one thing? See all 56 services and prices.',
 
-    how_eyebrow: 'How it works', how_title: 'Order in minutes. Most work back the same day.',
+
+    how_eyebrow: 'How it works', 
     how_1_t: 'Order', how_1_d: 'Message us on WhatsApp or order online. Pick a service or package.',
     how_2_t: 'Get your task ID', how_2_d: "Every order gets an ID, e.g. ACPK-0142, and a delivery time. You'll get it on WhatsApp and in your dashboard.",
     how_3_t: 'Send details and pay', how_3_d: 'Share your logo, photos and text, and pay. The clock starts once all three are in.',
     how_4_t: 'Track it', how_4_d: 'See the status of every task live: received, in progress, ready for review, delivered.',
     how_5_t: 'Receive and approve', how_5_d: 'Download the files from your dashboard or get them on WhatsApp. Two rounds of changes are included.',
-    how_foot: 'Same day applies to orders confirmed by 6pm PKT. Frameworks and heavy campaigns take 2–3 days; Project Partner is delivered within 1 week.',
+
 
     free_eyebrow: 'Try us free', free_title: 'Try us free.',
 
@@ -88,7 +86,7 @@ const PK_I18N = {
 
     faq_eyebrow: 'Questions', faq_title: 'Frequently asked questions',
     faq_q1: 'Do you guarantee leads or sales?', faq_a1: 'No. We agree clear targets and report honestly.',
-    faq_q2: 'How fast is delivery?', faq_a2: 'Most work the same day for orders confirmed by 6pm PKT. Frameworks and heavy campaigns take 2–3 days. Project Partner is delivered within 1 week. The clock starts once we have your details, content and payment.',
+    faq_q2: 'How fast is delivery?', 
     faq_q3: 'How do I pay?', faq_a3: 'Monthly fees are paid in advance. One-off work is usually paid half at the start and half on delivery. Every order gets an invoice in your dashboard.',
     faq_q4: 'Is ad spend included?', faq_a4: 'No. You pay Meta, Google or TikTok directly, never us.',
     faq_q5: 'Who owns the pages, domains and designs?', faq_a5: 'You. We set them up in your name.',
@@ -136,8 +134,7 @@ const PK_I18N = {
     hero_title_1: 'پراپرٹی مارکیٹنگ آپ کے لیے، ',
     hero_title_2: 'اسی دن ڈیلیور۔',
     hero_sub: 'پاکستان کے پراپرٹی ڈیلرز، ایجنٹس، ایجنسیوں اور ڈویلپرز کے لیے پوسٹس، فلائرز، ویڈیوز، ویب سائٹس اور واٹس ایپ لیڈ سسٹمز۔ واٹس ایپ یا آن لائن آرڈر کریں، ہر کام کو اس کی آئی ڈی سے ٹریک کریں، اور زیادہ تر کام اسی دن واپس پائیں۔',
-    hero_cta_packages: 'پیکجز دیکھیں، صرف 6,499 روپے ماہانہ سے',
-    hero_trust_1: 'شام 6 بجے تک کے آرڈر اسی دن ڈیلیور',
+
     hero_trust_2: 'تمام قیمتیں روپوں میں شائع شدہ',
     hero_trust_3: 'پیجز، ڈومین اور اکاؤنٹس آپ کے نام پر',
     hero_roman: 'واٹس ایپ کریں، کام آج ہی شروع۔',
@@ -156,37 +153,36 @@ const PK_I18N = {
 
     prob_eyebrow: 'کیا یہ جانا پہچانا لگتا ہے؟', prob_title: 'کیا یہ جانا پہچانا لگتا ہے؟',
     prob_tab_dealers: 'ڈیلرز اور ایجنٹس', prob_tab_agencies: 'ایجنسیاں', prob_tab_developers: 'ڈویلپرز',
-    prob_d1_q: 'میرے فیس بک پیج پر ہفتوں سے کوئی پوسٹ نہیں ہوئی۔', prob_d1_a: 'ڈیلر اسٹارٹر ہر ہفتے آپ کے لیے پوسٹ کرتا ہے۔',
+    prob_d1_q: 'میرے فیس بک پیج پر ہفتوں سے کوئی پوسٹ نہیں ہوئی۔', 
     prob_d2_q: 'ریٹ بدلتے رہتے ہیں اور میرے فلائرز ہمیشہ پرانے ہوتے ہیں۔', prob_d2_a: 'نئی ریٹ شیٹس اسی دن۔',
-    prob_d3_q: 'لیڈ نے آدھی رات کو میسج کیا اور میں نے دوپہر کو جواب دیا۔', prob_d3_a: 'واٹس ایپ کوالیفیکیشن بوٹ فوراً جواب دیتا ہے۔',
+    prob_d3_q: 'لیڈ نے آدھی رات کو میسج کیا اور میں نے دوپہر کو جواب دیا۔', 
     prob_a1_q: 'زمین، گرانہ اور او ایل ایکس پر لسٹنگز پرانی ہیں۔', prob_a1_a: 'ایک ماسٹر شیٹ سب کو تازہ رکھتی ہے۔',
-    prob_a2_q: 'ایجنٹس جاتے ہوئے لیڈز ساتھ لے جاتے ہیں۔', prob_a2_a: 'کنٹرولز کے ساتھ سی آر ایم سیٹ اپ۔',
+    prob_a2_q: 'ایجنٹس جاتے ہوئے لیڈز ساتھ لے جاتے ہیں۔', 
     prob_v1_q: 'اوورسیز خریدار ادائیگی سے پہلے ثبوت چاہتے ہیں۔', prob_v1_a: 'این او سی کٹس، تاریخ والی پروگریس ریلز، ورچوئل ٹورز۔',
     prob_v2_q: 'قسطیں رہ جاتی ہیں اور عملہ فون پر پیچھا کرتا ہے۔', prob_v2_a: 'ہر نوٹس کے ریکارڈ کے ساتھ خودکار یاددہانیاں۔',
     wa_about_this: 'اس بارے میں واٹس ایپ کریں',
 
-    svc_eyebrow: 'تمام 56 سروسز', svc_title: 'پراپرٹی بیچنے کے لیے سب کچھ، ایک جگہ۔',
-    svc_sub: 'آپ کی ضرورت کے مطابق ترتیب۔ ہر قیمت شائع شدہ؛ ہر سروس کے ساتھ ڈیلیوری کا وقت۔',
+
     svc_see_all: 'سب دیکھیں', svc_services: 'سروسز', svc_from: 'سے شروع', svc_new: 'نیا',
     svc_english_note: 'تفصیلات اور قیمتوں کی شرائط انگریزی میں ہیں۔',
     svc_page_link: 'مکمل قیمتوں کی فہرست کھولیں',
 
-    pkg_eyebrow: 'پیکجز', pkg_title: 'پیکج کے ساتھ زیادہ بچت کریں۔',
-    pkg_a_month: 'ماہانہ', pkg_one_off: 'ایک بار', pkg_setup: 'سیٹ اپ', pkg_setup_free: 'سیٹ اپ مفت شامل',
-    pkg_min: 'کم از کم', pkg_months: 'ماہ', pkg_bought_sep: 'الگ الگ خریدنے پر', pkg_you_save: 'آپ کی بچت',
-    pkg_on_setup: 'سیٹ اپ پر', pkg_delivery: 'ڈیلیوری', pkg_see_everything: 'شامل ہر چیز دیکھیں',
+
+    pkg_a_month: 'ماہانہ', pkg_one_off: 'ایک بار', pkg_setup: 'سیٹ اپ', 
+    pkg_min: 'کم از کم', pkg_months: 'ماہ', 
+    pkg_delivery: 'ڈیلیوری', pkg_see_everything: 'شامل ہر چیز دیکھیں',
     pkg_every_month: 'ہر مہینے', pkg_one_off_setup: 'ایک بار کا سیٹ اپ', pkg_what_you_get: 'آپ کو کیا ملے گا',
     pkg_paid_sep: 'الگ سے ادائیگی', pkg_start_wa: 'واٹس ایپ پر شروع کریں', pkg_order: 'آن لائن آرڈر',
     pkg_included: 'شامل', pkg_at_least: 'کم از کم', pkg_no_monthly: 'کوئی ماہانہ پابندی نہیں۔',
-    pkg_just_one: 'صرف ایک چیز چاہیے؟ تمام 56 سروسز اور قیمتیں دیکھیں۔',
 
-    how_eyebrow: 'طریقہ کار', how_title: 'منٹوں میں آرڈر۔ زیادہ تر کام اسی دن واپس۔',
+
+    how_eyebrow: 'طریقہ کار', 
     how_1_t: 'آرڈر کریں', how_1_d: 'واٹس ایپ پر میسج کریں یا آن لائن آرڈر کریں۔ سروس یا پیکج چنیں۔',
     how_2_t: 'ٹاسک آئی ڈی پائیں', how_2_d: 'ہر آرڈر کو ایک آئی ڈی ملتی ہے، مثلاً ACPK-0142، اور ڈیلیوری کا وقت۔ یہ آپ کو واٹس ایپ اور ڈیش بورڈ پر ملے گی۔',
     how_3_t: 'تفصیلات بھیجیں اور ادائیگی کریں', how_3_d: 'اپنا لوگو، تصاویر اور متن بھیجیں اور ادائیگی کریں۔ تینوں ملتے ہی وقت شروع ہو جاتا ہے۔',
     how_4_t: 'ٹریک کریں', how_4_d: 'ہر کام کا اسٹیٹس لائیو دیکھیں: موصول، جاری، جائزے کے لیے تیار، ڈیلیور شدہ۔',
     how_5_t: 'وصول کریں اور منظور کریں', how_5_d: 'فائلیں ڈیش بورڈ سے ڈاؤن لوڈ کریں یا واٹس ایپ پر پائیں۔ دو بار تبدیلیاں شامل ہیں۔',
-    how_foot: 'اسی دن ڈیلیوری شام 6 بجے (پاکستانی وقت) تک کنفرم آرڈرز پر لاگو ہے۔ فریم ورکس اور بڑی مہمات میں 2 سے 3 دن؛ پراجیکٹ پارٹنر ایک ہفتے میں۔',
+
 
     free_eyebrow: 'مفت آزمائیں', free_title: 'مفت آزمائیں۔',
 
@@ -203,7 +199,7 @@ const PK_I18N = {
 
     faq_eyebrow: 'سوالات', faq_title: 'اکثر پوچھے جانے والے سوالات',
     faq_q1: 'کیا آپ لیڈز یا سیلز کی ضمانت دیتے ہیں؟', faq_a1: 'نہیں۔ ہم واضح اہداف طے کرتے ہیں اور ایمانداری سے رپورٹ کرتے ہیں۔',
-    faq_q2: 'ڈیلیوری کتنی تیز ہے؟', faq_a2: 'شام 6 بجے تک کنفرم ہونے والے زیادہ تر آرڈر اسی دن۔ فریم ورکس اور بڑی مہمات میں 2 سے 3 دن۔ پراجیکٹ پارٹنر ایک ہفتے میں۔ وقت تب شروع ہوتا ہے جب ہمیں آپ کی تفصیلات، مواد اور ادائیگی مل جائے۔',
+    faq_q2: 'ڈیلیوری کتنی تیز ہے؟', 
     faq_q3: 'ادائیگی کیسے کروں؟', faq_a3: 'ماہانہ فیس پیشگی ادا کی جاتی ہے۔ ایک بار کے کام کی عموماً آدھی ادائیگی شروع میں اور آدھی ڈیلیوری پر۔ ہر آرڈر کی انوائس آپ کے ڈیش بورڈ میں ملتی ہے۔',
     faq_q4: 'کیا اشتہاری خرچ شامل ہے؟', faq_a4: 'نہیں۔ آپ براہِ راست میٹا، گوگل یا ٹک ٹاک کو ادا کرتے ہیں، ہمیں نہیں۔',
     faq_q5: 'پیجز، ڈومینز اور ڈیزائنز کا مالک کون ہے؟', faq_a5: 'آپ۔ ہم انہیں آپ کے نام پر بناتے ہیں۔',

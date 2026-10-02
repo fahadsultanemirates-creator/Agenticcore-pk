@@ -56,7 +56,11 @@
    "summary": "You give us the details; we deliver the finished work.",
    "pay": "One price per job, shown with its unit (per design, per video of up to 60 seconds, per page).",
    "included": "The finished files, two rounds of changes and the right to use the work for your business.",
-   "separate": "Printing, filming, stock media and anything our partners quote."
+   "separate": "Printing, filming, stock media and anything our partners quote.",
+   "summary_ur": "آپ تفصیل دیں؛ ہم مکمل کام تیار کر کے دیتے ہیں۔",
+   "pay_ur": "ہر کام کی ایک قیمت، اس کی اکائی کے ساتھ (فی ڈیزائن، 60 سیکنڈ تک فی ویڈیو، فی صفحہ)۔",
+   "included_ur": "تیار فائلیں، دو بار تبدیلیاں اور اپنے کاروبار کے لیے کام استعمال کرنے کا حق۔",
+   "separate_ur": "پرنٹنگ، فلم بندی، اسٹاک میڈیا اور جو کچھ ہمارے پارٹنرز الگ سے کوٹ کریں۔"
   },
   "setup": {
    "name": "Set up once",
@@ -64,7 +68,11 @@
    "summary": "We build the system in your own accounts. After that, it works without us.",
    "pay": "A one-off set-up fee, then the small running costs straight to the providers. You own everything.",
    "included": "Set-up, testing, a handover call, simple written instructions and 30 days of fixes.",
-   "separate": "Running costs paid straight to the providers (AI usage, WhatsApp, hosting, phone, CRM), shown with each service. Optional monthly support where listed."
+   "separate": "Running costs paid straight to the providers (AI usage, WhatsApp, hosting, phone, CRM), shown with each service. Optional monthly support where listed.",
+   "summary_ur": "ہم سسٹم آپ کے اپنے اکاؤنٹس میں بناتے ہیں۔ اس کے بعد یہ ہمارے بغیر چلتا ہے۔",
+   "pay_ur": "ایک بار کی سیٹ اپ فیس، پھر چلانے کے معمولی اخراجات براہِ راست فراہم کنندگان کو۔ ہر چیز کے مالک آپ ہیں۔",
+   "included_ur": "سیٹ اپ، ٹیسٹنگ، حوالگی کال، آسان تحریری ہدایات اور 30 دن تک خرابیوں کی درستگی۔",
+   "separate_ur": "چلانے کے اخراجات براہِ راست فراہم کنندگان کو (AI استعمال، واٹس ایپ، ہوسٹنگ، فون، CRM)، ہر سروس کے ساتھ درج۔ جہاں درج ہو وہاں اختیاری ماہانہ سپورٹ۔"
   },
   "monthly": {
    "name": "Monthly",
@@ -72,7 +80,11 @@
    "summary": "We work alongside you, month by month.",
    "pay": "A monthly fee for ongoing work. Each service lists what the fee includes.",
    "included": "The work listed for that service, a monthly report, a WhatsApp group with our team, one planning call a month and two rounds of changes.",
-   "separate": "Ad spend (paid directly to Meta, Google or TikTok), a scheduler such as Buffer if you want your own account, Meta WhatsApp message fees, printing, drone filming and billboards through partners, and stock media or paid tools."
+   "separate": "Ad spend (paid directly to Meta, Google or TikTok), a scheduler such as Buffer if you want your own account, Meta WhatsApp message fees, printing, drone filming and billboards through partners, and stock media or paid tools.",
+   "summary_ur": "ہم مہینہ بہ مہینہ آپ کے ساتھ کام کرتے ہیں۔",
+   "pay_ur": "جاری کام کی ماہانہ فیس۔ ہر سروس میں لکھا ہے کہ فیس میں کیا شامل ہے۔",
+   "included_ur": "اس سروس کا درج کام، ماہانہ رپورٹ، ہماری ٹیم کے ساتھ واٹس ایپ گروپ، ہر ماہ ایک پلاننگ کال اور دو بار تبدیلیاں۔",
+   "separate_ur": "اشتہاری خرچ (براہِ راست میٹا، گوگل یا ٹک ٹاک کو)، اپنا شیڈیولر اکاؤنٹ اگر چاہیں، میٹا واٹس ایپ میسج فیس، پارٹنرز کے ذریعے پرنٹنگ، ڈرون فلم بندی اور بل بورڈز، اور اسٹاک میڈیا یا پیڈ ٹولز۔"
   }
  },
  "groups": [
@@ -1962,5 +1974,6 @@
    "text_ur": "پرنٹنگ، ڈرون فلم بندی، 360 تصویر کشی اور تقریب کا عملہ: ہر کام کی الگ تحریری کوٹیشن۔"
   }
  ],
- "exchange_rate_note": "We do not hard-code third-party prices; providers bill you directly at their current rates."
+ "exchange_rate_note": "We do not hard-code third-party prices; providers bill you directly at their current rates.",
+ "exchange_rate_note_ur": "ہم تیسرے فریق کی قیمتیں مقرر نہیں لکھتے؛ فراہم کنندگان آپ سے براہِ راست اپنی موجودہ شرح پر رقم لیتے ہیں۔"
 }

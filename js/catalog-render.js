@@ -1,46 +1,47 @@
 /* ============================================
-   AgenticCore Pakistan — catalogue renderers
+   AgenticCore Pakistan — catalogue renderers (Catalogue V2)
    Every public price, service and package on the site is drawn
    from data/services.json + data/packages.json through these
    functions. Nothing here contains a hand-typed price.
    ============================================ */
 
 const Rs = function (n) { return PkCatalogCore.formatRs(n); };
+// "from <price>" in English, "<price> سے شروع" in Urdu.
+function pkFromPrice(n) { return pkT('svc_from_fmt').replace('{p}', Rs(n)); }
 
 function pkModelName(model) {
   const m = window.PK_DATA.services.models[model];
   return m ? pkPick(m, 'name') : model;
 }
 
-// First clause of a delivery sentence, for compact rows ("Same day", "2–3 days").
+// First clause of a delivery sentence, for compact rows ("Same day", "2–3 working days").
 function pkDeliveryShort(service) {
-  return service.delivery.split(/[.;(]/)[0].replace(/^Delivery:\s*/, '').trim();
+  return pkPick(service, 'delivery').split(/[.;(،۔]/)[0].replace(/^Delivery:\s*/, '').trim();
 }
 
 function pkPriceLineHtml(line) {
   let extra = '';
-  if (line.included) extra += '<span class="extra"><strong>Included:</strong> ' + escapeHtml(line.included) + '</span>';
-  if (line.runs) extra += '<span class="extra"><strong>You pay to run it:</strong> ' + escapeHtml(line.runs) + '</span>';
-  if (line.support) extra += '<span class="extra"><strong>Optional support' + (line.support_text ? ' (' + escapeHtml(line.support_text) + ')' : '') + ':</strong> ' + Rs(line.support) + ' a month.</span>';
-  return '<div class="price-line"><span class="model-tag">' + escapeHtml(pkModelName(line.model)) + '</span><div>' + escapeHtml(line.text) + '</div>' + extra + '</div>';
+  if (line.included) extra += '<span class="extra"><strong>' + escapeHtml(pkT('svc_included')) + ':</strong> ' + escapeHtml(pkPick(line, 'included')) + '</span>';
+  if (line.runs) extra += '<span class="extra"><strong>' + escapeHtml(pkT('svc_runs')) + ':</strong> ' + escapeHtml(pkPick(line, 'runs')) + '</span>';
+  if (line.support) extra += '<span class="extra"><strong>' + escapeHtml(pkT('svc_support')) + ':</strong> ' + Rs(line.support) + ' ' + escapeHtml(pkT('pkg_a_month')) + '</span>';
+  return '<div class="price-line"><span class="model-tag">' + escapeHtml(pkModelName(line.model)) + '</span><div>' + escapeHtml(pkPick(line, 'text')) + '</div>' + extra + '</div>';
 }
 
 function pkCautionHtml() {
   const meta = window.PK_DATA.services.meta;
-  return '<div class="caution" role="note">⚠ ' + escapeHtml(pkPick(meta, 'caution_56')) + '</div>';
+  return '<div class="caution" role="note">⚠ ' + escapeHtml(pkPick(meta, 'caution_legal')) + '</div>';
 }
 
 function pkServiceFullHtml(s, opts) {
   opts = opts || {};
-  const newTag = s.new ? ' <span class="pill pill-new">' + escapeHtml(pkT('svc_new')) + '</span>' : '';
   const orderBtn = opts.orderButton
     ? '<div class="btn-row" style="margin-top:0.6rem"><button type="button" class="btn btn-primary btn-sm" data-order-service="' + s.no + '">' + escapeHtml(pkT('order_online')) + '</button></div>'
     : '';
   return '<article class="svc-full" id="service-' + s.no + '">' +
-    '<h4><span class="no">(' + s.no + ')</span> ' + escapeHtml(pkPick(s, 'name')) + newTag + '</h4>' +
-    '<p class="brief">' + escapeHtml(s.brief) + '</p>' +
+    '<h4><span class="no">(' + s.no + ')</span> ' + escapeHtml(pkPick(s, 'name')) + '</h4>' +
+    '<p class="brief">' + escapeHtml(pkPick(s, 'brief')) + '</p>' +
     s.lines.map(pkPriceLineHtml).join('') +
-    '<p class="delivery">' + escapeHtml(s.delivery) + '</p>' +
+    '<p class="delivery">' + escapeHtml(pkPick(s, 'delivery')) + '</p>' +
     (s.caution ? pkCautionHtml() : '') +
     (typeof pkOpenServiceDetail === 'function' ? '<button type="button" class="link svc-details-btn" data-svc="' + s.no + '">' + escapeHtml(pkT('svc_details')) + '</button>' : '') +
     orderBtn +
@@ -51,78 +52,102 @@ function pkServicesInGroup(groupNo) {
   return window.PK_DATA.services.services.filter(function (s) { return s.group === groupNo; });
 }
 
+// The exact price for one fixed line; a "from" price when the line is a "from" price
+// or the service has more than one orderable option.
+function pkServicePriceLabel(s) {
+  const orderable = s.lines.filter(function (l) { return !l.addon; });
+  const p = PkCatalogCore.fromPrice(s);
+  const isFrom = orderable.length > 1 || orderable.some(function (l) { return l.from && l.price === p; });
+  return isFrom ? pkFromPrice(p) : Rs(p);
+}
+function pkServiceUnitLabel(s) {
+  const orderable = s.lines.filter(function (l) { return !l.addon; });
+  return orderable.length === 1 ? pkPick(orderable[0], 'unit') : '';
+}
+
+// Compact, clickable row: name · price · unit · delivery. Opens the service detail.
+function pkServiceRowHtml(s) {
+  const unit = pkServiceUnitLabel(s);
+  return '<button type="button" class="svc-row" data-svc="' + s.no + '">' +
+    '<span class="svc-row-name">' + escapeHtml(pkPick(s, 'name')) + '<span class="d">' + escapeHtml(pkDeliveryShort(s)) + '</span></span>' +
+    '<span class="svc-row-price">' + escapeHtml(pkServicePriceLabel(s)) + (unit ? '<span class="u">' + escapeHtml(unit) + '</span>' : '') + '</span>' +
+  '</button>';
+}
+
 function pkGroupCardHtml(g) {
   const list = pkServicesInGroup(g.no);
-  const examples = list.slice(0, 4).map(function (s) {
-    return '<div class="svc-mini"><span>' + escapeHtml(pkPick(s, 'name')) + '<span class="d">' + escapeHtml(pkDeliveryShort(s)) + '</span></span>' +
-      '<span class="p">' + escapeHtml(pkT('svc_from')) + ' ' + Rs(PkCatalogCore.fromPrice(s)) + '</span></div>';
-  }).join('');
-  return '<div class="card group-card" id="group-' + g.slug + '">' +
-    '<span class="group-type">' + escapeHtml(pkPick(g, 'type')) + '</span>' +
+  const rows = '<div class="svc-rows">' + list.map(pkServiceRowHtml).join('') + '</div>';
+  return '<div class="card group-card' + (g.secondary ? ' secondary' : '') + '" id="group-' + g.slug + '">' +
+    '<span class="group-type">' + escapeHtml(pkPick(g, 'type')) + ' · ' + list.length + ' ' + escapeHtml(pkT('svc_services')) + '</span>' +
     '<h3>' + escapeHtml(pkPick(g, 'need')) + '</h3>' +
     '<p class="benefit">' + escapeHtml(pkPick(g, 'benefit')) + '</p>' +
-    (g.note ? '<p class="group-note">' + escapeHtml(g.note) + '</p>' : '') +
-    '<div>' + examples + '</div>' +
-    '<details class="acc"><summary>' + escapeHtml(pkT('svc_see_all')) + ' · ' + list.length + ' ' + escapeHtml(pkT('svc_services')) + '</summary>' +
-      '<div class="acc-body">' + (pkT('svc_english_note') ? '<p class="tiny">' + escapeHtml(pkT('svc_english_note')) + '</p>' : '') +
-      list.map(function (s) { return pkServiceFullHtml(s); }).join('') + '</div></details>' +
-    '<a class="card-link" data-wa="services-' + g.slug + '" data-wa-msg="I\'m interested in: ' + escapeHtml(g.need) + ' (' + escapeHtml(g.type) + ')." href="signup.html">' + escapeHtml(pkT('wa_about_this')) + '</a>' +
+    (g.secondary
+      ? '<details class="acc"><summary>' + escapeHtml(pkT('svc_show_specialist')) + '</summary><div class="acc-body">' + rows + '</div></details>'
+      : rows) +
+    '<a class="card-link" data-wa="services-' + g.slug + '" data-wa-msg="I\'m interested in: ' + escapeHtml(g.type) + '." href="signup.html">' + escapeHtml(pkT('wa_about_this')) + '</a>' +
   '</div>';
 }
 
-function pkItemsListHtml(items) {
-  const lines = window.PK_DATA.lines;
-  return '<ul>' + (items || []).map(function (it) {
-    const v = PkCatalogCore.itemValue(it, lines);
-    return '<li>' + escapeHtml(it.label) + (it.service ? ' <span class="tiny">(' + it.service + ')</span>' : '') +
-      ' <span class="tiny">' + (it.included ? '(' + escapeHtml(pkT('pkg_included')) + ')' : '(' + Rs(v) + ')') + '</span></li>';
-  }).join('') + '</ul>';
+/* ---------- packages (V2: sold on monthly output, never on calculated "savings") ---------- */
+function pkPackageById(id) {
+  return window.PK_DATA.packages.packages.find(function (p) { return p.id === id; }) || null;
+}
+
+function pkPackagePriceLabel(p) {
+  if (typeof p.one_off === 'number') return (p.one_off_from ? pkFromPrice(p.one_off) : Rs(p.one_off)) + ' ' + pkT('pkg_one_off');
+  return (p.monthly_from ? pkFromPrice(p.monthly) : Rs(p.monthly)) + ' ' + pkT('pkg_a_month');
+}
+
+function pkPackageTermsLabel(p) {
+  if (typeof p.one_off === 'number') return pkPick(p, 'term_note') || pkT('pkg_no_monthly');
+  const setup = p.setup_quoted ? pkT('pkg_setup_quoted')
+    : (p.setup ? '+ ' + Rs(p.setup) + ' ' + pkT('pkg_setup_once') : pkT('pkg_no_setup'));
+  return setup + ' · ' + pkT('pkg_min_term').replace('{n}', p.min_months);
 }
 
 function pkPackageCardHtml(p, opts) {
   opts = opts || {};
-  const lines = window.PK_DATA.lines;
-  const t = PkCatalogCore.packageTotals(p, lines);
-  const featured = p.id === 'dealer-starter';
-  let price, setup, save;
-  if (typeof p.one_off === 'number') {
-    price = Rs(p.one_off) + ' <small>' + escapeHtml(pkT('pkg_one_off')) + '</small>';
-    setup = escapeHtml(pkT('pkg_no_monthly'));
-    save = escapeHtml(pkT('pkg_bought_sep')) + ': ' + escapeHtml(pkT('pkg_at_least')) + ' ' + Rs(t.setupSeparately) + '<br>' +
-      escapeHtml(pkT('pkg_you_save')) + ' <strong>' + Rs(t.setupSaving) + ' (' + t.setupSavingPct + '%)</strong>';
+  const variant = p.variant ? pkPackageById(p.variant) : null;
+  const includes = (p.includes || []).map(function (it) { return '<li>' + escapeHtml(pkPick(it, 'label')) + '</li>'; }).join('');
+  const variantHtml = variant
+    ? '<div class="pkg-variant"><b>' + escapeHtml(pkPick(variant, 'name')) + '</b> · ' + escapeHtml(pkPackagePriceLabel(variant)) +
+      '<span class="tiny">' + escapeHtml(pkPick(variant, 'term_note')) + ' ' + escapeHtml(pkT('pkg_delivery')) + ': ' + escapeHtml(pkPick(variant, 'delivery_short')) + '</span></div>'
+    : '';
+  let buttons;
+  if (p.quote_only) {
+    buttons = opts.dashboard
+      ? '<button type="button" class="btn btn-primary" data-request-proposal="' + p.id + '">' + escapeHtml(pkT('pkg_request_proposal')) + '</button>'
+      : '<a class="btn btn-primary" data-wa="packages" data-wa-msg="I\'d like a proposal for ' + escapeHtml(p.name) + '." href="signup.html?intent=proposal-' + p.id + '">' + escapeHtml(pkT('pkg_request_proposal')) + '</a>';
+  } else if (opts.dashboard) {
+    buttons = '<button type="button" class="btn btn-primary" data-buy-package="' + p.id + '">' + escapeHtml(pkT('pkg_order')) + '</button>' +
+      (variant ? '<button type="button" class="btn btn-secondary" data-buy-package="' + variant.id + '">' + escapeHtml(pkT('pkg_order_with_web')) + '</button>' : '');
   } else {
-    price = Rs(p.monthly) + ' <small>' + escapeHtml(pkT('pkg_a_month')) + '</small>';
-    setup = (p.setup ? '+ ' + Rs(p.setup) + ' ' + escapeHtml(pkT('pkg_setup')) : escapeHtml(pkT('pkg_setup_free'))) +
-      ' · ' + p.min_months + '-' + escapeHtml(pkT('pkg_months')) + ' ' + escapeHtml(pkT('pkg_min'));
-    save = escapeHtml(pkT('pkg_bought_sep')) + ': ' + Rs(t.monthlySeparately) + ' ' + escapeHtml(pkT('pkg_a_month')) + ' + ' + Rs(t.setupSeparately) + ' ' + escapeHtml(pkT('pkg_setup')) + '<br>' +
-      escapeHtml(pkT('pkg_you_save')) + ' <strong>' + Rs(t.monthlySaving) + ' ' + escapeHtml(pkT('pkg_a_month')) + ' (' + t.monthlySavingPct + '%)</strong>' +
-      (t.setupSaving > 0 ? ' · <strong>' + Rs(t.setupSaving) + '</strong> ' + escapeHtml(pkT('pkg_on_setup')) : '');
+    buttons = '<a class="btn btn-primary" href="dashboard.html#order/package/' + p.id + '">' + escapeHtml(pkT('pkg_order')) + '</a>' +
+      (variant ? '<a class="btn btn-secondary" href="dashboard.html#order/package/' + variant.id + '">' + escapeHtml(pkT('pkg_order_with_web')) + '</a>' : '') +
+      '<a class="btn btn-wa" data-wa="packages" data-wa-msg="I\'m interested in ' + escapeHtml(p.name) + '." href="signup.html">' + escapeHtml(pkT('pkg_start_wa')) + '</a>';
   }
-  const keyItems = (p.monthly_items || p.setup_items).slice(0, 5).map(function (it) { return '<li>' + escapeHtml(it.label) + '</li>'; }).join('');
-  const details =
-    (p.monthly_items ? '<p class="sep-label">' + escapeHtml(pkT('pkg_every_month')) + '</p>' + pkItemsListHtml(p.monthly_items) : '') +
-    (p.setup_items ? '<p class="sep-label">' + escapeHtml(p.monthly_items ? pkT('pkg_one_off_setup') : pkT('pkg_what_you_get')) + '</p>' + pkItemsListHtml(p.setup_items) : '') +
-    (p.optional_support_text ? '<p class="tiny" style="margin-top:0.5rem">' + escapeHtml(p.optional_support_text) + '</p>' : '') +
-    '<p class="tiny" style="margin-top:0.5rem">' + escapeHtml(p.delivery) + '</p>';
-  const orderHref = 'dashboard.html#order/package/' + p.id;
-  const buttons = opts.dashboard
-    ? '<button type="button" class="btn btn-primary" data-buy-package="' + p.id + '">' + escapeHtml(pkT('pkg_order')) + '</button>'
-    : '<a class="btn btn-wa" data-wa="packages" data-wa-msg="I\'m interested in ' + escapeHtml(p.name) + '." href="signup.html">' + escapeHtml(pkT('pkg_start_wa')) + '</a>' +
-      '<a class="btn btn-secondary" href="' + orderHref + '">' + escapeHtml(pkT('pkg_order')) + '</a>';
-
-  return '<article class="card pkg' + (featured ? ' featured' : '') + '" id="pkg-' + p.id + '">' +
+  return '<article class="card pkg' + (p.featured ? ' featured' : '') + '" id="pkg-' + p.id + '">' +
     (p.badge ? '<span class="badge">' + escapeHtml(pkPick(p, 'badge')) + '</span>' : '') +
     '<h3>' + escapeHtml(pkPick(p, 'name')) + '</h3>' +
     '<p class="for">' + escapeHtml(pkPick(p, 'for')) + '</p>' +
-    (PK_I18N.en['pkgx_' + p.id + '_solves'] ? '<div class="pkgx"><span><b>' + escapeHtml(pkT('pkgx_solves')) + ':</b> ' + escapeHtml(pkT('pkgx_' + p.id + '_solves')) + '</span>' +
-      '<span><b>' + escapeHtml(pkT('pkgx_flow')) + ':</b> ' + escapeHtml(pkT('pkgx_' + p.id + '_flow')) + '</span></div>' : '') +
-    '<div class="price">' + price + '</div>' +
-    '<div class="setup">' + setup + '</div>' +
-    '<div class="save">' + save + '</div>' +
+    '<div class="price">' + escapeHtml(pkPackagePriceLabel(p)) + '</div>' +
+    '<div class="setup">' + escapeHtml(pkPackageTermsLabel(p)) + '</div>' +
     '<p class="delivery">' + escapeHtml(pkT('pkg_delivery')) + ': ' + escapeHtml(pkPick(p, 'delivery_short')) + '</p>' +
-    '<ul>' + keyItems + '</ul>' +
-    '<details class="acc"><summary>' + escapeHtml(pkT('pkg_see_everything')) + '</summary><div class="acc-body">' + details + '</div></details>' +
-    '<p class="paid-sep"><strong>' + escapeHtml(pkT('pkg_paid_sep')) + ':</strong> ' + escapeHtml(p.paid_separately) + '</p>' +
+    '<p class="sep-label">' + escapeHtml(typeof p.one_off === 'number' ? pkT('pkg_what_you_get') : pkT('pkg_every_month')) + '</p>' +
+    '<ul class="pkg-includes">' + includes + '</ul>' +
+    variantHtml +
+    '<details class="acc"><summary>' + escapeHtml(pkT('pkg_terms_details')) + '</summary><div class="acc-body">' +
+      '<p class="tiny">' + escapeHtml(pkPick(p, 'delivery')) + '</p>' +
+      '<p class="tiny"><strong>' + escapeHtml(pkT('pkg_paid_sep')) + ':</strong> ' + escapeHtml(pkPick(p, 'paid_separately')) + '</p></div></details>' +
     '<div class="btn-row">' + buttons + '</div>' +
   '</article>';
+}
+
+// Featured offer (hero): name, monthly price, minimum term, one line on who it's for.
+function pkFeaturedOfferHtml(p) {
+  return '<a class="feat-offer" href="#pkg-' + p.id + '">' +
+    '<span class="feat-name">' + escapeHtml(pkPick(p, 'name')) + '</span>' +
+    '<span class="feat-price">' + escapeHtml(pkPackagePriceLabel(p)) + '</span>' +
+    '<span class="feat-term">' + escapeHtml(pkPackageTermsLabel(p)) + '</span>' +
+    '<span class="feat-for">' + escapeHtml(pkPick(p, 'for')) + '</span></a>';
 }

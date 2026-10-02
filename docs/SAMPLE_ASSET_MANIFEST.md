@@ -95,3 +95,9 @@ The three earlier versions were replaced in place (same filenames) and the obsol
 | Photo enhancement | `photo-enhancement.webp` 1600×900, 181 KB | `-800` 800×450, 80 KB | Rs 1,299 / up to 10 photos / Same Day: all match the catalogue (28-dfy, "Same day"). No results claims. |
 | Property landing page | `property-landing-page.webp` 1600×900, 176 KB | `-800` 800×450, 80 KB | From Rs 9,999 / Same Day match 15-dfy. Urdu typos in the price box ("في" for "فی", "ڈبلیوری" for "ڈیلیوری", a cut-off "پیش کرد"). |
 | Listing support | `listing-support.webp` 1200×501, 95 KB (crop 0–698 px of 1672×941) | `-600` 600×250, 37 KB | Tile only. The crop excludes the "From Rs 1,299 Per Listing" box: no catalogue line sells listing support per listing (the "from Rs 1,299" is 28-dfy, per 10 photos). It also excludes a garbled Urdu strip ("ربلما"). |
+
+## Catalogue V2 (October 2026, branch `claude/pk-catalogue-v2`)
+
+- `listing-support.webp` and `listing-support-600.webp` were **removed** (git rm) and the sample deleted from `data/samples.json`. The "Listing support" tile no longer exists; the eight homepage tiles are flyer, WhatsApp card, social post, photo enhancement, voiceover reel, project brochure, property landing page and agency website, each pointing at one exact V2 price line (`data/discovery.json` → `tiles`).
+- Sample → V2 service numbers: property flyer → 3, 9 · WhatsApp card → 1 · social post → 2 · photo enhancement → 4 · reel cover → 6, 7 · property brochure → 27 · payment plan → 26 · website design → 16, 34 · property landing page → 12, 33 · (not installed) progress reel → 39, WhatsApp catalogue → 8, approval kit → 30.
+- **Known mismatch to review:** the installed property-landing-page artwork shows "From Rs 9,999 / Same Day". In V2, service 12 is a fixed Rs 9,999 with a 2–3 working-day delivery. The image is still labelled "Sample concept", but the owner should decide whether to re-export it or accept it.
