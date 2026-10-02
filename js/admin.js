@@ -131,7 +131,7 @@ async function viewTask(sub) {
       '<div class="field"><label for="stMissing">Waiting on (comma separated)</label><input id="stMissing" value="' + escapeHtml((t.missing || []).join(', ')) + '" placeholder="Logo file, Payment"></div>' +
       '<div class="field"><label for="stLate">Running late: reason</label><input id="stLate" value="' + escapeHtml(t.late_reason || '') + '"></div>' +
       '<div class="field"><label for="stDue">New due time (PKT, optional)</label><input id="stDue" type="datetime-local"></div>' +
-    '</div><p class="tiny">"Confirmed" sets the due time from the 6pm PKT cut-off and the service\'s turnaround, counted in working days (Mon–Fri by default, skipping holidays listed in settings). "Waiting on you" pauses the clock; any other status resumes it, adds the pause back and moves a weekend or holiday due time to the next working day.</p>' +
+    '</div><p class="tiny">"Confirmed" sets the due time: start day = today (tomorrow if confirmed at or after 6pm PKT), plus the service\'s turnaround in days, due 9pm PKT. All 7 days count; there are no weekend or holiday exclusions. \"Waiting on you\" pauses the clock; any other status resumes it and adds the paused time back, so a deadline is never shortened.</p>' +
     '<div class="form-msg" id="stMsg"></div><button class="btn btn-primary btn-sm" type="submit">Update status</button></form>' +
 
     '<form class="card section-card" id="dvForm"><h2 style="margin-top:0">Deliver</h2>' +

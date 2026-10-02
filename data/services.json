@@ -6,7 +6,7 @@
   "notes": [
    "All prices are in Pakistani rupees, are introductory and exclude taxes where applicable.",
    "Delivery times count from when we have your details, content (logo files, photos, text) and payment.",
-   "\"Same day\" applies to orders confirmed by 6pm PKT; orders confirmed later are delivered the next working day.",
+   "\"Same day\" applies to orders confirmed before 6pm PKT; orders confirmed later are delivered the next day.",
    "Partner work (printing, filming, 360° capture, event crews) and approvals by Meta, Google or phone providers follow their own timings.",
    "Monthly fees are paid in advance. One-off work is usually paid half at the start and half on delivery.",
    "Ad accounts, pages, domains, WhatsApp numbers and automations are set up in your name, so you keep them.",
@@ -16,7 +16,7 @@
   "notes_ur": [
    "تمام قیمتیں پاکستانی روپوں میں ہیں، تعارفی ہیں اور جہاں لاگو ہو ٹیکس شامل نہیں۔",
    "ڈیلیوری کا وقت تب شروع ہوتا ہے جب ہمیں آپ کی تفصیلات، مواد (لوگو، تصاویر، متن) اور ادائیگی مل جائے۔",
-   "\"اسی دن\" شام 6 بجے تک کنفرم آرڈرز پر لاگو ہے؛ بعد والے آرڈر اگلے کاروباری دن۔",
+   "\"اسی دن\" شام 6 بجے سے پہلے کنفرم آرڈرز پر لاگو ہے؛ بعد والے آرڈر اگلے دن۔",
    "پارٹنر کام (پرنٹنگ، فلم بندی، 360 تصویر کشی، تقریب کا عملہ) اور میٹا، گوگل یا فون کمپنیوں کی منظوری ان کے اپنے وقت پر ہوتی ہے۔",
    "ماہانہ فیس پیشگی ادا کی جاتی ہے۔ ایک بار کے کام کی عموماً آدھی ادائیگی شروع میں اور آدھی ڈیلیوری پر۔",
    "اشتہاری اکاؤنٹس، پیجز، ڈومینز، واٹس ایپ نمبرز اور آٹومیشنز آپ کے نام پر بنتے ہیں، اس لیے آپ کے پاس رہتے ہیں۔",
@@ -151,8 +151,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 2,
@@ -173,8 +173,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 3,
@@ -195,8 +195,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 4,
@@ -217,8 +217,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 5,
@@ -239,8 +239,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 6,
@@ -261,8 +261,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 7,
@@ -283,8 +283,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 8,
@@ -305,8 +305,8 @@
      "days": 3
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔"
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔"
   },
   {
    "no": 9,
@@ -327,8 +327,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔",
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔",
    "partner": true
   },
   {
@@ -350,8 +350,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 11,
@@ -372,8 +372,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 12,
@@ -396,8 +396,8 @@
      "runs_ur": "ڈومین اور ہوسٹنگ آپ براہِ راست فراہم کنندہ کو ادا کرتے ہیں اور یہ آپ کے نام پر رہتے ہیں۔"
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔"
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔"
   },
   {
    "no": 13,
@@ -418,8 +418,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 14,
@@ -440,8 +440,8 @@
      "days": 3
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔"
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔"
   },
   {
    "no": 15,
@@ -462,8 +462,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 16,
@@ -488,8 +488,8 @@
      "runs_ur": "ڈومین اور ہوسٹنگ آپ براہِ راست فراہم کنندہ کو ادا کرتے ہیں اور یہ آپ کے نام پر رہتے ہیں۔"
     }
    ],
-   "delivery": "5–7 working days.",
-   "delivery_ur": "5 سے 7 کاروباری دن۔"
+   "delivery": "5–7 days.",
+   "delivery_ur": "5 سے 7 دن۔"
   },
   {
    "no": 17,
@@ -514,8 +514,8 @@
      "runs_ur": "ڈومین اور ہوسٹنگ آپ براہِ راست فراہم کنندہ کو ادا کرتے ہیں اور یہ آپ کے نام پر رہتے ہیں۔"
     }
    ],
-   "delivery": "7–10 working days, including a training session at handover.",
-   "delivery_ur": "7 سے 10 کاروباری دن، حوالگی پر ٹریننگ سیشن سمیت۔"
+   "delivery": "7–10 days, including a training session at handover.",
+   "delivery_ur": "7 سے 10 دن، حوالگی پر ٹریننگ سیشن سمیت۔"
   },
   {
    "no": 18,
@@ -538,8 +538,8 @@
      "included_ur": "ضرورت ہو تو ابتدائی پروفائل سیٹ اپ یا درستی (الگ فیس نہیں)، پھر ہر ماہ 8 پوسٹس، تصاویر کی اپڈیٹ، ریویوز کے جواب اور ماہانہ رپورٹ۔"
     }
    ],
-   "delivery": "Profile ready within 2 working days where set-up is needed (Google verification can take longer); then managed every month.",
-   "delivery_ur": "جہاں سیٹ اپ درکار ہو وہاں 2 کاروباری دن میں پروفائل تیار (گوگل تصدیق میں زیادہ وقت لگ سکتا ہے)؛ پھر ہر ماہ مینجمنٹ۔"
+   "delivery": "Profile ready within 2 days where set-up is needed (Google verification can take longer); then managed every month.",
+   "delivery_ur": "جہاں سیٹ اپ درکار ہو وہاں 2 دن میں پروفائل تیار (گوگل تصدیق میں زیادہ وقت لگ سکتا ہے)؛ پھر ہر ماہ مینجمنٹ۔"
   },
   {
    "no": 19,
@@ -562,8 +562,8 @@
      "included_ur": "منظور شدہ پراپرٹی گروپس میں ہر ماہ 60 پوسٹس تک، جوابات آپ کی ٹیم کو بھیجے جاتے ہیں۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 20,
@@ -598,8 +598,8 @@
      "included_ur": "آپ کے منتخب پورٹلز پر 50 تک فعال لسٹنگز تازہ رکھی جاتی ہیں۔"
     }
    ],
-   "delivery": "Set-up: 3–5 working days. Monthly: listing changes go live within 1 working day.",
-   "delivery_ur": "سیٹ اپ: 3 سے 5 کاروباری دن۔ ماہانہ: لسٹنگ کی تبدیلیاں 1 کاروباری دن میں۔"
+   "delivery": "Set-up: 3–5 days. Monthly: listing changes go live within 1 day.",
+   "delivery_ur": "سیٹ اپ: 3 سے 5 دن۔ ماہانہ: لسٹنگ کی تبدیلیاں 1 دن میں۔"
   },
   {
    "no": 21,
@@ -622,8 +622,8 @@
      "included_ur": "مہم سیٹ اپ، آڈینس، ہر ماہ 4 اشتہاری ڈیزائن، ہفتہ وار جائزہ اور ماہانہ رپورٹ۔ اشتہاری خرچ آپ پلیٹ فارم کو ادا کرتے ہیں۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; ads start once the platform approves them.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پلیٹ فارم کی منظوری کے بعد اشتہارات شروع۔"
+   "delivery": "Set up within 2–3 days; ads start once the platform approves them.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پلیٹ فارم کی منظوری کے بعد اشتہارات شروع۔"
   },
   {
    "no": 22,
@@ -646,8 +646,8 @@
      "included_ur": "دونوں پلیٹ فارمز پر مہم سیٹ اپ، آڈینس، ہر ماہ 4 اشتہاری ڈیزائن، ہفتہ وار جائزہ اور ماہانہ رپورٹ۔ اشتہاری خرچ آپ ادا کرتے ہیں۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 23,
@@ -670,8 +670,8 @@
      "included_ur": "ملک کے حساب سے ٹارگٹنگ، ٹائم زون شیڈولنگ، ہر ماہ 4 ڈیزائن اور ماہانہ رپورٹ۔ اشتہاری خرچ آپ ادا کرتے ہیں۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 24,
@@ -694,8 +694,8 @@
      "included_ur": "ری ٹارگٹنگ آڈینس اور ہر ماہ 2 فالو اپ ڈیزائن۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 25,
@@ -716,8 +716,8 @@
      "days": 5
     }
    ],
-   "delivery": "3–5 working days.",
-   "delivery_ur": "3 سے 5 کاروباری دن۔"
+   "delivery": "3–5 days.",
+   "delivery_ur": "3 سے 5 دن۔"
   },
   {
    "no": 26,
@@ -738,8 +738,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 27,
@@ -760,8 +760,8 @@
      "days": 3
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔",
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔",
    "partner": true
   },
   {
@@ -783,8 +783,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 29,
@@ -805,8 +805,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 30,
@@ -827,8 +827,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 31,
@@ -850,8 +850,8 @@
      "from": true
     }
    ],
-   "delivery": "2–3 working days for maps of up to about 500 plots; larger maps are quoted with a date.",
-   "delivery_ur": "تقریباً 500 پلاٹس تک کے نقشے کے لیے 2 سے 3 کاروباری دن؛ بڑے نقشوں کی تاریخ کوٹیشن میں۔"
+   "delivery": "2–3 days for maps of up to about 500 plots; larger maps are quoted with a date.",
+   "delivery_ur": "تقریباً 500 پلاٹس تک کے نقشے کے لیے 2 سے 3 دن؛ بڑے نقشوں کی تاریخ کوٹیشن میں۔"
   },
   {
    "no": 32,
@@ -872,8 +872,8 @@
      "days": 3
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔"
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔"
   },
   {
    "no": 33,
@@ -896,8 +896,8 @@
      "runs_ur": "ڈومین اور ہوسٹنگ آپ براہِ راست فراہم کنندہ کو ادا کرتے ہیں اور یہ آپ کے نام پر رہتے ہیں۔"
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔"
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔"
   },
   {
    "no": 34,
@@ -921,8 +921,8 @@
      "runs_ur": "ڈومین اور ہوسٹنگ آپ براہِ راست فراہم کنندہ کو ادا کرتے ہیں اور یہ آپ کے نام پر رہتے ہیں۔"
     }
    ],
-   "delivery": "5–7 working days.",
-   "delivery_ur": "5 سے 7 کاروباری دن۔"
+   "delivery": "5–7 days.",
+   "delivery_ur": "5 سے 7 دن۔"
   },
   {
    "no": 35,
@@ -943,8 +943,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 36,
@@ -975,8 +975,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔"
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔"
   },
   {
    "no": 37,
@@ -997,8 +997,8 @@
      "days": 2
     }
    ],
-   "delivery": "1–2 working days.",
-   "delivery_ur": "1 سے 2 کاروباری دن۔",
+   "delivery": "1–2 days.",
+   "delivery_ur": "1 سے 2 دن۔",
    "partner": true
   },
   {
@@ -1020,8 +1020,8 @@
      "days": 3
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔",
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔",
    "partner": true
   },
   {
@@ -1045,8 +1045,8 @@
      "included_ur": "آپ کی فراہم کردہ فوٹیج سے ہر ماہ تاریخ اور کیپشن والی 4 پروگریس ریلز۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 40,
@@ -1069,8 +1069,8 @@
      "included_ur": "ٹیزر پلان، ہر ماہ 8 ڈیزائن اور 2 ویڈیوز، 2 پلیٹ فارمز پر اشتہارات، لانچ پروموشن، بکنگ مہم اور ہفتہ وار رپورٹ۔"
     }
    ],
-   "delivery": "Planned and set up in 3–5 working days; then runs weekly.",
-   "delivery_ur": "3 سے 5 کاروباری دن میں منصوبہ اور سیٹ اپ؛ پھر ہفتہ وار۔"
+   "delivery": "Planned and set up in 3–5 days; then runs weekly.",
+   "delivery_ur": "3 سے 5 دن میں منصوبہ اور سیٹ اپ؛ پھر ہفتہ وار۔"
   },
   {
    "no": 41,
@@ -1093,8 +1093,8 @@
      "included_ur": "ملک کے حساب سے ٹارگٹنگ، ٹائم زون شیڈولنگ، ہر ماہ 4 ڈیزائن اور ماہانہ رپورٹ۔ اشتہاری خرچ آپ ادا کرتے ہیں۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 42,
@@ -1117,8 +1117,8 @@
      "included_ur": "ہر ماہ 2 آن لائن سیشنز، رجسٹریشن پیج، یاددہانیاں، ریکارڈنگ اور فالو اپ پیغامات۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 43,
@@ -1270,8 +1270,8 @@
      "runs_ur": "سی آر ایم کی سبسکرپشن (اگر ہو) آپ براہِ راست سی آر ایم فراہم کنندہ کو ادا کرتے ہیں۔"
     }
    ],
-   "delivery": "3–5 working days.",
-   "delivery_ur": "3 سے 5 کاروباری دن۔"
+   "delivery": "3–5 days.",
+   "delivery_ur": "3 سے 5 دن۔"
   },
   {
    "no": 49,
@@ -1294,8 +1294,8 @@
      "runs_ur": "اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "3–5 working days.",
-   "delivery_ur": "3 سے 5 کاروباری دن۔",
+   "delivery": "3–5 days.",
+   "delivery_ur": "3 سے 5 دن۔",
    "ai": true
   },
   {
@@ -1319,8 +1319,8 @@
      "runs_ur": "اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "3–5 working days.",
-   "delivery_ur": "3 سے 5 کاروباری دن۔",
+   "delivery": "3–5 days.",
+   "delivery_ur": "3 سے 5 دن۔",
    "ai": true
   },
   {
@@ -1344,8 +1344,8 @@
      "runs_ur": "واٹس ایپ بزنس میسجنگ کی فیس میٹا آپ کے اکاؤنٹ سے وصول کرتا ہے۔ اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "3–5 working days, plus any time Meta takes to approve your WhatsApp number.",
-   "delivery_ur": "3 سے 5 کاروباری دن، اور میٹا کی واٹس ایپ نمبر منظوری کا وقت۔",
+   "delivery": "3–5 days, plus any time Meta takes to approve your WhatsApp number.",
+   "delivery_ur": "3 سے 5 دن، اور میٹا کی واٹس ایپ نمبر منظوری کا وقت۔",
    "ai": true
   },
   {
@@ -1369,8 +1369,8 @@
      "runs_ur": "سوشل شیڈولر (مثلاً Buffer) اگر آپ اپنا اکاؤنٹ چاہیں تو اس کی فیس وہی فراہم کنندہ لیتا ہے۔ اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "3–5 working days.",
-   "delivery_ur": "3 سے 5 کاروباری دن۔",
+   "delivery": "3–5 days.",
+   "delivery_ur": "3 سے 5 دن۔",
    "ai": true
   },
   {
@@ -1394,8 +1394,8 @@
      "runs_ur": "اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "3–5 working days.",
-   "delivery_ur": "3 سے 5 کاروباری دن۔",
+   "delivery": "3–5 days.",
+   "delivery_ur": "3 سے 5 دن۔",
    "ai": true
   },
   {
@@ -1419,8 +1419,8 @@
      "runs_ur": "تھرڈ پارٹی میسجنگ (واٹس ایپ/ایس ایم ایس) کی فیس متعلقہ فراہم کنندگان لیتے ہیں۔ اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "3–5 working days.",
-   "delivery_ur": "3 سے 5 کاروباری دن۔",
+   "delivery": "3–5 days.",
+   "delivery_ur": "3 سے 5 دن۔",
    "ai": true
   },
   {
@@ -1444,8 +1444,8 @@
      "runs_ur": "اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "5–7 working days.",
-   "delivery_ur": "5 سے 7 کاروباری دن۔",
+   "delivery": "5–7 days.",
+   "delivery_ur": "5 سے 7 دن۔",
    "ai": true
   },
   {
@@ -1469,8 +1469,8 @@
      "runs_ur": "اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "5–7 working days.",
-   "delivery_ur": "5 سے 7 کاروباری دن۔",
+   "delivery": "5–7 days.",
+   "delivery_ur": "5 سے 7 دن۔",
    "ai": true
   },
   {
@@ -1494,8 +1494,8 @@
      "runs_ur": "اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "5–7 working days.",
-   "delivery_ur": "5 سے 7 کاروباری دن۔",
+   "delivery": "5–7 days.",
+   "delivery_ur": "5 سے 7 دن۔",
    "ai": true
   },
   {
@@ -1647,8 +1647,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 64,
@@ -1669,8 +1669,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 65,
@@ -1691,8 +1691,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔"
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔"
   },
   {
    "no": 66,
@@ -1713,8 +1713,8 @@
      "days": 3
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔"
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔"
   },
   {
    "no": 67,
@@ -1735,8 +1735,8 @@
      "days": 3
     }
    ],
-   "delivery": "2–3 working days.",
-   "delivery_ur": "2 سے 3 کاروباری دن۔"
+   "delivery": "2–3 days.",
+   "delivery_ur": "2 سے 3 دن۔"
   },
   {
    "no": 68,
@@ -1759,8 +1759,8 @@
      "included_ur": "ہر ماہ 4 مضامین، کی ورڈ پلان اور آپ کی سائٹ پر اشاعت۔"
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 69,
@@ -1781,8 +1781,8 @@
      "days": 2
     }
    ],
-   "delivery": "Set up within 2–3 working days; then runs on the monthly schedule.",
-   "delivery_ur": "2 سے 3 کاروباری دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
+   "delivery": "Set up within 2–3 days; then runs on the monthly schedule.",
+   "delivery_ur": "2 سے 3 دن میں سیٹ اپ؛ پھر ماہانہ شیڈول پر چلتا ہے۔"
   },
   {
    "no": 70,
@@ -1803,8 +1803,8 @@
      "days": 0
     }
    ],
-   "delivery": "Same working day (Mon–Fri) for orders confirmed by 6pm PKT.",
-   "delivery_ur": "اسی کاروباری دن (پیر تا جمعہ)، شام 6 بجے تک کنفرم آرڈر پر۔",
+   "delivery": "Same day for orders confirmed before 6pm PKT.",
+   "delivery_ur": "اسی دن، اگر آرڈر شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہو۔",
    "caution": true
   },
   {
@@ -1829,8 +1829,8 @@
      "runs_ur": "اے آئی کا استعمال اے آئی فراہم کنندہ (مثلاً OpenAI، Anthropic یا xAI) آپ کے اپنے اکاؤنٹ سے، استعمال کے حساب سے وصول کرتا ہے۔ سیٹ اپ سے پہلے ہم موجودہ اندازہ بتا دیتے ہیں۔ آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔"
     }
    ],
-   "delivery": "5–7 working days.",
-   "delivery_ur": "5 سے 7 کاروباری دن۔",
+   "delivery": "5–7 days.",
+   "delivery_ur": "5 سے 7 دن۔",
    "caution": true
   },
   {
@@ -1866,8 +1866,8 @@
      "support_text": "rate updates"
     }
    ],
-   "delivery": "2–3 working days for one; 3–5 working days for all three.",
-   "delivery_ur": "ایک کے لیے 2 سے 3 کاروباری دن؛ تینوں کے لیے 3 سے 5 کاروباری دن۔"
+   "delivery": "2–3 days for one; 3–5 days for all three.",
+   "delivery_ur": "ایک کے لیے 2 سے 3 دن؛ تینوں کے لیے 3 سے 5 دن۔"
   },
   {
    "no": 73,
@@ -1891,8 +1891,8 @@
      "runs_ur": "آٹومیشن یا ہوسٹنگ (مثلاً n8n یا چھوٹا کلاؤڈ سرور) کی فیس فراہم کنندہ لیتا ہے۔ واٹس ایپ بزنس میسجنگ کی فیس میٹا آپ کے اکاؤنٹ سے وصول کرتا ہے۔"
     }
    ],
-   "delivery": "5–7 working days.",
-   "delivery_ur": "5 سے 7 کاروباری دن۔"
+   "delivery": "5–7 days.",
+   "delivery_ur": "5 سے 7 دن۔"
   },
   {
    "no": 74,

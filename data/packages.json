@@ -55,10 +55,10 @@
    "setup": 0,
    "min_months": 3,
    "due_days": 2,
-   "delivery_short": "Onboarding within 2 working days",
-   "delivery_short_ur": "2 کاروباری دن میں آغاز",
-   "delivery": "We set up your Brand Kit and channels within 2 working days; each property set is then delivered the same day you send it (by 6pm PKT).",
-   "delivery_ur": "ہم 2 کاروباری دن میں آپ کی برانڈ کٹ اور چینلز سیٹ اپ کرتے ہیں؛ پھر ہر پراپرٹی سیٹ اسی دن (شام 6 بجے تک) ملتا ہے جب آپ تفصیل بھیجیں۔",
+   "delivery_short": "Onboarding within 2 days",
+   "delivery_short_ur": "2 دن میں آغاز",
+   "delivery": "We set up your Brand Kit and channels within 2 days; each property set is then delivered the same day you send it (before 6pm PKT).",
+   "delivery_ur": "ہم 2 دن میں آپ کی برانڈ کٹ اور چینلز سیٹ اپ کرتے ہیں؛ پھر ہر پراپرٹی سیٹ اسی دن (شام 6 بجے سے پہلے) ملتا ہے جب آپ تفصیل بھیجیں۔",
    "includes": [
     {
      "label": "Up to 10 Property Marketing Sets a month — each: WhatsApp property card + social property creative + English/Roman Urdu captions",
@@ -134,10 +134,10 @@
    "setup": 0,
    "min_months": 3,
    "due_days": 2,
-   "delivery_short": "Onboarding within 2 working days",
-   "delivery_short_ur": "2 کاروباری دن میں آغاز",
-   "delivery": "Onboarding within 2 working days; property sets the same day you send them (by 6pm PKT); a monthly report each month.",
-   "delivery_ur": "2 کاروباری دن میں آغاز؛ پراپرٹی سیٹس اسی دن (شام 6 بجے تک)؛ ہر ماہ رپورٹ۔",
+   "delivery_short": "Onboarding within 2 days",
+   "delivery_short_ur": "2 دن میں آغاز",
+   "delivery": "Onboarding within 2 days; property sets the same day you send them (before 6pm PKT); a monthly report each month.",
+   "delivery_ur": "2 دن میں آغاز؛ پراپرٹی سیٹس اسی دن (شام 6 بجے سے پہلے)؛ ہر ماہ رپورٹ۔",
    "includes": [
     {
      "label": "Up to 25 Property Marketing Sets a month",
@@ -217,10 +217,10 @@
    "setup": 9999,
    "min_months": 3,
    "due_days": 5,
-   "delivery_short": "Set-up in 3–5 working days",
-   "delivery_short_ur": "3 سے 5 کاروباری دن میں سیٹ اپ",
-   "delivery": "Set-up (channels, ads account, enquiry workflow) in 3–5 working days; ads start once the platform approves them; then everything runs monthly.",
-   "delivery_ur": "سیٹ اپ (چینلز، اشتہاری اکاؤنٹ، انکوائری ورک فلو) 3 سے 5 کاروباری دن میں؛ پلیٹ فارم کی منظوری کے بعد اشتہارات شروع؛ پھر سب کچھ ماہانہ۔",
+   "delivery_short": "Set-up in 3–5 days",
+   "delivery_short_ur": "3 سے 5 دن میں سیٹ اپ",
+   "delivery": "Set-up (channels, ads account, enquiry workflow) in 3–5 days; ads start once the platform approves them; then everything runs monthly.",
+   "delivery_ur": "سیٹ اپ (چینلز، اشتہاری اکاؤنٹ، انکوائری ورک فلو) 3 سے 5 دن میں؛ پلیٹ فارم کی منظوری کے بعد اشتہارات شروع؛ پھر سب کچھ ماہانہ۔",
    "includes": [
     {
      "label": "Up to 50 Property Marketing Sets a month",
@@ -309,10 +309,10 @@
    "setup": 0,
    "min_months": 3,
    "due_days": 3,
-   "delivery_short": "Onboarding within 3 working days",
-   "delivery_short_ur": "3 کاروباری دن میں آغاز",
-   "delivery": "Onboarding and content calendar within 3 working days; then content runs on the monthly calendar.",
-   "delivery_ur": "3 کاروباری دن میں آغاز اور کانٹینٹ کیلنڈر؛ پھر مواد ماہانہ کیلنڈر کے مطابق۔",
+   "delivery_short": "Onboarding within 3 days",
+   "delivery_short_ur": "3 دن میں آغاز",
+   "delivery": "Onboarding and content calendar within 3 days; then content runs on the monthly calendar.",
+   "delivery_ur": "3 دن میں آغاز اور کانٹینٹ کیلنڈر؛ پھر مواد ماہانہ کیلنڈر کے مطابق۔",
    "includes": [
     {
      "label": "12 project creatives a month",
@@ -401,10 +401,10 @@
    "setup": 9999,
    "min_months": 3,
    "due_days": 5,
-   "delivery_short": "Set-up in 3–5 working days",
-   "delivery_short_ur": "3 سے 5 کاروباری دن میں سیٹ اپ",
-   "delivery": "Set-up (ad accounts, audiences, calendar) in 3–5 working days; ads start once the platforms approve them; then monthly.",
-   "delivery_ur": "سیٹ اپ (اشتہاری اکاؤنٹس، آڈینس، کیلنڈر) 3 سے 5 کاروباری دن میں؛ پلیٹ فارمز کی منظوری کے بعد اشتہارات؛ پھر ماہانہ۔",
+   "delivery_short": "Set-up in 3–5 days",
+   "delivery_short_ur": "3 سے 5 دن میں سیٹ اپ",
+   "delivery": "Set-up (ad accounts, audiences, calendar) in 3–5 days; ads start once the platforms approve them; then monthly.",
+   "delivery_ur": "سیٹ اپ (اشتہاری اکاؤنٹس، آڈینس، کیلنڈر) 3 سے 5 دن میں؛ پلیٹ فارمز کی منظوری کے بعد اشتہارات؛ پھر ماہانہ۔",
    "includes": [
     {
      "label": "16 project creatives a month",
@@ -538,10 +538,10 @@
    "due_days": 5,
    "term_note": "One-off payment. No monthly commitment.",
    "term_note_ur": "ایک بار ادائیگی۔ کوئی ماہانہ پابندی نہیں۔",
-   "delivery_short": "3–5 working days",
-   "delivery_short_ur": "3 سے 5 کاروباری دن",
-   "delivery": "Delivered in 3–5 working days (Google verification can take longer).",
-   "delivery_ur": "3 سے 5 کاروباری دن میں (گوگل تصدیق میں زیادہ وقت لگ سکتا ہے)۔",
+   "delivery_short": "3–5 days",
+   "delivery_short_ur": "3 سے 5 دن",
+   "delivery": "Delivered in 3–5 days (Google verification can take longer).",
+   "delivery_ur": "3 سے 5 دن میں (گوگل تصدیق میں زیادہ وقت لگ سکتا ہے)۔",
    "includes": [
     {
      "label": "Agency / agent brand setup, with logo and brand styling where required",
@@ -599,10 +599,10 @@
    "due_days": 10,
    "term_note": "One-off payment. Larger websites are quoted.",
    "term_note_ur": "ایک بار ادائیگی۔ بڑی ویب سائٹ کی کوٹیشن الگ۔",
-   "delivery_short": "7–10 working days",
-   "delivery_short_ur": "7 سے 10 کاروباری دن",
-   "delivery": "Kit in 3–5 working days; website in 7–10 working days.",
-   "delivery_ur": "کٹ 3 سے 5 کاروباری دن میں؛ ویب سائٹ 7 سے 10 کاروباری دن میں۔",
+   "delivery_short": "7–10 days",
+   "delivery_short_ur": "7 سے 10 دن",
+   "delivery": "Kit in 3–5 days; website in 7–10 days.",
+   "delivery_ur": "کٹ 3 سے 5 دن میں؛ ویب سائٹ 7 سے 10 دن میں۔",
    "includes": [
     {
      "label": "Everything in the Agency Launch Kit",
@@ -649,10 +649,10 @@
    "due_days": 7,
    "term_note": "One-off payment. No monthly commitment.",
    "term_note_ur": "ایک بار ادائیگی۔ کوئی ماہانہ پابندی نہیں۔",
-   "delivery_short": "5–7 working days",
-   "delivery_short_ur": "5 سے 7 کاروباری دن",
-   "delivery": "Delivered in 5–7 working days; smaller items (payment plan, one-pager) arrive first.",
-   "delivery_ur": "5 سے 7 کاروباری دن میں؛ چھوٹی چیزیں (ادائیگی پلان، ون پیجر) پہلے۔",
+   "delivery_short": "5–7 days",
+   "delivery_short_ur": "5 سے 7 دن",
+   "delivery": "Delivered in 5–7 days; smaller items (payment plan, one-pager) arrive first.",
+   "delivery_ur": "5 سے 7 دن میں؛ چھوٹی چیزیں (ادائیگی پلان، ون پیجر) پہلے۔",
    "includes": [
     {
      "label": "Project branding",
@@ -739,10 +739,10 @@
    "due_days": 10,
    "term_note": "One-off payment. Larger websites are quoted.",
    "term_note_ur": "ایک بار ادائیگی۔ بڑی ویب سائٹ کی کوٹیشن الگ۔",
-   "delivery_short": "7–10 working days",
-   "delivery_short_ur": "7 سے 10 کاروباری دن",
-   "delivery": "Kit in 5–7 working days; website in 7–10 working days.",
-   "delivery_ur": "کٹ 5 سے 7 کاروباری دن میں؛ ویب سائٹ 7 سے 10 کاروباری دن میں۔",
+   "delivery_short": "7–10 days",
+   "delivery_short_ur": "7 سے 10 دن",
+   "delivery": "Kit in 5–7 days; website in 7–10 days.",
+   "delivery_ur": "کٹ 5 سے 7 دن میں؛ ویب سائٹ 7 سے 10 دن میں۔",
    "includes": [
     {
      "label": "Everything in the Project Launch Kit",

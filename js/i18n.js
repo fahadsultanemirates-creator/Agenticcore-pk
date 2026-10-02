@@ -18,10 +18,7 @@ const PK_I18N = {
     nav_login: 'Log in', nav_signup: 'Create free account', nav_dashboard: 'Dashboard', nav_logout: 'Log out', nav_admin: 'Admin',
     nav_menu: 'Menu', wa_us: 'WhatsApp us', call: 'Call', order_online: 'Order online',
 
-    hero_title_1: 'Property marketing done for you, ',
-    hero_title_2: 'delivered the same day.',
-    hero_sub: "Posts, flyers, videos, websites and WhatsApp lead systems for Pakistan's property dealers, agents, agencies and developers. Order on WhatsApp or online, track every task by its ID, and get most work back the same day.",
-
+            
     hero_trust_2: 'Prices published in PKR',
     hero_trust_3: 'Pages, domains and accounts stay in your name',
     hero_roman: 'WhatsApp karein, kaam aaj hi shuru.',
@@ -131,10 +128,7 @@ const PK_I18N = {
     nav_login: 'لاگ اِن', nav_signup: 'مفت اکاؤنٹ بنائیں', nav_dashboard: 'ڈیش بورڈ', nav_logout: 'لاگ آؤٹ', nav_admin: 'ایڈمن',
     nav_menu: 'مینو', wa_us: 'واٹس ایپ کریں', call: 'کال کریں', order_online: 'آن لائن آرڈر',
 
-    hero_title_1: 'پراپرٹی مارکیٹنگ آپ کے لیے، ',
-    hero_title_2: 'اسی دن ڈیلیور۔',
-    hero_sub: 'پاکستان کے پراپرٹی ڈیلرز، ایجنٹس، ایجنسیوں اور ڈویلپرز کے لیے پوسٹس، فلائرز، ویڈیوز، ویب سائٹس اور واٹس ایپ لیڈ سسٹمز۔ واٹس ایپ یا آن لائن آرڈر کریں، ہر کام کو اس کی آئی ڈی سے ٹریک کریں، اور زیادہ تر کام اسی دن واپس پائیں۔',
-
+            
     hero_trust_2: 'تمام قیمتیں روپوں میں شائع شدہ',
     hero_trust_3: 'پیجز، ڈومین اور اکاؤنٹس آپ کے نام پر',
     hero_roman: 'واٹس ایپ کریں، کام آج ہی شروع۔',

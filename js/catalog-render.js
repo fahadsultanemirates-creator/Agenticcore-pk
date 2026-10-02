@@ -14,7 +14,7 @@ function pkModelName(model) {
   return m ? pkPick(m, 'name') : model;
 }
 
-// First clause of a delivery sentence, for compact rows ("Same day", "2–3 working days").
+// First clause of a delivery sentence, for compact rows ("Same day", "2–3 days").
 function pkDeliveryShort(service) {
   return pkPick(service, 'delivery').split(/[.;(،۔]/)[0].replace(/^Delivery:\s*/, '').trim();
 }

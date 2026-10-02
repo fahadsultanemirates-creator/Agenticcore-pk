@@ -156,7 +156,7 @@ Existing subscribers on retired packages keep their subscription and allowances 
    - adds a `'proposal'` lead kind
    - replaces `pk_buy_package`: it refuses quote-only packages, and labels "from" prices on the invoice
 2. Regenerated `supabase/migrations/pk_0002_seed_catalog.sql` (apply second). It upserts 77 lines, 10 packages and 15 allowances, then deactivates everything not in the JSON.
-3. `supabase/migrations/pk_0005_working_day_due.sql` (apply third): due dates in working days (see below).
+3. `supabase/migrations/pk_0005_seven_day_due.sql` (apply third): restates `pk_compute_due` with the 7-day operating rule written out (see below). Production already computes due dates this way, so applying it changes no deadline.
 4. **Order matters at release.** Deploy the site and apply both files together. The new site sends new line ids (`p-flyer`, `ai-voice`, …) that the production table does not know yet. If the site deploys first, those orders fail with "Unknown service line". If the database is applied first, the old site's retired lines (e.g. `9-dfy`) and packages stop being orderable.
 5. Tested on a local Postgres 16 copy (V1 schema + V1 seed + `pk_0003`, then V2):
    - every V2 package priced correctly
@@ -169,7 +169,7 @@ Existing subscribers on retired packages keep their subscription and allowances 
 
 ## Delivery-time changes (material)
 
-Most small creatives stay "same day for orders by 6pm PKT". These are now quoted as working-day ranges:
+AgenticCore Pakistan works 7 days a week. Small creatives are delivered the same day for orders confirmed before 6pm PKT. Other work is quoted in plain day ranges:
 - reels, 3D plans, branding kits: 1–2 days
 - catalogues, landing pages, brochures, decks, maps: 2–3 days
 - project branding and CRM: 3–5 days
@@ -179,32 +179,31 @@ Most small creatives stay "same day for orders by 6pm PKT". These are now quoted
 - portals: 2–3 weeks
 - frameworks and custom AI: after scoping
 
-### Working-day due dates (pk_0005)
+Customer wording (EN): "We work 7 days a week. Orders confirmed before 6pm PKT start the same day; orders confirmed at or after 6pm start the following day."
+Customer wording (UR): "ہم ہفتے کے ساتوں دن کام کرتے ہیں۔ شام 6 بجے (پاکستانی وقت) سے پہلے کنفرم ہونے والے آرڈرز پر کام اسی دن شروع ہوتا ہے؛ شام 6 بجے یا اس کے بعد کنفرم ہونے والے آرڈرز پر کام اگلے دن شروع ہوتا ہے۔"
 
-Internal due dates follow the same working-day ranges the customer sees; they are never shorter. All times are Pakistan time (Asia/Karachi).
+### Due dates — 7-day operation (pk_0005)
 
-1. **Start day.** The day the task is confirmed. If it is confirmed at or after the 6pm cut-off (`cutoff_hour_pkt`), the start day is the next day.
-2. **Roll forward.** If the start day is not a working day, move it to the next working day.
-3. **Add the turnaround.** Add the service's turnaround as working days. A turnaround of 0 means the start day itself.
-4. **Due time.** The task is due at 9pm (`due_hour_pkt`) on that day.
+Internal due dates use the same rule the customer reads. All times are Pakistan time (Asia/Karachi), and every calendar day counts: there are no weekend or public-holiday exclusions, so no holiday calendar has to be maintained.
 
-Working days are Monday to Friday (`pk_settings.working_dows` = `[1,2,3,4,5]`). Dates listed in `pk_settings.holidays_pkt` are skipped. A six-day week is a settings change, not a code change.
+1. **Start day.** The calendar day the task is confirmed. If it is confirmed at or after 6pm (`cutoff_hour_pkt`), the start day is the next calendar day.
+2. **Due day.** Start day plus the service's turnaround in calendar days. A turnaround of 0 (same day) means the start day itself.
+3. **Due time.** 9pm (`due_hour_pkt`) on the due day.
 
-When a paused task resumes, the paused time is added back. If the result lands on a weekend or holiday, it moves forward to the same time on the next working day.
-
-Examples, all for an order confirmed on Friday:
+Paused tasks: "waiting on you" stops the clock. On resume, the paused time is added back to the existing due time, so a promised deadline only moves later, never earlier. Re-confirming a task never recalculates an existing deadline.
 
 | Confirmed | Turnaround | Due |
 |---|---|---|
-| Friday 10am | 3 days | Wednesday 9pm (the old calendar-day rule gave Monday) |
-| Friday 7pm | same day | Monday 9pm |
+| Friday 10am | 3 days | Monday 9pm |
+| Friday 7pm | same day | Saturday 9pm |
+| Saturday 10am | same day | Saturday 9pm |
+| Sunday 10am | 2 days | Tuesday 9pm |
 
-`tests/db/working_days.test.sql` covers these cases:
-- weekends
-- the cut-off minute
-- holidays
-- a six-day week
-- resume on a weekend
-- that the working-day rule is never earlier than the old calendar rule
+`tests/db/seven_day_due.test.sql` covers these cases:
+- Friday → Saturday, Saturday → Sunday, Sunday → Monday
+- before, exactly at, and after the 6pm cut-off
+- same-day service on Saturday and on Sunday
+- a multi-day turnaround that crosses the weekend
+- a pause and resume through the real admin RPC (never shortened)
 
 Run it with `tests/db/run.sh`, on a local Postgres only.

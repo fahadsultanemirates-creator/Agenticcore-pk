@@ -343,16 +343,32 @@ test('service 18 is one monthly line with set-up included where required', () =>
   assert.ok(s.brief_ur && s.lines[0].included_ur);
 });
 
-test('working-day due dates: pk_0005 replaces the calendar-day rule, with weekend/holiday settings and tests', () => {
-  const m = read('supabase/migrations/pk_0005_working_day_due.sql');
+test('7-day operation: pk_0005 counts every calendar day (no weekend or holiday exclusions)', () => {
+  const m = read('supabase/migrations/pk_0005_seven_day_due.sql');
   assert.match(m, /create or replace function public\.pk_compute_due/);
-  assert.match(m, /pk_add_working_days\(base_date, p_days\)/);
-  assert.match(m, /'working_dows', '\[1, 2, 3, 4, 5\]'/);
-  assert.match(m, /'holidays_pkt', '\[\]'/);
-  assert.match(m, /create trigger pk_tasks_due_working_day/);
-  assert.ok(!/drop table|delete from|disable row level security/i.test(m), 'pk_0005 must be additive');
-  const t = read('tests/db/working_days.test.sql');
-  for (const why of ['Saturday order', 'Sunday order', 'after 6pm cut-off', 'holiday not skipped', 'never earlier', 'resume on Saturday']) assert.ok(t.includes(why), 'working-day test missing: ' + why);
+  assert.match(m, /start_day \+ greatest\(p_days, 0\)/);
+  assert.match(m, /cutoff_hour_pkt', 18/);
+  assert.match(m, /due_hour_pkt', 21/);
+  const code = m.replace(/^\s*--.*$/gm, '');
+  assert.ok(!/isodow|holiday|working_dows|weekend|create trigger/i.test(code), 'no weekend/holiday machinery');
+  assert.ok(!/drop table|delete from|disable row level security/i.test(code), 'pk_0005 must be additive');
+  assert.ok(!fs.existsSync(new URL('supabase/migrations/pk_0005_working_day_due.sql', root)), 'old working-day migration removed');
+  const t = read('tests/db/seven_day_due.test.sql');
+  for (const c of ['Friday → Saturday', 'Saturday → Sunday', 'Sunday → Monday', 'before the 6pm cut-off', 'exactly 6pm', 'after 6pm', 'same-day service on Saturday', 'same-day service on Sunday', 'crosses the weekend', 'resume shortened the deadline'])
+    assert.ok(t.includes(c), 'seven-day test missing: ' + c);
+  both('ops_note');
+  assert.equal(EN.ops_note, 'We work 7 days a week. Orders confirmed before 6pm PKT start the same day; orders confirmed at or after 6pm start the following day.');
+});
+
+test('no Mon–Fri, working-day, weekend-exclusion or holiday-exclusion wording anywhere customer- or team-facing', () => {
+  const files = ['index.html', 'services.html', 'legal.html', 'create.html', 'dashboard.html', 'admin.html', 'signup.html', 'login.html',
+    'js/i18n.js', 'js/i18n-p2.js', 'js/i18n-v2.js', 'js/landing.js', 'js/discovery.js', 'js/catalog-render.js', 'js/dashboard.js', 'js/dashboard-p2.js', 'js/admin.js',
+    'data/services.json', 'data/packages.json', 'data/discovery.json', 'data/samples.json', 'docs/CATALOGUE_V2.md', 'docs/SAMPLE_ASSET_MANIFEST.md'];
+  const bad = /working[- ]days?|mon(day)?\s*(–|-|to)\s*fri(day)?|پیر تا جمعہ|کاروباری دن|excluding (weekends|public holidays)|holiday calendar|skipping holidays/i;
+  for (const f of files) {
+    const hit = read(f).split('\n').find((l) => bad.test(l) && !/no weekend or holiday exclusions|including weekends and public holidays|There are no weekend|no holiday calendar/i.test(l));
+    assert.ok(!hit, f + ': ' + (hit || '').trim().slice(0, 140));
+  }
 });
 
 test('positioning, plan explanations, ecosystem and network wording (EN + UR)', () => {
@@ -383,10 +399,10 @@ test('positioning, plan explanations, ecosystem and network wording (EN + UR)', 
 
 test('landing-page sample matches V2 (Rs 9,999, 2–3 working days) and stays labelled', () => {
   assert.match(EN['alt_property-landing-page'], /^Sample concept/);
-  assert.match(EN['alt_property-landing-page'], /2–3 working-day delivery/);
+  assert.match(EN['alt_property-landing-page'], /2–3 day delivery/);
   assert.ok(!/same-day/i.test(EN['alt_property-landing-page']));
   const s = services.services.find((x) => x.no === 12);
   assert.equal(s.lines[0].price, 9999);
   assert.ok(!s.lines[0].from);
-  assert.match(s.delivery, /^2–3 working days/);
+  assert.match(s.delivery, /^2–3 days/);
 });
