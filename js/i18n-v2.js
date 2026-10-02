@@ -2,6 +2,9 @@
    Loaded after i18n.js and i18n-p2.js; keys here replace the older wording.
    No prices are typed here: every price comes from data/*.json at render time. */
 Object.assign(PK_I18N.en, {
+  es_where_pk: 'with AgenticCore Pakistan',
+  es_where_estate: 'on AgenticCore Estate',
+  p2_specialist: 'Property marketing is not one of the industries we serve. It\'s the industry we are built for.',
   // hero + positioning
   p2_eyebrow: 'Built specifically for Pakistan real estate',
   p2_h1a: 'From one property to an entire project — ', p2_h1b: 'marketed in one connected ecosystem.',
@@ -50,7 +53,7 @@ Object.assign(PK_I18N.en, {
   pkg_setup_quoted: 'Set-up quoted after scoping', pkg_setup_once: 'one-time set-up', pkg_no_setup: 'No set-up fee',
   pkg_min_term: '{n}-month minimum', pkg_request_proposal: 'Request a proposal', pkg_order_with_web: 'Order with website',
   pkg_terms_details: 'Terms and details', pkg_set_title: 'What is a "Property Marketing Set"?',
-  pkg_network_title: 'AgenticCore network distribution',
+  pkg_network_title: 'AgenticCore network featuring (optional)',
 
   // services
   svc_eyebrow: 'All {n} services', svc_title: 'Everything you need to market property, in one place.',
@@ -75,14 +78,14 @@ Object.assign(PK_I18N.en, {
   pack_out_floorplan: '3D floor plan', pack_out_catalogue: 'PDF / WhatsApp catalogue (up to 6 pages)', pack_out_landing: 'Single property landing page',
 
   // Estate + PK ecosystem
-  es_eyebrow: 'AgenticCore Estate + AgenticCore Pakistan', es_title: "Don't depend on one place to market a property.",
-  es_sub: 'One account works on both sites. List on AgenticCore Estate, then create, share, promote and automate the marketing here.',
-  es_v_list: 'LIST', es_v_list_d: 'List the property free on AgenticCore Estate.',
-  es_v_create: 'CREATE', es_v_create_d: 'Cards, posts, flyers, reels and catalogues made from your listing.',
-  es_v_share: 'SHARE', es_v_share_d: 'WhatsApp, social pages and a QR share card that link back to the listing.',
-  es_v_promote: 'PROMOTE', es_v_promote_d: 'Paid ads in your own accounts, portals kept in sync and overseas campaigns.',
-  es_v_automate: 'AUTOMATE', es_v_automate_d: 'AI listing text, automatic posting, WhatsApp replies and lead follow-up.',
-  es_note: 'More places for your property to be seen — we do not promise a number of enquiries, sales or a guaranteed reach.',
+  es_eyebrow: 'AgenticCore Estate + AgenticCore Pakistan — one journey', es_title: 'Don\'t depend on one place to market a property.',
+  es_sub: 'AgenticCore Estate is the property marketplace and listing side. AgenticCore Pakistan is the marketing and technology side. They work together, with one account.',
+  es_v_list: 'LIST', es_v_list_d: 'List the property on AgenticCore Estate and give it its own searchable property page.',
+  es_v_create: 'CREATE', es_v_create_d: 'Turn the same property details and photos into professional WhatsApp cards, social creatives, captions, flyers, reels and other marketing material.',
+  es_v_share: 'SHARE', es_v_share_d: 'Use WhatsApp, QR links and shareable content to reach people outside a property portal.',
+  es_v_promote: 'PROMOTE', es_v_promote_d: 'Depending on the service or package you choose, content can be prepared and posted on your own social channels. Eligible properties and projects may also be featured on AgenticCore\'s own property-marketing channels as those channels are operated and developed.',
+  es_v_automate: 'AUTOMATE', es_v_automate_d: 'If you handle the same work again and again, AI and automation services can reduce repetitive content, posting, enquiry and office work.',
+  es_note: 'We never guarantee views, reach, enquiries or sales. Featuring on AgenticCore channels is optional and depends on eligibility.',
   es_list: 'List a property on Estate', es_promote: 'Promote one of my listings',
 
   // problems (old package names removed)
@@ -112,6 +115,9 @@ Object.assign(PK_I18N.en, {
 });
 
 Object.assign(PK_I18N.ur, {
+  es_where_pk: 'AgenticCore Pakistan کے ساتھ',
+  es_where_estate: 'AgenticCore Estate پر',
+  p2_specialist: 'پراپرٹی مارکیٹنگ ہمارے کئی شعبوں میں سے ایک نہیں — یہی وہ شعبہ ہے جس کے لیے ہم بنے ہیں۔',
   p2_eyebrow: 'خاص طور پر پاکستان کی رئیل اسٹیٹ کے لیے',
   p2_h1a: 'ایک جائیداد سے پورے پراجیکٹ تک — ', p2_h1b: 'ایک مربوط نظام میں مارکیٹنگ۔',
   p2_sub: 'لسٹنگ، ڈیزائن، کانٹینٹ، سوشل مارکیٹنگ اور AI آٹومیشن — پورے پاکستان کے ایجنٹس، ایجنسیوں، بلڈرز اور ڈویلپرز کے لیے۔',
@@ -156,7 +162,7 @@ Object.assign(PK_I18N.ur, {
   pkg_setup_quoted: 'سیٹ اپ کی قیمت جائزے کے بعد', pkg_setup_once: 'ایک بار کا سیٹ اپ', pkg_no_setup: 'کوئی سیٹ اپ فیس نہیں',
   pkg_min_term: 'کم از کم {n} ماہ', pkg_request_proposal: 'تجویز طلب کریں', pkg_order_with_web: 'ویب سائٹ کے ساتھ آرڈر کریں',
   pkg_terms_details: 'شرائط اور تفصیل', pkg_set_title: '"پراپرٹی مارکیٹنگ سیٹ" کیا ہے؟',
-  pkg_network_title: 'AgenticCore نیٹ ورک تقسیم',
+  pkg_network_title: 'AgenticCore نیٹ ورک فیچرنگ (اختیاری)',
 
   svc_eyebrow: 'تمام {n} خدمات', svc_title: 'جائیداد کی مارکیٹنگ کے لیے سب کچھ، ایک جگہ۔',
   svc_sub: 'چار حصے: پراپرٹی مارکیٹنگ، پراجیکٹ مارکیٹنگ، AI اور آٹومیشن، اور خصوصی اضافی خدمات۔ ہر قیمت شائع شدہ ہے۔',
@@ -177,14 +183,14 @@ Object.assign(PK_I18N.ur, {
   'pack_out_qr-flyer': 'QR پراپرٹی فلائر', 'pack_out_voice-reel': 'AI وائس اوور ریل (60 سیکنڈ تک)', pack_out_reel: 'پرومو ریل (60 سیکنڈ تک)',
   pack_out_floorplan: 'تھری ڈی فلور پلان', pack_out_catalogue: 'PDF / واٹس ایپ کیٹلاگ (6 صفحات تک)', pack_out_landing: 'ایک جائیداد کا لینڈنگ پیج',
 
-  es_eyebrow: 'AgenticCore Estate + AgenticCore Pakistan', es_title: 'جائیداد کی مارکیٹنگ کے لیے ایک ہی جگہ پر انحصار نہ کریں۔',
-  es_sub: 'ایک اکاؤنٹ دونوں سائٹس پر چلتا ہے۔ AgenticCore Estate پر لسٹ کریں، پھر یہاں مارکیٹنگ بنائیں، شیئر کریں، تشہیر کریں اور خودکار بنائیں۔',
-  es_v_list: 'لسٹ', es_v_list_d: 'جائیداد AgenticCore Estate پر مفت لسٹ کریں۔',
-  es_v_create: 'بنائیں', es_v_create_d: 'آپ کی لسٹنگ سے کارڈز، پوسٹس، فلائرز، ریلز اور کیٹلاگ۔',
-  es_v_share: 'شیئر', es_v_share_d: 'واٹس ایپ، سوشل پیجز اور QR شیئر کارڈ جو لسٹنگ پر واپس لاتے ہیں۔',
-  es_v_promote: 'تشہیر', es_v_promote_d: 'آپ کے اپنے اکاؤنٹس میں اشتہارات، ہم آہنگ پورٹلز اور اوورسیز مہمات۔',
-  es_v_automate: 'آٹومیٹ', es_v_automate_d: 'AI لسٹنگ تحریر، خودکار پوسٹنگ، واٹس ایپ جوابات اور لیڈ فالو اپ۔',
-  es_note: 'آپ کی جائیداد کو دیکھے جانے کی مزید جگہیں — ہم انکوائریز، فروخت کی تعداد یا یقینی رسائی کا وعدہ نہیں کرتے۔',
+  es_eyebrow: 'AgenticCore Estate + AgenticCore Pakistan — ایک سفر', es_title: 'جائیداد کی مارکیٹنگ کے لیے ایک ہی جگہ پر انحصار نہ کریں۔',
+  es_sub: 'AgenticCore Estate پراپرٹی مارکیٹ پلیس اور لسٹنگ کا حصہ ہے۔ AgenticCore Pakistan مارکیٹنگ اور ٹیکنالوجی کا حصہ ہے۔ دونوں ایک ہی اکاؤنٹ کے ساتھ مل کر کام کرتے ہیں۔',
+  es_v_list: 'لسٹ', es_v_list_d: 'جائیداد AgenticCore Estate پر لسٹ کریں اور اسے اس کا اپنا قابلِ تلاش پراپرٹی صفحہ دیں۔',
+  es_v_create: 'بنائیں', es_v_create_d: 'اسی جائیداد کی تفصیل اور تصاویر سے پیشہ ورانہ واٹس ایپ کارڈز، سوشل ڈیزائنز، کیپشنز، فلائرز، ریلز اور دیگر مارکیٹنگ مواد بنائیں۔',
+  es_v_share: 'شیئر', es_v_share_d: 'واٹس ایپ، QR لنکس اور شیئر ہونے والے مواد سے پراپرٹی پورٹل سے باہر لوگوں تک پہنچیں۔',
+  es_v_promote: 'تشہیر', es_v_promote_d: 'آپ کی چنی ہوئی سروس یا پیکج کے مطابق، مواد آپ کے اپنے سوشل چینلز کے لیے تیار اور پوسٹ کیا جا سکتا ہے۔ اہل جائیدادیں اور پراجیکٹس AgenticCore کے اپنے پراپرٹی مارکیٹنگ چینلز پر بھی دکھائے جا سکتے ہیں، جیسے جیسے یہ چینلز چلائے اور بڑھائے جاتے ہیں۔',
+  es_v_automate: 'آٹومیٹ', es_v_automate_d: 'اگر آپ بار بار ایک جیسا کام کرتے ہیں تو AI اور آٹومیشن خدمات کانٹینٹ، پوسٹنگ، انکوائری اور دفتری کام کی تکرار کم کر سکتی ہیں۔',
+  es_note: 'ہم ویوز، رسائی، انکوائریز یا فروخت کی کبھی ضمانت نہیں دیتے۔ AgenticCore چینلز پر فیچرنگ اختیاری ہے اور اہلیت پر منحصر ہے۔',
   es_list: 'Estate پر جائیداد لسٹ کریں', es_promote: 'اپنی کسی لسٹنگ کی تشہیر کریں',
 
   prob_d1_a: 'Agent Monthly ہر ماہ آپ کی لسٹنگز اور پیجز پر پوسٹنگ جاری رکھتا ہے۔',

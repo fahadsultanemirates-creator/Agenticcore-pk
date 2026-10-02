@@ -21,7 +21,7 @@ insert into public.pk_catalog_lines (line_id, service_no, service_name, model, p
   ('30-dfy', 15, 'Social Media Pages Setup', 'dfy', 3499, 'up to 5 platforms + WhatsApp Business', 2, false),
   ('14-dfy', 16, 'Agency Website', 'dfy', 32499, 'up to 6 pages', 7, true),
   ('14-setup', 17, 'Website + Easy Listing Editor', 'setup', 42499, 'per website', 10, true),
-  ('51-mo', 18, 'Google Business Profile Setup / Management', 'monthly', 3999, 'a month', 2, false),
+  ('51-mo', 18, 'Google Business Profile Management', 'monthly', 3999, 'a month', 2, false),
   ('35-mo', 19, 'Facebook Property Group Marketing', 'monthly', 6499, 'a month', 2, false),
   ('49-setup', 20, 'Multi-Portal Listing Management', 'setup', 19499, 'one-off set-up', 5, false),
   ('49-mo', 20, 'Multi-Portal Listing Management', 'monthly', 9999, 'a month', 1, false),
@@ -80,13 +80,13 @@ insert into public.pk_catalog_lines (line_id, service_no, service_name, model, p
   ('16-one', 72, 'Embeddable Property Calculator', 'setup', 9999, 'per calculator', 3, false),
   ('16-all', 72, 'Embeddable Property Calculator', 'setup', 19499, 'all 3 calculators', 5, false),
   ('29-setup', 73, 'Balloting Results Page', 'setup', 32499, 'one-off set-up', 7, false),
-  ('29-event', 74, 'Balloting Event Digital / Live Support', 'dfy', 25999, 'per balloting event', null, true)
+  ('balloting-event', 74, 'Balloting Event Digital / Live Support', 'dfy', 25999, 'per balloting event', null, true)
 on conflict (line_id) do update set service_no = excluded.service_no, service_name = excluded.service_name, model = excluded.model,
   price = excluded.price, unit = excluded.unit, days = excluded.days, is_from = excluded.is_from, active = true;
 
 -- Retired lines stay in the table (orders may reference them) but can no longer be ordered.
 update public.pk_catalog_lines set active = false
-where line_id not in ('p-wa-card', 'p-social-post', 'p-flyer', '28-dfy', 'p-captions', '22-dfy', '23-dfy', '7-cat', '10-dfy', '25-plan', '25-room', '15-dfy', '3-dfy', '1-dfy', '30-dfy', '14-dfy', '14-setup', '51-mo', '35-mo', '49-setup', '49-mo', '36-one', '36-two', 'ag-overseas-mo', '39-mo', '2-dfy', '4-dfy', '6-dfy', '7-one', '11-dfy', '8-dfy', '5-dfy', '13-dfy', 'proj-landing', 'proj-website', 'proj-promo-video', '21-one', '21-both', '24-dfy', '26-dfy', '27-mo', '40-mo', '38-mo', '41-mo', '17-setup', '20-setup', '18-setup', '19-setup', '48-setup', '47-setup', 'ai-listing', 'ai-website', 'ai-wa-bot', 'ai-autopost', 'ai-content', 'ai-lead-routing', 'ai-docs', 'ai-office', 'ai-followup', 'ai-custom', 'ai-crm', 'ai-agency-fw', 'ai-voice', 'ai-dev-fw', '34-dfy', '37-dfy', '42-dfy', '53-dfy', '54-dfy', '55-mo', '52-mo', '56-dfy', '56-setup', '16-one', '16-all', '29-setup', '29-event');
+where line_id not in ('p-wa-card', 'p-social-post', 'p-flyer', '28-dfy', 'p-captions', '22-dfy', '23-dfy', '7-cat', '10-dfy', '25-plan', '25-room', '15-dfy', '3-dfy', '1-dfy', '30-dfy', '14-dfy', '14-setup', '51-mo', '35-mo', '49-setup', '49-mo', '36-one', '36-two', 'ag-overseas-mo', '39-mo', '2-dfy', '4-dfy', '6-dfy', '7-one', '11-dfy', '8-dfy', '5-dfy', '13-dfy', 'proj-landing', 'proj-website', 'proj-promo-video', '21-one', '21-both', '24-dfy', '26-dfy', '27-mo', '40-mo', '38-mo', '41-mo', '17-setup', '20-setup', '18-setup', '19-setup', '48-setup', '47-setup', 'ai-listing', 'ai-website', 'ai-wa-bot', 'ai-autopost', 'ai-content', 'ai-lead-routing', 'ai-docs', 'ai-office', 'ai-followup', 'ai-custom', 'ai-crm', 'ai-agency-fw', 'ai-voice', 'ai-dev-fw', '34-dfy', '37-dfy', '42-dfy', '53-dfy', '54-dfy', '55-mo', '52-mo', '56-dfy', '56-setup', '16-one', '16-all', '29-setup', 'balloting-event');
 
 insert into public.pk_packages (id, name, monthly, setup, one_off, min_months, due_days, setup_items, quote_only, is_from, section) values
   ('agent-monthly', 'Agent Monthly', 7999, 0, null, 3, 2, '[{"label":"Onboarding: Brand Kit and channel set-up"}]'::jsonb, false, false, 'agents'),

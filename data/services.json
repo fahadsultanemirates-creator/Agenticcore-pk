@@ -46,7 +46,8 @@
    "45-setup",
    "46-setup",
    "48-mo",
-   "50-setup"
+   "50-setup",
+   "29-event"
   ]
  },
  "models": {
@@ -519,10 +520,10 @@
   {
    "no": 18,
    "group": 1,
-   "name": "Google Business Profile Setup / Management",
-   "name_ur": "گوگل بزنس پروفائل سیٹ اپ / مینجمنٹ",
-   "brief": "Your Google Business Profile set up or cleaned up, then kept active every month.",
-   "brief_ur": "آپ کا گوگل بزنس پروفائل سیٹ اپ یا درست کیا جاتا ہے، پھر ہر ماہ فعال رکھا جاتا ہے۔",
+   "name": "Google Business Profile Management",
+   "name_ur": "گوگل بزنس پروفائل مینجمنٹ",
+   "brief": "Your Google Business Profile kept active and up to date every month. Initial profile set-up or clean-up is included where required — there is no separate set-up fee.",
+   "brief_ur": "آپ کا گوگل بزنس پروفائل ہر ماہ فعال اور تازہ رکھا جاتا ہے۔ ضرورت ہو تو ابتدائی پروفائل سیٹ اپ یا درستی شامل ہے — کوئی الگ سیٹ اپ فیس نہیں۔",
    "lines": [
     {
      "id": "51-mo",
@@ -533,12 +534,12 @@
      "text": "Rs 3,999 a month.",
      "text_ur": "Rs 3,999 ماہانہ۔",
      "days": 2,
-     "included": "Set-up or clean-up in month one, 8 posts a month, photo updates, review replies and a monthly report.",
-     "included_ur": "پہلے ماہ سیٹ اپ یا صفائی، ہر ماہ 8 پوسٹس، تصاویر کی اپڈیٹ، ریویوز کے جواب اور ماہانہ رپورٹ۔"
+     "included": "Initial profile set-up or clean-up where required (no separate fee), then 8 posts a month, photo updates, review replies and a monthly report.",
+     "included_ur": "ضرورت ہو تو ابتدائی پروفائل سیٹ اپ یا درستی (الگ فیس نہیں)، پھر ہر ماہ 8 پوسٹس، تصاویر کی اپڈیٹ، ریویوز کے جواب اور ماہانہ رپورٹ۔"
     }
    ],
-   "delivery": "Set up within 2 working days (Google verification can take longer); then monthly.",
-   "delivery_ur": "2 کاروباری دن میں سیٹ اپ (گوگل تصدیق میں زیادہ وقت لگ سکتا ہے)؛ پھر ماہانہ۔"
+   "delivery": "Profile ready within 2 working days where set-up is needed (Google verification can take longer); then managed every month.",
+   "delivery_ur": "جہاں سیٹ اپ درکار ہو وہاں 2 کاروباری دن میں پروفائل تیار (گوگل تصدیق میں زیادہ وقت لگ سکتا ہے)؛ پھر ہر ماہ مینجمنٹ۔"
   },
   {
    "no": 19,
@@ -1902,13 +1903,13 @@
    "brief_ur": "بیلٹنگ کے دن ڈیجیٹل اور لائیو اسٹریم سپورٹ۔ بیرونی عملہ، کیمرے اور جگہ کی ضرورت ہو تو کوٹیشن الگ۔",
    "lines": [
     {
-     "id": "29-event",
+     "id": "balloting-event",
      "model": "dfy",
      "price": 25999,
      "unit": "per balloting event",
      "unit_ur": "فی بیلٹنگ ایونٹ",
      "text": "From Rs 25,999 per balloting event.",
-     "text_ur": "Rs 25,999 سے فی بیلٹنگ ایونٹ۔",
+     "text_ur": "فی بیلٹنگ ایونٹ Rs 25,999 سے شروع۔",
      "days": null,
      "from": true
     }

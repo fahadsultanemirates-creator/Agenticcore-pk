@@ -6,12 +6,16 @@
    {
     "id": "agents",
     "title": "For agents & agencies",
-    "title_ur": "ایجنٹس اور ایجنسیوں کے لیے"
+    "title_ur": "ایجنٹس اور ایجنسیوں کے لیے",
+    "intro": "Have several properties to market? Don't pay separately for every small design. Our monthly plans give agents and agencies a fixed monthly allowance so they can market new properties throughout the month.",
+    "intro_ur": "کئی جائیدادوں کی مارکیٹنگ کرنی ہے؟ ہر چھوٹے ڈیزائن کی الگ ادائیگی نہ کریں۔ ہمارے ماہانہ پلان ایجنٹس اور ایجنسیوں کو ایک مقررہ ماہانہ الاؤنس دیتے ہیں تاکہ وہ پورا مہینہ نئی جائیدادوں کی مارکیٹنگ کر سکیں۔"
    },
    {
     "id": "projects",
     "title": "For projects & developers",
-    "title_ur": "پراجیکٹس اور ڈویلپرز کے لیے"
+    "title_ur": "پراجیکٹس اور ڈویلپرز کے لیے",
+    "intro": "One project needs marketing every week, not one design once. Project plans keep your rates, offers, videos, progress updates and social content moving throughout the month.",
+    "intro_ur": "ایک پراجیکٹ کو ایک بار کے ایک ڈیزائن کی نہیں، ہر ہفتے مارکیٹنگ کی ضرورت ہوتی ہے۔ پراجیکٹ پلان آپ کے ریٹس، آفرز، ویڈیوز، پیش رفت اپڈیٹس اور سوشل کانٹینٹ کو پورا مہینہ جاری رکھتے ہیں۔"
    },
    {
     "id": "launch",
@@ -21,8 +25,8 @@
   ],
   "monthly_includes": "Monthly packages are sold on what you get each month — not on \"savings\". Allowances are monthly maximums and do not roll over. Minimum terms are shown beside each price.",
   "monthly_includes_ur": "ماہانہ پیکجز ہر ماہ ملنے والے کام کی بنیاد پر ہیں — \"بچت\" کی بنیاد پر نہیں۔ الاؤنسز ماہانہ زیادہ سے زیادہ حد ہیں اور اگلے ماہ منتقل نہیں ہوتے۔ کم از کم مدت ہر قیمت کے ساتھ لکھی ہے۔",
-  "network_note": "AgenticCore network distribution: on eligible monthly and project packages, suitable content may be considered for relevant AgenticCore-owned social channels. It is subject to content suitability, your package allowance and platform rules. There is no guaranteed posting on every channel, no guaranteed reach and no guaranteed leads or sales.",
-  "network_note_ur": "AgenticCore نیٹ ورک تقسیم: اہل ماہانہ اور پراجیکٹ پیکجز میں مناسب مواد کو متعلقہ AgenticCore سوشل چینلز کے لیے زیرِ غور لایا جا سکتا ہے۔ یہ مواد کی موزونیت، آپ کے پیکج الاؤنس اور پلیٹ فارم کے قواعد سے مشروط ہے۔ ہر چینل پر پوسٹنگ، رسائی، لیڈز یا فروخت کی کوئی ضمانت نہیں۔",
+  "network_note": "Posting in our packages means posting to your own social channels. Separately, eligible client properties and projects may also be featured on AgenticCore's own property-marketing channels as those channels are operated and developed. Featuring is optional, depends on content suitability and platform rules, and is not guaranteed for any package — and we never guarantee views, reach, enquiries or sales.",
+  "network_note_ur": "ہمارے پیکجز میں پوسٹنگ کا مطلب آپ کے اپنے سوشل چینلز پر پوسٹنگ ہے۔ اس کے علاوہ، اہل کلائنٹ جائیدادیں اور پراجیکٹس AgenticCore کے اپنے پراپرٹی مارکیٹنگ چینلز پر بھی دکھائے جا سکتے ہیں، جیسے جیسے یہ چینلز چلائے اور بڑھائے جاتے ہیں۔ یہ فیچرنگ اختیاری ہے، مواد کی موزونیت اور پلیٹ فارم کے قواعد پر منحصر ہے، اور کسی بھی پیکج میں اس کی ضمانت نہیں — اور ہم ویوز، رسائی، انکوائریز یا فروخت کی کبھی ضمانت نہیں دیتے۔",
   "set_definition": "A Property Marketing Set = one WhatsApp property card + one social property creative + English/Roman Urdu captions for one property, with basic enhancement of up to 5 of your photos.",
   "set_definition_ur": "ایک پراپرٹی مارکیٹنگ سیٹ = ایک پراپرٹی کے لیے ایک واٹس ایپ کارڈ + ایک سوشل ڈیزائن + انگریزی/رومن اردو کیپشنز، آپ کی 5 تک تصاویر کی بنیادی بہتری کے ساتھ۔",
   "retired_packages": [
@@ -31,7 +35,9 @@
    "growing-agent",
    "agency-pro",
    "project-partner"
-  ]
+  ],
+  "network_title": "AgenticCore network featuring (optional)",
+  "network_title_ur": "AgenticCore نیٹ ورک فیچرنگ (اختیاری)"
  },
  "packages": [
   {
@@ -74,16 +80,16 @@
      "qty": 4
     },
     {
-     "label": "Scheduling and posting to up to 3 of your social channels",
-     "label_ur": "آپ کے 3 تک سوشل چینلز پر شیڈولنگ اور پوسٹنگ"
+     "label": "Scheduling and posting to up to 3 of your own social channels (client-owned pages)",
+     "label_ur": "آپ کے اپنے (آپ کی ملکیت) زیادہ سے زیادہ 3 سوشل چینلز پر شیڈولنگ اور پوسٹنگ"
     },
     {
      "label": "Brand Kit set up and reused on every piece",
      "label_ur": "برانڈ کٹ سیٹ اپ اور ہر ڈیزائن میں استعمال"
     },
     {
-     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
-     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+     "label": "Eligible content may also be featured on AgenticCore's own channels (optional — see \"AgenticCore network featuring\")",
+     "label_ur": "اہل مواد AgenticCore کے اپنے چینلز پر بھی دکھایا جا سکتا ہے (اختیاری — دیکھیں \"AgenticCore نیٹ ورک فیچرنگ\")"
     }
    ],
    "allowances": [
@@ -149,8 +155,8 @@
      "qty": 8
     },
     {
-     "label": "Scheduling and posting to up to 5 of your social channels, with a content calendar",
-     "label_ur": "آپ کے 5 تک سوشل چینلز پر شیڈولنگ اور پوسٹنگ، کانٹینٹ کیلنڈر کے ساتھ"
+     "label": "Scheduling and posting to up to 5 of your own social channels (client-owned pages), with a content calendar",
+     "label_ur": "آپ کے اپنے (آپ کی ملکیت) زیادہ سے زیادہ 5 سوشل چینلز پر شیڈولنگ اور پوسٹنگ، کانٹینٹ کیلنڈر کے ساتھ"
     },
     {
      "label": "Google Business Profile activity",
@@ -165,8 +171,8 @@
      "label_ur": "ماہانہ رپورٹ"
     },
     {
-     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
-     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+     "label": "Eligible content may also be featured on AgenticCore's own channels (optional — see \"AgenticCore network featuring\")",
+     "label_ur": "اہل مواد AgenticCore کے اپنے چینلز پر بھی دکھایا جا سکتا ہے (اختیاری — دیکھیں \"AgenticCore نیٹ ورک فیچرنگ\")"
     }
    ],
    "allowances": [
@@ -231,16 +237,16 @@
      "label_ur": "باقاعدہ ریٹ / آفر ڈیزائن"
     },
     {
-     "label": "Social media management across up to 5 channels",
-     "label_ur": "5 تک چینلز پر سوشل میڈیا مینجمنٹ"
+     "label": "Social media management across up to 5 of your own channels (client-owned pages)",
+     "label_ur": "آپ کے اپنے (آپ کی ملکیت) زیادہ سے زیادہ 5 چینلز پر سوشل میڈیا مینجمنٹ"
     },
     {
      "label": "Google Business Profile",
      "label_ur": "گوگل بزنس پروفائل"
     },
     {
-     "label": "Suitable property-group and network distribution",
-     "label_ur": "مناسب پراپرٹی گروپ اور نیٹ ورک تقسیم"
+     "label": "Sharing your listings in suitable third-party Facebook property groups, where each group's rules allow (these are not AgenticCore channels)",
+     "label_ur": "جہاں ہر گروپ کے قواعد اجازت دیں، آپ کی لسٹنگز موزوں تھرڈ پارٹی فیس بک پراپرٹی گروپس میں شیئر کرنا (یہ AgenticCore کے چینلز نہیں)"
     },
     {
      "label": "Paid-ad management on ONE platform, with ad creatives and copy",
@@ -255,8 +261,8 @@
      "label_ur": "ماہانہ رپورٹنگ"
     },
     {
-     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
-     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+     "label": "Eligible content may also be featured on AgenticCore's own channels (optional — see \"AgenticCore network featuring\")",
+     "label_ur": "اہل مواد AgenticCore کے اپنے چینلز پر بھی دکھایا جا سکتا ہے (اختیاری — دیکھیں \"AgenticCore نیٹ ورک فیچرنگ\")"
     }
    ],
    "allowances": [
@@ -333,8 +339,8 @@
      "label_ur": "انگریزی + رومن اردو کیپشنز اور مواد"
     },
     {
-     "label": "Content calendar; scheduling and posting to up to 4 of your channels",
-     "label_ur": "کانٹینٹ کیلنڈر؛ آپ کے 4 تک چینلز پر شیڈولنگ اور پوسٹنگ"
+     "label": "Content calendar; scheduling and posting to up to 4 of your own channels (client-owned pages)",
+     "label_ur": "کانٹینٹ کیلنڈر؛ آپ کے اپنے (آپ کی ملکیت) زیادہ سے زیادہ 4 چینلز پر شیڈولنگ اور پوسٹنگ"
     },
     {
      "label": "Google Business content and activity",
@@ -345,8 +351,8 @@
      "label_ur": "ماہانہ رپورٹ"
     },
     {
-     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
-     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+     "label": "Eligible content may also be featured on AgenticCore's own channels (optional — see \"AgenticCore network featuring\")",
+     "label_ur": "اہل مواد AgenticCore کے اپنے چینلز پر بھی دکھایا جا سکتا ہے (اختیاری — دیکھیں \"AgenticCore نیٹ ورک فیچرنگ\")"
     }
    ],
    "allowances": [
@@ -420,8 +426,8 @@
      "label_ur": "ریٹ اور ادائیگی پلان اپڈیٹس"
     },
     {
-     "label": "Full social media management",
-     "label_ur": "مکمل سوشل میڈیا مینجمنٹ"
+     "label": "Full social media management of your own channels (client-owned pages)",
+     "label_ur": "آپ کے اپنے (آپ کی ملکیت) چینلز کی مکمل سوشل میڈیا مینجمنٹ"
     },
     {
      "label": "Paid-advertising management on up to 2 platforms, with ad creatives",
@@ -440,8 +446,8 @@
      "label_ur": "ماہانہ رپورٹنگ اور ماہانہ پلاننگ کال"
     },
     {
-     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
-     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+     "label": "Eligible content may also be featured on AgenticCore's own channels (optional — see \"AgenticCore network featuring\")",
+     "label_ur": "اہل مواد AgenticCore کے اپنے چینلز پر بھی دکھایا جا سکتا ہے (اختیاری — دیکھیں \"AgenticCore نیٹ ورک فیچرنگ\")"
     }
    ],
    "allowances": [
@@ -511,8 +517,8 @@
      "label_ur": "سیٹ اپ کی کوٹیشن آپ کے منتخب سسٹمز کے مطابق"
     },
     {
-     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
-     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+     "label": "Eligible content may also be featured on AgenticCore's own channels (optional — see \"AgenticCore network featuring\")",
+     "label_ur": "اہل مواد AgenticCore کے اپنے چینلز پر بھی دکھایا جا سکتا ہے (اختیاری — دیکھیں \"AgenticCore نیٹ ورک فیچرنگ\")"
     }
    ],
    "setup_items": [],

@@ -193,13 +193,13 @@ function viewOrderPackages(focusId) {
   setView(
     '<h1 data-i18n="d_order">New order</h1>' +
     '<div class="chips"><a class="chip" style="display:inline-flex;align-items:center" href="#order">Services</a><button class="chip" aria-pressed="true">Packages</button></div>' +
-    '<p class="page-sub">' + escapeHtml(pkPick(P.meta, 'monthly_includes')) + '</p>' +
+    '<p class="page-sub">' + escapeHtml(pkT('p2_specialist')) + ' ' + escapeHtml(pkPick(P.meta, 'monthly_includes')) + '</p>' +
     P.meta.sections.map(function (sec) {
       const list = P.packages.filter(function (p) { return p.section === sec.id && !p.variant_of; });
-      return '<h2>' + escapeHtml(pkPick(sec, 'title')) + '</h2><div class="grid grid-2">' + list.map(function (p) { return pkPackageCardHtml(p, { dashboard: true }); }).join('') + '</div>';
+      return '<h2>' + escapeHtml(pkPick(sec, 'title')) + '</h2>' + (sec.intro ? '<p class="page-sub">' + escapeHtml(pkPick(sec, 'intro')) + '</p>' : '') + '<div class="grid grid-2">' + list.map(function (p) { return pkPackageCardHtml(p, { dashboard: true }); }).join('') + '</div>';
     }).join('') +
     '<p class="tiny" style="margin-top:var(--space-md)">' + escapeHtml(pkPick(P.meta, 'set_definition')) + '</p>' +
-    '<p class="tiny">' + escapeHtml(pkPick(P.meta, 'network_note')) + '</p>'
+    '<p class="tiny"><strong>' + escapeHtml(pkT('pkg_network_title')) + ':</strong> ' + escapeHtml(pkPick(P.meta, 'network_note')) + '</p>'
   );
   view().addEventListener('click', function (e) {
     const b = e.target.closest('[data-buy-package]');

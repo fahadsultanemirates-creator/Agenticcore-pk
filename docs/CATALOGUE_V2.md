@@ -7,7 +7,7 @@ Branch `claude/pk-catalogue-v2` (from production `441920b`). **Not merged, not d
 | | V1 (production) | V2 (this branch) |
 |---|---|---|
 | Customer-facing services | 56 in 8 groups | **74 in 4 sections**: Property Marketing 1–24, Project Marketing 25–48, AI & Automation 49–62, Specialist / add-on 63–74 (collapsed, secondary) |
-| Orderable price lines | 73 | **77** (55 reused ids, 22 new ids); 18 retired |
+| Orderable price lines | 73 | **77** (54 reused ids, 23 new ids); 19 retired |
 | Packages | 5 (Dealer Starter, AgenticCore Package, Growing Agent, Agency Pro, Project Partner) | **8 offers / 10 orderable rows**: Agent Monthly, Agent Pro, Agency Growth, Project Monthly, Project Growth, Developer Partner (proposal only), Agency Launch Kit (+ website variant), Project Launch Kit (+ website variant) |
 | Homepage discovery | 8 intents + 2-question selector | "Who are you?" (Agent / Dealer · Agency · Project / Developer) → 4 journeys each |
 | Package selling | "bought separately / you save" maths | Sold on monthly output; minimum term beside every price; no savings figures |
@@ -15,7 +15,7 @@ Branch `claude/pk-catalogue-v2` (from production `441920b`). **Not merged, not d
 ## Rules followed
 
 - One price source: `data/services.json` → `scripts/gen-seed-sql.mjs` → `pk_catalog_lines`. The server re-prices every order (`pk_place_order`) and package (`pk_buy_package`). The browser sends line ids only.
-- A line id was **reused** when the deliverable kept its meaning (all 55 reused lines kept their V1 price). A **new** id was created when the meaning changed: single-property creatives, the new AI set-ups (different scope and price from the old bots), and project-specific counterparts of property services. The old AI lines were retired rather than re-priced, so past invoices still read correctly.
+- A line id was **reused** when the deliverable kept its meaning (all 54 reused lines kept their V1 price). A **new** id was created when the meaning changed — including service 74, whose old id `29-event` was billed monthly in V1 and is now per event, so it became `balloting-event`: single-property creatives, the new AI set-ups (different scope and price from the old bots), and project-specific counterparts of property services. The old AI lines were retired rather than re-priced, so past invoices still read correctly.
 - Nothing is deleted. Retired lines and packages are set `active = false`; existing orders, invoices and subscriptions keep their references. RLS, auth, `pk_0003` (Estate listing ownership trigger) and Estate itself are unchanged.
 
 ## Line mapping (V2 service → line id)
@@ -39,7 +39,7 @@ Branch `claude/pk-catalogue-v2` (from production `441920b`). **Not merged, not d
 | 15 Social Media Pages Setup | `30-dfy` | reused (old 30 Page setup and optimisation) | same |
 | 16 Agency Website | `14-dfy` | reused (old 14 Agency and developer websites) | same |
 | 17 Website + Easy Listing Editor | `14-setup` | reused (old 14 Agency and developer websites) | same |
-| 18 Google Business Profile Setup / Management | `51-mo` | reused (old 51 Google Business Profile and local SEO) | same |
+| 18 Google Business Profile Management | `51-mo` | reused (old 51 Google Business Profile and local SEO) | same |
 | 19 Facebook Property Group Marketing | `35-mo` | reused (old 35 Facebook group marketing) | same |
 | 20 Multi-Portal Listing Management | `49-setup` | reused (old 49 Multi-portal listing management) | same |
 | 20 Multi-Portal Listing Management | `49-mo` | reused (old 49 Multi-portal listing management) | same |
@@ -98,7 +98,7 @@ Branch `claude/pk-catalogue-v2` (from production `441920b`). **Not merged, not d
 | 72 Embeddable Property Calculator | `16-one` | reused (old 16 Embeddable calculators) | same |
 | 72 Embeddable Property Calculator | `16-all` | reused (old 16 Embeddable calculators) | same |
 | 73 Balloting Results Page | `29-setup` | reused (old 29 Balloting live-stream) | same |
-| 74 Balloting Event Digital / Live Support | `29-event` | reused (old 29 Balloting live-stream) | same (model monthly→dfy) |
+| 74 Balloting Event Digital / Live Support | `balloting-event` | NEW line | Rs 25,999 (from) |
 
 ## Retired lines (`active = false`, not orderable)
 
@@ -122,6 +122,7 @@ Branch `claude/pk-catalogue-v2` (from production `441920b`). **Not merged, not d
 | `46-setup` | old 46 Lead routing | Rs 9,999 (setup) |
 | `48-mo` | old 48 Instalment and dues reminders | Rs 9,999 (monthly) |
 | `50-setup` | old 50 Custom AI assistants | Rs 25,999 (setup) |
+| `29-event` | old 29 Balloting live-stream | Rs 25,999 (monthly) — replaced by `balloting-event` (billing changed from monthly to per event) |
 
 Old services with no V2 equivalent: 9 Outdoor branding, 12 Festive and occasion creatives, 31 Monthly social media management, 32 TikTok / YouTube Shorts channel management. Monthly social media management now lives inside the monthly packages.
 
@@ -155,15 +156,16 @@ Existing subscribers on retired packages keep their subscription and allowances 
    - adds a `'proposal'` lead kind
    - replaces `pk_buy_package`: it refuses quote-only packages, and labels "from" prices on the invoice
 2. Regenerated `supabase/migrations/pk_0002_seed_catalog.sql` (apply second). It upserts 77 lines, 10 packages and 15 allowances, then deactivates everything not in the JSON.
-3. **Order matters at release.** Deploy the site and apply both files together. The new site sends new line ids (`p-flyer`, `ai-voice`, …) that the production table does not know yet. If the site deploys first, those orders fail with "Unknown service line". If the database is applied first, the old site's retired lines (e.g. `9-dfy`) and packages stop being orderable.
-4. Tested on a local Postgres 16 copy (V1 schema + V1 seed + `pk_0003`, then V2):
+3. `supabase/migrations/pk_0005_working_day_due.sql` (apply third): due dates in working days (see below).
+4. **Order matters at release.** Deploy the site and apply both files together. The new site sends new line ids (`p-flyer`, `ai-voice`, …) that the production table does not know yet. If the site deploys first, those orders fail with "Unknown service line". If the database is applied first, the old site's retired lines (e.g. `9-dfy`) and packages stop being orderable.
+5. Tested on a local Postgres 16 copy (V1 schema + V1 seed + `pk_0003`, then V2):
    - every V2 package priced correctly
    - Developer Partner refused
    - old `dealer-starter` refused
    - retired `9-dfy` refused
    - a foreign Estate listing refused (42501), a malformed id refused (22023), the caller's own listing accepted
    - re-applying both files is idempotent
-5. **Rollback:** re-apply the V1 seed from `441920b`. The V2 lines then remain but are switched off with `update … set active=false where line_id in (…)`. The pk_0004 columns are harmless to V1.
+6. **Rollback:** re-apply the V1 seed from `441920b`. The V2 lines then remain but are switched off with `update … set active=false where line_id in (…)`. The pk_0004 columns are harmless to V1.
 
 ## Delivery-time changes (material)
 
@@ -177,4 +179,32 @@ Most small creatives stay "same day for orders by 6pm PKT". These are now quoted
 - portals: 2–3 weeks
 - frameworks and custom AI: after scoping
 
-The task due date (`pk_compute_due`) still counts calendar days, so due dates on multi-day work are slightly earlier than the "working days" the site states. That is conservative, but it should be aligned later.
+### Working-day due dates (pk_0005)
+
+Internal due dates follow the same working-day ranges the customer sees; they are never shorter. All times are Pakistan time (Asia/Karachi).
+
+1. **Start day.** The day the task is confirmed. If it is confirmed at or after the 6pm cut-off (`cutoff_hour_pkt`), the start day is the next day.
+2. **Roll forward.** If the start day is not a working day, move it to the next working day.
+3. **Add the turnaround.** Add the service's turnaround as working days. A turnaround of 0 means the start day itself.
+4. **Due time.** The task is due at 9pm (`due_hour_pkt`) on that day.
+
+Working days are Monday to Friday (`pk_settings.working_dows` = `[1,2,3,4,5]`). Dates listed in `pk_settings.holidays_pkt` are skipped. A six-day week is a settings change, not a code change.
+
+When a paused task resumes, the paused time is added back. If the result lands on a weekend or holiday, it moves forward to the same time on the next working day.
+
+Examples, all for an order confirmed on Friday:
+
+| Confirmed | Turnaround | Due |
+|---|---|---|
+| Friday 10am | 3 days | Wednesday 9pm (the old calendar-day rule gave Monday) |
+| Friday 7pm | same day | Monday 9pm |
+
+`tests/db/working_days.test.sql` covers these cases:
+- weekends
+- the cut-off minute
+- holidays
+- a six-day week
+- resume on a weekend
+- that the working-day rule is never earlier than the old calendar rule
+
+Run it with `tests/db/run.sh`, on a local Postgres only.

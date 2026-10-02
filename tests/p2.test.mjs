@@ -212,7 +212,7 @@ const V2 = {
   9: ['QR Property Flyer', { '10-dfy': 1999 }], 10: ['3D Floor Plan', { '25-plan': 3499 }], 11: ['AI-Staged Interior', { '25-room': 999 }],
   12: ['Single Property Landing Page', { '15-dfy': 9999 }], 13: ['Agent Personal Branding Kit', { '3-dfy': 4499 }], 14: ['Agency Logo + Brand Kit', { '1-dfy': 6499 }],
   15: ['Social Media Pages Setup', { '30-dfy': 3499 }], 16: ['Agency Website', { '14-dfy': 32499 }], 17: ['Website + Easy Listing Editor', { '14-setup': 42499 }],
-  18: ['Google Business Profile Setup / Management', { '51-mo': 3999 }], 19: ['Facebook Property Group Marketing', { '35-mo': 6499 }],
+  18: ['Google Business Profile Management', { '51-mo': 3999 }], 19: ['Facebook Property Group Marketing', { '35-mo': 6499 }],
   20: ['Multi-Portal Listing Management', { '49-setup': 19499, '49-mo': 9999 }], 21: ['Paid Ads Management — One Platform', { '36-one': 9999 }],
   22: ['Paid Ads Management — Two Platforms', { '36-two': 16499 }], 23: ['Overseas Buyer Campaign', { 'ag-overseas-mo': 12999 }], 24: ['Retargeting', { '39-mo': 4999 }],
   25: ['Project Branding Kit', { '2-dfy': 19499 }], 26: ['Payment / Instalment Plan Design', { '4-dfy': 1599 }], 27: ['Project Brochure', { '6-dfy': 9999 }],
@@ -233,7 +233,7 @@ const V2 = {
   66: ['Market / Area Guide', { '53-dfy': 6499 }], 67: ['Overseas Buyer Guide', { '54-dfy': 4999 }], 68: ['Blog + SEO Content', { '55-mo': 6499 }],
   69: ['Review & Reputation Management', { '52-mo': 4999 }], 70: ['Urdu Sale / Purchase / Rental Agreement — First Draft', { '56-dfy': 1299 }],
   71: ['Custom Agreement Drafting Assistant', { '56-setup': 22999 }], 72: ['Embeddable Property Calculator', { '16-one': 9999, '16-all': 19499 }],
-  73: ['Balloting Results Page', { '29-setup': 32499 }], 74: ['Balloting Event Digital / Live Support', { '29-event': 25999 }]
+  73: ['Balloting Results Page', { '29-setup': 32499 }], 74: ['Balloting Event Digital / Live Support', { 'balloting-event': 25999 }]
 };
 
 test('Catalogue V2: all 74 services, names and prices exactly as specified', () => {
@@ -319,4 +319,74 @@ test('every "What we can create" tile shows an exact line price and installed sa
   assert.match(src, /x\.gallery !== false && \(P2\.cat/);
   assert.match(read('js/discovery.js'), /x\.gallery !== false && \(x\.services/);
   for (const c of samples.meta.categories) both('smp_cat_' + c);
+});
+
+test('service 74 has its own V2 id; old 29-event is retired but kept for history', () => {
+  const s74 = services.services.find((s) => s.no === 74);
+  assert.deepEqual(s74.lines.map((l) => [l.id, l.model, l.price, !!l.from]), [['balloting-event', 'dfy', 25999, true]]);
+  assert.match(s74.lines[0].text, /^From Rs 25,999 per balloting event/);
+  assert.ok(services.meta.retired_lines.includes('29-event'));
+  assert.ok(!lineIds.has('29-event'));
+  const sql = read('supabase/migrations/pk_0002_seed_catalog.sql');
+  assert.match(sql, /\('balloting-event', 74, /);
+  assert.ok(!/\('29-event'/.test(sql), 'seed must not re-activate 29-event');
+  assert.match(sql, /set active = false\s+where line_id not in/, 'retired lines are deactivated, never deleted');
+  assert.match(read('docs/CATALOGUE_V2.md'), /`balloting-event` \| NEW line/);
+});
+
+test('service 18 is one monthly line with set-up included where required', () => {
+  const s = services.services.find((x) => x.no === 18);
+  assert.equal(s.name, 'Google Business Profile Management');
+  assert.equal(s.lines.length, 1);
+  assert.equal(s.lines[0].model, 'monthly');
+  assert.match(s.brief + s.lines[0].included, /set-up[^.]*included where required|set-up or clean-up where required \(no separate fee\)/i);
+  assert.ok(s.brief_ur && s.lines[0].included_ur);
+});
+
+test('working-day due dates: pk_0005 replaces the calendar-day rule, with weekend/holiday settings and tests', () => {
+  const m = read('supabase/migrations/pk_0005_working_day_due.sql');
+  assert.match(m, /create or replace function public\.pk_compute_due/);
+  assert.match(m, /pk_add_working_days\(base_date, p_days\)/);
+  assert.match(m, /'working_dows', '\[1, 2, 3, 4, 5\]'/);
+  assert.match(m, /'holidays_pkt', '\[\]'/);
+  assert.match(m, /create trigger pk_tasks_due_working_day/);
+  assert.ok(!/drop table|delete from|disable row level security/i.test(m), 'pk_0005 must be additive');
+  const t = read('tests/db/working_days.test.sql');
+  for (const why of ['Saturday order', 'Sunday order', 'after 6pm cut-off', 'holiday not skipped', 'never earlier', 'resume on Saturday']) assert.ok(t.includes(why), 'working-day test missing: ' + why);
+});
+
+test('positioning, plan explanations, ecosystem and network wording (EN + UR)', () => {
+  assert.match(EN.p2_eyebrow, /Built specifically for Pakistan real estate/);
+  assert.equal(EN.p2_specialist, "Property marketing is not one of the industries we serve. It's the industry we are built for.");
+  both('p2_specialist');
+  for (const f of ['index.html', 'services.html']) assert.match(read(f), /data-i18n="p2_specialist"/, f + ' shows the specialist line');
+  // no unsubstantiated "only" / "first" / "No. 1" claims
+  const all = Object.values(EN).join(' ') + Object.values(UR).join(' ') + read('index.html') + read('services.html');
+  assert.ok(!/\b(Pakistan's|the) only\b|only (company|agency) in Pakistan|first in Pakistan|No\.? ?1 in|number one/i.test(all), 'no "only/first/No. 1" claims');
+  const sec = Object.fromEntries(packages.meta.sections.map((s) => [s.id, s]));
+  assert.match(sec.agents.intro, /^Have several properties to market\? Don't pay separately for every small design\./);
+  assert.match(sec.projects.intro, /^One project needs marketing every week, not one design once\./);
+  assert.ok(sec.agents.intro_ur && sec.projects.intro_ur);
+  for (const k of ['list', 'create', 'share', 'promote', 'automate']) { both('es_v_' + k); both('es_v_' + k + '_d'); }
+  assert.match(EN.es_sub, /Estate is the property marketplace and listing side.*Pakistan is the marketing and technology side/);
+  assert.match(EN.es_note, /never guarantee views, reach, enquiries or sales/);
+  // posting = client-owned channels; AgenticCore featuring is separate, optional, not guaranteed
+  for (const p of packages.packages) for (const it of p.includes || []) {
+    if (/posting|social media management|channels/i.test(it.label) && !/AgenticCore's own|third-party/.test(it.label)) assert.match(it.label, /your own/, p.id + ': "' + it.label + '" must say client-owned');
+    if (/AgenticCore's own channels/.test(it.label)) assert.match(it.label, /optional/i, p.id + ': AgenticCore featuring must be optional');
+  }
+  assert.match(packages.meta.network_note, /your own social channels/i);
+  assert.match(packages.meta.network_note, /not guaranteed/);
+  assert.match(read('index.html'), /es-flow[\s\S]*LIST[\s\S]*CREATE[\s\S]*SHARE[\s\S]*PROMOTE[\s\S]*AUTOMATE/);
+  assert.ok(read('index.html').indexOf('id="estate"') < read('index.html').indexOf('id="packages"'), 'ecosystem journey sits above the packages');
+});
+
+test('landing-page sample matches V2 (Rs 9,999, 2–3 working days) and stays labelled', () => {
+  assert.match(EN['alt_property-landing-page'], /^Sample concept/);
+  assert.match(EN['alt_property-landing-page'], /2–3 working-day delivery/);
+  assert.ok(!/same-day/i.test(EN['alt_property-landing-page']));
+  const s = services.services.find((x) => x.no === 12);
+  assert.equal(s.lines[0].price, 9999);
+  assert.ok(!s.lines[0].from);
+  assert.match(s.delivery, /^2–3 working days/);
 });

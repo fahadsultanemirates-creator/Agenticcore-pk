@@ -18,6 +18,7 @@ function pkRenderLandingData() {
   document.getElementById('pkgList').innerHTML = P.meta.sections.map(function (sec) {
     const list = P.packages.filter(function (p) { return p.section === sec.id && !p.variant_of; });
     return '<div class="pkg-section"><h3 class="pkg-section-title">' + escapeHtml(pkPick(sec, 'title')) + '</h3>' +
+      (sec.intro ? '<p class="pkg-section-intro">' + escapeHtml(pkPick(sec, 'intro')) + '</p>' : '') +
       '<div class="pkg-scroller">' + list.map(function (p) { return pkPackageCardHtml(p); }).join('') + '</div></div>';
   }).join('');
   document.getElementById('pkgIncludes').textContent = pkPick(P.meta, 'monthly_includes');

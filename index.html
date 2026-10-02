@@ -54,6 +54,7 @@
       <div>
         <span class="eyebrow" data-i18n="p2_eyebrow">Built specifically for Pakistan real estate</span>
         <h1><span data-i18n="p2_h1a">From one property to an entire project — </span><span class="accent" data-i18n="p2_h1b">marketed in one connected ecosystem.</span></h1>
+        <p class="specialist-line" data-i18n="p2_specialist">Property marketing is not one of the industries we serve. It's the industry we are built for.</p>
         <p class="hero-sub" data-i18n="p2_sub">Listing, design, content, social marketing and AI automation for agents, agencies, builders and developers across Pakistan.</p>
         <div class="p2-ctas">
           <a class="btn btn-primary" href="#pack" data-i18n="p2_cta_property">Market a property</a>
@@ -81,7 +82,7 @@
   </section>
 
   <!-- V2-3. Who are you? → journeys -->
-  <section class="section-alt" id="who">
+  <section id="who">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" data-i18n="who_eyebrow">Start here</span>
@@ -95,18 +96,43 @@
     </div>
   </section>
 
-  <!-- V2-4. Monthly plans and launch kits (rendered from data/packages.json) -->
+  <!-- V2-4. Estate + Pakistan journey: LIST → CREATE → SHARE → PROMOTE → AUTOMATE -->
+  <section class="section-alt es-journey" id="estate">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="es_eyebrow">AgenticCore Estate + AgenticCore Pakistan — one journey</span>
+        <h2 class="section-title" data-i18n="es_title">Don't depend on one place to market a property.</h2>
+        <p class="section-sub" data-i18n="es_sub">AgenticCore Estate is the property marketplace and listing side. AgenticCore Pakistan is the marketing and technology side. They work together, with one account.</p>
+      </div>
+      <p class="es-flow" aria-hidden="true"><b class="es-flow-estate" data-i18n="es_v_list">LIST</b> <span class="arr">→</span> <b data-i18n="es_v_create">CREATE</b> <span class="arr">→</span> <b data-i18n="es_v_share">SHARE</b> <span class="arr">→</span> <b data-i18n="es_v_promote">PROMOTE</b> <span class="arr">→</span> <b data-i18n="es_v_automate">AUTOMATE</b></p>
+      <ol class="es-verbs5">
+        <li class="card estate"><span class="es-n">1</span><span class="es-verb" data-i18n="es_v_list">LIST</span><span class="es-where" data-i18n="es_where_estate">on AgenticCore Estate</span><p data-i18n="es_v_list_d">List the property on AgenticCore Estate and give it its own searchable property page.</p></li>
+        <li class="card"><span class="es-n">2</span><span class="es-verb" data-i18n="es_v_create">CREATE</span><span class="es-where" data-i18n="es_where_pk">with AgenticCore Pakistan</span><p data-i18n="es_v_create_d">Turn the same property details and photos into professional WhatsApp cards, social creatives, captions, flyers, reels and other marketing material.</p></li>
+        <li class="card"><span class="es-n">3</span><span class="es-verb" data-i18n="es_v_share">SHARE</span><span class="es-where" data-i18n="es_where_pk">with AgenticCore Pakistan</span><p data-i18n="es_v_share_d">Use WhatsApp, QR links and shareable content to reach people outside a property portal.</p></li>
+        <li class="card"><span class="es-n">4</span><span class="es-verb" data-i18n="es_v_promote">PROMOTE</span><span class="es-where" data-i18n="es_where_pk">with AgenticCore Pakistan</span><p data-i18n="es_v_promote_d">Depending on the service or package you choose, content can be prepared and posted on your own social channels. Eligible properties and projects may also be featured on AgenticCore's own property-marketing channels as those channels are operated and developed.</p></li>
+        <li class="card"><span class="es-n">5</span><span class="es-verb" data-i18n="es_v_automate">AUTOMATE</span><span class="es-where" data-i18n="es_where_pk">with AgenticCore Pakistan</span><p data-i18n="es_v_automate_d">If you handle the same work again and again, AI and automation services can reduce repetitive content, posting, enquiry and office work.</p></li>
+      </ol>
+      <p class="tiny es-note" data-i18n="es_note">We never guarantee views, reach, enquiries or sales. Featuring on AgenticCore channels is optional and depends on eligibility.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://agenticcore.estate/sell.html" data-i18n="es_list">List a property on Estate</a>
+        <a class="btn btn-secondary" href="dashboard.html#listings" data-i18n="es_promote">Promote one of my listings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2-5. Monthly plans and launch kits (rendered from data/packages.json) -->
   <section id="packages">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow" data-i18n="pkg_eyebrow">Monthly plans &amp; launch kits</span>
         <h2 class="section-title" data-i18n="pkg_title">Pay monthly for steady marketing — or once for a launch.</h2>
         <p class="section-sub" data-i18n="pkg_sub">Plans are sold on what you get each month. Minimum terms are shown beside every price.</p>
+        <p class="specialist-line" data-i18n="p2_specialist">Property marketing is not one of the industries we serve. It's the industry we are built for.</p>
       </div>
       <div id="pkgList"></div>
       <div class="grid grid-2 pkg-notes">
         <div class="card"><h3 data-i18n="pkg_set_title">What is a "Property Marketing Set"?</h3><p class="tiny" id="pkgSetDef"></p></div>
-        <div class="card"><h3 data-i18n="pkg_network_title">AgenticCore network distribution</h3><p class="tiny" id="pkgNetwork"></p></div>
+        <div class="card"><h3 data-i18n="pkg_network_title">AgenticCore network featuring (optional)</h3><p class="tiny" id="pkgNetwork"></p></div>
       </div>
       <p class="muted" style="margin-top:var(--space-md)" id="pkgIncludes"></p>
       <p style="margin-top:0.5rem"><a class="link" href="services.html" data-count-label="pkg_just_one">Need just one thing? See all services and prices.</a></p>
@@ -174,29 +200,6 @@
     </div>
   </section>
 
-  <!-- V2-8. AgenticCore Estate + Pakistan: LIST / CREATE / SHARE / PROMOTE / AUTOMATE -->
-  <section class="section-alt" id="estate">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow" data-i18n="es_eyebrow">AgenticCore Estate + AgenticCore Pakistan</span>
-        <h2 class="section-title" data-i18n="es_title">Don't depend on one place to market a property.</h2>
-        <p class="section-sub" data-i18n="es_sub">One account works on both sites. List on AgenticCore Estate, then create, share, promote and automate the marketing here.</p>
-      </div>
-      <ol class="es-verbs5">
-        <li class="card estate"><span class="es-verb" data-i18n="es_v_list">LIST</span><span class="es-where">AgenticCore Estate</span><p data-i18n="es_v_list_d">List the property free on AgenticCore Estate.</p></li>
-        <li class="card"><span class="es-verb" data-i18n="es_v_create">CREATE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_create_d">Cards, posts, flyers, reels and catalogues made from your listing.</p></li>
-        <li class="card"><span class="es-verb" data-i18n="es_v_share">SHARE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_share_d">WhatsApp, social pages and a QR share card that link back to the listing.</p></li>
-        <li class="card"><span class="es-verb" data-i18n="es_v_promote">PROMOTE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_promote_d">Paid ads in your own accounts, portals kept in sync and overseas campaigns.</p></li>
-        <li class="card"><span class="es-verb" data-i18n="es_v_automate">AUTOMATE</span><span class="es-where">AgenticCore Pakistan</span><p data-i18n="es_v_automate_d">AI listing text, automatic posting, WhatsApp replies and lead follow-up.</p></li>
-      </ol>
-      <p class="tiny es-note" data-i18n="es_note">More places for your property to be seen — we do not promise a number of enquiries, sales or a guaranteed reach.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://agenticcore.estate/sell.html" data-i18n="es_list">List a property on Estate</a>
-        <a class="btn btn-secondary" href="dashboard.html#listings" data-i18n="es_promote">Promote one of my listings</a>
-      </div>
-    </div>
-  </section>
-
   <!-- A2. Promises (kept) -->
   <section id="proof">
     <div class="container">
@@ -245,6 +248,7 @@
       <div class="section-head">
         <span class="eyebrow" data-count-label="svc_eyebrow">All services</span>
         <h2 class="section-title" data-i18n="svc_title">Everything you need to market property, in one place.</h2>
+        <p class="specialist-line" data-i18n="p2_specialist">Property marketing is not one of the industries we serve. It's the industry we are built for.</p>
         <p class="section-sub" data-i18n="svc_sub">Four sections: property marketing, project marketing, AI &amp; automation, and specialist add-ons. Every price is published.</p>
       </div>
       <div class="grid grid-2" id="svcGroups">
