@@ -2,7 +2,7 @@
    AgenticCore Pakistan — data layer (Supabase)
    Auth functions mirror agenticcore.estate's db-client.js exactly
    (same project, same handle_new_user trigger, same phone-or-email
-   login via email_for_phone), so an account made on either site
+   login via login_email_for_phone, which needs the password), so an account made on either site
    works on both. Everything pk-specific goes through pk_* RPCs.
    ============================================ */
 
@@ -20,9 +20,8 @@ const PkDB = (function () {
   }
 
   async function signUp(payload) {
-    const { data: existingEmail } = await supabaseClient.rpc('email_for_phone', { phone_input: payload.phone });
-    if (existingEmail) return { error: 'An account with this phone number already exists. Log in with it instead — it works on agenticcore.estate too.' };
-
+    // No public phone lookup any more: a duplicate phone is rejected by the
+    // unique phone constraint when the shared signup trigger creates the profile.
     const { data, error } = await supabaseClient.auth.signUp({
       email: payload.email,
       password: payload.password,
@@ -33,6 +32,7 @@ const PkDB = (function () {
     });
     if (error) {
       if (/registered|exists/i.test(error.message)) return { error: 'An account with this email already exists. Log in with it instead.' };
+      if (/database error saving new user/i.test(error.message)) return { error: 'An account with this phone number may already exist. Log in with it instead — it works on agenticcore.estate too.' };
       return { error: error.message };
     }
     if (!data.session) return { needsConfirmation: true };
@@ -42,7 +42,9 @@ const PkDB = (function () {
   async function logIn(identifier, password) {
     let email = identifier;
     if (identifier.indexOf('@') === -1) {
-      const { data: resolvedEmail } = await supabaseClient.rpc('email_for_phone', { phone_input: identifier });
+      // The server returns the account email only if this password is correct (shared Estate migration 0016).
+      const { data: resolvedEmail, error: lookupError } = await supabaseClient.rpc('login_email_for_phone', { p_phone: identifier, p_password: password });
+      if (lookupError && /too many/i.test(lookupError.message)) return { error: lookupError.message };
       if (!resolvedEmail) return { error: 'Incorrect phone/email or password.' };
       email = resolvedEmail;
     }
