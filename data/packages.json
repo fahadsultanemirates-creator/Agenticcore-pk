@@ -1,227 +1,787 @@
 {
-  "meta": {
-    "source": "agenticcorepk.com: Services and Prices, introductory prices, 27 September 2026",
-    "monthly_includes": "Monthly packages include a monthly report, a WhatsApp group with our team, a planning call and two rounds of changes per design.",
-    "monthly_includes_ur": "ماہانہ پیکجز میں ماہانہ رپورٹ، ہماری ٹیم کے ساتھ واٹس ایپ گروپ، ایک پلاننگ کال اور ہر ڈیزائن پر دو بار تبدیلیاں شامل ہیں۔",
-    "value_note": "Rupee figures in brackets are our normal single-service prices. Items marked \"included\" have no single-service price and are not counted in the savings. Set-up discounts apply when you stay for the minimum term.",
-    "item_value_rule": "Each item's value is (price of its price line) × qty, unless 'value' is given explicitly. The validator (scripts/validate-data.mjs) checks the totals below against the pricing PDF."
-  },
-  "packages": [
-    {
-      "id": "dealer-starter",
-      "no": 1,
-      "name": "Dealer Starter",
-      "name_ur": "ڈیلر اسٹارٹر",
-      "badge": "Best seller",
-      "badge_ur": "سب سے زیادہ فروخت",
-      "for": "Individual agents and small dealers who want to look professional online every week without hiring anyone.",
-      "for_ur": "انفرادی ایجنٹس اور چھوٹے ڈیلرز جو کسی کو ملازم رکھے بغیر ہر ہفتے آن لائن پروفیشنل نظر آنا چاہتے ہیں۔",
-      "monthly": 6499,
-      "setup": 0,
-      "setup_note": "Set-up included free",
-      "min_months": 3,
-      "delivery_short": "Same-day set-up",
-      "delivery_short_ur": "اسی دن سیٹ اپ",
-      "delivery": "Set up the same day; then work runs on the monthly schedule and replies are handled the same day.",
-      "due_days": 0,
-      "monthly_items": [
-        { "label": "Monthly social media management: 12 posts and 2 reels a month, replies, report", "service": 31, "line": "31-mo" },
-        { "label": "4 price-list or offer flyers a month", "service": 11, "line": "11-dfy", "qty": 4 },
-        { "label": "Google Business Profile care", "service": 51, "line": "51-mo" }
-      ],
-      "setup_items": [
-        { "label": "Page set-up for up to 5 platforms plus WhatsApp Business profile, catalogue, greeting and quick replies", "service": 30, "line": "30-dfy" }
-      ],
-      "allowances": [
-        { "key": "posts", "label": "Designed posts", "qty": 12, "service": 31 },
-        { "key": "reels", "label": "Simple reels", "qty": 2, "service": 31 },
-        { "key": "flyers", "label": "Price-list or offer flyers", "qty": 4, "service": 11, "extra_line": "11-dfy" },
-        { "key": "gbp_posts", "label": "Google profile posts", "qty": 8, "service": 51 }
-      ],
-      "paid_separately": "Ad spend, a scheduler subscription of your own, photo or video shoots, printing.",
-      "expected": { "monthly_separately": 17994, "setup_separately": 3499, "monthly_saving": 11495, "monthly_saving_pct": 64, "setup_saving": 3499 }
-    },
-    {
-      "id": "agenticcore-package",
-      "no": 2,
-      "name": "AgenticCore Package",
-      "name_ur": "ایجنٹک کور پیکج",
-      "badge": "Best value starter",
-      "badge_ur": "بہترین ویلیو اسٹارٹر",
-      "for": "New agents, dealers and small businesses who want everything needed to start selling, done in one go for one low price.",
-      "for_ur": "نئے ایجنٹس، ڈیلرز اور چھوٹے کاروبار جو بیچنا شروع کرنے کے لیے سب کچھ ایک ہی بار، ایک کم قیمت میں چاہتے ہیں۔",
-      "one_off": 39999,
-      "optional_support_monthly": 2499,
-      "optional_support_text": "Optional support for small website updates and chatbot care: Rs 2,499 a month.",
-      "min_months": 0,
-      "term_note": "One-off payment. No monthly commitment.",
-      "delivery_short": "Whole package in 2–3 days",
-      "delivery_short_ur": "پورا پیکج 2 سے 3 دن میں",
-      "delivery": "The whole package in 2–3 days. The logo, business cards, receipt book, banners, brochure, posts and videos come the same day; the website and chatbot follow within 2–3 days. Two rounds of changes on each design and 30 days of fixes for the website and chatbot.",
-      "due_days": 3,
-      "setup_items": [
-        { "label": "Website of 5 to 8 pages with WhatsApp button and lead forms", "service": 14, "line": "14-dfy" },
-        { "label": "Logo design with colours and a one-page brand guide", "service": 1, "line": "1-dfy" },
-        { "label": "PDF brochure of up to 8 pages", "service": 6, "line": "6-dfy" },
-        { "label": "Receipt book design", "included": true },
-        { "label": "Business card design", "included": true },
-        { "label": "2 banner designs, sized for the printer", "service": 9, "line": "9-dfy", "qty": 2 },
-        { "label": "5 posts with images for each of up to 3 platforms (15 posts), with captions", "included": true },
-        { "label": "3 short promotional videos of up to 60 seconds", "service": 23, "line": "23-dfy", "qty": 3 },
-        { "label": "AI website chatbot that replies to clients automatically, day and night", "service": 44, "line": "44-setup" }
-      ],
-      "paid_separately": "Domain and hosting (a .pk domain about Rs 3,000–4,500, hosting about Rs 799–2,299 a month), printing of receipt books, business cards, brochures and banners (quoted per job), and ongoing AI usage for the chatbot (about Rs 1,000–3,000 a month).",
-      "expected": { "setup_separately": 82491, "setup_saving": 42492, "setup_saving_pct": 52, "at_least": true }
-    },
-    {
-      "id": "growing-agent",
-      "no": 3,
-      "name": "Growing Agent",
-      "name_ur": "گروئنگ ایجنٹ",
-      "for": "Active agents and small agencies ready to run ads and answer every lead fast.",
-      "for_ur": "سرگرم ایجنٹس اور چھوٹی ایجنسیاں جو اشتہار چلانے اور ہر لیڈ کو فوری جواب دینے کے لیے تیار ہیں۔",
-      "monthly": 16499,
-      "setup": 9999,
-      "min_months": 3,
-      "delivery_short": "Set-up in 2–3 days",
-      "delivery_short_ur": "سیٹ اپ 2 سے 3 دن میں",
-      "delivery": "Set-up in 2–3 days (WhatsApp bot and ads). Social media, flyers and Google profile work start the same day; then everything runs on the monthly schedule.",
-      "due_days": 3,
-      "monthly_items": [
-        { "label": "Monthly social media management", "service": 31, "line": "31-mo" },
-        { "label": "Paid ads management on one platform", "service": 36, "line": "36-one" },
-        { "label": "Price lists and promotion flyers, up to 8 a month", "service": 11, "line": "11-mo" },
-        { "label": "2 AI voiceover reels a month", "service": 22, "line": "22-dfy", "qty": 2 },
-        { "label": "Google Business Profile care", "service": 51, "line": "51-mo" }
-      ],
-      "setup_items": [
-        { "label": "WhatsApp qualification bot", "service": 43, "line": "43-setup" }
-      ],
-      "allowances": [
-        { "key": "posts", "label": "Designed posts", "qty": 12, "service": 31 },
-        { "key": "reels", "label": "Simple reels", "qty": 2, "service": 31 },
-        { "key": "ad_creatives", "label": "Ad creatives", "qty": 4, "service": 36 },
-        { "key": "flyers", "label": "Price-list or offer flyers", "qty": 8, "service": 11, "extra_line": "11-dfy" },
-        { "key": "voiceover_reels", "label": "AI voiceover reels", "qty": 2, "service": 22, "extra_line": "22-dfy" },
-        { "key": "gbp_posts", "label": "Google profile posts", "qty": 8, "service": 51 }
-      ],
-      "paid_separately": "Ad spend (paid to Meta, Google or TikTok), Meta WhatsApp message fees, AI usage and automation hosting for the bot (roughly Rs 3,000–10,000 a month in total, our estimate).",
-      "expected": { "monthly_separately": 33994, "setup_separately": 19499, "monthly_saving": 17495, "monthly_saving_pct": 51, "setup_saving": 9500 }
-    },
-    {
-      "id": "agency-pro",
-      "no": 4,
-      "name": "Agency Pro",
-      "name_ur": "ایجنسی پرو",
-      "for": "Agencies with a sales team, several portals and a steady flow of listings.",
-      "for_ur": "سیلز ٹیم، کئی پورٹلز اور لسٹنگز کے مسلسل بہاؤ والی ایجنسیاں۔",
-      "monthly": 38999,
-      "setup": 25999,
-      "min_months": 3,
-      "delivery_short": "Set-up in 2–3 days",
-      "delivery_short_ur": "سیٹ اپ 2 سے 3 دن میں",
-      "delivery": "Set-up in 2–3 days (bot, lead routing, CRM and ads on two platforms). Social media, listings and Google profile work start the same day.",
-      "due_days": 3,
-      "monthly_items": [
-        { "label": "Monthly social media management", "service": 31, "line": "31-mo" },
-        { "label": "TikTok and YouTube Shorts channel", "service": 32, "line": "32-mo" },
-        { "label": "Paid ads management on two platforms", "service": 36, "line": "36-two" },
-        { "label": "Retargeting campaigns", "service": 39, "line": "39-mo" },
-        { "label": "Multi-portal listing management, up to 50 listings", "service": 49, "line": "49-mo" },
-        { "label": "Google Business Profile care", "service": 51, "line": "51-mo" },
-        { "label": "Review and reputation management", "service": 52, "line": "52-mo" },
-        { "label": "Support for your bot and automations", "value": 3499, "note": "optional support price of service 43" }
-      ],
-      "setup_items": [
-        { "label": "WhatsApp qualification bot", "service": 43, "line": "43-setup" },
-        { "label": "Lead routing to Sheets or CRM", "service": 46, "line": "46-setup" },
-        { "label": "CRM set-up and agent training", "service": 47, "line": "47-setup" }
-      ],
-      "allowances": [
-        { "key": "posts", "label": "Designed posts", "qty": 12, "service": 31 },
-        { "key": "reels", "label": "Simple reels", "qty": 2, "service": 31 },
-        { "key": "short_videos", "label": "TikTok / Shorts videos", "qty": 12, "service": 32 },
-        { "key": "ad_creatives", "label": "Ad creatives", "qty": 4, "service": 36 },
-        { "key": "retarget_creatives", "label": "Retargeting creatives", "qty": 2, "service": 39 },
-        { "key": "listings", "label": "Active portal listings", "qty": 50, "service": 49 },
-        { "key": "gbp_posts", "label": "Google profile posts", "qty": 8, "service": 51 }
-      ],
-      "paid_separately": "Ad spend, portal fees such as your Zameen package, CRM subscription, WhatsApp message fees, AI usage and hosting, on-site filming.",
-      "expected": { "monthly_separately": 70492, "setup_separately": 52497, "monthly_saving": 31493, "monthly_saving_pct": 45, "setup_saving": 26498 }
-    },
-    {
-      "id": "project-partner",
-      "no": 5,
-      "name": "Project Partner (all-in)",
-      "name_ur": "پراجیکٹ پارٹنر (سب کچھ شامل)",
-      "for": "A developer, builder or individual owner who wants the whole project marketed, sold and followed up, so the owner can run it from home with a few staff.",
-      "for_ur": "ڈویلپر، بلڈر یا انفرادی مالک جو پورا پراجیکٹ مارکیٹ، فروخت اور فالو اپ کروانا چاہتا ہے تاکہ چند افراد کے ساتھ گھر سے چلا سکے۔",
-      "monthly": 77999,
-      "setup": 194999,
-      "min_months": 6,
-      "delivery_short": "Within 1 week, some items same day",
-      "delivery_short_ur": "ایک ہفتے میں، کچھ چیزیں اسی دن",
-      "delivery": "Within 1 week. Some items, such as the design work, brochure and page set-up, are delivered the same day; the rest, including the website, bots, plot map, booking, reminders and campaigns, follow within the week.",
-      "due_days": 7,
-      "monthly_items": [
-        { "label": "Paid ads on two platforms", "service": 36, "line": "36-two" },
-        { "label": "Overseas Pakistani campaigns", "service": 38, "line": "38-mo" },
-        { "label": "Retargeting", "service": 39, "line": "39-mo" },
-        { "label": "Monthly social media management", "service": 31, "line": "31-mo" },
-        { "label": "TikTok and YouTube Shorts channel", "service": 32, "line": "32-mo" },
-        { "label": "Site progress reels", "service": 27, "line": "27-mo" },
-        { "label": "4 AI avatar videos a month", "service": 21, "line": "21-mo" },
-        { "label": "Overseas investor webinars, 2 a month", "service": 41, "line": "41-mo" },
-        { "label": "Plot map upkeep", "service": 17, "line": "17-mo" },
-        { "label": "Instalment reminders run for you", "service": 48, "line": "48-mo" },
-        { "label": "Price lists and flyers", "service": 11, "line": "11-mo" },
-        { "label": "Google Business Profile care", "service": 51, "line": "51-mo" },
-        { "label": "Review and reputation management", "service": 52, "line": "52-mo" },
-        { "label": "Blog and SEO articles", "service": 55, "line": "55-mo" },
-        { "label": "Support for bots, chatbot and agreement agent", "value": 7997, "note": "optional support prices of services 43, 44 and 56" }
-      ],
-      "setup_items": [
-        { "label": "Project branding kit", "service": 2, "line": "2-dfy" },
-        { "label": "Project website with easy editor", "service": 14, "line": "14-setup" },
-        { "label": "Landing page", "service": 15, "line": "15-dfy" },
-        { "label": "Brochure", "service": 6, "line": "6-dfy" },
-        { "label": "Payment plan chart", "service": 4, "line": "4-dfy" },
-        { "label": "Master plan digitisation", "service": 5, "line": "5-dfy" },
-        { "label": "NOC and approval kit", "service": 8, "line": "8-dfy" },
-        { "label": "Investor pitch deck", "service": 13, "line": "13-dfy" },
-        { "label": "2 AI avatar walkthroughs", "service": 21, "line": "21-one", "qty": 2 },
-        { "label": "4 3D floor plans", "service": 25, "line": "25-plan", "qty": 4 },
-        { "label": "360° virtual tour", "service": 26, "line": "26-dfy" },
-        { "label": "Drone footage edit", "service": 24, "line": "24-dfy" },
-        { "label": "Page set-up", "service": 30, "line": "30-dfy" },
-        { "label": "Calculators, all three", "service": 16, "line": "16-all" },
-        { "label": "Live plot availability map", "service": 17, "line": "17-setup" },
-        { "label": "Online booking with e-receipts", "service": 20, "line": "20-setup" },
-        { "label": "WhatsApp qualification bot", "service": 43, "line": "43-setup" },
-        { "label": "AI website chatbot", "service": 44, "line": "44-setup" },
-        { "label": "Lead routing", "service": 46, "line": "46-setup" },
-        { "label": "CRM set-up and team training", "service": 47, "line": "47-setup" },
-        { "label": "Instalment reminder system", "service": 48, "line": "48-setup" },
-        { "label": "Urdu agreement-drafting agent", "service": 56, "line": "56-setup" },
-        { "label": "Overseas buyer guide", "service": 54, "line": "54-dfy" }
-      ],
-      "allowances": [
-        { "key": "ad_creatives", "label": "Ad creatives", "qty": 4, "service": 36 },
-        { "key": "overseas_creatives", "label": "Overseas campaign creatives", "qty": 4, "service": 38 },
-        { "key": "retarget_creatives", "label": "Retargeting creatives", "qty": 2, "service": 39 },
-        { "key": "posts", "label": "Designed posts", "qty": 12, "service": 31 },
-        { "key": "reels", "label": "Simple reels", "qty": 2, "service": 31 },
-        { "key": "short_videos", "label": "TikTok / Shorts videos", "qty": 12, "service": 32 },
-        { "key": "progress_reels", "label": "Site progress reels", "qty": 4, "service": 27 },
-        { "key": "avatar_videos", "label": "AI avatar videos", "qty": 4, "service": 21 },
-        { "key": "webinars", "label": "Investor webinars", "qty": 2, "service": 41 },
-        { "key": "plot_changes", "label": "Plot status changes", "qty": 100, "service": 17 },
-        { "key": "flyers", "label": "Flyers or rate sheets", "qty": 8, "service": 11, "extra_line": "11-dfy" },
-        { "key": "gbp_posts", "label": "Google profile posts", "qty": 8, "service": 51 },
-        { "key": "articles", "label": "SEO articles", "qty": 4, "service": 55 }
-      ],
-      "paid_separately": "Ad spend, drone filming, printing, hoardings, events and 360° photography (quoted by partners), portal fees, WhatsApp message fees, AI usage, hosting and domain, CRM subscription, your own staff, and legal checks of agreements by your own lawyer.",
-      "expected": { "monthly_separately": 151983, "setup_separately": 380573, "monthly_saving": 73984, "monthly_saving_pct": 49, "setup_saving": 185574 }
-    }
+ "meta": {
+  "source": "AgenticCore Pakistan — Catalogue V2 packages and launch kits (owner-approved, October 2026).",
+  "version": 2,
+  "sections": [
+   {
+    "id": "agents",
+    "title": "For agents & agencies",
+    "title_ur": "ایجنٹس اور ایجنسیوں کے لیے"
+   },
+   {
+    "id": "projects",
+    "title": "For projects & developers",
+    "title_ur": "پراجیکٹس اور ڈویلپرز کے لیے"
+   },
+   {
+    "id": "launch",
+    "title": "Launch kits (one-off)",
+    "title_ur": "لانچ کٹس (ایک بار)"
+   }
+  ],
+  "monthly_includes": "Monthly packages are sold on what you get each month — not on \"savings\". Allowances are monthly maximums and do not roll over. Minimum terms are shown beside each price.",
+  "monthly_includes_ur": "ماہانہ پیکجز ہر ماہ ملنے والے کام کی بنیاد پر ہیں — \"بچت\" کی بنیاد پر نہیں۔ الاؤنسز ماہانہ زیادہ سے زیادہ حد ہیں اور اگلے ماہ منتقل نہیں ہوتے۔ کم از کم مدت ہر قیمت کے ساتھ لکھی ہے۔",
+  "network_note": "AgenticCore network distribution: on eligible monthly and project packages, suitable content may be considered for relevant AgenticCore-owned social channels. It is subject to content suitability, your package allowance and platform rules. There is no guaranteed posting on every channel, no guaranteed reach and no guaranteed leads or sales.",
+  "network_note_ur": "AgenticCore نیٹ ورک تقسیم: اہل ماہانہ اور پراجیکٹ پیکجز میں مناسب مواد کو متعلقہ AgenticCore سوشل چینلز کے لیے زیرِ غور لایا جا سکتا ہے۔ یہ مواد کی موزونیت، آپ کے پیکج الاؤنس اور پلیٹ فارم کے قواعد سے مشروط ہے۔ ہر چینل پر پوسٹنگ، رسائی، لیڈز یا فروخت کی کوئی ضمانت نہیں۔",
+  "set_definition": "A Property Marketing Set = one WhatsApp property card + one social property creative + English/Roman Urdu captions for one property, with basic enhancement of up to 5 of your photos.",
+  "set_definition_ur": "ایک پراپرٹی مارکیٹنگ سیٹ = ایک پراپرٹی کے لیے ایک واٹس ایپ کارڈ + ایک سوشل ڈیزائن + انگریزی/رومن اردو کیپشنز، آپ کی 5 تک تصاویر کی بنیادی بہتری کے ساتھ۔",
+  "retired_packages": [
+   "dealer-starter",
+   "agenticcore-package",
+   "growing-agent",
+   "agency-pro",
+   "project-partner"
   ]
+ },
+ "packages": [
+  {
+   "id": "agent-monthly",
+   "no": 1,
+   "section": "agents",
+   "featured": true,
+   "name": "Agent Monthly",
+   "name_ur": "ایجنٹ ماہانہ",
+   "badge": "Most popular",
+   "badge_ur": "سب سے مقبول",
+   "for": "Agents and dealers who market several properties every month.",
+   "for_ur": "وہ ایجنٹس اور ڈیلرز جو ہر ماہ کئی پراپرٹیز کی مارکیٹنگ کرتے ہیں۔",
+   "monthly": 7999,
+   "setup": 0,
+   "min_months": 3,
+   "due_days": 2,
+   "delivery_short": "Onboarding within 2 working days",
+   "delivery_short_ur": "2 کاروباری دن میں آغاز",
+   "delivery": "We set up your Brand Kit and channels within 2 working days; each property set is then delivered the same day you send it (by 6pm PKT).",
+   "delivery_ur": "ہم 2 کاروباری دن میں آپ کی برانڈ کٹ اور چینلز سیٹ اپ کرتے ہیں؛ پھر ہر پراپرٹی سیٹ اسی دن (شام 6 بجے تک) ملتا ہے جب آپ تفصیل بھیجیں۔",
+   "includes": [
+    {
+     "label": "Up to 10 Property Marketing Sets a month — each: WhatsApp property card + social property creative + English/Roman Urdu captions",
+     "label_ur": "ہر ماہ 10 تک پراپرٹی مارکیٹنگ سیٹس — ہر سیٹ: واٹس ایپ پراپرٹی کارڈ + سوشل پراپرٹی ڈیزائن + انگریزی/رومن اردو کیپشنز",
+     "qty": 10
+    },
+    {
+     "label": "Basic enhancement of up to 5 of your photos per set",
+     "label_ur": "ہر سیٹ میں آپ کی 5 تک تصاویر کی بنیادی بہتری"
+    },
+    {
+     "label": "Up to 2 property reels a month",
+     "label_ur": "ہر ماہ 2 تک پراپرٹی ریلز",
+     "qty": 2
+    },
+    {
+     "label": "Up to 4 rate / offer updates a month",
+     "label_ur": "ہر ماہ 4 تک ریٹ / آفر اپڈیٹس",
+     "qty": 4
+    },
+    {
+     "label": "Scheduling and posting to up to 3 of your social channels",
+     "label_ur": "آپ کے 3 تک سوشل چینلز پر شیڈولنگ اور پوسٹنگ"
+    },
+    {
+     "label": "Brand Kit set up and reused on every piece",
+     "label_ur": "برانڈ کٹ سیٹ اپ اور ہر ڈیزائن میں استعمال"
+    },
+    {
+     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
+     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+    }
+   ],
+   "allowances": [
+    {
+     "key": "property_sets",
+     "label": "Property Marketing Sets",
+     "label_ur": "پراپرٹی مارکیٹنگ سیٹس",
+     "qty": 10
+    },
+    {
+     "key": "reels",
+     "label": "Property reels",
+     "label_ur": "پراپرٹی ریلز",
+     "qty": 2,
+     "extra_line": "22-dfy"
+    },
+    {
+     "key": "rate_updates",
+     "label": "Rate / offer updates",
+     "label_ur": "ریٹ / آفر اپڈیٹس",
+     "qty": 4,
+     "extra_line": "11-dfy"
+    }
+   ],
+   "setup_items": [
+    {
+     "label": "Onboarding: Brand Kit and channel set-up"
+    }
+   ],
+   "paid_separately": "Printing, photo or video shoots, a scheduler subscription of your own, and paid ads.",
+   "paid_separately_ur": "پرنٹنگ، تصویر یا ویڈیو شوٹ، آپ کا اپنا شیڈولر اکاؤنٹ، اور پیڈ اشتہارات۔"
+  },
+  {
+   "id": "agent-pro",
+   "no": 2,
+   "section": "agents",
+   "name": "Agent Pro",
+   "name_ur": "ایجنٹ پرو",
+   "for": "Busy agents and small teams with a steady flow of listings.",
+   "for_ur": "مصروف ایجنٹس اور چھوٹی ٹیمیں جن کی لسٹنگز مسلسل آتی رہتی ہیں۔",
+   "monthly": 14999,
+   "setup": 0,
+   "min_months": 3,
+   "due_days": 2,
+   "delivery_short": "Onboarding within 2 working days",
+   "delivery_short_ur": "2 کاروباری دن میں آغاز",
+   "delivery": "Onboarding within 2 working days; property sets the same day you send them (by 6pm PKT); a monthly report each month.",
+   "delivery_ur": "2 کاروباری دن میں آغاز؛ پراپرٹی سیٹس اسی دن (شام 6 بجے تک)؛ ہر ماہ رپورٹ۔",
+   "includes": [
+    {
+     "label": "Up to 25 Property Marketing Sets a month",
+     "label_ur": "ہر ماہ 25 تک پراپرٹی مارکیٹنگ سیٹس",
+     "qty": 25
+    },
+    {
+     "label": "Up to 4 reels a month",
+     "label_ur": "ہر ماہ 4 تک ریلز",
+     "qty": 4
+    },
+    {
+     "label": "Up to 8 rate / offer updates a month",
+     "label_ur": "ہر ماہ 8 تک ریٹ / آفر اپڈیٹس",
+     "qty": 8
+    },
+    {
+     "label": "Scheduling and posting to up to 5 of your social channels, with a content calendar",
+     "label_ur": "آپ کے 5 تک سوشل چینلز پر شیڈولنگ اور پوسٹنگ، کانٹینٹ کیلنڈر کے ساتھ"
+    },
+    {
+     "label": "Google Business Profile activity",
+     "label_ur": "گوگل بزنس پروفائل سرگرمی"
+    },
+    {
+     "label": "AgenticCore Estate connection: market your Estate listings straight from your dashboard",
+     "label_ur": "AgenticCore Estate سے رابطہ: اپنی Estate لسٹنگز کی مارکیٹنگ براہِ راست ڈیش بورڈ سے"
+    },
+    {
+     "label": "Monthly report",
+     "label_ur": "ماہانہ رپورٹ"
+    },
+    {
+     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
+     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+    }
+   ],
+   "allowances": [
+    {
+     "key": "property_sets",
+     "label": "Property Marketing Sets",
+     "label_ur": "پراپرٹی مارکیٹنگ سیٹس",
+     "qty": 25
+    },
+    {
+     "key": "reels",
+     "label": "Reels",
+     "label_ur": "ریلز",
+     "qty": 4,
+     "extra_line": "22-dfy"
+    },
+    {
+     "key": "rate_updates",
+     "label": "Rate / offer updates",
+     "label_ur": "ریٹ / آفر اپڈیٹس",
+     "qty": 8,
+     "extra_line": "11-dfy"
+    }
+   ],
+   "setup_items": [
+    {
+     "label": "Onboarding: Brand Kit, channels, content calendar and Google profile access"
+    }
+   ],
+   "paid_separately": "Printing, photo or video shoots, a scheduler subscription of your own, and paid ads.",
+   "paid_separately_ur": "پرنٹنگ، تصویر یا ویڈیو شوٹ، آپ کا اپنا شیڈولر اکاؤنٹ، اور پیڈ اشتہارات۔"
+  },
+  {
+   "id": "agency-growth",
+   "no": 3,
+   "section": "agents",
+   "name": "Agency Growth",
+   "name_ur": "ایجنسی گروتھ",
+   "for": "Agencies that want content, social, Google and paid ads run together.",
+   "for_ur": "وہ ایجنسیاں جو مواد، سوشل، گوگل اور پیڈ اشتہارات ایک ساتھ چلوانا چاہتی ہیں۔",
+   "monthly": 29999,
+   "setup": 9999,
+   "min_months": 3,
+   "due_days": 5,
+   "delivery_short": "Set-up in 3–5 working days",
+   "delivery_short_ur": "3 سے 5 کاروباری دن میں سیٹ اپ",
+   "delivery": "Set-up (channels, ads account, enquiry workflow) in 3–5 working days; ads start once the platform approves them; then everything runs monthly.",
+   "delivery_ur": "سیٹ اپ (چینلز، اشتہاری اکاؤنٹ، انکوائری ورک فلو) 3 سے 5 کاروباری دن میں؛ پلیٹ فارم کی منظوری کے بعد اشتہارات شروع؛ پھر سب کچھ ماہانہ۔",
+   "includes": [
+    {
+     "label": "Up to 50 Property Marketing Sets a month",
+     "label_ur": "ہر ماہ 50 تک پراپرٹی مارکیٹنگ سیٹس",
+     "qty": 50
+    },
+    {
+     "label": "Up to 8 reels / short videos a month",
+     "label_ur": "ہر ماہ 8 تک ریلز / مختصر ویڈیوز",
+     "qty": 8
+    },
+    {
+     "label": "Regular rate / offer creatives",
+     "label_ur": "باقاعدہ ریٹ / آفر ڈیزائن"
+    },
+    {
+     "label": "Social media management across up to 5 channels",
+     "label_ur": "5 تک چینلز پر سوشل میڈیا مینجمنٹ"
+    },
+    {
+     "label": "Google Business Profile",
+     "label_ur": "گوگل بزنس پروفائل"
+    },
+    {
+     "label": "Suitable property-group and network distribution",
+     "label_ur": "مناسب پراپرٹی گروپ اور نیٹ ورک تقسیم"
+    },
+    {
+     "label": "Paid-ad management on ONE platform, with ad creatives and copy",
+     "label_ur": "ایک پلیٹ فارم پر پیڈ اشتہارات کی مینجمنٹ، اشتہاری ڈیزائن اور تحریر کے ساتھ"
+    },
+    {
+     "label": "Basic enquiry workflow",
+     "label_ur": "بنیادی انکوائری ورک فلو"
+    },
+    {
+     "label": "Monthly reporting",
+     "label_ur": "ماہانہ رپورٹنگ"
+    },
+    {
+     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
+     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+    }
+   ],
+   "allowances": [
+    {
+     "key": "property_sets",
+     "label": "Property Marketing Sets",
+     "label_ur": "پراپرٹی مارکیٹنگ سیٹس",
+     "qty": 50
+    },
+    {
+     "key": "reels",
+     "label": "Reels / short videos",
+     "label_ur": "ریلز / مختصر ویڈیوز",
+     "qty": 8,
+     "extra_line": "22-dfy"
+    }
+   ],
+   "setup_items": [
+    {
+     "label": "Set-up: social channels, Google Business Profile and Brand Kit"
+    },
+    {
+     "label": "Set-up: paid-ads account and first campaign (one platform)"
+    },
+    {
+     "label": "Set-up: basic enquiry workflow"
+    }
+   ],
+   "paid_separately": "Ad spend is paid by you directly to the platform. Printing and photo or video shoots.",
+   "paid_separately_ur": "اشتہاری خرچ آپ براہِ راست پلیٹ فارم کو ادا کرتے ہیں۔ پرنٹنگ اور تصویر یا ویڈیو شوٹ۔"
+  },
+  {
+   "id": "project-monthly",
+   "no": 4,
+   "section": "projects",
+   "featured": true,
+   "name": "Project Monthly",
+   "name_ur": "پراجیکٹ ماہانہ",
+   "badge": "Most popular project package",
+   "badge_ur": "سب سے مقبول پراجیکٹ پیکج",
+   "for": "Builders and developers who need their project marketed every month.",
+   "for_ur": "وہ بلڈرز اور ڈویلپرز جن کے پراجیکٹ کی ہر ماہ مارکیٹنگ ضروری ہے۔",
+   "monthly": 19999,
+   "setup": 0,
+   "min_months": 3,
+   "due_days": 3,
+   "delivery_short": "Onboarding within 3 working days",
+   "delivery_short_ur": "3 کاروباری دن میں آغاز",
+   "delivery": "Onboarding and content calendar within 3 working days; then content runs on the monthly calendar.",
+   "delivery_ur": "3 کاروباری دن میں آغاز اور کانٹینٹ کیلنڈر؛ پھر مواد ماہانہ کیلنڈر کے مطابق۔",
+   "includes": [
+    {
+     "label": "12 project creatives a month",
+     "label_ur": "ہر ماہ 12 پراجیکٹ ڈیزائن",
+     "qty": 12
+    },
+    {
+     "label": "4 reels / videos a month",
+     "label_ur": "ہر ماہ 4 ریلز / ویڈیوز",
+     "qty": 4
+    },
+    {
+     "label": "4 price, payment-plan or rate updates a month",
+     "label_ur": "ہر ماہ 4 قیمت، ادائیگی پلان یا ریٹ اپڈیٹس",
+     "qty": 4
+    },
+    {
+     "label": "2 construction / progress updates a month (from your footage)",
+     "label_ur": "ہر ماہ 2 تعمیراتی / پیش رفت اپڈیٹس (آپ کی فوٹیج سے)",
+     "qty": 2
+    },
+    {
+     "label": "English + Roman Urdu captions and content",
+     "label_ur": "انگریزی + رومن اردو کیپشنز اور مواد"
+    },
+    {
+     "label": "Content calendar; scheduling and posting to up to 4 of your channels",
+     "label_ur": "کانٹینٹ کیلنڈر؛ آپ کے 4 تک چینلز پر شیڈولنگ اور پوسٹنگ"
+    },
+    {
+     "label": "Google Business content and activity",
+     "label_ur": "گوگل بزنس مواد اور سرگرمی"
+    },
+    {
+     "label": "Monthly report",
+     "label_ur": "ماہانہ رپورٹ"
+    },
+    {
+     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
+     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+    }
+   ],
+   "allowances": [
+    {
+     "key": "project_creatives",
+     "label": "Project creatives",
+     "label_ur": "پراجیکٹ ڈیزائن",
+     "qty": 12
+    },
+    {
+     "key": "reels",
+     "label": "Reels / videos",
+     "label_ur": "ریلز / ویڈیوز",
+     "qty": 4
+    },
+    {
+     "key": "rate_updates",
+     "label": "Price / payment-plan / rate updates",
+     "label_ur": "قیمت / ادائیگی پلان / ریٹ اپڈیٹس",
+     "qty": 4
+    },
+    {
+     "key": "progress_updates",
+     "label": "Construction / progress updates",
+     "label_ur": "تعمیراتی / پیش رفت اپڈیٹس",
+     "qty": 2
+    }
+   ],
+   "setup_items": [
+    {
+     "label": "Onboarding: project Brand Kit, channels and content calendar"
+    }
+   ],
+   "paid_separately": "Printing, photo or video shoots, a scheduler subscription of your own, and paid ads.",
+   "paid_separately_ur": "پرنٹنگ، تصویر یا ویڈیو شوٹ، آپ کا اپنا شیڈولر اکاؤنٹ، اور پیڈ اشتہارات۔"
+  },
+  {
+   "id": "project-growth",
+   "no": 5,
+   "section": "projects",
+   "name": "Project Growth",
+   "name_ur": "پراجیکٹ گروتھ",
+   "for": "Projects ready to run paid campaigns, retargeting and overseas-focused content.",
+   "for_ur": "وہ پراجیکٹس جو پیڈ مہمات، ری ٹارگٹنگ اور اوورسیز مواد چلانے کے لیے تیار ہیں۔",
+   "monthly": 39999,
+   "setup": 9999,
+   "min_months": 3,
+   "due_days": 5,
+   "delivery_short": "Set-up in 3–5 working days",
+   "delivery_short_ur": "3 سے 5 کاروباری دن میں سیٹ اپ",
+   "delivery": "Set-up (ad accounts, audiences, calendar) in 3–5 working days; ads start once the platforms approve them; then monthly.",
+   "delivery_ur": "سیٹ اپ (اشتہاری اکاؤنٹس، آڈینس، کیلنڈر) 3 سے 5 کاروباری دن میں؛ پلیٹ فارمز کی منظوری کے بعد اشتہارات؛ پھر ماہانہ۔",
+   "includes": [
+    {
+     "label": "16 project creatives a month",
+     "label_ur": "ہر ماہ 16 پراجیکٹ ڈیزائن",
+     "qty": 16
+    },
+    {
+     "label": "6 reels / videos a month",
+     "label_ur": "ہر ماہ 6 ریلز / ویڈیوز",
+     "qty": 6
+    },
+    {
+     "label": "4 project / progress updates a month",
+     "label_ur": "ہر ماہ 4 پراجیکٹ / پیش رفت اپڈیٹس",
+     "qty": 4
+    },
+    {
+     "label": "Rate and payment-plan updates",
+     "label_ur": "ریٹ اور ادائیگی پلان اپڈیٹس"
+    },
+    {
+     "label": "Full social media management",
+     "label_ur": "مکمل سوشل میڈیا مینجمنٹ"
+    },
+    {
+     "label": "Paid-advertising management on up to 2 platforms, with ad creatives",
+     "label_ur": "2 تک پلیٹ فارمز پر پیڈ اشتہارات کی مینجمنٹ، اشتہاری ڈیزائن کے ساتھ"
+    },
+    {
+     "label": "Retargeting",
+     "label_ur": "ری ٹارگٹنگ"
+    },
+    {
+     "label": "Overseas-oriented campaign content",
+     "label_ur": "اوورسیز خریداروں کے لیے مہماتی مواد"
+    },
+    {
+     "label": "Monthly reporting and a monthly planning call",
+     "label_ur": "ماہانہ رپورٹنگ اور ماہانہ پلاننگ کال"
+    },
+    {
+     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
+     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+    }
+   ],
+   "allowances": [
+    {
+     "key": "project_creatives",
+     "label": "Project creatives",
+     "label_ur": "پراجیکٹ ڈیزائن",
+     "qty": 16
+    },
+    {
+     "key": "reels",
+     "label": "Reels / videos",
+     "label_ur": "ریلز / ویڈیوز",
+     "qty": 6
+    },
+    {
+     "key": "progress_updates",
+     "label": "Project / progress updates",
+     "label_ur": "پراجیکٹ / پیش رفت اپڈیٹس",
+     "qty": 4
+    }
+   ],
+   "setup_items": [
+    {
+     "label": "Set-up: ad accounts and audiences on up to 2 platforms"
+    },
+    {
+     "label": "Set-up: retargeting and overseas campaign content"
+    },
+    {
+     "label": "Set-up: project Brand Kit, channels and content calendar"
+    }
+   ],
+   "paid_separately": "Ad spend is paid by you directly to the platform. Printing, events and on-site filming.",
+   "paid_separately_ur": "اشتہاری خرچ آپ براہِ راست پلیٹ فارم کو ادا کرتے ہیں۔ پرنٹنگ، تقریبات اور موقع پر فلم بندی۔"
+  },
+  {
+   "id": "developer-partner",
+   "no": 6,
+   "section": "projects",
+   "quote_only": true,
+   "name": "Developer Partner",
+   "name_ur": "ڈویلپر پارٹنر",
+   "for": "Developers who want marketing plus the digital and AI systems behind the project, configured to their needs.",
+   "for_ur": "وہ ڈویلپرز جو مارکیٹنگ کے ساتھ پراجیکٹ کے ڈیجیٹل اور اے آئی سسٹمز بھی، اپنی ضرورت کے مطابق، چاہتے ہیں۔",
+   "monthly": 74999,
+   "monthly_from": true,
+   "setup": null,
+   "setup_quoted": true,
+   "min_months": 3,
+   "due_days": 7,
+   "delivery_short": "Proposal first; timings agreed per system",
+   "delivery_short_ur": "پہلے پروپوزل؛ ہر سسٹم کا وقت الگ طے",
+   "delivery": "We start with a proposal. Marketing starts within a week of approval; each system has its own agreed delivery date.",
+   "delivery_ur": "ہم پروپوزل سے شروع کرتے ہیں۔ منظوری کے ایک ہفتے میں مارکیٹنگ شروع؛ ہر سسٹم کی ڈیلیوری تاریخ الگ طے ہوتی ہے۔",
+   "includes": [
+    {
+     "label": "Everything appropriate from Project Growth",
+     "label_ur": "پراجیکٹ گروتھ کی تمام موزوں چیزیں"
+    },
+    {
+     "label": "Plus a customised combination of: WhatsApp bot, website AI assistant, CRM, lead routing, plot availability map, booking and e-receipts, instalment reminders, buyer/dealer portals, overseas campaigns, automation and custom AI assistants",
+     "label_ur": "اس کے ساتھ آپ کی ضرورت کا امتزاج: واٹس ایپ بوٹ، ویب سائٹ اے آئی اسسٹنٹ، سی آر ایم، لیڈ روٹنگ، پلاٹ دستیابی نقشہ، بکنگ اور ای رسید، قسط یاددہانیاں، خریدار/ڈیلر پورٹلز، اوورسیز مہمات، آٹومیشن اور کسٹم اے آئی اسسٹنٹس"
+    },
+    {
+     "label": "Set-up quoted according to the systems you choose",
+     "label_ur": "سیٹ اپ کی کوٹیشن آپ کے منتخب سسٹمز کے مطابق"
+    },
+    {
+     "label": "Suitable content considered for selected AgenticCore channels (no guaranteed posting or reach)",
+     "label_ur": "مناسب مواد منتخب AgenticCore چینلز کے لیے زیرِ غور (پوسٹنگ یا رسائی کی ضمانت نہیں)"
+    }
+   ],
+   "setup_items": [],
+   "paid_separately": "Ad spend is paid by you directly to the platform. Running costs of the systems you choose (AI usage, WhatsApp, hosting, CRM, phone), printing, events and filming.",
+   "paid_separately_ur": "اشتہاری خرچ آپ براہِ راست پلیٹ فارم کو ادا کرتے ہیں۔ منتخب سسٹمز کے چلانے کے اخراجات (اے آئی، واٹس ایپ، ہوسٹنگ، سی آر ایم، فون)، پرنٹنگ، تقریبات اور فلم بندی۔"
+  },
+  {
+   "id": "agency-launch",
+   "no": 7,
+   "section": "launch",
+   "name": "Agency Launch Kit",
+   "name_ur": "ایجنسی لانچ کٹ",
+   "for": "New agents and agencies who want to start looking professional everywhere at once.",
+   "for_ur": "نئے ایجنٹس اور ایجنسیاں جو ایک ساتھ ہر جگہ پروفیشنل نظر آنا چاہتی ہیں۔",
+   "one_off": 14999,
+   "min_months": 0,
+   "due_days": 5,
+   "term_note": "One-off payment. No monthly commitment.",
+   "term_note_ur": "ایک بار ادائیگی۔ کوئی ماہانہ پابندی نہیں۔",
+   "delivery_short": "3–5 working days",
+   "delivery_short_ur": "3 سے 5 کاروباری دن",
+   "delivery": "Delivered in 3–5 working days (Google verification can take longer).",
+   "delivery_ur": "3 سے 5 کاروباری دن میں (گوگل تصدیق میں زیادہ وقت لگ سکتا ہے)۔",
+   "includes": [
+    {
+     "label": "Agency / agent brand setup, with logo and brand styling where required",
+     "label_ur": "ایجنسی / ایجنٹ برانڈ سیٹ اپ، ضرورت ہو تو لوگو اور برانڈ اسٹائلنگ"
+    },
+    {
+     "label": "Business and social profile setup",
+     "label_ur": "بزنس اور سوشل پروفائل سیٹ اپ"
+    },
+    {
+     "label": "Google Business Profile setup",
+     "label_ur": "گوگل بزنس پروفائل سیٹ اپ"
+    },
+    {
+     "label": "Reusable property creative templates",
+     "label_ur": "دوبارہ استعمال ہونے والے پراپرٹی ڈیزائن ٹیمپلیٹس"
+    },
+    {
+     "label": "Brand Kit configuration",
+     "label_ur": "برانڈ کٹ کی ترتیب"
+    }
+   ],
+   "variant": "agency-launch-web",
+   "setup_items": [
+    {
+     "label": "Agency brand setup (logo and styling where required)",
+     "line": "1-dfy"
+    },
+    {
+     "label": "Business and social profile setup",
+     "line": "30-dfy"
+    },
+    {
+     "label": "Google Business Profile setup"
+    },
+    {
+     "label": "Reusable property creative templates and Brand Kit"
+    }
+   ],
+   "paid_separately": "Printing, domain and hosting (if you add a website later).",
+   "paid_separately_ur": "پرنٹنگ، ڈومین اور ہوسٹنگ (اگر بعد میں ویب سائٹ شامل کریں)۔"
+  },
+  {
+   "id": "agency-launch-web",
+   "no": 7,
+   "section": "launch",
+   "variant_of": "agency-launch",
+   "name": "Agency Launch Kit with website",
+   "name_ur": "ایجنسی لانچ کٹ ویب سائٹ کے ساتھ",
+   "for": "The Agency Launch Kit plus an agency website.",
+   "for_ur": "ایجنسی لانچ کٹ اور ایجنسی ویب سائٹ۔",
+   "one_off": 39999,
+   "one_off_from": true,
+   "min_months": 0,
+   "due_days": 10,
+   "term_note": "One-off payment. Larger websites are quoted.",
+   "term_note_ur": "ایک بار ادائیگی۔ بڑی ویب سائٹ کی کوٹیشن الگ۔",
+   "delivery_short": "7–10 working days",
+   "delivery_short_ur": "7 سے 10 کاروباری دن",
+   "delivery": "Kit in 3–5 working days; website in 7–10 working days.",
+   "delivery_ur": "کٹ 3 سے 5 کاروباری دن میں؛ ویب سائٹ 7 سے 10 کاروباری دن میں۔",
+   "includes": [
+    {
+     "label": "Everything in the Agency Launch Kit",
+     "label_ur": "ایجنسی لانچ کٹ کی تمام چیزیں"
+    },
+    {
+     "label": "Agency website (up to 6 pages)",
+     "label_ur": "ایجنسی ویب سائٹ (6 صفحات تک)"
+    }
+   ],
+   "setup_items": [
+    {
+     "label": "Agency brand setup (logo and styling where required)",
+     "line": "1-dfy"
+    },
+    {
+     "label": "Business and social profile setup",
+     "line": "30-dfy"
+    },
+    {
+     "label": "Google Business Profile setup"
+    },
+    {
+     "label": "Reusable property creative templates and Brand Kit"
+    },
+    {
+     "label": "Agency website",
+     "line": "14-dfy"
+    }
+   ],
+   "paid_separately": "Domain and hosting (in your name), printing.",
+   "paid_separately_ur": "ڈومین اور ہوسٹنگ (آپ کے نام پر)، پرنٹنگ۔"
+  },
+  {
+   "id": "project-launch",
+   "no": 8,
+   "section": "launch",
+   "name": "Project Launch Kit",
+   "name_ur": "پراجیکٹ لانچ کٹ",
+   "for": "A new project that needs its complete launch material in one order.",
+   "for_ur": "نیا پراجیکٹ جسے ایک ہی آرڈر میں مکمل لانچ مواد چاہیے۔",
+   "one_off": 39999,
+   "min_months": 0,
+   "due_days": 7,
+   "term_note": "One-off payment. No monthly commitment.",
+   "term_note_ur": "ایک بار ادائیگی۔ کوئی ماہانہ پابندی نہیں۔",
+   "delivery_short": "5–7 working days",
+   "delivery_short_ur": "5 سے 7 کاروباری دن",
+   "delivery": "Delivered in 5–7 working days; smaller items (payment plan, one-pager) arrive first.",
+   "delivery_ur": "5 سے 7 کاروباری دن میں؛ چھوٹی چیزیں (ادائیگی پلان، ون پیجر) پہلے۔",
+   "includes": [
+    {
+     "label": "Project branding",
+     "label_ur": "پراجیکٹ برانڈنگ"
+    },
+    {
+     "label": "Payment-plan design",
+     "label_ur": "ادائیگی پلان ڈیزائن"
+    },
+    {
+     "label": "Project brochure",
+     "label_ur": "پراجیکٹ بروشر"
+    },
+    {
+     "label": "Project WhatsApp one-pager",
+     "label_ur": "پراجیکٹ واٹس ایپ ون پیجر"
+    },
+    {
+     "label": "Landing page",
+     "label_ur": "لینڈنگ پیج"
+    },
+    {
+     "label": "NOC / approval presentation (from approvals you supply)",
+     "label_ur": "این او سی / منظوری پریزنٹیشن (آپ کی فراہم کردہ منظوریوں سے)"
+    },
+    {
+     "label": "Initial social creatives",
+     "label_ur": "ابتدائی سوشل ڈیزائن"
+    },
+    {
+     "label": "Initial project promo video",
+     "label_ur": "ابتدائی پراجیکٹ پرومو ویڈیو"
+    }
+   ],
+   "variant": "project-launch-web",
+   "setup_items": [
+    {
+     "label": "Project branding",
+     "line": "2-dfy"
+    },
+    {
+     "label": "Payment-plan design",
+     "line": "4-dfy"
+    },
+    {
+     "label": "Project brochure",
+     "line": "6-dfy"
+    },
+    {
+     "label": "Project WhatsApp one-pager",
+     "line": "7-one"
+    },
+    {
+     "label": "Landing page",
+     "line": "proj-landing"
+    },
+    {
+     "label": "NOC / approval presentation",
+     "line": "8-dfy"
+    },
+    {
+     "label": "Initial social creatives"
+    },
+    {
+     "label": "Initial project promo video",
+     "line": "proj-promo-video"
+    }
+   ],
+   "paid_separately": "Printing, domain and hosting, on-site filming.",
+   "paid_separately_ur": "پرنٹنگ، ڈومین اور ہوسٹنگ، موقع پر فلم بندی۔"
+  },
+  {
+   "id": "project-launch-web",
+   "no": 8,
+   "section": "launch",
+   "variant_of": "project-launch",
+   "name": "Project Launch Kit with full website",
+   "name_ur": "پراجیکٹ لانچ کٹ مکمل ویب سائٹ کے ساتھ",
+   "for": "The Project Launch Kit plus a full project website.",
+   "for_ur": "پراجیکٹ لانچ کٹ اور مکمل پراجیکٹ ویب سائٹ۔",
+   "one_off": 64999,
+   "one_off_from": true,
+   "min_months": 0,
+   "due_days": 10,
+   "term_note": "One-off payment. Larger websites are quoted.",
+   "term_note_ur": "ایک بار ادائیگی۔ بڑی ویب سائٹ کی کوٹیشن الگ۔",
+   "delivery_short": "7–10 working days",
+   "delivery_short_ur": "7 سے 10 کاروباری دن",
+   "delivery": "Kit in 5–7 working days; website in 7–10 working days.",
+   "delivery_ur": "کٹ 5 سے 7 کاروباری دن میں؛ ویب سائٹ 7 سے 10 کاروباری دن میں۔",
+   "includes": [
+    {
+     "label": "Everything in the Project Launch Kit",
+     "label_ur": "پراجیکٹ لانچ کٹ کی تمام چیزیں"
+    },
+    {
+     "label": "Full project website (up to 6 pages)",
+     "label_ur": "مکمل پراجیکٹ ویب سائٹ (6 صفحات تک)"
+    }
+   ],
+   "setup_items": [
+    {
+     "label": "Project branding",
+     "line": "2-dfy"
+    },
+    {
+     "label": "Payment-plan design",
+     "line": "4-dfy"
+    },
+    {
+     "label": "Project brochure",
+     "line": "6-dfy"
+    },
+    {
+     "label": "Project WhatsApp one-pager",
+     "line": "7-one"
+    },
+    {
+     "label": "NOC / approval presentation",
+     "line": "8-dfy"
+    },
+    {
+     "label": "Initial social creatives"
+    },
+    {
+     "label": "Initial project promo video",
+     "line": "proj-promo-video"
+    },
+    {
+     "label": "Full project website",
+     "line": "proj-website"
+    }
+   ],
+   "paid_separately": "Domain and hosting (in your name), printing, on-site filming.",
+   "paid_separately_ur": "ڈومین اور ہوسٹنگ (آپ کے نام پر)، پرنٹنگ، موقع پر فلم بندی۔"
+  }
+ ]
 }
