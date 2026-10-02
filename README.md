@@ -102,7 +102,7 @@ It passed against the live project on 27 Sep 2026 with nothing persisted.
 - Where Telegram-bot orders live (this project vs agenticcore.agency's) — the
   admin can log WhatsApp/Telegram orders manually meanwhile.
 - ~~Share image~~: `images/og-share.jpg` (1200×630) is installed. `og:image` and
-  `twitter:image` point to `https://agenticcorepk.netlify.app/images/og-share.jpg`
+  `twitter:image` point to `https://agenticcorepk.com/images/og-share.jpg`
   because agenticcorepk.com isn't connected yet; switch them (and the canonical
   URLs) once the domain is live.
 - Sample images for the gallery (`docs/SAMPLE_ASSET_MANIFEST.md`).
