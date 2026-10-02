@@ -132,7 +132,7 @@ function pkRenderFooter() {
             '<li><a href="legal.html#terms" data-i18n="footer_terms"></a></li>' +
             '<li><a href="legal.html#refunds" data-i18n="footer_refunds"></a></li>' +
             '<li><a href="login.html" data-i18n="nav_login"></a></li>' +
-            '<li><a href="' + PK_CONFIG.estateUrl + '">agenticcore.estate</a></li>' +
+            '<li><a href="' + PK_CONFIG.estateUrl + '/?from=pk&intent=browse" data-pk-estate="footer">agenticcore.estate</a></li>' +
           '</ul></div>' +
           '<div><h5 data-i18n="footer_contact"></h5><ul>' + contact.join('') + '</ul></div>' +
         '</div>' +

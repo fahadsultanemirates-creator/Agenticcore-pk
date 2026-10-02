@@ -223,10 +223,13 @@ function pkInitP2() {
 
 // Estate → PK handoff: /?from=estate&listing=<uuid>&intent=promote
 // Only the listing id is carried; ownership is checked after login in the dashboard.
+// Other Estate arrivals (intent=services, …) simply show the landing page; only
+// a present-but-malformed listing id is logged as an invalid handoff.
 function pkHandleEstateHandoff() {
   const q = new URLSearchParams(location.search);
   if (q.get('from') !== 'estate') return false;
   const id = q.get('listing') || '';
+  if (!id) { pkTrack('from_estate', 'estate', { intent: /^[a-z_]{1,20}$/.test(q.get('intent') || '') ? q.get('intent') : null }); return false; }
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) { pkTrack('handoff_invalid', 'estate'); return false; }
   pkTrack('handoff', 'estate');
   location.replace('dashboard.html#pack/estate/' + id.toLowerCase());

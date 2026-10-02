@@ -59,7 +59,7 @@
     </div>
   </section>
 
-  <div class="container"><nav class="jump" id="jump" aria-label="Service groups"></nav></div>
+  <div class="container"><div class="ex-ctx" id="estateCtx" role="note" hidden></div><nav class="jump" id="jump" aria-label="Service groups"></nav></div>
 
   <div class="container" id="groups">
     <noscript><p>This price list needs JavaScript to display. Please message us on WhatsApp for a copy.</p></noscript>
@@ -102,6 +102,7 @@
 <script src="js/catalog-render.js"></script>
 <script src="js/briefs.js"></script>
 <script src="js/discovery.js"></script>
+<script src="js/estate-link.js"></script>
 <script>
   function renderServicesPage() {
     const D = window.PK_DATA.services;
@@ -142,6 +143,7 @@
     pkOnLanguageChange(renderServicesPage);
     if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
     pkTrack('page_view', 'services');
+    pkRenderEstateContext(document.getElementById('estateCtx'));
   });
 </script>
 </body>

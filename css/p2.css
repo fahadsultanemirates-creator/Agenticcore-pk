@@ -276,3 +276,14 @@ html[dir="rtl"] :is(.svc-card-brief, .svc-card-name, .sd .brief, .price-line, .p
 /* "What we can create": sample-concept thumbnail on top of each tile that has one (landscape art anchored left, where its headline is) */
 .out-thumb { width: 100%; height: 88px; object-fit: cover; object-position: center top; border-radius: calc(var(--radius-md) - 4px); display: block; margin-bottom: 0.35rem; background: #050B1A; }
 .out-tile.has-thumb .out-ic { display: none; }
+
+/* Estate ↔ PK ecosystem */
+.ex-ctx { margin: 0 0 1rem; padding: .75rem 1rem; border: 1px solid var(--border, #d9dee5); border-left: 4px solid var(--accent, #0f766e); border-radius: 10px; background: var(--surface, #fff); }
+.ex-ctx p { margin: 0 0 .35rem; }
+.ex-ctx .link { display: inline-flex; align-items: center; min-height: 44px; }
+.ex-aud-h { margin: 1.5rem 0 .75rem; font-size: 1.05rem; }
+.ex-aud { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.ex-aud li { padding: 0; }
+.ex-aud a { display: flex; flex-direction: column; gap: .25rem; padding: 1rem; min-height: 44px; color: inherit; text-decoration: none; }
+.ex-aud a:hover strong, .ex-aud a:focus-visible strong { text-decoration: underline; }
+.ex-aud span { font-size: .9rem; opacity: .85; }

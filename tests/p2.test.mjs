@@ -230,3 +230,31 @@ test('every "What we can create" tile has installed sample artwork; tile-only ar
   assert.match(read('js/discovery.js'), /x\.gallery !== false && \(x\.services/);
   for (const c of samples.meta.categories) both('smp_cat_' + c);
 });
+
+test('estate-link: only allow-listed context is read, never personal data', () => {
+  const ctx = { URLSearchParams, window: { PK_CONFIG: { estateUrl: 'https://agenticcore.estate' } }, location: { search: '' } };
+  ctx.PK_CONFIG = ctx.window.PK_CONFIG;
+  vm.createContext(ctx);
+  vm.runInContext(read('js/estate-link.js') + '\nthis.pkEstateContext = pkEstateContext; this.pkEstateUrl = pkEstateUrl; this.pkEstateEntityUrl = pkEstateEntityUrl;', ctx);
+  const id = '11111111-2222-3333-4444-555555555555';
+  assert.equal(ctx.pkEstateContext('?intent=brand'), null);
+  const ok = ctx.pkEstateContext(`?from=estate&intent=brand&entity_type=agency&entity_id=${id}&phone=0300&name=x`);
+  assert.deepEqual({ ...ok }, { intent: 'brand', entityType: 'agency', entityId: id });
+  const bad = ctx.pkEstateContext('?from=estate&intent=steal&entity_type=users&entity_id=1 or 1=1');
+  assert.deepEqual({ ...bad }, { intent: null, entityType: null, entityId: null });
+  assert.equal(ctx.pkEstateContext(`?from=estate&entity_type=agency&entity_id=nope`).entityType, null);
+  assert.equal(ctx.pkEstateUrl('signup.html', 'agency'), 'https://agenticcore.estate/signup.html?from=pk&intent=agency');
+  assert.equal(ctx.pkEstateUrl('', 'evil'), 'https://agenticcore.estate/?from=pk');
+  assert.equal(ctx.pkEstateEntityUrl(ok), `https://agenticcore.estate/agency.html?id=${id}`);
+});
+
+test('estate-link i18n keys exist in English and Urdu, and the #estate audience links stay allow-listed', () => {
+  const src = read('js/estate-link.js') + read('index.html');
+  const keys = [...new Set([...src.matchAll(/(?:pkT\('|data-i18n=")(ex_[a-z_]*[a-z])(?=['"])/g)].map((m) => m[1]))];
+  for (const t of ['property', 'project', 'professional', 'agency', 'builder']) keys.push('ex_back_' + t);
+  const i18n = read('js/i18n-p2.js');
+  for (const k of keys) assert.ok((i18n.match(new RegExp('\\b' + k + ':', 'g')) || []).length >= 2, k);
+  const links = [...read('index.html').matchAll(/agenticcore\.estate\/[^"]*from=pk[^"]*/g)].map((m) => m[0]);
+  assert.ok(links.length >= 5);
+  for (const l of links) assert.match(l, /intent=(browse|list|profile|agency|builder|project|view)$/);
+});
