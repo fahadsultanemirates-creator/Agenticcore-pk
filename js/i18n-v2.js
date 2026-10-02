@@ -10,7 +10,7 @@ Object.assign(PK_I18N.en, {
   p2_h1a: 'From one property to an entire project — ', p2_h1b: 'marketed in one connected ecosystem.',
   p2_sub: 'Listing, design, content, social marketing and AI automation for agents, agencies, builders and developers across Pakistan.',
   p2_cta_property: 'Market a property', p2_cta_project: 'Promote a project', p2_cta_services: 'View all services', p2_cta_samples: 'See what we can create →',
-  hero_trust_1: 'Small creatives the same day for orders confirmed by 6pm PKT',
+  hero_trust_1: 'Small creatives the same working day (Mon–Fri) for orders confirmed by 6pm PKT',
   hero_feat_title: 'Most popular monthly plans',
 
   // what we can create (exact line prices)
@@ -95,8 +95,8 @@ Object.assign(PK_I18N.en, {
 
   // how it works / FAQ
   how_title: 'Order in minutes. Track every task.',
-  how_foot: 'Small creatives are delivered the same day for orders confirmed by 6pm PKT. Reels, branding and landing pages take 1–3 working days; websites and AI set-ups 5–10 working days; portals and frameworks are scheduled after scoping.',
-  faq_a2: 'Small creatives (cards, posts, flyers, captions) the same day for orders confirmed by 6pm PKT. Reels and branding 1–3 working days, websites and AI set-ups 5–10 working days, portals 2–3 weeks. Each service shows its own delivery time. The clock starts once we have your details, content and payment.',
+  how_foot: 'Small creatives are delivered the same working day (Mon–Fri) for orders confirmed by 6pm PKT. Reels, branding and landing pages take 1–3 working days; websites and AI set-ups 5–10 working days; portals and frameworks are scheduled after scoping.',
+  faq_a2: 'Small creatives (cards, posts, flyers, captions) the same working day (Mon–Fri) for orders confirmed by 6pm PKT. Reels and branding 1–3 working days, websites and AI set-ups 5–10 working days, portals 2–3 weeks. Each service shows its own delivery time. The clock starts once we have your details, content and payment.',
 
   // services page
   svp_intro: 'All prices are in Pakistani rupees, introductory, and exclude taxes where applicable. Numbers in brackets, such as (12), point to that service in the full list.',
@@ -122,7 +122,7 @@ Object.assign(PK_I18N.ur, {
   p2_h1a: 'ایک جائیداد سے پورے پراجیکٹ تک — ', p2_h1b: 'ایک مربوط نظام میں مارکیٹنگ۔',
   p2_sub: 'لسٹنگ، ڈیزائن، کانٹینٹ، سوشل مارکیٹنگ اور AI آٹومیشن — پورے پاکستان کے ایجنٹس، ایجنسیوں، بلڈرز اور ڈویلپرز کے لیے۔',
   p2_cta_property: 'جائیداد کی مارکیٹنگ کریں', p2_cta_project: 'پراجیکٹ کی تشہیر کریں', p2_cta_services: 'تمام خدمات دیکھیں', p2_cta_samples: 'دیکھیں ہم کیا بنا سکتے ہیں ←',
-  hero_trust_1: 'شام 6 بجے (پاکستانی وقت) تک کنفرم آرڈرز پر چھوٹے ڈیزائن اسی دن',
+  hero_trust_1: 'شام 6 بجے (پاکستانی وقت) تک کنفرم آرڈرز پر چھوٹے ڈیزائن اسی کاروباری دن (پیر تا جمعہ)',
   hero_feat_title: 'سب سے مقبول ماہانہ پلان',
 
   out_flyer: 'پراپرٹی فلائر', out_whatsapp: 'واٹس ایپ کارڈ', out_social: 'سوشل پوسٹ', out_photos: 'تصاویر کی بہتری',
@@ -198,8 +198,8 @@ Object.assign(PK_I18N.ur, {
   prob_a2_a: 'لیڈ روٹنگ کے ساتھ CRM اور AI ورک فلو۔',
 
   how_title: 'منٹوں میں آرڈر۔ ہر ٹاسک ٹریک کریں۔',
-  how_foot: 'شام 6 بجے (پاکستانی وقت) تک کنفرم آرڈرز پر چھوٹے ڈیزائن اسی دن۔ ریلز، برانڈنگ اور لینڈنگ پیجز 1 سے 3 کاروباری دن؛ ویب سائٹس اور AI سیٹ اپ 5 سے 10 کاروباری دن؛ پورٹلز اور فریم ورکس جائزے کے بعد طے ہوتے ہیں۔',
-  faq_a2: 'چھوٹے ڈیزائن (کارڈز، پوسٹس، فلائرز، کیپشنز) شام 6 بجے تک کنفرم آرڈرز پر اسی دن۔ ریلز اور برانڈنگ 1 سے 3 کاروباری دن، ویب سائٹس اور AI سیٹ اپ 5 سے 10 کاروباری دن، پورٹلز 2 سے 3 ہفتے۔ ہر سروس کے ساتھ اس کا وقت لکھا ہے۔ وقت تب شروع ہوتا ہے جب آپ کی تفصیل، مواد اور ادائیگی مل جائے۔',
+  how_foot: 'شام 6 بجے (پاکستانی وقت) تک کنفرم آرڈرز پر چھوٹے ڈیزائن اسی کاروباری دن (پیر تا جمعہ)۔ ریلز، برانڈنگ اور لینڈنگ پیجز 1 سے 3 کاروباری دن؛ ویب سائٹس اور AI سیٹ اپ 5 سے 10 کاروباری دن؛ پورٹلز اور فریم ورکس جائزے کے بعد طے ہوتے ہیں۔',
+  faq_a2: 'چھوٹے ڈیزائن (کارڈز، پوسٹس، فلائرز، کیپشنز) شام 6 بجے تک کنفرم آرڈرز پر اسی کاروباری دن (پیر تا جمعہ)۔ ریلز اور برانڈنگ 1 سے 3 کاروباری دن، ویب سائٹس اور AI سیٹ اپ 5 سے 10 کاروباری دن، پورٹلز 2 سے 3 ہفتے۔ ہر سروس کے ساتھ اس کا وقت لکھا ہے۔ وقت تب شروع ہوتا ہے جب آپ کی تفصیل، مواد اور ادائیگی مل جائے۔',
 
   svp_intro: 'تمام قیمتیں پاکستانی روپے میں، تعارفی ہیں، اور جہاں لاگو ہو ٹیکس کے بغیر ہیں۔ بریکٹ میں نمبر، جیسے (12)، مکمل فہرست میں اسی سروس کی طرف اشارہ کرتے ہیں۔',
   svp_models_t: 'کام کرنے کے ہمارے تین طریقے', svp_models_s: 'ہر سروس ان میں سے ایک یا زیادہ طریقوں سے دستیاب ہے۔ ہر جگہ ایک ہی نمبر استعمال ہوتا ہے تاکہ موازنہ آسان ہو۔',
