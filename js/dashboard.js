@@ -56,7 +56,7 @@ async function viewHome() {
   if (activeSub) usageHtml = await usageSummaryHtml(activeSub, true);
 
   const empty = !tasks.length
-    ? '<div class="card section-card"><h2 style="margin-top:0">Start your first order</h2><p class="muted">Pick a single service or a money-saving package. Every order gets a task ID and a delivery time.</p>' +
+    ? '<div class="card section-card"><h2 style="margin-top:0">Start your first order</h2><p class="muted">' + escapeHtml(pkT('d_first_order_sub')) + '</p>' +
       '<div class="btn-row" style="margin-top:0.8rem"><a class="btn btn-primary" href="#order">Browse services</a><a class="btn btn-secondary" href="#order/packages">See packages</a></div></div>'
     : '';
 
@@ -97,16 +97,16 @@ function viewOrder(sub) {
   function render(q) {
     q = (q || '').toLowerCase();
     $('#svcPickList').innerHTML = D.services.groups.map(function (g) {
-      const list = pkServicesInGroup(g.no).filter(function (s) { return !q || (s.name + ' ' + s.brief + ' ' + (s.name_ur || '')).toLowerCase().indexOf(q) >= 0; });
+      const list = pkServicesInGroup(g.no).filter(function (s) { return !q || (s.name + ' ' + s.brief + ' ' + (s.name_ur || '') + ' ' + (s.brief_ur || '')).toLowerCase().indexOf(q) >= 0; });
       if (!list.length) return '';
-      return '<details class="acc"' + (q ? ' open' : '') + '><summary>' + escapeHtml(pkPick(g, 'need')) + ' <span class="tiny">' + list.length + '</span></summary><div class="acc-body">' +
+      return '<details class="acc"' + (q ? ' open' : '') + '><summary>' + escapeHtml(pkPick(g, 'type')) + ' <span class="tiny">' + list.length + '</span></summary><div class="acc-body">' +
         list.map(function (s) {
-          return '<div class="svc-full"><h4><span class="no">(' + s.no + ')</span> ' + escapeHtml(pkPick(s, 'name')) + '</h4><p class="brief">' + escapeHtml(s.brief) + '</p>' +
+          return '<div class="svc-full"><h4><span class="no">(' + s.no + ')</span> ' + escapeHtml(pkPick(s, 'name')) + '</h4><p class="brief">' + escapeHtml(pkPick(s, 'brief')) + '</p>' +
             s.lines.filter(function (l) { return !l.addon; }).map(function (l) {
-              return '<div class="svc-pick"><span><span class="model-tag">' + escapeHtml(pkModelName(l.model)) + '</span><br>' + escapeHtml(l.unit) + '</span>' +
-                '<span><span class="p">' + (l.from ? 'from ' : '') + money(l.price) + '</span> <button class="btn btn-primary btn-sm" data-line="' + l.id + '">Choose</button></span></div>';
+              return '<div class="svc-pick"><span><span class="model-tag">' + escapeHtml(pkModelName(l.model)) + '</span><br>' + escapeHtml(pkPick(l, 'unit')) + '</span>' +
+                '<span><span class="p">' + escapeHtml(l.from ? pkFromPrice(l.price) : money(l.price)) + '</span> <button class="btn btn-primary btn-sm" data-line="' + l.id + '">Choose</button></span></div>';
             }).join('') +
-            '<p class="delivery">' + escapeHtml(s.delivery) + '</p>' + (s.caution ? pkCautionHtml() : '') + '</div>';
+            '<p class="delivery">' + escapeHtml(pkPick(s, 'delivery')) + '</p>' + (s.caution ? pkCautionHtml() : '') + '</div>';
         }).join('') + '</div></details>';
     }).join('') || '<p class="muted">No services match.</p>';
   }
@@ -123,14 +123,14 @@ function openOrderForm(lineId) {
   if (!hit) return;
   const s = hit.service, l = hit.line;
   const fields = (PK_BRIEF_FIELDS[s.no] || []).map(function (f) {
-    return '<div class="field"><label for="bf_' + f[0] + '">' + escapeHtml(f[1]) + '</label><input id="bf_' + f[0] + '" data-brief="' + f[0] + '"></div>';
+    return '<div class="field"><label for="bf_' + f[0] + '">' + escapeHtml(pkBriefLabel(f)) + '</label><input id="bf_' + f[0] + '" data-brief="' + f[0] + '"></div>';
   }).join('');
   const extraLine = s.lines.find(function (x) { return x.addon; });
   const dlg = pkDialog(
     '<form id="orderForm" method="dialog">' +
-    '<h3>(' + s.no + ') ' + escapeHtml(s.name) + '</h3>' +
-    '<p class="tiny"><span class="model-tag">' + escapeHtml(pkModelName(l.model)) + '</span> ' + escapeHtml(l.text) + '</p>' +
-    '<div class="field"><label for="ofQty">Quantity (' + escapeHtml(l.unit) + ')</label><input id="ofQty" type="number" min="1" max="100" value="1" inputmode="numeric"></div>' +
+    '<h3>(' + s.no + ') ' + escapeHtml(pkPick(s, 'name')) + '</h3>' +
+    '<p class="tiny"><span class="model-tag">' + escapeHtml(pkModelName(l.model)) + '</span> ' + escapeHtml(pkPick(l, 'text')) + '</p>' +
+    '<div class="field"><label for="ofQty">Quantity (' + escapeHtml(pkPick(l, 'unit')) + ')</label><input id="ofQty" type="number" min="1" max="100" value="1" inputmode="numeric"></div>' +
     (extraLine ? '<div class="field"><label for="ofExtra">' + escapeHtml(extraLine.text) + ' How many extra pages?</label><input id="ofExtra" type="number" min="0" max="100" value="0" inputmode="numeric"></div>' : '') +
     fields +
     '<div class="field"><label for="ofBrief">Anything else we should know</label><textarea id="ofBrief" placeholder="Text, offers, references, deadlines…"></textarea></div>' +
@@ -150,7 +150,7 @@ function openOrderForm(lineId) {
     const hourPkt = parseInt(new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Karachi', hour: '2-digit', hour12: false }).format(now), 10);
     const cutoff = window.PK_DATA.services.meta.cutoff_hour_pkt;
     $('#ofReview', dlg).innerHTML =
-      '<div class="total">' + (l.from ? 'from ' : '') + money(total) + '</div>' +
+      '<div class="total">' + escapeHtml(l.from ? pkFromPrice(total) : money(total)) + '</div>' +
       '<div>' + escapeHtml(s.delivery) + '</div>' +
       '<div class="tiny" style="margin-top:0.3rem">Same-day work counts from when your details, content and payment are all in, if that happens by ' + (cutoff > 12 ? cutoff - 12 + 'pm' : cutoff + 'am') + ' PKT. ' +
       (hourPkt >= cutoff ? 'It is past the cut-off now, so same-day work confirmed today will be delivered tomorrow.' : '') + '</div>' +
@@ -193,34 +193,76 @@ function viewOrderPackages(focusId) {
   setView(
     '<h1 data-i18n="d_order">New order</h1>' +
     '<div class="chips"><a class="chip" style="display:inline-flex;align-items:center" href="#order">Services</a><button class="chip" aria-pressed="true">Packages</button></div>' +
-    '<p class="page-sub">' + escapeHtml(pkPick(P.meta, 'monthly_includes')) + '</p>' +
-    '<div class="grid grid-2">' + P.packages.map(function (p) { return pkPackageCardHtml(p, { dashboard: true }); }).join('') + '</div>'
+    '<p class="page-sub">' + escapeHtml(pkT('p2_specialist')) + ' ' + escapeHtml(pkPick(P.meta, 'monthly_includes')) + '</p>' +
+    P.meta.sections.map(function (sec) {
+      const list = P.packages.filter(function (p) { return p.section === sec.id && !p.variant_of; });
+      return '<h2>' + escapeHtml(pkPick(sec, 'title')) + '</h2>' + (sec.intro ? '<p class="page-sub">' + escapeHtml(pkPick(sec, 'intro')) + '</p>' : '') + '<div class="grid grid-2">' + list.map(function (p) { return pkPackageCardHtml(p, { dashboard: true }); }).join('') + '</div>';
+    }).join('') +
+    '<p class="tiny" style="margin-top:var(--space-md)">' + escapeHtml(pkPick(P.meta, 'set_definition')) + '</p>' +
+    '<p class="tiny"><strong>' + escapeHtml(pkT('pkg_network_title')) + ':</strong> ' + escapeHtml(pkPick(P.meta, 'network_note')) + '</p>'
   );
   view().addEventListener('click', function (e) {
     const b = e.target.closest('[data-buy-package]');
     if (b) buyPackageDialog(b.getAttribute('data-buy-package'));
+    const r = e.target.closest('[data-request-proposal]');
+    if (r) proposalDialog(r.getAttribute('data-request-proposal'));
   });
   if (focusId) {
-    const el = document.getElementById('pkg-' + focusId);
-    if (el) { el.scrollIntoView({ block: 'start' }); buyPackageDialog(focusId); }
+    const p = pkPackageById(focusId);
+    const el = document.getElementById('pkg-' + (p && p.variant_of ? p.variant_of : focusId));
+    if (el) el.scrollIntoView({ block: 'start' });
+    if (p) (p.quote_only ? proposalDialog : buyPackageDialog)(focusId);
   }
 }
 
-function buyPackageDialog(id) {
-  const p = window.PK_DATA.packages.packages.find(function (x) { return x.id === id; });
+// Developer Partner is quoted after scoping, so it is a proposal request (a pk_leads row), never a purchase.
+function proposalDialog(id) {
+  const p = pkPackageById(id);
   if (!p) return;
-  const firstPay = typeof p.one_off === 'number' ? p.one_off : (p.setup || 0) + p.monthly;
-  const terms = typeof p.one_off === 'number'
-    ? escapeHtml(p.term_note || '')
-    : p.min_months + '-month minimum. Monthly fees are paid in advance. The set-up discount applies when you stay for the minimum term.';
+  const u = Dash.user || {};
   const dlg = pkDialog(
-    '<form id="pkgForm"><h3>' + escapeHtml(p.name) + '</h3>' +
-    '<div class="review-box"><div class="total">' + money(firstPay) + '</div><div>' + (typeof p.one_off === 'number' ? 'One-off payment' : (p.setup ? 'Set-up ' + money(p.setup) : 'Set-up included free') + ' + first month ' + money(p.monthly)) + '</div>' +
-    '<div class="tiny" style="margin-top:0.3rem">' + escapeHtml(p.delivery) + '</div></div>' +
-    '<p class="tiny">' + terms + '</p><p class="tiny"><strong>Paid separately:</strong> ' + escapeHtml(p.paid_separately) + '</p>' +
-    '<label class="check"><input type="checkbox" id="pkgTerms" required> I accept the package terms</label>' +
+    '<form id="prForm"><h3>' + escapeHtml(pkT('pr_title')) + ': ' + escapeHtml(pkPick(p, 'name')) + '</h3>' +
+    '<p class="muted">' + escapeHtml(pkPackagePriceLabel(p)) + ' · ' + escapeHtml(pkPackageTermsLabel(p)) + '</p>' +
+    '<p class="tiny">' + escapeHtml(pkT('pr_sub')) + '</p>' +
+    '<div class="field"><label for="prName">' + escapeHtml(pkT('pr_name')) + '</label><input id="prName" required maxlength="120" autocomplete="name" value="' + escapeHtml(u.full_name || '') + '"></div>' +
+    '<div class="field"><label for="prPhone">' + escapeHtml(pkT('pr_phone')) + '</label><input id="prPhone" required inputmode="tel" maxlength="30" autocomplete="tel" value="' + escapeHtml(u.phone || '') + '"></div>' +
+    '<div class="field"><label for="prCity">' + escapeHtml(pkT('pr_city')) + '</label><input id="prCity" maxlength="80" autocomplete="address-level2"></div>' +
+    '<div class="form-msg" id="prMsg" role="status"></div>' +
+    '<div class="btn-row"><button class="btn btn-primary" type="submit">' + escapeHtml(pkT('pr_send')) + '</button><button class="btn btn-secondary" type="button" data-close>' + escapeHtml(pkT('pk_cancel')) + '</button></div></form>'
+  );
+  $('#prForm', dlg).addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const msg = $('#prMsg', dlg);
+    const name = $('#prName', dlg).value.trim(), phone = $('#prPhone', dlg).value.trim();
+    if (!name || !/^[0-9+\-\s]{7,30}$/.test(phone)) { msg.textContent = 'Please enter your name and a valid phone number.'; msg.className = 'form-msg error'; return; }
+    const res = await PkDB.submitLead({ kind: 'proposal', name: name, phone: phone, city: $('#prCity', dlg).value.trim() || null,
+      role: 'developer', email: u.email || null, section: 'dashboard-packages', magnet: p.id });
+    if (res.error) { msg.textContent = pkT('cb_error'); msg.className = 'form-msg error'; return; }
+    msg.textContent = pkT('pr_done'); msg.className = 'form-msg ok';
+    $('#prForm button[type="submit"]', dlg).disabled = true;
+    pkTrack('proposal_request', p.id);
+  });
+}
+
+function buyPackageDialog(id) {
+  const p = pkPackageById(id);
+  if (!p) return;
+  if (p.quote_only) { proposalDialog(id); return; }
+  const oneOff = typeof p.one_off === 'number';
+  const firstPay = oneOff ? p.one_off : (p.setup || 0) + p.monthly;
+  const isFrom = !!(p.one_off_from || p.monthly_from);
+  const breakdown = oneOff ? pkT('pkg_one_off')
+    : (p.setup ? Rs(p.setup) + ' ' + pkT('pkg_setup_once') + ' + ' : '') + Rs(p.monthly) + ' ' + pkT('pkg_a_month');
+  const dlg = pkDialog(
+    '<form id="pkgForm"><h3>' + escapeHtml(pkPick(p, 'name')) + '</h3>' +
+    '<div class="review-box"><div class="tiny">' + escapeHtml(pkT('pkg_first_pay')) + '</div><div class="total">' + escapeHtml(isFrom ? pkFromPrice(firstPay) : money(firstPay)) + '</div><div>' + escapeHtml(breakdown) + '</div>' +
+    '<div class="tiny" style="margin-top:0.3rem">' + escapeHtml(pkPick(p, 'delivery')) + '</div></div>' +
+    (isFrom ? '<p class="notice tiny">' + escapeHtml(pkT('pkg_from_note')) + '</p>' : '') +
+    '<p class="tiny">' + escapeHtml(pkPackageTermsLabel(p)) + (oneOff ? '' : ' · ' + escapeHtml(pkPick(PK_DATA.packages.meta, 'monthly_includes'))) + '</p>' +
+    '<p class="tiny"><strong>' + escapeHtml(pkT('pkg_paid_sep')) + ':</strong> ' + escapeHtml(pkPick(p, 'paid_separately')) + '</p>' +
+    '<label class="check"><input type="checkbox" id="pkgTerms" required> ' + escapeHtml(pkT('pkg_accept')) + ' (<a class="link" href="legal.html#packages" target="_blank" rel="noopener">legal</a>)</label>' +
     '<div class="form-msg" id="pkgMsg"></div>' +
-    '<div class="btn-row"><button class="btn btn-primary" type="submit">Order package</button><button class="btn btn-secondary" type="button" data-close>Cancel</button></div></form>'
+    '<div class="btn-row"><button class="btn btn-primary" type="submit">' + escapeHtml(pkT('pkg_order_pkg')) + '</button><button class="btn btn-secondary" type="button" data-close>' + escapeHtml(pkT('pk_cancel')) + '</button></div></form>'
   );
   $('#pkgForm', dlg).addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -513,9 +555,10 @@ async function usageSummaryHtml(sub, compact) {
       const price = window.PK_DATA.lines[a.extra_line_id].line.price;
       extra = '<div class="tiny" style="margin-top:0.3rem">Allowance used up. <a class="link" href="#order/line/' + a.extra_line_id + '">Add more for ' + money(price) + ' each</a> or <a class="link" href="#order/packages">upgrade your package</a>.</div>';
     }
-    return '<div class="meter' + (used >= a.qty ? ' full' : '') + '"><div class="top"><span>' + escapeHtml(a.label) + '</span><span>' + used + ' of ' + a.qty + '</span></div><div class="bar"><i style="width:' + pct + '%"></i></div>' + extra + '</div>';
+    const local = pkg && (pkg.allowances || []).find(function (x) { return x.key === a.item_key; });
+    return '<div class="meter' + (used >= a.qty ? ' full' : '') + '"><div class="top"><span>' + escapeHtml(local ? pkPick(local, 'label') : a.label) + '</span><span>' + used + ' of ' + a.qty + '</span></div><div class="bar"><i style="width:' + pct + '%"></i></div>' + extra + '</div>';
   }).join('');
-  const head = '<p><strong>' + escapeHtml(pkg ? pkg.name : sub.package_id) + '</strong> · ' + escapeHtml(sub.status) +
+  const head = '<p><strong>' + escapeHtml(pkg ? pkPick(pkg, 'name') : sub.package_id) + '</strong> · ' + escapeHtml(sub.status) +
     (sub.renews_at ? ' · renews ' + escapeHtml(pkDate(sub.renews_at)) : '') + (sub.min_term_end ? ' · minimum term ends ' + escapeHtml(pkDate(sub.min_term_end)) : '') + '</p>';
   if (compact) return head + (meters || '<p class="muted">This package has no monthly allowances.</p>');
   const history = usage.length ? '<h2>Delivered against this package</h2><div class="table-wrap"><table class="list"><thead><tr><th>Date</th><th>Item</th><th>Qty</th><th>Task</th></tr></thead><tbody>' +
