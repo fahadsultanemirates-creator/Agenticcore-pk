@@ -355,3 +355,19 @@ Object.assign(PK_I18N.ur, {
   ex_aud_agency_t: 'ایجنسیاں', ex_aud_agency_d: 'اپنی ایجنسی کا پروفائل بنائیں، منسلک پروفیشنلز شامل کریں اور ایجنسی کے تحت لسٹ کریں۔',
   ex_aud_builder_t: 'بلڈرز اور ڈیولپرز', ex_aud_builder_d: 'اپنی سروسز اور ریٹس دکھائیں؛ مختصر جائزے کے بعد پروجیکٹس شائع کریں۔'
 });
+
+// Contact & official channels (footer).
+Object.assign(PK_I18N.en, {
+  contact_wa_chat: 'Chat on WhatsApp', footer_follow_h: 'Follow AgenticCore',
+  social_whatsapp_channel: 'WhatsApp Channel', social_youtube: 'YouTube', social_tiktok: 'TikTok', social_facebook: 'Facebook', social_instagram: 'Instagram',
+  social_whatsapp_channel_aria: 'Follow AgenticCore updates on our WhatsApp Channel (opens in a new tab)',
+  social_youtube_aria: 'AgenticCore on YouTube (opens in a new tab)', social_tiktok_aria: 'AgenticCore on TikTok (opens in a new tab)',
+  social_facebook_aria: 'AgenticCore on Facebook (opens in a new tab)', social_instagram_aria: 'AgenticCore on Instagram (opens in a new tab)'
+});
+Object.assign(PK_I18N.ur, {
+  contact_wa_chat: 'واٹس ایپ پر بات کریں', footer_follow_h: 'AgenticCore کو فالو کریں',
+  social_whatsapp_channel: 'واٹس ایپ چینل', social_youtube: 'یوٹیوب', social_tiktok: 'ٹک ٹاک', social_facebook: 'فیس بک', social_instagram: 'انسٹاگرام',
+  social_whatsapp_channel_aria: 'ہمارے واٹس ایپ چینل پر AgenticCore کی اپ ڈیٹس فالو کریں (نئی ٹیب میں کھلے گا)',
+  social_youtube_aria: 'یوٹیوب پر AgenticCore (نئی ٹیب میں کھلے گا)', social_tiktok_aria: 'ٹک ٹاک پر AgenticCore (نئی ٹیب میں کھلے گا)',
+  social_facebook_aria: 'فیس بک پر AgenticCore (نئی ٹیب میں کھلے گا)', social_instagram_aria: 'انسٹاگرام پر AgenticCore (نئی ٹیب میں کھلے گا)'
+});
