@@ -1,36 +1,300 @@
 {
-  "meta": {
-    "about": "Sample concepts for 'See what we can create'. Every entry is a DEMONSTRATION, not client work: no client names, results or testimonials. The page always shows the 'Sample concept' label. Set \"installed\": true only once the image file exists at \"image\" and passed visual QA; until then a CSS mock-up is drawn from \"mock\". \"width\"/\"height\" must be the file's REAL pixel size. Optional: \"thumb\"/\"thumbWidth\" (a smaller copy of the same artwork, same aspect ratio, used in srcset), \"focus\" (CSS object-position), \"fit\": \"contain\" (show the whole image, letterboxed), \"light\" (white tile) \"note\" (an i18n key for an extra disclosure under the sample) and \"gallery\": false (used only as a decorative tile thumbnail: not in the gallery or service examples). Add a sample by adding an entry here: no HTML changes needed. File names and sizes: docs/SAMPLE_ASSET_MANIFEST.md.",
-    "categories": ["property", "project", "social", "video", "print", "web", "estate"]
-  },
-  "samples": [
-    { "id": "property-flyer", "category": "property", "services": [10, 11], "image": "images/samples/property-flyer.webp", "width": 1080, "height": 1350, "thumb": "images/samples/property-flyer-600.webp", "thumbWidth": 600, "installed": true, "focus": "center top",
-      "mock": { "kind": "flyer", "tag": "FOR SALE", "title": "10 Marla Modern House", "place": "DHA Phase 2, Islamabad", "price": "Rs 5.20 Crore", "facts": ["5 Beds", "6 Baths", "2 Kitchens"] } },
-    { "id": "whatsapp-property-card", "category": "property", "services": [7], "image": "images/samples/whatsapp-property-card.webp", "width": 1080, "height": 1350, "thumb": "images/samples/whatsapp-property-card-600.webp", "thumbWidth": 600, "installed": true, "focus": "center top",
-      "mock": { "kind": "wacard", "title": "10 Marla House", "place": "DHA Phase 2, Islamabad", "price": "Rs 5.20 Crore", "facts": ["5 Beds", "6 Baths", "2 TV Lounges"] } },
-    { "id": "social-property-post", "category": "social", "services": [11, 31], "image": "images/samples/social-property-post.webp", "width": 1080, "height": 1080, "thumb": "images/samples/social-property-post-640.webp", "thumbWidth": 640, "installed": true, "focus": "center top",
-      "mock": { "kind": "post", "title": "Modern Living in DHA 2", "place": "10 Marla House · Islamabad", "price": "Rs 5.20 Crore", "facts": ["5 Beds", "6 Baths"] } },
-    { "id": "property-brochure", "category": "print", "services": [6, 7], "image": "images/samples/property-brochure.webp", "width": 1492, "height": 1054, "thumb": "images/samples/property-brochure-800.webp", "thumbWidth": 800, "installed": true, "fit": "contain",
-      "mock": { "kind": "brochure", "title": "Premium Property Brochure", "place": "Property overview · interiors · location · QR", "facts": ["Interior highlights", "Key features", "Location map"] } },
-    { "id": "project-payment-plan", "category": "project", "services": [4], "image": "images/samples/project-payment-plan.webp", "width": 1600, "height": 900, "thumb": "images/samples/project-payment-plan-800.webp", "thumbWidth": 800, "installed": true, "fit": "contain", "note": "sample_note_plan",
-      "mock": { "kind": "plan", "title": "Sample Residencia · Payment Plan", "rows": [["5 Marla", "Rs 6,500,000"], ["Booking 15%", "Rs 975,000"], ["36 monthly", "Rs 110,000"], ["On possession", "Rs 975,000"]] } },
-    { "id": "reel-cover", "category": "video", "services": [23, 22], "image": "images/samples/reel-cover.webp", "width": 1280, "height": 720, "thumb": "images/samples/reel-cover-800.webp", "thumbWidth": 800, "installed": true, "fit": "contain", "note": "sample_note_reel",
-      "mock": { "kind": "reel", "title": "DHA 2 House Tour", "place": "10 Marla modern house · 0:45" } },
-    { "id": "photo-enhancement", "category": "property", "services": [28], "image": "images/samples/photo-enhancement.webp", "width": 1600, "height": 900, "thumb": "images/samples/photo-enhancement-800.webp", "thumbWidth": 800, "installed": true, "fit": "contain", "note": "sample_note_photos",
-      "mock": { "kind": "post", "title": "Listing photo enhancement", "place": "Before and after, 10 photos" } },
-    { "id": "website-design", "category": "web", "services": [14], "image": "images/samples/website-design.webp", "width": 800, "height": 882, "thumb": "images/samples/website-design-480.webp", "thumbWidth": 480, "installed": true, "focus": "center top",
-      "mock": { "kind": "post", "title": "Agency website", "place": "Listings, galleries and enquiry forms" } },
-    { "id": "property-landing-page", "category": "web", "services": [15], "image": "images/samples/property-landing-page.webp", "width": 1600, "height": 900, "thumb": "images/samples/property-landing-page-800.webp", "thumbWidth": 800, "installed": true, "fit": "contain", "note": "sample_note_landing",
-      "mock": { "kind": "post", "title": "Project landing page", "place": "Desktop and mobile" } },
-    { "id": "listing-support", "category": "property", "services": [], "image": "images/samples/listing-support.webp", "width": 1200, "height": 501, "thumb": "images/samples/listing-support-600.webp", "thumbWidth": 600, "installed": true, "gallery": false,
-      "mock": { "kind": "post", "title": "Listing support", "place": "Photos, descriptions and portal listings" } },
-    { "id": "progress-reel", "category": "video", "services": [27], "image": null, "installed": false,
-      "mock": { "kind": "reel", "title": "Site progress · Week 32", "place": "Block C slab complete" } },
-    { "id": "whatsapp-catalogue", "category": "print", "services": [7], "image": null, "installed": false,
-      "mock": { "kind": "wachat", "title": "3-bed apartment", "place": "Tap to see the full catalogue (6 pages)", "price": "Rs 1.85 crore" } },
-    { "id": "approval-kit", "category": "project", "services": [8], "image": null, "installed": false,
-      "mock": { "kind": "noc", "title": "Approval kit", "rows": [["Authority", "[shown only with proof]"], ["Layout plan", "[ref. no.]"]] } },
-    { "id": "estate-share-card", "category": "estate", "services": [], "image": null, "installed": false, "live": true,
-      "mock": { "kind": "qr", "title": "Listed on AgenticCore Estate", "place": "Scan to view the listing" } }
+ "meta": {
+  "about": "Sample concepts for 'See what we can create'. Every entry is a DEMONSTRATION, not client work: no client names, results or testimonials. The page always shows the 'Sample concept' label. Set \"installed\": true only once the image file exists at \"image\" and passed visual QA; until then a CSS mock-up is drawn from \"mock\". \"width\"/\"height\" must be the file's REAL pixel size. Optional: \"thumb\"/\"thumbWidth\" (a smaller copy of the same artwork, same aspect ratio, used in srcset), \"focus\" (CSS object-position), \"fit\": \"contain\" (show the whole image, letterboxed), \"light\" (white tile) \"note\" (an i18n key for an extra disclosure under the sample) and \"gallery\": false (used only as a decorative tile thumbnail: not in the gallery or service examples). Add a sample by adding an entry here: no HTML changes needed. File names and sizes: docs/SAMPLE_ASSET_MANIFEST.md.",
+  "categories": [
+   "property",
+   "project",
+   "social",
+   "video",
+   "print",
+   "web",
+   "estate"
   ]
+ },
+ "samples": [
+  {
+   "id": "property-flyer",
+   "category": "property",
+   "services": [
+    3,
+    9
+   ],
+   "image": "images/samples/property-flyer.webp",
+   "width": 1080,
+   "height": 1350,
+   "thumb": "images/samples/property-flyer-600.webp",
+   "thumbWidth": 600,
+   "installed": true,
+   "focus": "center top",
+   "mock": {
+    "kind": "flyer",
+    "tag": "FOR SALE",
+    "title": "10 Marla Modern House",
+    "place": "DHA Phase 2, Islamabad",
+    "price": "Rs 5.20 Crore",
+    "facts": [
+     "5 Beds",
+     "6 Baths",
+     "2 Kitchens"
+    ]
+   }
+  },
+  {
+   "id": "whatsapp-property-card",
+   "category": "property",
+   "services": [
+    1
+   ],
+   "image": "images/samples/whatsapp-property-card.webp",
+   "width": 1080,
+   "height": 1350,
+   "thumb": "images/samples/whatsapp-property-card-600.webp",
+   "thumbWidth": 600,
+   "installed": true,
+   "focus": "center top",
+   "mock": {
+    "kind": "wacard",
+    "title": "10 Marla House",
+    "place": "DHA Phase 2, Islamabad",
+    "price": "Rs 5.20 Crore",
+    "facts": [
+     "5 Beds",
+     "6 Baths",
+     "2 TV Lounges"
+    ]
+   }
+  },
+  {
+   "id": "social-property-post",
+   "category": "social",
+   "services": [
+    2
+   ],
+   "image": "images/samples/social-property-post.webp",
+   "width": 1080,
+   "height": 1080,
+   "thumb": "images/samples/social-property-post-640.webp",
+   "thumbWidth": 640,
+   "installed": true,
+   "focus": "center top",
+   "mock": {
+    "kind": "post",
+    "title": "Modern Living in DHA 2",
+    "place": "10 Marla House · Islamabad",
+    "price": "Rs 5.20 Crore",
+    "facts": [
+     "5 Beds",
+     "6 Baths"
+    ]
+   }
+  },
+  {
+   "id": "property-brochure",
+   "category": "print",
+   "services": [
+    27
+   ],
+   "image": "images/samples/property-brochure.webp",
+   "width": 1492,
+   "height": 1054,
+   "thumb": "images/samples/property-brochure-800.webp",
+   "thumbWidth": 800,
+   "installed": true,
+   "fit": "contain",
+   "mock": {
+    "kind": "brochure",
+    "title": "Premium Property Brochure",
+    "place": "Property overview · interiors · location · QR",
+    "facts": [
+     "Interior highlights",
+     "Key features",
+     "Location map"
+    ]
+   }
+  },
+  {
+   "id": "project-payment-plan",
+   "category": "project",
+   "services": [
+    26
+   ],
+   "image": "images/samples/project-payment-plan.webp",
+   "width": 1600,
+   "height": 900,
+   "thumb": "images/samples/project-payment-plan-800.webp",
+   "thumbWidth": 800,
+   "installed": true,
+   "fit": "contain",
+   "note": "sample_note_plan",
+   "mock": {
+    "kind": "plan",
+    "title": "Sample Residencia · Payment Plan",
+    "rows": [
+     [
+      "5 Marla",
+      "Rs 6,500,000"
+     ],
+     [
+      "Booking 15%",
+      "Rs 975,000"
+     ],
+     [
+      "36 monthly",
+      "Rs 110,000"
+     ],
+     [
+      "On possession",
+      "Rs 975,000"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "reel-cover",
+   "category": "video",
+   "services": [
+    6,
+    7
+   ],
+   "image": "images/samples/reel-cover.webp",
+   "width": 1280,
+   "height": 720,
+   "thumb": "images/samples/reel-cover-800.webp",
+   "thumbWidth": 800,
+   "installed": true,
+   "fit": "contain",
+   "note": "sample_note_reel",
+   "mock": {
+    "kind": "reel",
+    "title": "DHA 2 House Tour",
+    "place": "10 Marla modern house · 0:45"
+   }
+  },
+  {
+   "id": "photo-enhancement",
+   "category": "property",
+   "services": [
+    4
+   ],
+   "image": "images/samples/photo-enhancement.webp",
+   "width": 1600,
+   "height": 900,
+   "thumb": "images/samples/photo-enhancement-800.webp",
+   "thumbWidth": 800,
+   "installed": true,
+   "fit": "contain",
+   "note": "sample_note_photos",
+   "mock": {
+    "kind": "post",
+    "title": "Listing photo enhancement",
+    "place": "Before and after, 10 photos"
+   }
+  },
+  {
+   "id": "website-design",
+   "category": "web",
+   "services": [
+    16,
+    34
+   ],
+   "image": "images/samples/website-design.webp",
+   "width": 800,
+   "height": 882,
+   "thumb": "images/samples/website-design-480.webp",
+   "thumbWidth": 480,
+   "installed": true,
+   "focus": "center top",
+   "mock": {
+    "kind": "post",
+    "title": "Agency website",
+    "place": "Listings, galleries and enquiry forms"
+   }
+  },
+  {
+   "id": "property-landing-page",
+   "category": "web",
+   "services": [
+    12,
+    33
+   ],
+   "image": "images/samples/property-landing-page.webp",
+   "width": 1600,
+   "height": 900,
+   "thumb": "images/samples/property-landing-page-800.webp",
+   "thumbWidth": 800,
+   "installed": true,
+   "fit": "contain",
+   "note": "sample_note_landing",
+   "mock": {
+    "kind": "post",
+    "title": "Project landing page",
+    "place": "Desktop and mobile"
+   }
+  },
+  {
+   "id": "progress-reel",
+   "category": "video",
+   "services": [
+    39
+   ],
+   "image": null,
+   "installed": false,
+   "mock": {
+    "kind": "reel",
+    "title": "Site progress · Week 32",
+    "place": "Block C slab complete"
+   }
+  },
+  {
+   "id": "whatsapp-catalogue",
+   "category": "print",
+   "services": [
+    8
+   ],
+   "image": null,
+   "installed": false,
+   "mock": {
+    "kind": "wachat",
+    "title": "3-bed apartment",
+    "place": "Tap to see the full catalogue (6 pages)",
+    "price": "Rs 1.85 crore"
+   }
+  },
+  {
+   "id": "approval-kit",
+   "category": "project",
+   "services": [
+    30
+   ],
+   "image": null,
+   "installed": false,
+   "mock": {
+    "kind": "noc",
+    "title": "Approval kit",
+    "rows": [
+     [
+      "Authority",
+      "[shown only with proof]"
+     ],
+     [
+      "Layout plan",
+      "[ref. no.]"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "estate-share-card",
+   "category": "estate",
+   "services": [],
+   "image": null,
+   "installed": false,
+   "live": true,
+   "mock": {
+    "kind": "qr",
+    "title": "Listed on AgenticCore Estate",
+    "place": "Scan to view the listing"
+   }
+  }
+ ]
 }

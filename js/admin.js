@@ -131,7 +131,7 @@ async function viewTask(sub) {
       '<div class="field"><label for="stMissing">Waiting on (comma separated)</label><input id="stMissing" value="' + escapeHtml((t.missing || []).join(', ')) + '" placeholder="Logo file, Payment"></div>' +
       '<div class="field"><label for="stLate">Running late: reason</label><input id="stLate" value="' + escapeHtml(t.late_reason || '') + '"></div>' +
       '<div class="field"><label for="stDue">New due time (PKT, optional)</label><input id="stDue" type="datetime-local"></div>' +
-    '</div><p class="tiny">"Confirmed" sets the due time from the 6pm PKT cut-off and the service\'s turnaround. "Waiting on you" pauses the clock; any other status resumes it and adds the pause back.</p>' +
+    '</div><p class="tiny">"Confirmed" sets the due time: start day = today (tomorrow if confirmed at or after 6pm PKT), plus the service\'s turnaround in days, due 9pm PKT. All 7 days count; there are no weekend or holiday exclusions. \"Waiting on you\" pauses the clock; any other status resumes it and adds the paused time back, so a deadline is never shortened.</p>' +
     '<div class="form-msg" id="stMsg"></div><button class="btn btn-primary btn-sm" type="submit">Update status</button></form>' +
 
     '<form class="card section-card" id="dvForm"><h2 style="margin-top:0">Deliver</h2>' +
@@ -250,7 +250,7 @@ async function viewPayments() {
   $('#newInv').addEventListener('click', function () {
     const dlg = pkDialog('<form id="iForm"><h3>Issue an invoice</h3>' +
       '<div class="field"><label for="iClient">Client</label><select id="iClient">' + Adm.clients.map(function (c) { return '<option value="' + c.id + '">' + escapeHtml((c.business_name || c.full_name) + ' · ' + c.phone) + '</option>'; }).join('') + '</select></div>' +
-      '<div class="field"><label for="iDesc">Description</label><input id="iDesc" required placeholder="e.g. Dealer Starter — October"></div>' +
+      '<div class="field"><label for="iDesc">Description</label><input id="iDesc" required placeholder="e.g. Agent Monthly — October"></div>' +
       '<div class="field"><label for="iAmt">Amount (Rs)</label><input id="iAmt" type="number" min="0" required></div>' +
       '<div class="form-msg" id="iMsg"></div><div class="btn-row"><button class="btn btn-primary" type="submit">Issue</button><button class="btn btn-secondary" type="button" data-close>Cancel</button></div></form>');
     $('#iForm', dlg).addEventListener('submit', async function (e) {
@@ -293,7 +293,7 @@ async function viewLeads() {
     '<h2>WhatsApp clicks by section</h2>' + (Object.keys(waBySection).length ? '<table class="list"><tbody>' + Object.keys(waBySection).sort(function (a, b) { return waBySection[b] - waBySection[a]; }).map(function (k) { return '<tr><td>' + escapeHtml(k) + '</td><td>' + waBySection[k] + '</td></tr>'; }).join('') + '</tbody></table>' : '<p class="muted">None yet.</p>') +
     '<h2>Form leads</h2>' + (leads.length ? '<div class="table-wrap"><table class="list"><thead><tr><th>When</th><th>Name</th><th>Phone</th><th>City</th><th>From</th><th>Status</th></tr></thead><tbody>' +
       leads.map(function (l) {
-        return '<tr><td>' + escapeHtml(pkWhen(l.created_at)) + '</td><td>' + escapeHtml(l.name) + (l.role ? '<br><span class="tiny">' + escapeHtml(l.role) + '</span>' : '') + '</td><td>' + escapeHtml(l.phone) + '</td><td>' + escapeHtml(l.city || '') + '</td><td>' + escapeHtml(l.kind + (l.section ? ' · ' + l.section : '')) + '</td>' +
+        return '<tr><td>' + escapeHtml(pkWhen(l.created_at)) + '</td><td>' + escapeHtml(l.name) + (l.role ? '<br><span class="tiny">' + escapeHtml(l.role) + '</span>' : '') + '</td><td>' + escapeHtml(l.phone) + '</td><td>' + escapeHtml(l.city || '') + '</td><td>' + escapeHtml(l.kind + (l.section ? ' · ' + l.section : '') + (l.magnet ? ' · ' + l.magnet : '')) + '</td>' +
           '<td><select data-lead="' + l.id + '" aria-label="Lead status">' + statuses.map(function (s) { return '<option' + (s === l.status ? ' selected' : '') + '>' + s + '</option>'; }).join('') + '</select></td></tr>';
       }).join('') + '</tbody></table></div>' : '<p class="muted">No leads yet.</p>'));
   view().querySelectorAll('[data-lead]').forEach(function (sel) {
@@ -308,10 +308,13 @@ function viewCatalogue() {
   setView('<h1>Packages &amp; prices</h1>' +
     '<p class="notice" style="margin-bottom:var(--space-md)">Prices, packages and monthly allowances all come from <span class="mono">data/services.json</span> and <span class="mono">data/packages.json</span>. To change one: edit the JSON, run <span class="mono">node scripts/validate-data.mjs</span> and <span class="mono">node scripts/gen-seed-sql.mjs</span>, then apply the regenerated seed so the database prices orders the same way the site shows them.</p>' +
     P.map(function (p) {
-      const t = PkCatalogCore.packageTotals(p, lines);
-      return '<div class="card section-card"><h2 style="margin-top:0">' + escapeHtml(p.name) + '</h2><p>' +
-        (p.one_off ? money(p.one_off) + ' one-off · bought separately ' + money(t.setupSeparately) : money(p.monthly) + '/month + ' + money(p.setup || 0) + ' set-up · ' + p.min_months + '-month minimum · bought separately ' + money(t.monthlySeparately) + '/month') + '</p>' +
-        (p.allowances ? '<table class="list"><tbody>' + p.allowances.map(function (a) { return '<tr><td>' + escapeHtml(a.label) + '</td><td>' + a.qty + ' / month</td></tr>'; }).join('') + '</tbody></table>' : '') + '</div>';
+      const price = typeof p.one_off === 'number'
+        ? (p.one_off_from ? 'from ' : '') + money(p.one_off) + ' one-off'
+        : (p.monthly_from ? 'from ' : '') + money(p.monthly) + '/month · ' + (p.setup_quoted ? 'set-up quoted' : p.setup ? money(p.setup) + ' set-up' : 'no set-up fee') + ' · ' + p.min_months + '-month minimum';
+      return '<div class="card section-card"><h2 style="margin-top:0">' + escapeHtml(p.name) + ' <span class="tiny mono">' + escapeHtml(p.id) + '</span></h2><p>' + escapeHtml(price) +
+        (p.quote_only ? ' · <strong>proposal only</strong> (cannot be bought online)' : '') + (p.variant_of ? ' · variant of ' + escapeHtml(p.variant_of) : '') + '</p>' +
+        ((p.allowances || []).length ? '<table class="list"><tbody>' + p.allowances.map(function (a) { return '<tr><td>' + escapeHtml(a.label) + '</td><td>' + a.qty + ' / month</td><td class="tiny">' + (a.extra_line && lines[a.extra_line] ? 'extra: ' + escapeHtml(a.extra_line) + ' ' + money(lines[a.extra_line].line.price) : '') + '</td></tr>'; }).join('') + '</tbody></table>' : '') +
+        ((p.setup_items || []).length ? '<p class="tiny">Set-up tasks: ' + p.setup_items.map(function (it) { return escapeHtml(it.label) + (it.line ? ' <span class="mono">(' + escapeHtml(it.line) + ')</span>' : ''); }).join(' · ') + '</p>' : '') + '</div>';
     }).join(''));
 }
 

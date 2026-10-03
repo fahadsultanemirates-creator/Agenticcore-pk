@@ -51,7 +51,7 @@ async function pkWorkspaceHtml() {
   const st = pkBrandKitStatus(kit, Dash.settings, Dash.user);
   const tiles = [
     ['#pack', 'ws_market', '▤', pkT('ws_market_sub')],
-    ['#order', 'd_order', '＋', pkT('ws_order_sub')],
+    ['#order', 'd_order', '＋', pkT('ws_order_sub').replace('{n}', window.PK_DATA.services.services.length)],
     ['#listings', 'ws_listings', '⌂', listings.length + ' ' + pkT('ws_on_estate')],
     ['#profile', 'ws_brandkit', '◆', st.done + '/' + st.total + ' ' + pkT('ws_kit_done')],
     ['#deliveries', 'd_deliveries', '⬇', pkT('ws_deliv_sub')],

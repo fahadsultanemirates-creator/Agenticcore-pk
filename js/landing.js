@@ -2,13 +2,33 @@
 
 const PK_FAQ_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
+function pkCountLabel(key) {
+  return pkT(key).replace('{n}', window.PK_DATA.services.services.length);
+}
+
 function pkRenderLandingData() {
   const D = window.PK_DATA;
   if (!D.services) return;
+  const P = D.packages;
 
   document.getElementById('svcGroups').innerHTML = D.services.groups.map(pkGroupCardHtml).join('');
-  document.getElementById('pkgList').innerHTML = D.packages.packages.map(function (p) { return pkPackageCardHtml(p); }).join('');
-  document.getElementById('pkgIncludes').textContent = pkPick(D.packages.meta, 'monthly_includes');
+  document.querySelectorAll('[data-count-label]').forEach(function (el) { el.textContent = pkCountLabel(el.getAttribute('data-count-label')); });
+
+  // Packages, grouped by section; website variants of launch kits sit inside their kit's card.
+  document.getElementById('pkgList').innerHTML = P.meta.sections.map(function (sec) {
+    const list = P.packages.filter(function (p) { return p.section === sec.id && !p.variant_of; });
+    return '<div class="pkg-section"><h3 class="pkg-section-title">' + escapeHtml(pkPick(sec, 'title')) + '</h3>' +
+      (sec.intro ? '<p class="pkg-section-intro">' + escapeHtml(pkPick(sec, 'intro')) + '</p>' : '') +
+      '<div class="pkg-scroller">' + list.map(function (p) { return pkPackageCardHtml(p); }).join('') + '</div></div>';
+  }).join('');
+  document.getElementById('pkgIncludes').textContent = pkPick(P.meta, 'monthly_includes');
+  document.getElementById('pkgSetDef').textContent = pkPick(P.meta, 'set_definition');
+  document.getElementById('pkgNetwork').textContent = pkPick(P.meta, 'network_note');
+
+  // AI & Automation: every service in the AI section, as cards.
+  const aiGroup = D.services.groups.find(function (g) { return g.slug === 'ai-automation'; });
+  document.getElementById('aiGrid').innerHTML = aiGroup ? pkServicesInGroup(aiGroup.no).map(pkServiceCardHtml).join('') : '';
+
   const chart = D.lines['4-dfy'];
   const fcp = document.getElementById('freeChartPrice');
   if (chart && fcp) fcp.textContent = Rs(chart.line.price);
@@ -17,8 +37,7 @@ function pkRenderLandingData() {
     return '<details class="acc"><summary>' + escapeHtml(pkT('faq_q' + k)) + '</summary><div class="acc-body"><p>' + escapeHtml(pkT('faq_a' + k)) + '</p></div></details>';
   }).join('');
 
-  pkWireWhatsAppLinks(document.getElementById('services'));
-  pkWireWhatsAppLinks(document.getElementById('packages'));
+  ['services', 'packages', 'ai'].forEach(function (id) { pkWireWhatsAppLinks(document.getElementById(id)); });
 }
 
 // Structured data generated from the same data files (FAQPage + Offer per package).
@@ -33,7 +52,7 @@ function pkInjectSchema() {
   const offers = {
     '@context': 'https://schema.org', '@type': 'Service', name: 'Real estate marketing packages', provider: { '@type': 'Organization', name: 'AgenticCore Pakistan' },
     areaServed: 'PK',
-    offers: D.packages.packages.map(function (p) {
+    offers: D.packages.packages.filter(function (p) { return !p.variant_of; }).map(function (p) {
       return { '@type': 'Offer', name: p.name, description: p.for, priceCurrency: 'PKR', price: p.one_off || p.monthly, url: 'https://agenticcorepk.com/#pkg-' + p.id };
     })
   };
@@ -112,29 +131,26 @@ function pkInitForms() {
 }
 
 
-/* ---------- Product 2.0 sections ---------- */
-const PK_OUT_ICONS = { flyer: '▤', whatsapp: '✆', social: '◫', brochure: '▥', reel: '▶', project: '⌂', website: '⌘', listing: '✓' };
-// "What we can create" tiles show the matching sample concept as a decorative thumbnail.
-const PK_OUT_SAMPLE = { flyer: 'property-flyer', whatsapp: 'whatsapp-property-card', social: 'social-property-post', brochure: 'property-brochure', reel: 'reel-cover', project: 'project-payment-plan', website: 'website-design', listing: 'listing-support' };
-const P2 = { intent: 'sell-property', what: null, goal: null, cat: 'all', pack: null };
+/* ---------- Catalogue V2 homepage sections ---------- */
+const PK_OUT_ICONS = { flyer: '▤', whatsapp: '✆', social: '◫', photos: '◩', reel: '▶', brochure: '▥', landing: '▭', website: '⌘' };
+const P2 = { aud: 'agent', journey: 'agent-one', cat: 'all', pack: null };
 
 function pkRenderP2() {
   const D = window.PK_DATA;
   if (!D.discovery) return;
   const byId = function (id) { return D.samples.samples.find(function (x) { return x.id === id; }); };
 
-  // hero collage: four sample concepts
-  // Hero collage prefers installed artwork; any sample not installed yet falls back to its mock-up.
+  // Hero: four sample concepts + the two featured monthly plans.
   const heroIds = ['property-flyer', 'whatsapp-property-card', 'social-property-post', 'reel-cover'];
   document.getElementById('heroCollage').innerHTML = heroIds.map(byId).filter(Boolean).map(function (smp, i) {
     return '<figure class="col-tile col-' + i + '">' + pkSampleVisualHtml(smp, { eager: true, sizes: '(min-width: 960px) 240px, 46vw' }) + '<figcaption><span class="sample-tag">' + escapeHtml(pkT('proof_sample_label')) + '</span> ' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
   }).join('');
+  document.getElementById('featOffers').innerHTML = D.discovery.featured_packages.map(pkPackage).filter(Boolean).map(pkFeaturedOfferHtml).join('');
 
   // Pack: a compact preview of what the outputs look like (installed sample concepts only).
   const pv = document.getElementById('packPreview');
   if (pv) {
-    // The pack's own outputs first: WhatsApp card, offer post, QR flyer, reel.
-    const shots = ['whatsapp-property-card', 'social-property-post', 'property-flyer', 'reel-cover'].map(byId).filter(function (x) { return x && x.installed; });
+    const shots = ['whatsapp-property-card', 'social-property-post', 'property-flyer', 'photo-enhancement'].map(byId).filter(function (x) { return x && x.installed; });
     pv.hidden = !shots.length;
     pv.innerHTML = shots.map(function (smp) {
       return '<figure class="pv-tile">' + pkSampleVisualHtml(smp, { sizes: '(min-width: 960px) 200px, 46vw' }) + '<figcaption>' + escapeHtml(pkT('sample_' + smp.id)) + '</figcaption></figure>';
@@ -146,39 +162,29 @@ function pkRenderP2() {
     note.hidden = !shots.length;
   }
 
-  // output strip
-  document.getElementById('outStrip').innerHTML = D.discovery.outputs.map(function (o) {
-    const svcs = o.services.map(pkService).filter(Boolean);
-    const from = Math.min.apply(null, svcs.map(function (s) { return PkCatalogCore.fromPrice(s); }));
-    const smp = byId(PK_OUT_SAMPLE[o.key]);
+  // "What we can create": each tile shows one exact price line and opens that service.
+  document.getElementById('outStrip').innerHTML = D.discovery.tiles.map(function (o) {
+    const hit = D.lines[o.line];
+    if (!hit) return '';
+    const smp = byId(o.sample);
     const thumb = smp && smp.installed && smp.thumb
       ? '<img class="out-thumb" src="' + escapeHtml(smp.thumb) + '" alt="" width="' + smp.thumbWidth + '" height="' + Math.round(smp.thumbWidth * smp.height / smp.width) + '" loading="lazy" decoding="async"' + ' style="object-position:' + (smp.width > smp.height ? 'left center' : (smp.focus || 'center top')) + '"' + '>'
       : '';
-    return '<a class="out-tile' + (thumb ? ' has-thumb' : '') + '" href="#need" data-intent-go="' + escapeHtml(o.intent) + '">' + thumb + '<span class="out-ic" aria-hidden="true">' + PK_OUT_ICONS[o.key] + '</span>' +
-      '<span class="out-name">' + escapeHtml(pkT('out_' + o.key)) + '</span><span class="out-from">' + escapeHtml(pkT('svc_from')) + ' ' + Rs(from) + '</span></a>';
+    return '<button type="button" class="out-tile' + (thumb ? ' has-thumb' : '') + '" data-svc="' + hit.service.no + '">' + thumb + '<span class="out-ic" aria-hidden="true">' + PK_OUT_ICONS[o.key] + '</span>' +
+      '<span class="out-name">' + escapeHtml(pkT('out_' + o.key)) + '</span><span class="out-from">' + escapeHtml(hit.line.from ? pkFromPrice(hit.line.price) : Rs(hit.line.price)) + '</span></button>';
   }).join('');
 
-  // intents
-  document.getElementById('intentChips').innerHTML = D.discovery.intents.map(function (it) {
-    return '<button type="button" role="tab" class="ichip" data-intent="' + it.id + '" aria-selected="' + (it.id === P2.intent) + '">' + escapeHtml(pkT('intent_' + it.id)) + '</button>';
-  }).join('');
-  document.getElementById('intentResult').innerHTML = pkIntentResultHtml(P2.intent);
-
-  // guided selector
-  const opt = function (group, list, cur) {
-    return list.map(function (k) { return '<button type="button" class="ochip" data-' + group + '="' + k + '" aria-pressed="' + (k === cur) + '">' + escapeHtml(pkT('sel_' + group + '_' + k)) + '</button>'; }).join('');
-  };
-  document.getElementById('selWhat').innerHTML = opt('what', D.discovery.selector.what, P2.what);
-  document.getElementById('selGoal').innerHTML = opt('goal', D.discovery.selector.goal, P2.goal);
-  document.getElementById('selResult').innerHTML = P2.what && P2.goal ? pkSelectorResultHtml(P2.what, P2.goal) : '';
-
-  // workflow outputs
-  document.getElementById('wfOuts').innerHTML = ['wa-card', 'catalogue', 'offer-post', 'reel'].map(function (k) { return '<span class="wf-out">' + escapeHtml(pkT('pack_out_' + k)) + '</span>'; }).join('') +
-    '<span class="wf-out estate">' + escapeHtml(pkT('wf_estate')) + '</span><span class="wf-out estate">' + escapeHtml(pkT('wf_qr')) + '</span>';
+  // Who are you? → journeys → services and plans
+  document.getElementById('audTabs').innerHTML = pkAudienceTabsHtml(P2.aud);
+  document.getElementById('journeys').innerHTML = pkJourneyCardsHtml(P2.aud, P2.journey);
+  document.getElementById('journeyResult').innerHTML = pkJourneyResultHtml(P2.journey);
 
   // pack
   document.getElementById('packSend').innerHTML = D.discovery.pack.you_send.map(function (k) { return '<li>' + escapeHtml(pkT('pack_send_' + k)) + '</li>'; }).join('');
   document.getElementById('packOpts').innerHTML = pkPackChecklistHtml(P2.pack);
+  document.getElementById('packHintPlans').innerHTML = (D.discovery.pack.monthly_hint_packages || []).map(pkPackage).filter(Boolean).map(function (p) {
+    return '<a class="link" href="#pkg-' + p.id + '">' + escapeHtml(pkPick(p, 'name')) + ' — ' + escapeHtml(pkPackagePriceLabel(p)) + '</a>';
+  }).join('<br>');
   pkUpdatePackTotal();
 
   // samples
@@ -188,7 +194,17 @@ function pkRenderP2() {
   }).join('');
   document.getElementById('smpGrid').innerHTML = D.samples.samples.filter(function (x) { return x.gallery !== false && (P2.cat === 'all' || x.category === P2.cat); }).map(pkSampleCardHtml).join('');
 
-  pkWireWhatsAppLinks(document.getElementById('need'));
+  pkWireWhatsAppLinks(document.getElementById('who'));
+}
+
+function pkSelectAudience(id, focus) {
+  const a = pkAudience(id);
+  if (!a) return;
+  P2.aud = id;
+  P2.journey = a.journeys[0].id;
+  pkRenderP2();
+  pkTrack('audience', id);
+  if (focus) { const b = document.querySelector('[data-aud="' + id + '"]'); if (b) b.focus(); }
 }
 
 function pkUpdatePackTotal() {
@@ -204,19 +220,26 @@ function pkUpdatePackTotal() {
 
 function pkInitP2() {
   document.addEventListener('click', function (e) {
-    const go = e.target.closest('[data-intent-go]');
-    if (go) { P2.intent = go.getAttribute('data-intent-go'); pkRenderP2(); pkTrack('intent', P2.intent); return; }
-    const chip = e.target.closest('[data-intent]');
-    if (chip) { P2.intent = chip.getAttribute('data-intent'); pkRenderP2(); pkTrack('intent', P2.intent); chip.focus(); return; }
-    const w = e.target.closest('[data-what]');
-    if (w) { P2.what = w.getAttribute('data-what'); pkRenderP2(); return; }
-    const g = e.target.closest('[data-goal]');
-    if (g) { P2.goal = g.getAttribute('data-goal'); pkRenderP2(); if (P2.what) pkTrack('selector', P2.what + ':' + P2.goal); return; }
+    const go = e.target.closest('[data-aud-go]');
+    if (go) { pkSelectAudience(go.getAttribute('data-aud-go'), false); return; }
+    const tab = e.target.closest('[data-aud]');
+    if (tab) { pkSelectAudience(tab.getAttribute('data-aud'), true); return; }
+    const j = e.target.closest('[data-journey]');
+    if (j) { P2.journey = j.getAttribute('data-journey'); pkRenderP2(); pkTrack('journey', P2.journey); const b = document.querySelector('[data-journey="' + P2.journey + '"]'); if (b) b.focus(); return; }
     const c = e.target.closest('[data-cat]');
     if (c && c.closest('#smpFilter')) { P2.cat = c.getAttribute('data-cat'); pkRenderP2(); return; }
     const pg = e.target.closest('#packGo');
     if (pg && pg.classList.contains('disabled')) { e.preventDefault(); return; }
     if (pg) pkTrack('pack_start', 'landing', { lines: P2.pack });
+  });
+  // Arrow keys move between the audience tabs.
+  document.getElementById('audTabs').addEventListener('keydown', function (e) {
+    const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (!dir) return;
+    const ids = window.PK_DATA.discovery.audiences.map(function (a) { return a.id; });
+    const rtl = document.documentElement.dir === 'rtl';
+    const i = ids.indexOf(P2.aud);
+    pkSelectAudience(ids[(i + (rtl ? -dir : dir) + ids.length) % ids.length], true);
   });
   document.getElementById('packOpts').addEventListener('change', pkUpdatePackTotal);
 }

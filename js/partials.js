@@ -112,7 +112,7 @@ function pkRenderFooter() {
   if (!el) return;
   const groups = (window.PK_DATA && window.PK_DATA.services) ? window.PK_DATA.services.groups : null;
   const serviceLinks = groups
-    ? groups.map(function (g) { return '<li><a href="services.html#' + g.slug + '">' + escapeHtml(pkPick(g, 'need')) + '</a></li>'; }).join('')
+    ? groups.map(function (g) { return '<li><a href="services.html#' + g.slug + '">' + escapeHtml(pkPick(g, 'type')) + '</a></li>'; }).join('')
     : '<li><a href="services.html" data-i18n="nav_services"></a></li>';
 
   const contact = [];
@@ -205,6 +205,6 @@ document.addEventListener('DOMContentLoaded', async function () {
   pkOnLanguageChange(function () {
     // footer group names are data-driven; re-render them in the new language
     const ul = document.getElementById('pkFooterServices');
-    if (ul && window.PK_DATA.services) ul.innerHTML = window.PK_DATA.services.groups.map(function (g) { return '<li><a href="services.html#' + g.slug + '">' + escapeHtml(pkPick(g, 'need')) + '</a></li>'; }).join('');
+    if (ul && window.PK_DATA.services) ul.innerHTML = window.PK_DATA.services.groups.map(function (g) { return '<li><a href="services.html#' + g.slug + '">' + escapeHtml(pkPick(g, 'type')) + '</a></li>'; }).join('');
   });
 });
