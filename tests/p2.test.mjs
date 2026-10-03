@@ -434,3 +434,18 @@ test('landing-page sample matches V2 (Rs 9,999, 2–3 working days) and stays la
   assert.ok(!s.lines[0].from);
   assert.match(s.delivery, /^2–3 days/);
 });
+
+test('assistant buttons link to existing V2 services and sections', () => {
+  const src = read('js/ac-assistant.js');
+  const nos = new Set(services.services.map((s) => s.no));
+  const slugs = new Set(services.groups.map((g) => g.slug));
+  const anchors = [...src.matchAll(/services\.html#([a-z0-9-]+)/g)].map((m) => m[1]);
+  assert.ok(anchors.length > 10);
+  for (const a of anchors) {
+    const n = /^service-(\d+)$/.exec(a);
+    assert.ok(n ? nos.has(Number(n[1])) : slugs.has(a), a);
+  }
+  const name = (n) => services.services.find((s) => s.no === n).name;
+  assert.match(name(14), /Logo/); assert.match(name(13), /Personal Branding/); assert.match(name(27), /Brochure/);
+  assert.match(name(16), /Agency Website/); assert.match(name(4), /Photo Enhancement/); assert.match(name(40), /Launch Campaign/);
+});
