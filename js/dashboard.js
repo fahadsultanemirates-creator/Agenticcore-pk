@@ -61,7 +61,7 @@ async function viewHome() {
     : '';
 
   setView(
-    '<div class="greet">' + logo + '<div><h1>Assalam-o-Alaikum, ' + escapeHtml(name) + '</h1><p class="muted" style="margin:0">' + escapeHtml(Dash.user.email || '') + '</p></div></div>' +
+    '<div class="greet">' + logo + '<div><h1>Assalam-o-Alaikum, ' + escapeHtml(name) + '</h1><p class="muted" style="margin:0">' + (Dash.user.member_no ? 'Client ID AC-' + escapeHtml(String(Dash.user.member_no)) + ' · ' : '') + escapeHtml(Dash.user.email || '') + '</p></div></div>' +
     '<div class="action-cards">' + actions.join('') + '</div>' +
     empty +
     (typeof pkWorkspaceHtml === 'function' ? await pkWorkspaceHtml() : '') +
