@@ -51,8 +51,8 @@
           <div class="field"><label for="ctPurpose" data-i18n="pk_purpose">For</label><select id="ctPurpose"><option value="sale" data-i18n="pk_sale">Sale</option><option value="rent" data-i18n="pk_rent">Rent</option></select></div>
           <div class="field"><label for="ctType" data-i18n="pk_type">Property type</label><select id="ctType">
             <option value="house">House</option><option value="flat">Flat / apartment</option><option value="plot">Plot</option><option value="upper_portion">Upper portion</option><option value="lower_portion">Lower portion</option><option value="shop">Shop</option><option value="office">Office</option><option value="farm_house">Farm house</option><option value="other">Other</option></select></div>
-          <div class="field"><label for="ctCity" data-i18n="pk_city">City</label><input id="ctCity" maxlength="60" autocomplete="address-level2"></div>
-          <div class="field"><label for="ctArea" data-i18n="pk_area">Area / society / block</label><input id="ctArea" maxlength="120" placeholder="DHA Phase 2"></div>
+          <div class="field"><label for="ctCity" data-i18n="pk_city">City</label><input id="ctCity" maxlength="60" autocomplete="address-level2" data-city-input></div>
+          <div class="field"><label for="ctArea" data-i18n="pk_area">Area / society / block</label><input id="ctArea" data-area-for="ctCity" maxlength="120" placeholder="DHA Phase 2"></div>
           <div class="field"><label for="ctPrice" data-i18n="pk_price">Price (PKR)</label><input id="ctPrice" inputmode="numeric" maxlength="16" placeholder="52000000"></div>
           <div class="field"><label for="ctSize" data-i18n="pk_size">Size</label><input id="ctSize" maxlength="30" placeholder="10 Marla"></div>
           <div class="field"><label for="ctBeds" data-i18n="pk_beds">Bedrooms</label><input id="ctBeds" inputmode="numeric" maxlength="3"></div>
@@ -100,9 +100,11 @@
 <script src="js/config.js"></script>
 <script src="js/supabase-client.js"></script>
 <script src="js/db-client.js"></script>
+<script src="js/ac-cities.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/i18n-p2.js"></script>
 <script src="js/i18n-v2.js"></script>
+<script src="js/i18n-cities.js"></script>
 <script src="js/catalog-core.js"></script>
 <script src="js/partials.js"></script>
 <script src="js/share-card.js"></script>
