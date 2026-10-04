@@ -54,6 +54,7 @@ function pkWireWhatsAppLinks(scope) {
    Writes to pk_events (insert-only for the public). Failures are
    ignored so analytics can never break a page. */
 function pkTrack(event, section, meta) {
+  if (typeof pkGaEvent === 'function') pkGaEvent(event, section);   // Google Analytics (js/ac-analytics.js)
   try {
     if (typeof supabaseClient === 'undefined' || !supabaseClient) return;
     supabaseClient.from('pk_events').insert({ event: event, section: section || null, path: location.pathname, meta: meta || null }).then(function () {}, function () {});
