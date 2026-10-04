@@ -75,7 +75,7 @@ async function pkRenderHeader() {
   el.innerHTML =
     '<nav class="nav" id="nav" aria-label="Main">' +
       '<div class="container nav-inner">' +
-        '<a href="index.html" class="nav-logo"><img src="' + PK_CONFIG.logoUrl + '" alt="" width="32" height="32">AgenticCore<span class="brand-suffix">Pakistan</span></a>' +
+        '<a href="index.html" class="nav-logo"><img src="' + PK_CONFIG.logoUrl + '" alt="" width="32" height="32">AgenticCore<span class="brand-suffix">Estate</span></a>' +
         '<div class="nav-mobile-actions">' +
           '<a class="icon-btn wa" data-wa="header" href="signup.html" data-i18n-aria="wa_us">' + PK_ICONS.wa + '</a>' +
           '<button class="icon-btn" id="pkMenuBtn" type="button" aria-expanded="false" aria-controls="navRight" data-i18n-aria="nav_menu">' + PK_ICONS.menu + '</button>' +
