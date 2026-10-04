@@ -5,6 +5,7 @@
    ============================================ */
 
 const PK_ICONS = {
+  telegram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.6c.3-1.1-.8-2-1.9-1.6L2.6 9.9c-1.1.4-1.1 2 0 2.4l4.7 1.5 1.8 5.7c.3.9 1.5 1.1 2.1.3l2.5-3.2 4.9 3.6c.9.6 2.1.1 2.3-1l3-14.6zM9.6 14.1l-.4 4.1-1.4-4.6 10.9-7.2-9.1 7.7z"/></svg>',
   wa: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.86 9.86 0 0 0 12.04 2zm5.8 14.03c-.25.69-1.43 1.33-1.97 1.38-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36h.55c.17 0 .41-.06.64.49.25.59.83 2.02.9 2.17.08.14.12.31.03.5-.1.19-.14.31-.29.48l-.43.5c-.14.14-.29.3-.13.59.17.29.74 1.22 1.59 1.97 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.62-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.67.79 1.96.93.29.14.48.22.55.34.07.12.07.69-.18 1.38z"/></svg>',
   phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
   box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>',
@@ -117,6 +118,7 @@ function pkRenderFooter() {
 
   const contact = [];
   if (PK_CONFIG.whatsappNumber) contact.push('<li><a class="pk-contact-link" data-wa="footer" href="signup.html">' + PK_ICONS.wa + '<span data-i18n="contact_wa_chat"></span> <span dir="ltr">' + escapeHtml(PK_CONFIG.whatsappDisplay || '+' + PK_CONFIG.whatsappNumber) + '</span></a></li>');
+  if (PK_CONFIG.telegram) contact.push('<li><a class="pk-contact-link" href="' + PK_CONFIG.telegram + '?start=pk" target="_blank" rel="noopener" data-pk-telegram="footer">' + PK_ICONS.telegram + '<span data-i18n="contact_telegram"></span> <span dir="ltr">@AgenticcoreEstatebot</span></a></li>');
   if (PK_CONFIG.phoneNumber) contact.push('<li><a href="tel:+' + PK_CONFIG.phoneNumber + '">+' + PK_CONFIG.phoneNumber + '</a></li>');
   if (PK_CONFIG.email) contact.push('<li><a class="pk-contact-link" href="mailto:' + PK_CONFIG.email + '?subject=' + encodeURIComponent('AgenticCore Pakistan enquiry') + '" data-pk-email="footer">' + PK_ICONS.email + '<span dir="ltr">' + escapeHtml(PK_CONFIG.email) + '</span></a></li>');
   contact.push('<li><span class="muted">' + PK_CONFIG.hours + '</span></li>');
