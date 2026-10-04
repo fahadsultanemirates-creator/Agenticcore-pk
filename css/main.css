@@ -372,3 +372,5 @@ html[dir="rtl"] .wa-float { right: auto; left: 22px; }
 .pk-social a { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: .35rem .75rem; border: 1px solid var(--border-subtle, rgba(255,255,255,.18)); border-radius: 999px; color: inherit; text-decoration: none; font-size: .9rem; }
 .pk-social a:hover, .pk-social a:focus-visible { border-color: var(--accent, #d4af37); }
 .pk-social svg { width: 20px; height: 20px; flex: 0 0 20px; }
+
+.auth-maillink { background: none; border: 0; padding: .3rem 0; font: inherit; font-size: .9rem; color: var(--accent-gold-bright, #E8C766); text-decoration: underline; cursor: pointer; }
