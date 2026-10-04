@@ -140,8 +140,8 @@ async function viewPack(sub) {
         '<div class="grid grid-2">' +
           '<div class="field"><label for="pkPurpose">' + escapeHtml(pkT('pk_purpose')) + '</label><select id="pkPurpose"><option value="sale">' + escapeHtml(pkT('pk_sale')) + '</option><option value="rent">' + escapeHtml(pkT('pk_rent')) + '</option></select></div>' +
           '<div class="field"><label for="pkType">' + escapeHtml(pkT('pk_type')) + '</label><select id="pkType">' + types.map(function (t) { return '<option value="' + t[0] + '">' + t[1] + '</option>'; }).join('') + '</select></div>' +
-          '<div class="field"><label for="pkCity">' + escapeHtml(pkT('pk_city')) + '</label><input id="pkCity" autocomplete="address-level2" maxlength="60"></div>' +
-          '<div class="field"><label for="pkArea">' + escapeHtml(pkT('pk_area')) + ' *</label><input id="pkArea" required maxlength="120" placeholder="e.g. DHA Phase 2, Sector E"></div>' +
+          '<div class="field"><label for="pkCity">' + escapeHtml(pkT('pk_city')) + '</label><input id="pkCity" autocomplete="address-level2" maxlength="60" data-city-input></div>' +
+          '<div class="field"><label for="pkArea">' + escapeHtml(pkT('pk_area')) + ' *</label><input id="pkArea" data-area-for="pkCity" required maxlength="120" placeholder="e.g. DHA Phase 2, Sector E"></div>' +
           '<div class="field"><label for="pkPrice">' + escapeHtml(pkT('pk_price')) + '</label><input id="pkPrice" inputmode="numeric" maxlength="16" placeholder="e.g. 52000000"></div>' +
           '<div class="field"><label for="pkSize">' + escapeHtml(pkT('pk_size')) + '</label><input id="pkSize" maxlength="30" placeholder="e.g. 10 marla"></div>' +
           '<div class="field"><label for="pkBeds">' + escapeHtml(pkT('pk_beds')) + '</label><input id="pkBeds" inputmode="numeric" maxlength="3"></div>' +

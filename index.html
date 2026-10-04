@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real Estate Marketing &amp; AI Automation in Pakistan | AgenticCore Pakistan</title>
-<meta name="description" content="Built specifically for Pakistan real estate. From one property to an entire project: listing, design, content, social marketing and AI automation for agents, agencies, builders and developers, with published PKR prices.">
+<meta name="description" content="Built specifically for Pakistan real estate. From one property to an entire project: listing, design, content, social marketing and AI automation for agents, agencies, builders and developers, with published PKR prices. Serving Islamabad, Rawalpindi, Lahore, Karachi, Sialkot and Faisalabad.">
 <link rel="canonical" href="https://agenticcorepk.com/">
 <link rel="alternate" hreflang="en-PK" href="https://agenticcorepk.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AgenticCore Pakistan">
 <meta property="og:title" content="From one property to an entire project — AgenticCore Pakistan">
-<meta property="og:description" content="Listing, design, content, social marketing and AI automation in one connected ecosystem for Pakistan real estate. PKR prices published.">
+<meta property="og:description" content="Listing, design, content, social marketing and AI automation in one connected ecosystem for Pakistan real estate. Serving 6 cities: Islamabad, Rawalpindi, Lahore, Karachi, Sialkot and Faisalabad. PKR prices published.">
 <meta property="og:url" content="https://agenticcorepk.com/">
 <meta property="og:image" content="https://agenticcorepk.com/images/og-share.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -38,6 +38,7 @@
   "url": "https://agenticcorepk.com/",
   "logo": "https://agenticcore.estate/images/agenticcore-icon.png",
   "description": "Marketing and technology provider for Pakistan's real estate community. Not a property broker.",
+  "areaServed": ["Islamabad", "Rawalpindi", "Lahore", "Karachi", "Sialkot", "Faisalabad"],
   "sameAs": ["https://agenticcore.estate"]
 }
 </script>
@@ -47,6 +48,32 @@
 <div id="site-header"></div>
 
 <main id="main">
+
+  <!-- Six cities: launch announcement (switches to "now live" by itself at 00:00 PKT, 6 Oct 2026) -->
+  <section class="nc" id="new-cities" aria-labelledby="ncTitle">
+    <div class="container nc-inner">
+      <div class="nc-copy">
+        <span class="nc-badge"><span class="nc-pin" aria-hidden="true"></span><span data-i18n="nc_badge">New cities · Tuesday 6 October 2026</span></span>
+        <h2 id="ncTitle" class="nc-title" data-i18n="nc_title">Coming to Lahore, Karachi, Sialkot and Faisalabad on Tuesday 6 October 2026.</h2>
+        <p class="nc-sub" data-i18n="nc_sub">From 6 October you can list your property free and use our marketing services in these cities.</p>
+        <p class="nc-ro" lang="ur-Latn" dir="ltr" data-i18n="nc_ro">6 October 2026 se Lahore, Karachi, Sialkot aur Faisalabad mein: apni property free list karein aur hamari marketing services use karein.</p>
+        <p class="nc-now" data-launch-only data-i18n="nc_now">You can create your account today — orders for these cities are delivered from launch day.</p>
+      </div>
+      <div class="nc-side">
+        <ul class="nc-cities" aria-label="New cities">
+          <li><a href="services.html?city=Lahore"><strong>Lahore</strong><span class="nc-ur" lang="ur">لاہور</span><small data-city-launch="Lahore">Launching 6 Oct</small></a></li>
+          <li><a href="services.html?city=Karachi"><strong>Karachi</strong><span class="nc-ur" lang="ur">کراچی</span><small data-city-launch="Karachi">Launching 6 Oct</small></a></li>
+          <li><a href="services.html?city=Sialkot"><strong>Sialkot</strong><span class="nc-ur" lang="ur">سیالکوٹ</span><small data-city-launch="Sialkot">Launching 6 Oct</small></a></li>
+          <li><a href="services.html?city=Faisalabad"><strong>Faisalabad</strong><span class="nc-ur" lang="ur">فیصل آباد</span><small data-city-launch="Faisalabad">Launching 6 Oct</small></a></li>
+        </ul>
+        <div class="nc-ctas">
+          <a class="btn btn-primary" href="services.html" data-track="new_cities_services" data-i18n="nc_cta_services">See marketing services</a>
+          <a class="btn btn-secondary" href="https://agenticcore.estate/sell.html?from=pk" rel="noopener" data-track="pk_to_estate_click" data-i18n="nc_cta_list">List free on AgenticCore Estate</a>
+          <a class="btn nc-tg" href="https://t.me/AgenticcoreEstatebot?start=pk" target="_blank" rel="noopener" data-track="contact_click" data-channel="telegram_new_cities" data-i18n="nc_cta_tg">Order in Telegram</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- V2-1. Hero: positioning, featured monthly plans, outputs visible -->
   <section class="hero p2-hero">
@@ -66,6 +93,7 @@
         <div class="trust-line">
           <span data-i18n="hero_trust_1">We work 7 days a week — small creatives the same day for orders confirmed before 6pm PKT</span>
           <span data-i18n="hero_trust_2">Prices published in PKR</span>
+          <span data-i18n="nc_serving">Serving 6 cities across Pakistan</span>
           <span data-i18n="hero_trust_3">Pages, domains and accounts stay in your name</span>
         </div>
       </div>
@@ -359,7 +387,7 @@
             <input id="mgPhone" required inputmode="tel" autocomplete="tel-national" placeholder="3XX XXXXXXX">
           </div></div>
         <div class="field"><label for="mgRole">I am a</label><select id="mgRole"><option value="dealer">Dealer / agent</option><option value="agency">Agency</option><option value="developer">Developer</option><option value="other">Other</option></select></div>
-        <div class="field"><label for="mgCity">City</label><input id="mgCity" autocomplete="address-level2"></div>
+        <div class="field"><label for="mgCity">City</label><input id="mgCity" autocomplete="address-level2" data-city-input></div>
         <button class="btn btn-primary btn-block" type="submit">Get it free</button>
       </form>
     </div>
@@ -407,7 +435,7 @@
       <form class="callback" id="callbackForm" novalidate>
         <div class="field"><label for="cbName" data-i18n="cb_name">Your name</label><input id="cbName" required autocomplete="name"></div>
         <div class="field"><label for="cbPhone" data-i18n="cb_phone">Phone</label><input id="cbPhone" required inputmode="tel" autocomplete="tel" placeholder="+92 3XX XXXXXXX"></div>
-        <div class="field"><label for="cbCity" data-i18n="cb_city">City</label><input id="cbCity" autocomplete="address-level2"></div>
+        <div class="field"><label for="cbCity" data-i18n="cb_city">City</label><input id="cbCity" autocomplete="address-level2" data-city-input></div>
         <button class="btn btn-primary" type="submit" data-i18n="cb_submit">Call me back</button>
       </form>
       <div class="form-msg" id="callbackMsg" role="status" style="margin-top:0.8rem"></div>
@@ -421,9 +449,11 @@
 <script src="js/config.js"></script>
 <script src="js/supabase-client.js"></script>
 <script src="js/db-client.js"></script>
+<script src="js/ac-cities.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/i18n-p2.js"></script>
 <script src="js/i18n-v2.js"></script>
+<script src="js/i18n-cities.js"></script>
 <script src="js/catalog-core.js"></script>
 <script src="js/partials.js"></script>
 <script src="js/ac-assistant-boot.js" data-site="pk" data-endpoint="https://agenticcore.estate/api/assistant" data-js="js/ac-assistant.js" data-css="css/ac-assistant.css" defer></script>

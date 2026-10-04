@@ -226,7 +226,7 @@ function proposalDialog(id) {
     '<p class="tiny">' + escapeHtml(pkT('pr_sub')) + '</p>' +
     '<div class="field"><label for="prName">' + escapeHtml(pkT('pr_name')) + '</label><input id="prName" required maxlength="120" autocomplete="name" value="' + escapeHtml(u.full_name || '') + '"></div>' +
     '<div class="field"><label for="prPhone">' + escapeHtml(pkT('pr_phone')) + '</label><input id="prPhone" required inputmode="tel" maxlength="30" autocomplete="tel" value="' + escapeHtml(u.phone || '') + '"></div>' +
-    '<div class="field"><label for="prCity">' + escapeHtml(pkT('pr_city')) + '</label><input id="prCity" maxlength="80" autocomplete="address-level2"></div>' +
+    '<div class="field"><label for="prCity">' + escapeHtml(pkT('pr_city')) + '</label><input id="prCity" maxlength="80" autocomplete="address-level2" data-city-input></div>' +
     '<div class="form-msg" id="prMsg" role="status"></div>' +
     '<div class="btn-row"><button class="btn btn-primary" type="submit">' + escapeHtml(pkT('pr_send')) + '</button><button class="btn btn-secondary" type="button" data-close>' + escapeHtml(pkT('pk_cancel')) + '</button></div></form>'
   );
@@ -660,7 +660,7 @@ async function viewProfile() {
     '<form class="card section-card" id="profileForm"><h2 style="margin-top:0">Profile</h2>' +
       '<div class="grid grid-2"><div class="field"><label for="pfName">Name</label><input id="pfName" value="' + escapeHtml(u.full_name) + '" required></div>' +
       '<div class="field"><label for="pfBiz">Business name</label><input id="pfBiz" value="' + escapeHtml(s.business_name || u.agency_name || u.builder_company_name || '') + '"></div>' +
-      '<div class="field"><label for="pfCity">City</label><input id="pfCity" value="' + escapeHtml(s.city || '') + '"></div>' +
+      '<div class="field"><label for="pfCity">City</label><input id="pfCity" data-city-input value="' + escapeHtml(s.city || '') + '"></div>' +
       '<div class="field"><label for="pfWa">WhatsApp number</label><input id="pfWa" inputmode="tel" value="' + escapeHtml(s.whatsapp || u.phone || '') + '"></div>' +
       '<div class="field"><label for="pfLang">Preferred language</label><select id="pfLang"><option value="en">English</option><option value="ur"' + (s.preferred_lang === 'ur' ? ' selected' : '') + '>اردو</option></select></div>' +
       '<div class="field"><span class="label">Role · phone · email</span><span>' + escapeHtml(u.role) + ' · ' + escapeHtml(u.phone) + ' · ' + escapeHtml(u.email || '') + '</span><span class="hint">Phone and email are your shared AgenticCore login.</span></div></div>' +
