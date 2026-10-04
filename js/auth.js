@@ -81,3 +81,23 @@ document.addEventListener('DOMContentLoaded', function () {
   const next = pkSafeNext('');
   if (next) a.href = 'signup.html?next=' + encodeURIComponent(next);
 })();
+
+// "Forgot your password? Email me a sign-in link": a one-time link to the
+// account's email that opens the dashboard already signed in (same account
+// as agenticcore.estate). Never creates an account; same reply either way.
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('mailLinkBtn');
+  if (!btn) return;
+  let lastAt = 0;
+  btn.addEventListener('click', async function () {
+    const email = document.getElementById('identifier').value.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { pkAuthMsg(pkT('auth_maillink_need'), false); return; }
+    if (Date.now() - lastAt < 60000) { pkAuthMsg(pkT('auth_maillink_wait'), false); return; }
+    lastAt = Date.now();
+    btn.disabled = true;
+    const { error } = await supabaseClient.auth.signInWithOtp({ email: email, options: { shouldCreateUser: false, emailRedirectTo: location.origin + '/' + pkSafeNext('dashboard.html').split('#')[0] } });
+    btn.disabled = false;
+    if (error && /rate|seconds|too many/i.test(error.message || '')) { pkAuthMsg(pkT('auth_maillink_wait'), false); return; }
+    pkAuthMsg(pkT('auth_maillink_sent'), true);
+  });
+});
