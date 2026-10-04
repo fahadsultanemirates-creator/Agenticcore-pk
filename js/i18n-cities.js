@@ -57,7 +57,7 @@ function pkEnhanceCityInputs(root) {
       const on = match && acCityLaunching(match.name);
       note.hidden = !on;
       if (on) note.textContent = pkT('city_launch_order').replace(/\{city\}/g, match.name);
-      if (areaList) areaList.innerHTML = match ? acCityAreas(match.name).map(function (a) { return '<option value="' + a.replace(/"/g, '&quot;') + '"></option>'; }).join('') : '';
+      if (areaList) areaList.innerHTML = match ? acCityAreas(match.name).concat(typeof acCityMoreAreas === 'function' ? acCityMoreAreas(match.name) : []).map(function (a) { return '<option value="' + a.replace(/"/g, '&quot;') + '"></option>'; }).join('') : '';
     };
     inp.addEventListener('input', sync); inp.addEventListener('change', sync);
     sync();
