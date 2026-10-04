@@ -63,7 +63,7 @@ function pkEnhanceCityInputs(root) {
     sync();
   });
 }
-document.addEventListener('DOMContentLoaded', function () {
+if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', function () {
   pkEnhanceCityInputs(document);
   // forms built later (order dialog, proposal, profile) get the same help
   if (typeof MutationObserver === 'function') new MutationObserver(function () {

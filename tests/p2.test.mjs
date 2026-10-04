@@ -26,6 +26,7 @@ vm.createContext(ctx);
 vm.runInContext(read('js/i18n.js').replace('const PK_I18N', 'var PK_I18N'), ctx);
 vm.runInContext(read('js/i18n-p2.js'), ctx);
 vm.runInContext(read('js/i18n-v2.js'), ctx);
+vm.runInContext(read('js/i18n-cities.js'), ctx);
 const EN = ctx.PK_I18N.en, UR = ctx.PK_I18N.ur;
 const both = (k) => assert.ok(EN[k] && UR[k], 'missing EN/UR string: ' + k);
 
@@ -83,7 +84,7 @@ test('samples are labelled demonstrations and never claim missing files', () => 
 });
 
 test('new pages and scripts hard-code no prices', () => {
-  for (const f of ['index.html', 'services.html', 'legal.html', 'create.html', 'js/discovery.js', 'js/dashboard-p2.js', 'js/dashboard.js', 'js/catalog-render.js', 'js/create.js', 'js/landing.js', 'js/i18n.js', 'js/i18n-p2.js', 'js/i18n-v2.js', 'data/discovery.json']) {
+  for (const f of ['index.html', 'services.html', 'legal.html', 'create.html', 'js/discovery.js', 'js/dashboard-p2.js', 'js/dashboard.js', 'js/catalog-render.js', 'js/create.js', 'js/landing.js', 'js/i18n.js', 'js/i18n-p2.js', 'js/i18n-v2.js', 'js/i18n-cities.js', 'data/discovery.json']) {
     const hits = read(f).match(/Rs\.?\s?[0-9][0-9,]{2,}/g) || [];
     assert.deepEqual(hits, [], f + ' contains a hand-typed price: ' + hits.join(', '));
   }
@@ -274,7 +275,7 @@ test('Catalogue V2: package offers, terms and allowances', () => {
 });
 
 test('no retired package names, old service counts or "savings" wording on public pages', () => {
-  const pub = ['index.html', 'services.html', 'legal.html', 'create.html', 'dashboard.html', 'js/i18n.js', 'js/i18n-p2.js', 'js/i18n-v2.js', 'js/catalog-render.js', 'js/landing.js', 'js/discovery.js', 'js/dashboard.js', 'js/dashboard-p2.js', 'data/packages.json'];
+  const pub = ['index.html', 'services.html', 'legal.html', 'create.html', 'dashboard.html', 'js/i18n.js', 'js/i18n-p2.js', 'js/i18n-v2.js', 'js/i18n-cities.js', 'js/catalog-render.js', 'js/landing.js', 'js/discovery.js', 'js/dashboard.js', 'js/dashboard-p2.js', 'data/packages.json'];
   for (const f of pub) {
     const src = read(f);
     for (const bad of [/Dealer Starter/i, /Growing Agent/i, /Agency Pro\b/i, /Project Partner/i, /AgenticCore Package/i, /\b56 (services|خدمات|سروسز)/, /You save|Save more|money-saving|bought separately|set-up discount/i]) {
