@@ -11,6 +11,9 @@
 
 const PK_MAX_PHOTOS = 10;
 const PK_MAX_PHOTO_MB = 10;
+const PK_MAX_VIDEO_MB = 45;   // same as the Amaan chat
+const PK_MAX_PDF_MB = 20;
+function pkFileLimitMb(type) { return /^video\//.test(type) ? PK_MAX_VIDEO_MB : type === 'application/pdf' ? PK_MAX_PDF_MB : /^image\/(jpeg|png|webp)$/.test(type) ? PK_MAX_PHOTO_MB : 0; }
 
 // Deliverable label by the service that produced it (for the Deliveries cards).
 const PK_DELIV_KIND = [
@@ -148,7 +151,7 @@ async function viewPack(sub) {
           '<div class="field"><label for="pkBaths">' + escapeHtml(pkT('pk_baths')) + '</label><input id="pkBaths" inputmode="numeric" maxlength="3"></div>' +
         '</div>' +
         '<div class="field"><label for="pkNotes">' + escapeHtml(pkT('pk_notes')) + '</label><textarea id="pkNotes" maxlength="1500" placeholder="' + escapeHtml(pkT('pk_notes_ph')) + '"></textarea></div>' +
-        '<div class="field"><label for="pkPhotos">' + escapeHtml(pkT('pk_photos')) + '</label><input id="pkPhotos" type="file" accept="image/jpeg,image/png,image/webp" multiple>' +
+        '<div class="field"><label for="pkPhotos">' + escapeHtml(pkT('pk_photos')) + '</label><input id="pkPhotos" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm,application/pdf" multiple>' +
           '<span class="hint" id="pkPhotoHint">' + escapeHtml(pkT('pk_photos_hint')) + '</span></div>' +
         '<p class="tiny" id="pkEstateNote" hidden></p>' +
       '</div>' +
@@ -206,8 +209,8 @@ async function viewPack(sub) {
   function photosOk() {
     const files = Array.prototype.slice.call(v('pkPhotos').files || []);
     if (files.length > PK_MAX_PHOTOS) return pkT('pk_too_many').replace('{n}', PK_MAX_PHOTOS);
-    const bad = files.find(function (x) { return !/^image\/(jpeg|png|webp)$/.test(x.type) || x.size > PK_MAX_PHOTO_MB * 1048576; });
-    return bad ? pkT('pk_bad_file').replace('{name}', bad.name).replace('{mb}', PK_MAX_PHOTO_MB) : '';
+    const bad = files.find(function (x) { const mb = pkFileLimitMb(x.type); return !mb || x.size > mb * 1048576; });
+    return bad ? pkT('pk_bad_file').replace('{name}', bad.name).replace('{mb}', pkFileLimitMb(bad.type) || PK_MAX_PHOTO_MB) : '';
   }
 
   f.addEventListener('submit', function (e) {
