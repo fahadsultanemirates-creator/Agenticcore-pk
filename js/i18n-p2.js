@@ -297,34 +297,34 @@ Object.assign(PK_I18N.ur, {
   social_facebook_aria: 'فیس بک پر AgenticCore (نئی ٹیب میں کھلے گا)', social_instagram_aria: 'انسٹاگرام پر AgenticCore (نئی ٹیب میں کھلے گا)'
 });
 
-// Telegram section (homepage) and footer link.
+// "Order on WhatsApp" section (homepage).
 Object.assign(PK_I18N.en, {
-  tgh_eyebrow: 'New · Order in Telegram', tgh_title: 'Order your property marketing in one Telegram chat.',
-  tgh_sub: 'Tell Amaan what you need — a WhatsApp card, a reel, a brochure or a full launch. Send photos and details right there, track every step and receive the files in the same chat. Type or send a voice note, in English or Urdu.',
-  tgh_p1_h: 'All 74 services, published prices', tgh_p1: 'Describe what you need; Amaan finds the right service and shows the price and delivery time before you order.',
-  tgh_p2_h: 'Send your brief in the chat', tgh_p2: 'Photos, logo, price and details go straight onto your order — or pick one of your AgenticCore Estate listings.',
+  tgh_eyebrow: 'New · Order on WhatsApp', tgh_title: 'Order your property marketing on WhatsApp.',
+  tgh_sub: 'Tell our team what you need — a WhatsApp card, a reel, a brochure or a full launch. Send photos and details in the same chat and receive the files there. Type or send a voice note, in English or Urdu.',
+  tgh_p1_h: 'All 74 services, published prices', tgh_p1: 'Pick a service on our services page or just describe what you need; we confirm the price and delivery time before you order.',
+  tgh_p2_h: 'Send your brief in the chat', tgh_p2: 'Photos, logo, price and details — or the link to your AgenticCore Estate listing.',
   tgh_p3_h: 'Checked by our team', tgh_p3: 'Every order gets an ACPK task number. Our team confirms it before work starts and checks the files before they reach you.',
-  tgh_p4_h: 'Files in the chat and your dashboard', tgh_p4: 'Approve with one tap or ask for changes. Everything also stays in your AgenticCore dashboard.',
-  tgh_cta: 'Order in Telegram', tgh_cta2: 'See all services and prices',
-  tgh_fine: 'One AgenticCore account for Estate and Pakistan · Nothing starts until you and our team confirm',
-  tgh_bot: 'bot', tgh_c1: 'Mujhe apni listing ke liye WhatsApp card chahiye',
-  tgh_c2: 'Property WhatsApp Card (1) — price and delivery time shown before you order. Which listing?',
-  tgh_c3: 'Order ACPK-0042 received ✓ Our team will confirm it shortly.',
-  tgh_c4: '✓ Your files are ready — approve, or ask for changes.', tgh_caption: 'Illustrative chat', tgh_qr: 'Scan to open on your phone',
-  contact_telegram: 'Telegram'
+  tgh_p4_h: 'Listing too?', tgh_p4: 'Send your property details and photos in the same chat and we list it on AgenticCore Estate for you.',
+  tgh_cta: 'Order on WhatsApp', tgh_cta2: 'See all services and prices',
+  tgh_fine: 'Done by the AgenticCore team · Nothing starts until you and our team confirm',
+  tgh_bot: 'WhatsApp Business', tgh_c1: 'Mujhe apni listing ke liye WhatsApp card chahiye',
+  tgh_c2: 'Sure — Property WhatsApp Card. We will confirm the price and delivery time. Please send the photos.',
+  tgh_c3: 'Order ACPK-0042 confirmed ✓ We will start shortly.',
+  tgh_c4: '✓ Your files are ready — approve, or ask for changes.', tgh_caption: 'Illustrative chat', tgh_qr: '',
+  contact_telegram: 'WhatsApp'
 });
 Object.assign(PK_I18N.ur, {
-  tgh_eyebrow: 'نیا · ٹیلیگرام میں آرڈر', tgh_title: 'اپنی پراپرٹی مارکیٹنگ ایک ٹیلیگرام چیٹ میں آرڈر کریں۔',
-  tgh_sub: 'امان کو بتائیں آپ کو کیا چاہیے — واٹس ایپ کارڈ، ریل، بروشر یا مکمل لانچ۔ وہیں تصاویر اور تفصیلات بھیجیں، ہر مرحلہ دیکھیں اور فائلیں اسی چیٹ میں پائیں۔ اردو یا انگریزی میں لکھیں یا وائس نوٹ بھیجیں۔',
-  tgh_p1_h: 'تمام 74 سروسز، شائع شدہ قیمتیں', tgh_p1: 'بتائیں آپ کو کیا چاہیے؛ امان درست سروس ڈھونڈ کر آرڈر سے پہلے قیمت اور ڈیلیوری کا وقت دکھاتا ہے۔',
-  tgh_p2_h: 'اپنی بریف چیٹ میں بھیجیں', tgh_p2: 'تصاویر، لوگو، قیمت اور تفصیلات سیدھی آپ کے آرڈر میں جاتی ہیں — یا اپنی AgenticCore Estate لسٹنگ منتخب کریں۔',
+  tgh_eyebrow: 'نیا · واٹس ایپ پر آرڈر', tgh_title: 'اپنی پراپرٹی مارکیٹنگ واٹس ایپ پر آرڈر کریں۔',
+  tgh_sub: 'ہماری ٹیم کو بتائیں آپ کو کیا چاہیے — واٹس ایپ کارڈ، ریل، بروشر یا مکمل لانچ۔ اسی چیٹ میں تصاویر اور تفصیلات بھیجیں اور فائلیں وہیں پائیں۔ اردو یا انگریزی میں لکھیں یا وائس نوٹ بھیجیں۔',
+  tgh_p1_h: 'تمام 74 سروسز، شائع شدہ قیمتیں', tgh_p1: 'سروسز کے صفحے سے سروس چنیں یا بس بتائیں آپ کو کیا چاہیے؛ آرڈر سے پہلے ہم قیمت اور ڈیلیوری کا وقت بتاتے ہیں۔',
+  tgh_p2_h: 'اپنی بریف چیٹ میں بھیجیں', tgh_p2: 'تصاویر، لوگو، قیمت اور تفصیلات — یا اپنی AgenticCore Estate لسٹنگ کا لنک۔',
   tgh_p3_h: 'ہماری ٹیم کی جانچ', tgh_p3: 'ہر آرڈر کو ACPK ٹاسک نمبر ملتا ہے۔ ہماری ٹیم کام شروع ہونے سے پہلے تصدیق کرتی ہے اور آپ تک پہنچنے سے پہلے فائلیں چیک کرتی ہے۔',
-  tgh_p4_h: 'فائلیں چیٹ اور ڈیش بورڈ میں', tgh_p4: 'ایک ٹیپ سے منظوری دیں یا تبدیلی کہیں۔ سب کچھ آپ کے AgenticCore ڈیش بورڈ میں بھی محفوظ رہتا ہے۔',
-  tgh_cta: 'ٹیلیگرام میں آرڈر کریں', tgh_cta2: 'تمام سروسز اور قیمتیں دیکھیں',
-  tgh_fine: 'Estate اور Pakistan کے لیے ایک ہی AgenticCore اکاؤنٹ · آپ اور ہماری ٹیم کی تصدیق کے بغیر کام شروع نہیں ہوتا',
-  tgh_bot: 'بوٹ', tgh_c1: 'مجھے اپنی لسٹنگ کے لیے واٹس ایپ کارڈ چاہیے',
-  tgh_c2: 'پراپرٹی واٹس ایپ کارڈ (1) — آرڈر سے پہلے قیمت اور ڈیلیوری کا وقت نظر آتا ہے۔ کون سی لسٹنگ؟',
-  tgh_c3: 'آرڈر ACPK-0042 موصول ✓ ہماری ٹیم جلد تصدیق کرے گی۔',
-  tgh_c4: '✓ آپ کی فائلیں تیار ہیں — منظوری دیں یا تبدیلی کہیں۔', tgh_caption: 'مثال کے طور پر چیٹ', tgh_qr: 'فون پر کھولنے کے لیے اسکین کریں',
-  contact_telegram: 'ٹیلیگرام'
+  tgh_p4_h: 'لسٹنگ بھی؟', tgh_p4: 'اسی چیٹ میں اپنی پراپرٹی کی تفصیل اور تصاویر بھیجیں، ہم AgenticCore Estate پر آپ کی لسٹنگ بنا دیں گے۔',
+  tgh_cta: 'واٹس ایپ پر آرڈر کریں', tgh_cta2: 'تمام سروسز اور قیمتیں دیکھیں',
+  tgh_fine: 'AgenticCore ٹیم خود کرتی ہے · آپ اور ہماری ٹیم کی تصدیق کے بغیر کام شروع نہیں ہوتا',
+  tgh_bot: 'واٹس ایپ بزنس', tgh_c1: 'مجھے اپنی لسٹنگ کے لیے واٹس ایپ کارڈ چاہیے',
+  tgh_c2: 'جی ضرور — پراپرٹی واٹس ایپ کارڈ۔ ہم قیمت اور ڈیلیوری کا وقت بتا دیں گے۔ تصاویر بھیج دیں۔',
+  tgh_c3: 'آرڈر ACPK-0042 کی تصدیق ✓ ہم جلد کام شروع کریں گے۔',
+  tgh_c4: '✓ آپ کی فائلیں تیار ہیں — منظوری دیں یا تبدیلی کہیں۔', tgh_caption: 'مثال کے طور پر چیٹ', tgh_qr: '',
+  contact_telegram: 'واٹس ایپ'
 });

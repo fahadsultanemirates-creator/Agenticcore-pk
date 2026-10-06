@@ -11,7 +11,7 @@ Object.assign(PK_I18N.en, {
   nc_ro: '6 October 2026 se Lahore, Karachi, Sialkot aur Faisalabad mein: apni property free list karein aur hamari marketing services use karein.',
   nc_ro_live: 'Ab Lahore, Karachi, Sialkot aur Faisalabad mein bhi: apni property free list karein aur hamari marketing services use karein.',
   nc_now: 'You can create your account today — orders for these cities are delivered from launch day.',
-  nc_cta_services: 'See marketing services', nc_cta_list: 'List free on AgenticCore Estate', nc_cta_tg: 'Order in Telegram',
+  nc_cta_services: 'See marketing services', nc_cta_list: 'List free on AgenticCore Estate', nc_cta_tg: 'Order on WhatsApp',
   nc_serving: 'Serving 6 cities across Pakistan',
   city_launch_order: 'We launch in {city} on 6 October. You can place the order now; work for {city} starts from launch day.',
   city_other_hint: 'Pick a city or type your own'
@@ -26,7 +26,7 @@ Object.assign(PK_I18N.ur, {
   nc_ro: '6 October 2026 se Lahore, Karachi, Sialkot aur Faisalabad mein: apni property free list karein aur hamari marketing services use karein.',
   nc_ro_live: 'Ab Lahore, Karachi, Sialkot aur Faisalabad mein bhi: apni property free list karein aur hamari marketing services use karein.',
   nc_now: 'آپ آج ہی اکاؤنٹ بنا سکتے ہیں — ان شہروں کے آرڈر لانچ کے دن سے ڈیلیور ہوں گے۔',
-  nc_cta_services: 'مارکیٹنگ سروسز دیکھیں', nc_cta_list: 'AgenticCore Estate پر مفت لسٹ کریں', nc_cta_tg: 'ٹیلی گرام میں آرڈر کریں',
+  nc_cta_services: 'مارکیٹنگ سروسز دیکھیں', nc_cta_list: 'AgenticCore Estate پر مفت لسٹ کریں', nc_cta_tg: 'واٹس ایپ پر آرڈر کریں',
   nc_serving: 'پاکستان کے 6 شہروں میں خدمات',
   city_launch_order: 'ہم 6 اکتوبر کو {city} میں لانچ کر رہے ہیں۔ آپ ابھی آرڈر دے سکتے ہیں؛ {city} کا کام لانچ کے دن سے شروع ہوگا۔',
   city_other_hint: 'شہر منتخب کریں یا خود لکھیں'
