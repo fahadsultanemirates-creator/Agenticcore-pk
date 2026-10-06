@@ -628,15 +628,14 @@ async function viewSupport() {
     '<h2 data-i18n="d_notifications">Notifications</h2>' +
     '<form class="card section-card" id="notifyForm"><p class="tiny">Choose how we tell you about new tasks, items waiting on you, deliveries ready for review, invoices and payments. Everything also appears below.</p>' +
     '<label class="check"><input type="checkbox" name="email"' + (n.email ? ' checked' : '') + '> Email</label>' +
-    '<label class="check"><input type="checkbox" name="telegram"' + (n.telegram ? ' checked' : '') + '> Telegram</label>' +
     '<label class="check"><input type="checkbox" name="whatsapp"' + (n.whatsapp ? ' checked' : '') + '> WhatsApp</label>' +
-    '<p class="tiny">WhatsApp Business messages carry a per-message fee from Meta, so email and Telegram are the default.</p>' +
+    '<p class="tiny">WhatsApp Business messages carry a per-message fee from Meta, so email is the default.</p>' +
     '<button class="btn btn-primary btn-sm" type="submit">Save</button></form>' +
     '<h2>Recent updates</h2>' + (notes.length ? notes.map(function (x) { return '<div class="task-row"><span>' + escapeHtml(x.body) + '</span><span class="tiny">' + escapeHtml(pkWhen(x.created_at)) + '</span></div>'; }).join('') : '<p class="muted">Nothing yet.</p>'));
   $('#notifyForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     const f = e.target;
-    const notify = { email: f.email.checked, telegram: f.telegram.checked, whatsapp: f.whatsapp.checked };
+    const notify = { email: f.email.checked, telegram: Boolean(n.telegram), whatsapp: f.whatsapp.checked };
     const r = await PkDB.saveSettings(Dash.user.id, { notify: notify });
     if (r.error) { pkToast(r.error); return; }
     Dash.settings = Object.assign({}, Dash.settings, { notify: notify });

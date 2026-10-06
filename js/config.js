@@ -16,8 +16,9 @@ const PK_CONFIG = {
   // Contact email shown in the footer. Empty = hidden.
   email: 'hello@agenticcore.agency',
 
-  // The AgenticCore Telegram bot (same bot as agenticcore.estate; ?start=pk opens the marketing menu).
-  telegram: 'https://t.me/AgenticcoreEstatebot',
+  // Telegram is not shown on the website for now (the bot is kept for later). Put the
+  // bot link back here to show it in the footer again: 'https://t.me/AgenticcoreEstatebot'.
+  telegram: '',
 
   // Working hours line for the footer.
   hours: 'Mon–Sat, 10am–7pm PKT',
