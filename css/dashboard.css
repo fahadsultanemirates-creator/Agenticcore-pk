@@ -5,7 +5,7 @@
 .dash-nav { display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: none; position: sticky; top: 60px; z-index: 40; background: var(--bg-primary); padding: 0.5rem 0; }
 .dash-nav::-webkit-scrollbar { display: none; }
 .dash-nav a { flex-shrink: 0; display: flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0 0.9rem; border-radius: 999px; border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.92rem; font-weight: 500; }
-.dash-nav a.active { background: var(--accent-gold); border-color: var(--accent-gold); color: #16250D; font-weight: 600; }
+.dash-nav a.active { background: var(--accent-gold); border-color: var(--accent-gold); color: #0A1F05; font-weight: 600; }
 .dash-nav .count { background: var(--danger); color: #fff; border-radius: 999px; font-size: 0.7rem; padding: 0 6px; min-width: 18px; text-align: center; }
 @media (min-width: 960px) {
   .dash-nav { flex-direction: column; overflow: visible; top: 80px; }
@@ -25,7 +25,7 @@
 
 .action-cards { display: grid; gap: 0.6rem; }
 @media (min-width: 720px) { .action-cards { grid-template-columns: repeat(3, 1fr); } }
-.action-card { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: var(--radius-md); border: 1px solid rgba(240,206,99,0.4); background: rgba(240,206,99,0.08); font-weight: 600; min-height: 56px; }
+.action-card { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: var(--radius-md); border: 1px solid rgba(104, 248, 48,0.4); background: rgba(104, 248, 48,0.08); font-weight: 600; min-height: 56px; }
 .action-card.ok { border-color: var(--border-subtle); background: var(--bg-panel); font-weight: 500; color: var(--text-secondary); }
 
 .stat-row { display: grid; gap: 0.6rem; grid-template-columns: repeat(2, 1fr); }
@@ -63,7 +63,7 @@
 
 .thread { display: grid; gap: 0.5rem; max-height: 420px; overflow-y: auto; margin-bottom: 0.7rem; }
 .msg { max-width: 85%; padding: 0.55rem 0.8rem; border-radius: 12px; background: var(--bg-primary); border: 1px solid var(--border-subtle); font-size: 0.93rem; white-space: pre-wrap; }
-.msg.team { justify-self: start; border-color: rgba(63,174,123,0.5); }
+.msg.team { justify-self: start; border-color: rgba(35, 130, 14,0.5); }
 .msg.me { justify-self: end; background: var(--bg-panel-hover); }
 .msg .when { display: block; font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.2rem; }
 
