@@ -100,6 +100,7 @@ const PK_I18N = {
     cb_error: 'Could not send. Please try again or message us on WhatsApp.',
 
     footer_tagline: 'Marketing and technology for Pakistan\'s real estate community. Sister site to agenticcore.estate.',
+    h2_slogan: 'Khwabon se ghar tak',
     footer_services: 'Services', footer_company: 'Company', footer_contact: 'Contact',
     footer_terms: 'Terms', footer_privacy: 'Privacy', footer_refunds: 'Refund policy', footer_ref_terms: 'Referral terms',
     footer_small: 'AgenticCore Pakistan is a marketing and technology provider, not a property broker. Ad wording checks and Urdu agreement drafts are not legal advice.',
@@ -210,6 +211,7 @@ const PK_I18N = {
     cb_error: 'بھیجا نہیں جا سکا۔ دوبارہ کوشش کریں یا واٹس ایپ پر میسج کریں۔',
 
     footer_tagline: 'پاکستان کی رئیل اسٹیٹ کمیونٹی کے لیے مارکیٹنگ اور ٹیکنالوجی۔ agenticcore.estate کی بہن سائٹ۔',
+    h2_slogan: 'خوابوں سے گھر تک',
     footer_services: 'سروسز', footer_company: 'کمپنی', footer_contact: 'رابطہ',
     footer_terms: 'شرائط', footer_privacy: 'رازداری', footer_refunds: 'ریفنڈ پالیسی', footer_ref_terms: 'ریفرل شرائط',
     footer_small: 'AgenticCore Pakistan مارکیٹنگ اور ٹیکنالوجی فراہم کنندہ ہے، پراپرٹی بروکر نہیں۔ اشتہاری الفاظ کی جانچ اور اردو اقرار نامے کے مسودے قانونی مشورہ نہیں ہیں۔',

@@ -1,39 +1,39 @@
-/* Six cities: launch announcement + city/area helpers for AgenticCore Pakistan.
-   The *_live texts replace their keys automatically from 00:00 PKT on
-   6 October 2026 (acApplyLaunchCopy in ac-cities.js). */
+/* Across Pakistan: wording + city/area helpers for AgenticCore Pakistan (no launch dates).
+   No city has a launch date now, so the *_live texts always apply
+   (acApplyLaunchCopy in ac-cities.js). */
 Object.assign(PK_I18N.en, {
-  nc_badge: 'New cities · Tuesday 6 October 2026',
-  nc_badge_live: 'New cities · now live',
-  nc_title: 'Coming to Lahore, Karachi, Sialkot and Faisalabad on Tuesday 6 October 2026.',
-  nc_title_live: 'Now in Lahore, Karachi, Sialkot and Faisalabad.',
-  nc_sub: 'From 6 October you can list your property free and use our marketing services in these cities.',
-  nc_sub_live: 'List your property free and use our marketing services in all six cities: Islamabad, Rawalpindi, Lahore, Karachi, Sialkot & Faisalabad.',
-  nc_ro: '6 October 2026 se Lahore, Karachi, Sialkot aur Faisalabad mein: apni property free list karein aur hamari marketing services use karein.',
-  nc_ro_live: 'Ab Lahore, Karachi, Sialkot aur Faisalabad mein bhi: apni property free list karein aur hamari marketing services use karein.',
-  nc_now: 'You can create your account today — orders for these cities are delivered from launch day.',
+  nc_badge: 'Across Pakistan',
+  nc_badge_live: 'Across Pakistan',
+  nc_title: 'Now across Pakistan.',
+  nc_title_live: 'Now across Pakistan.',
+  nc_sub: 'List your property free and use our marketing services anywhere in Pakistan.',
+  nc_sub_live: 'List your property free and use our marketing services anywhere in Pakistan.',
+  nc_ro: 'Poore Pakistan mein: apni property free list karein aur hamari marketing services use karein.',
+  nc_ro_live: 'Poore Pakistan mein: apni property free list karein aur hamari marketing services use karein.',
+  nc_now: 'Sign-ups and orders are open across Pakistan.',
   nc_cta_services: 'See marketing services', nc_cta_list: 'List free on AgenticCore Estate', nc_cta_tg: 'Order on WhatsApp',
-  nc_serving: 'Serving 6 cities across Pakistan',
-  city_launch_order: 'We launch in {city} on 6 October. You can place the order now; work for {city} starts from launch day.',
+  nc_serving: 'Serving all of Pakistan',
+  city_launch_order: 'You can place the order for {city} now.',
   city_other_hint: 'Pick a city or type your own'
 });
 Object.assign(PK_I18N.ur, {
-  nc_badge: 'نئے شہر · منگل 6 اکتوبر 2026',
-  nc_badge_live: 'نئے شہر · اب دستیاب',
-  nc_title: 'منگل 6 اکتوبر 2026 کو لاہور، کراچی، سیالکوٹ اور فیصل آباد میں آ رہے ہیں۔',
-  nc_title_live: 'اب لاہور، کراچی، سیالکوٹ اور فیصل آباد میں بھی۔',
-  nc_sub: '6 اکتوبر سے آپ ان شہروں میں اپنی پراپرٹی مفت لسٹ کر سکیں گے اور ہماری مارکیٹنگ سروسز استعمال کر سکیں گے۔',
-  nc_sub_live: 'تمام 6 شہروں — اسلام آباد، راولپنڈی، لاہور، کراچی، سیالکوٹ اور فیصل آباد — میں اپنی پراپرٹی مفت لسٹ کریں اور ہماری مارکیٹنگ سروسز استعمال کریں۔',
-  nc_ro: '6 October 2026 se Lahore, Karachi, Sialkot aur Faisalabad mein: apni property free list karein aur hamari marketing services use karein.',
-  nc_ro_live: 'Ab Lahore, Karachi, Sialkot aur Faisalabad mein bhi: apni property free list karein aur hamari marketing services use karein.',
-  nc_now: 'آپ آج ہی اکاؤنٹ بنا سکتے ہیں — ان شہروں کے آرڈر لانچ کے دن سے ڈیلیور ہوں گے۔',
+  nc_badge: 'پورے پاکستان میں',
+  nc_badge_live: 'پورے پاکستان میں',
+  nc_title: 'اب پورے پاکستان میں۔',
+  nc_title_live: 'اب پورے پاکستان میں۔',
+  nc_sub: 'پاکستان میں کہیں بھی اپنی پراپرٹی مفت لسٹ کریں اور ہماری مارکیٹنگ سروسز استعمال کریں۔',
+  nc_sub_live: 'پاکستان میں کہیں بھی اپنی پراپرٹی مفت لسٹ کریں اور ہماری مارکیٹنگ سروسز استعمال کریں۔',
+  nc_ro: 'Poore Pakistan mein: apni property free list karein aur hamari marketing services use karein.',
+  nc_ro_live: 'Poore Pakistan mein: apni property free list karein aur hamari marketing services use karein.',
+  nc_now: 'پورے پاکستان میں سائن اپ اور آرڈر کھلے ہیں۔',
   nc_cta_services: 'مارکیٹنگ سروسز دیکھیں', nc_cta_list: 'AgenticCore Estate پر مفت لسٹ کریں', nc_cta_tg: 'واٹس ایپ پر آرڈر کریں',
-  nc_serving: 'پاکستان کے 6 شہروں میں خدمات',
-  city_launch_order: 'ہم 6 اکتوبر کو {city} میں لانچ کر رہے ہیں۔ آپ ابھی آرڈر دے سکتے ہیں؛ {city} کا کام لانچ کے دن سے شروع ہوگا۔',
+  nc_serving: 'پورے پاکستان میں خدمات',
+  city_launch_order: 'آپ ابھی {city} کے لیے آرڈر دے سکتے ہیں۔',
   city_other_hint: 'شہر منتخب کریں یا خود لکھیں'
 });
 if (typeof acApplyLaunchCopy === 'function') { acApplyLaunchCopy(PK_I18N.en); acApplyLaunchCopy(PK_I18N.ur); }
 
-// City inputs: suggestions for the six cities (with the launch label) and the
+// City inputs: suggestions for the cities we know and the
 // areas of the chosen city; free text still allowed. Mark inputs with
 // data-city-input, and the area input with data-area-for="<city input id>".
 function pkEnhanceCityInputs(root) {
