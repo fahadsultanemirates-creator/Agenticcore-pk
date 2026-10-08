@@ -75,7 +75,7 @@ async function pkRenderHeader() {
   el.innerHTML =
     '<nav class="nav" id="nav" aria-label="Main">' +
       '<div class="container nav-inner">' +
-        '<a href="index.html" class="nav-logo"><img src="' + PK_CONFIG.logoUrl + '" alt="" width="32" height="32">AgenticCore<span class="brand-suffix">Estate</span></a>' +
+        '<a href="index.html" class="nav-logo"><img src="images/agenticcore-logo.png" alt="AgenticCore.estate" class="nav-logo-img" width="187" height="40"></a>' +
         '<div class="nav-mobile-actions">' +
           '<a class="icon-btn wa" data-wa="header" href="signup.html" data-i18n-aria="wa_us">' + PK_ICONS.wa + '</a>' +
           '<button class="icon-btn" id="pkMenuBtn" type="button" aria-expanded="false" aria-controls="navRight" data-i18n-aria="nav_menu">' + PK_ICONS.menu + '</button>' +
@@ -129,7 +129,7 @@ function pkRenderFooter() {
       '<div class="container">' +
         '<div class="footer-top">' +
           '<div>' +
-            '<a href="index.html" class="nav-logo"><img src="' + PK_CONFIG.logoUrl + '" alt="" width="32" height="32" loading="lazy">AgenticCore<span class="brand-suffix">Pakistan</span></a>' +
+            '<a href="index.html" class="nav-logo"><img src="images/agenticcore-logo.png" alt="AgenticCore.estate" class="nav-logo-img" width="187" height="40"></a>' +
             '<p class="muted" style="margin-top:0.8rem" data-i18n="footer_tagline"></p>' +
           '</div>' +
           '<div><h5 data-i18n="footer_services"></h5><ul id="pkFooterServices">' + serviceLinks + '</ul></div>' +
